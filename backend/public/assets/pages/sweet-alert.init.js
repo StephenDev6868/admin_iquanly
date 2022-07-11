@@ -53,12 +53,14 @@
                 confirmButtonText: "Yes, delete it!"
               }).then(function (result) {
                 if (result.value) {
-                    //var url = {{ route('') }};
-                    console.log(event.target.value)
                     Swal.fire("Deleted!", "Your file has been deleted.", "success");
                 }
             });
         });
+
+        function confirmDeleteUser() {
+
+        }
 
         //Parameter
         $('#sa-params').click(function () {

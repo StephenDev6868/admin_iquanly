@@ -56,7 +56,7 @@
                             <label>Ngày sinh</label>
                             <div>
                                 <div class="input-group">
-                                    <input type="text" value="{{ old('birthday') }}" name="birthday" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
+                                    <input type="text" value="{{ old('birthday') }}" name="birthday" class="form-control" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                     </div>

@@ -6,27 +6,24 @@
 
         <div class="card">
             <div class="card-body">
-
                 <h3 class="text-center m-0">
                     <a href="index" class="logo logo-admin">Admin Site</a>
                 </h3>
-
                 <div class="p-3">
                     <h4 class="text-muted font-18 m-b-5 text-center">Welcome Back !</h4>
                     <p class="text-muted text-center">Sign in to continue to AdminSite.</p>
-
-                    <form class="form-horizontal m-t-30" action="index">
-
+                    @include('layouts.flash-message')
+                    <form class="form-horizontal m-t-30" action="{{ route('login.doLogin') }}" method="POST">
+                        @csrf
+                        @method('POST')
                         <div class="form-group">
                             <label for="username">Login ID</label>
-                            <input type="text" class="form-control" id="username" placeholder="Enter username">
+                            <input type="text" class="form-control" name="login_id" required id="login_id" placeholder="Nhập login ID">
                         </div>
-
                         <div class="form-group">
                             <label for="userpassword">Password</label>
-                            <input type="password" class="form-control" id="userpassword" placeholder="Enter password">
+                            <input type="password" class="form-control" name="password" required id="password" placeholder="Nhập password">
                         </div>
-
                         <div class="form-group row m-t-20">
 {{--                            <div class="col-6">--}}
 {{--                                <div class="custom-control custom-checkbox">--}}

@@ -15,12 +15,31 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $params = $request->only([
+            'key_word',
+            'role'
+        ]);
+
         $users = User::query()
             ->select(['*'])
-            ->latest()
-            ->paginate(10);
+            ->latest();
+
+        if (!empty($params['key_word'])) {
+            $users = $users->where(function ($query) use ($params) {
+                $query->where('first_name', 'like', '%' . $params['key_word'] . '%');
+                $query->orWhere('last_name', 'like', '%' . $params['key_word'] . '%');
+                $query->orWhere('email', 'like', '%' . $params['key_word'] . '%');
+            });
+        }
+
+        if (!empty($params['role'])) {
+            $users = $users->where('role', $params['role']);
+        }
+
+        $users = $users->paginate(10);
+
         return view('admin.users.list', compact('users'));
     }
 

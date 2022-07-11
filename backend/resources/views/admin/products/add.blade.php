@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Thêm user </h4>
+                    <h4 class="page-title">Thêm sản phẩm </h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Lexa</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Forms</a></li>
@@ -22,15 +22,15 @@
                 <div class="card m-b-20">
                     <div class="card-body">
 
-                        <h4 class="mt-0 header-title mb-3">Nhập thông tin user</h4>
+                        <h4 class="mt-0 header-title mb-3">Nhập thông tin sản phẩm</h4>
 {{--                        <p class="text-muted m-b-30 font-14">Parsley is a javascript form validation--}}
 {{--                            library. It helps you provide your users with feedback on their form--}}
 {{--                            submission before sending it to your server.</p>--}}
 
                         <form class="row" action="#">
                             <div class="col-md-12 form-group">
-                                <label>Login ID</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
+                                <label>Tiêu đề</label>
+                                <input type="text" name="title" class="form-control" required placeholder="Type something"/>
                             </div>
                             <div class="col-md-12 form-group">
                                 <label>Mật khẩu</label>
@@ -42,44 +42,6 @@
                                 <input type="password" class="form-control" required
                                        data-parsley-equalto="#pass2"
                                        placeholder="Re-Type Password"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Họ</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Tên</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Email</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Ngày sinh</label>
-                                <div>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-                                        </div>
-                                    </div><!-- input-group -->
-                                </div>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Loại user</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="1">Admin</option>
-                                    <option value="2">Công tác viên</option>
-                                    <option value="3">Bán hàng</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Quyền đặc biệt</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="1">Cho phép</option>
-                                    <option value="2">Không cho phép</option>
-                                </select>
                             </div>
                         </form>
                         <div class="form-group m-b-0">

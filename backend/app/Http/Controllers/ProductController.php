@@ -12,19 +12,41 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.products.list');
+        $params = $request->only([
+            'key_word',
+            'status'
+        ]);
+
+        $products = Product::query()
+            ->select(['*'])
+            ->latest();
+
+        if (!empty($params['key_word'])) {
+            $products = $products->where(function ($query) use ($params) {
+                $query->where('title', 'like', '%' . $params['key_word'] . '%');
+                $query->orWhere('content', 'like', '%' . $params['key_word'] . '%');
+            });
+        }
+
+        if (!empty($params['status'])) {
+            $products = $products->where('status', $params['status']);
+        }
+
+        $products = $products->paginate(10);
+
+        return view('admin.products.list', compact('products'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('admin.products.add');
     }
 
     /**

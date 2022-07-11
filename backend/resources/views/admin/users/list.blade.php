@@ -21,6 +21,44 @@
         </div>
         <!-- end row -->
 
+        <form action="{{ route('admin.users.list')  }}" class="row">
+            <div class="col-12">
+                <div class="card m-b-20">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Tìm kiếm user</h4>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Từ khoá</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" value="{{ request()->get('key_word' ?? '') }}" name="key_word" placeholder="Nhập từ khoá" id="example-text-input">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Loại user</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="role">
+                                    <option value="">All</option>
+                                    <option value="1" {{ request()->get('role') == 1 ? 'selected' : '' }}>Admin</option>
+                                    <option value="2" {{ request()->get('role') == 2 ? 'selected' : '' }}>CTV</option>
+                                    <option value="3" {{ request()->get('role') == 3 ? 'selected' : '' }}>Bán hàng</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row m-b-0 text-right">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                    Submit
+                                </button>
+                                <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </form>
+        <!-- end row -->
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-add">
@@ -44,7 +82,9 @@
                                 <th>Role</th>
                                 <th>Created at</th>
                                 <th>Updated at</th>
-                                <th>Action</th>
+                                @if(optional(auth()->guard('user')->user())->role === 1)
+                                    <th>Action</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -67,14 +107,24 @@
                                         @endswitch
                                         <td >{{ $user->created_at }}</td>
                                         <td >{{ $user->updated_at }}</td>
-                                        <td >
-                                            <a href="{{ route('admin.users.show', ['user' => $user->getKey()])  }}" class="btn btn-success">
+                                        @if(optional(auth()->guard('user')->user())->role === 1)
+                                        <td class="d-flex">
+                                            <a href="{{ route('admin.users.show', ['user' => $user->getKey()])  }}" class="btn btn-success mr-2">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                            <a href="#" class="btn btn-danger waves-effect waves-light" id="sa-warning">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
+{{--                                            <form method="post" action="{{ route('admin.users.delete', $user->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">--}}
+                                            <form method="post" action="{{ route('admin.users.delete', $user->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger waves-effect waves-light">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+{{--                                            <a href="#" class="btn btn-danger waves-effect waves-light" id="sa-warning">--}}
+{{--                                                <i class="fas fa-trash"></i>--}}
+{{--                                            </a>--}}
                                         </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>
