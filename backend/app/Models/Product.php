@@ -28,7 +28,7 @@ class Product extends Model
         'avatar',
     ];
 
-    /**
+	/**
     */
     public function userName()
     {

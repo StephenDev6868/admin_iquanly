@@ -1,5 +1,10 @@
 @extends('layouts.master')
 
+@section('css')
+    <!-- Dropzone css -->
+    <link href="{{ URL::asset('assets/plugins/dropzone/dist/dropzone.css')}}" rel="stylesheet" type="text/css">
+@endsection
+
 @section('content')
     <div class="container-fluid">
 
@@ -21,22 +26,38 @@
             <div class="col-lg-12">
                 <div class="card m-b-20">
                     <div class="card-body">
-
                         <h4 class="mt-0 header-title mb-3">Nhập thông tin sản phẩm</h4>
-{{--                        <p class="text-muted m-b-30 font-14">Parsley is a javascript form validation--}}
-{{--                            library. It helps you provide your users with feedback on their form--}}
-{{--                            submission before sending it to your server.</p>--}}
-
                         <form class="row" action="#">
                             <div class="col-md-12 form-group">
                                 <label>Tiêu đề</label>
                                 <input type="text" name="title" class="form-control" required placeholder="Type something"/>
                             </div>
-                            <div class="col-md-12 form-group">
-                                <label>Mật khẩu</label>
-                                <input type="password" id="pass2" class="form-control" required
-                                       placeholder="Password"/>
-                            </div>
+
+                            <div class="col-12 form-group">
+                                <div class="card m-b-20">
+                                    <div class="card-body">
+
+                                        <h4 class="mt-0 header-title">Dropzone</h4>
+                                        <p class="text-muted m-b-30 font-14">DropzoneJS is an open source library
+                                            that provides drag’n’drop file uploads with image previews.
+                                        </p>
+
+                                        <div class="m-b-30">
+                                            <form action="#" class="dropzone">
+                                                <div class="fallback">
+                                                    <input name="file" type="file" multiple="multiple">
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <div class="text-center m-t-15">
+                                            <button type="button" class="btn btn-primary waves-effect waves-light">Send Files</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+
                             <div class="col-md-12 form-group">
                                 <label>Xác Nhận Mật khẩu</label>
                                 <input type="password" class="form-control" required
@@ -57,7 +78,36 @@
                     </div>
                 </div>
             </div> <!-- end col -->
+        </div>
+        <!-- end row -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card m-b-20">
+                    <div class="card-body">
+
+                        <h4 class="mt-0 header-title">Dropzone</h4>
+                        <p class="text-muted m-b-30 font-14">DropzoneJS is an open source library
+                            that provides drag’n’drop file uploads with image previews.
+                        </p>
+
+                        <div class="m-b-30">
+                            <form action="#" class="dropzone">
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple="multiple">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="text-center m-t-15">
+                            <button type="button" class="btn btn-primary waves-effect waves-light">Send Files</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div> <!-- end col -->
         </div> <!-- end row -->
+
     </div> <!-- container-fluid -->
 @endsection
 
@@ -73,6 +123,9 @@
 
     <!-- Plugins Init js -->
     <script src="{{ URL::asset('assets/pages/form-advanced.js')}}"></script>
+
+    <!-- Dropzone js -->
+    <script src="{{ URL::asset('assets/plugins/dropzone/dist/dropzone.js')}}"></script>
 @endsection
 
 @section('script-bottom')

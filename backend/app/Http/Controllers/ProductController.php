@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
@@ -19,9 +21,15 @@ class ProductController extends Controller
             'status'
         ]);
 
+        $userOwnProduct = optional(Auth::guard('user')->user()) ?? '';
+
         $products = Product::query()
             ->select(['*'])
             ->latest();
+
+        if($userOwnProduct->role !== 1) {
+            $products = $products->where('user_id', $userOwnProduct->id);
+        }
 
         if (!empty($params['key_word'])) {
             $products = $products->where(function ($query) use ($params) {
@@ -98,10 +106,14 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return Redirect::route('admin.products.list')
+            ->with('success', 'Xóa sản phẩm thành công');
     }
 }

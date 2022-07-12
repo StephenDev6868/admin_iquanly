@@ -16,7 +16,7 @@
         </div>
         <!-- end row -->
 
-        <form action="{{ route('admin.users.list')  }}" class="row">
+        <form action="{{ route('admin.products.list')  }}" class="row" method="GET">
             <div class="col-12">
                 <div class="card m-b-20">
                     <div class="card-body">
@@ -32,9 +32,9 @@
                             <div class="col-sm-10">
                                 <select class="form-control" name="status">
                                     <option value="">All</option>
-                                    <option value="1" {{ request()->get('role') == 1 ? 'selected' : '' }}>Bản nháp</option>
-                                    <option value="2" {{ request()->get('role') == 2 ? 'selected' : '' }}>Bản submit</option>
-                                    <option value="3" {{ request()->get('role') == 3 ? 'selected' : '' }}>Bán public</option>
+                                    <option value="1" {{ request()->get('status') == 1 ? 'selected' : '' }}>Bản public</option>
+                                    <option value="2" {{ request()->get('status') == 2 ? 'selected' : '' }}>Bản submit</option>
+                                    <option value="3" {{ request()->get('status') == 3 ? 'selected' : '' }}>Bán Nháp</option>
                                 </select>
                             </div>
                         </div>
