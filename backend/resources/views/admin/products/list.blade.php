@@ -81,7 +81,7 @@
                                 @foreach($products as $key => $product)
                                     <tr>
                                         <th scope="row">{{ $loop->index + 1 }}</th>
-                                        <td>{{ $product->userName()->full_name }}</td>
+                                        <td>{{ optional($product->userName())->full_name }}</td>
                                         <td>{{ $product->title }}</td>
                                         @switch($product->status)
                                             @case(1)

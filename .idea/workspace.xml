@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e01efad3-8834-47b9-bc48-b77043e38e2b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Product.php" afterDir="false" />
+    <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/Upload/UploadService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/posts/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/posts/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/posts/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/posts/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/add.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,15 +157,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/nl/Freelancer/admin_site_web/docker",
+    "last_opened_file_path": "/Users/abc/Documents/Freelancer-job/admin_site_web/backend/public",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/public" />
       <recent name="$PROJECT_DIR$/docker" />
       <recent name="$PROJECT_DIR$/backend" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/app/Http/Services/Upload" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

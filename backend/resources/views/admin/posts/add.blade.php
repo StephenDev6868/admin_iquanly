@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Thêm user </h4>
+                    <h4 class="page-title">Thêm bài viết </h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Lexa</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Forms</a></li>
@@ -21,69 +21,35 @@
             <div class="col-lg-12">
                 <div class="card m-b-20">
                     <div class="card-body">
-
-                        <h4 class="mt-0 header-title mb-3">Nhập thông tin user</h4>
-{{--                        <p class="text-muted m-b-30 font-14">Parsley is a javascript form validation--}}
-{{--                            library. It helps you provide your users with feedback on their form--}}
-{{--                            submission before sending it to your server.</p>--}}
-
-                        <form class="row" action="#">
+                        <h4 class="mt-0 header-title mb-3">Nhập thông tin bài viết</h4>
+                        <form class="row" action="{{ route('admin.posts.doCreate') }}" method="POST" enctype="multipart/form-data">
+                            @method('POST')
+                            @csrf
                             <div class="col-md-12 form-group">
-                                <label>Login ID</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
+                                <label>Tiêu đề</label>
+                                <input type="text" name="title" value="{{ old('title') }}" class="form-control" required placeholder="Nhập tiêu đề"/>
                             </div>
                             <div class="col-md-12 form-group">
-                                <label>Mật khẩu</label>
-                                <input type="password" id="pass2" class="form-control" required
-                                       placeholder="Password"/>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <label>Xác Nhận Mật khẩu</label>
-                                <input type="password" class="form-control" required
-                                       data-parsley-equalto="#pass2"
-                                       placeholder="Re-Type Password"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Họ</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Tên</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Email</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Ngày sinh</label>
-                                <div>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-                                        </div>
-                                    </div><!-- input-group -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Ảnh bài viết</label>
+                                        <input type="file" name="avatar" value="{{ old('avatar') }}" class="filestyle" data-buttonname="btn-secondary" accept=".jpeg,.jpg,.png">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Trạng thái</label>
+                                        <select name="status" id="" value="{{ old('status') }}" class="form-control">
+                                            <option value="1">Nháp</option>
+                                            <option value="2">Submit</option>
+                                            <option value="3">Public</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>Loại user</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="1">Admin</option>
-                                    <option value="2">Công tác viên</option>
-                                    <option value="3">Bán hàng</option>
-                                </select>
+                            <div class="col-md-12 form-group">
+                                <label>Nội dung</label>
+                                <textarea id="elm1" name="content"></textarea>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>Quyền đặc biệt</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="1">Cho phép</option>
-                                    <option value="2">Không cho phép</option>
-                                </select>
-                            </div>
-                        </form>
-                        <div class="form-group m-b-0">
-                            <div>
+                            <div class="col-md-12 form-group m-b-0">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">
                                     Submit
                                 </button>
@@ -91,11 +57,13 @@
                                     Cancel
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div> <!-- end col -->
-        </div> <!-- end row -->
+        </div>
+        <!-- end row -->
+
     </div> <!-- container-fluid -->
 @endsection
 
@@ -111,12 +79,38 @@
 
     <!-- Plugins Init js -->
     <script src="{{ URL::asset('assets/pages/form-advanced.js')}}"></script>
+
+    <!--Wysiwig js-->
+    <script src="{{ URL::asset('assets/plugins/tinymce/tinymce.min.js')}}"></script>
 @endsection
 
 @section('script-bottom')
     <script>
         $(document).ready(function() {
             $('form').parsley();
+
+            if($("#elm1").length > 0){
+                tinymce.init({
+                    selector: "textarea#elm1",
+                    theme: "modern",
+                    height: 500,
+                    plugins: [
+                        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                        "save table contextmenu directionality emoticons template paste textcolor"
+                    ],
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",
+                    style_formats: [
+                        {title: 'Bold text', inline: 'b'},
+                        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+                        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+                        {title: 'Example 1', inline: 'span', classes: 'example1'},
+                        {title: 'Example 2', inline: 'span', classes: 'example2'},
+                        {title: 'Table styles'},
+                        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+                    ]
+                });
+            }
         });
     </script>
 @endsection

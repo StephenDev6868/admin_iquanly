@@ -45,7 +45,7 @@ Route::prefix('admin')->group(function () {
         Route::prefix('posts')->group(function () {
             Route::get('', [\App\Http\Controllers\PostController::class, 'index'])->name('admin.posts.list');
             Route::get('/create', [\App\Http\Controllers\PostController::class, 'create'])->name('admin.posts.create');
-            Route::post('/create', [\App\Http\Controllers\PostController::class, 'create'])->name('admin.posts.create');
+            Route::post('/create', [\App\Http\Controllers\PostController::class, 'store'])->name('admin.posts.doCreate');
             Route::get('/show/{post}', [\App\Http\Controllers\PostController::class, 'show'])->name('admin.posts.show');
             Route::put('/update/{post}', [\App\Http\Controllers\PostController::class, 'update'])->name('admin.posts.update');
             Route::delete('/delete/{post}', [\App\Http\Controllers\PostController::class, 'destroy'])->name('admin.posts.delete');

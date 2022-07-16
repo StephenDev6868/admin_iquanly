@@ -8,17 +8,17 @@
                         <ul class="metismenu" id="side-menu">
                             <li class="menu-title">Admin</li>
                             <li>
-                                <a href="{{ route('admin.users.list') }}" class="waves-effect">
+                                <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
                                     <i class="fas fa-user"></i> <span> Quản lý user </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.products.list') }}" class="waves-effect">
+                                <a href="{{ route('admin.products.list') }}" class="waves-effect {{ (request()->is('products')) || (request()->is('admin/product/*')) ? 'active' : '' }}">
                                     <i class="fas fa-shopping-bag"></i> <span> Quản lý sản phẩm </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.posts.list') }}" class="waves-effect">
+                                <a href="{{ route('admin.posts.list') }}" class="waves-effect {{ (request()->is('posts')) || (request()->is('admin/posts/*')) ? 'active' : '' }}">
                                     <i class="fas fa-comment-dots"></i> <span> Quản lý bài viết </span>
                                 </a>
                             </li>
