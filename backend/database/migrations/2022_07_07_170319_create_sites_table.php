@@ -15,7 +15,13 @@ class CreateSitesTable extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('domain')->nullable();
+            $table->mediumText('logo')->nullable();
+            $table->jsonb('config')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

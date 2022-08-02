@@ -52,12 +52,14 @@ Route::prefix('admin')->group(function () {
         });
 
         Route::prefix('sites')->group(function () {
-            Route::get('', [\App\Http\Controllers\SiteController::class, 'index'])->name('admin.sites.list');
+            Route::get('list', [\App\Http\Controllers\SiteController::class, 'index'])->name('admin.sites.list');
+            //Route::get('/test', [\App\Http\Controllers\SiteController::class, 'test'])->name('admin.sites.test');
+            Route::get('/preview/{config}', [\App\Http\Controllers\SiteController::class, 'previewTemplate'])->name('admin.sites.preview');
             Route::get('/create', [\App\Http\Controllers\SiteController::class, 'create'])->name('admin.sites.create');
-            Route::post('/create', [\App\Http\Controllers\SiteController::class, 'create'])->name('admin.sites.create');
-            Route::get('/show/{post}', [\App\Http\Controllers\SiteController::class, 'show'])->name('admin.sites.show');
-            Route::put('/update/{post}', [\App\Http\Controllers\SiteController::class, 'update'])->name('admin.sites.update');
-            Route::delete('/delete/{post}', [\App\Http\Controllers\SiteController::class, 'destroy'])->name('admin.sites.delete');
+            Route::post('/create', [\App\Http\Controllers\SiteController::class, 'store'])->name('admin.sites.doCreate');
+            Route::get('/show/{site}', [\App\Http\Controllers\SiteController::class, 'show'])->name('admin.sites.show');
+            Route::put('/update/{site}', [\App\Http\Controllers\SiteController::class, 'update'])->name('admin.sites.update');
+            Route::delete('/delete/{site}', [\App\Http\Controllers\SiteController::class, 'destroy'])->name('admin.sites.delete');
         });
     });
 });
