@@ -1,50 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/css/dist/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/2 (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/2 (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/2 (2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/2 (3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/2 (4).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/2 (5).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/admin/sites/img/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/2 (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/2 (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/2 (2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/2 (3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/2 (4).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/2 (5).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sites/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/css/dist/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/generate.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/preview.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/test.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/layouts/master-site.blade.php" afterDir="false" />
+    <list default="true" id="e01efad3-8834-47b9-bc48-b77043e38e2b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_07_07_170319_create_sites_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2022_07_07_170319_create_sites_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/sites/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/sites/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/sites/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/nginx/sites/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/sites/default.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,16 +141,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/abc/Documents/Freelancer-job/admin_site_web/backend/public/css",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/abc/Documents/Freelancer-job/admin_site_web/backend/public/css&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/public/css" />
@@ -209,7 +169,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="" />
+      <changelist id="e01efad3-8834-47b9-bc48-b77043e38e2b" name="Changes" comment="" />
       <created>1657506385928</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -218,6 +178,7 @@
       <workItem from="1657508977888" duration="4575000" />
       <workItem from="1658023244576" duration="14174000" />
       <workItem from="1658468062492" duration="79205000" />
+      <workItem from="1659504689499" duration="6344000" />
     </task>
     <servers />
   </component>

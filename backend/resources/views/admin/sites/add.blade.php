@@ -66,6 +66,7 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                                <textarea name="header_more_config" class="form-control mt-3" cols="5" rows="4"></textarea>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
                                                 <a href="{{ route('admin.sites.preview',['config' => $headerSelected]) }}" target="_blank" class="btn btn-primary">
@@ -90,6 +91,7 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                                <textarea name="footer_more_config" class="form-control mt-3" cols="5" rows="4"></textarea>
                                             </div>
                                             <div class="col-md-1" target="_blank" style="margin-top: 26px;">
                                                 <a href="{{ route('admin.sites.preview',['config' => $footerSelected]) }}" class="btn btn-primary">
