@@ -22,10 +22,6 @@
                 <div class="card m-b-20">
                     <div class="card-body">
                         <h4 class="mt-0 header-title mb-3">Nhập thông tin site</h4>
-{{--                        <p class="text-muted m-b-30 font-14">Parsley is a javascript form validation--}}
-{{--                            library. It helps you provide your users with feedback on their form--}}
-{{--                            submission before sending it to your server.</p>--}}
-
                         <form class="row" action="{{ route('admin.sites.doCreate') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-12 form-group">

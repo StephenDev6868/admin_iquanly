@@ -26,7 +26,7 @@
                         {{--                            library. It helps you provide your users with feedback on their form--}}
                         {{--                            submission before sending it to your server.</p>--}}
 
-                        <form class="row" action="{{ route('admin.sites.update', ['site' => $site->getKey()]) }}" method="POST">
+                        <form class="row" action="{{ route('admin.sites.update', ['site' => $site->getKey()]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="col-md-12 form-group">
@@ -39,15 +39,23 @@
                             </div>
                             <div class="col-md-12 form-group">
                                 <label>Mô tả</label>
-                                <textarea name="description" value="{{ $site->description }}" id="" cols="20" rows="10" placeholder="Nhập mô tả" class="form-control"></textarea>
+                                <textarea name="description"  id="" cols="20" rows="10" placeholder="Nhập mô tả" class="form-control">{{ $site->description }}</textarea>
                             </div>
                             <div class="col-md-12 form-group">
+                                <div class="card" style="width: 22%">
+                                    <div class="card-header">
+                                        <h5>Logo</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="{{ env('APP_URL') . '/upload/logo/' . $site->logo }}" alt="" style="width: 100%">
+                                    </div>
+                                </div>
                                 <label>Logo</label>
                                 <input type="file" name="logo" class="filestyle" data-buttonname="btn-secondary" accept=".jpeg,.jpg,.png">
                             </div>
                             <div class="col-md-12 form-group">
                                 <label>Sitemap</label>
-                                <textarea name="sitemap" value="{{ $site->sitemap }}" class="form-control" id="" cols="30" rows="10" placeholder="Nhập sitemap"></textarea>
+                                <textarea name="sitemap" class="form-control" id="" cols="30" rows="10" placeholder="Nhập sitemap">{{ $site->sitemap }}</textarea>
                             </div>
                             <div class="col-md-12 form-group">
                                 <div class="row">

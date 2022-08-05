@@ -46,7 +46,7 @@
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td>{{ $site->title  }}</td>
                                     <td>
-                                        <img src="{{ 'http://site.local.pc:8082' . '/upload/logo/' . $site->logo }}" alt="" style="max-width: 100px;">
+                                        <img src="{{ env('APP_URL') . '/upload/logo/' . $site->logo }}" alt="" style="max-width: 80px; max-height: 60px;">
                                     </td>
                                     <td>{{ $site->domain }}</td>
                                     <td>

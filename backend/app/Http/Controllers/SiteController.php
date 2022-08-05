@@ -153,7 +153,7 @@ class SiteController extends Controller
             'policy'        => $inputs['policy'] ?? '',
         ];
         $inputs['user_id'] = Auth::guard('user')->user()->id;
-
+        //$this->addConfigToNginx($inputs['domain']);
         $result = site::query()
             ->create($inputs);
 
@@ -175,6 +175,15 @@ class SiteController extends Controller
 
         if (! File::exists(public_path(). '/template/'  . $folderName)){
             File::makeDirectory(public_path(). '/template/' . $folderName);
+        }
+
+        // Copy img and css
+        if (
+            (! File::exists(public_path() . '/template/' . $folderName . '/css')) ||
+            (! File::exists(public_path() . '/template/' . $folderName . '/img'))
+        ){
+            File::copyDirectory(public_path(). '/template/css', public_path() . '/template/' . $folderName . '/css');
+            File::copyDirectory(public_path(). '/template/img', public_path() . '/template/' . $folderName . '/img');
         }
         $newConfig = [];
         foreach ($config as $key => $value) {
@@ -245,7 +254,7 @@ class SiteController extends Controller
      *
      * @param  \App\Models\site  $site
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(site $site, Request $request)
     {
@@ -255,7 +264,7 @@ class SiteController extends Controller
             'title'         => 'required|max:255',
             'description'   => 'nullable|max:255',
             'domain'        => 'required|max:255',
-            'logo'          => 'nullable|max:255|mimes:jpeg,jpg,png',
+            'logo'          => 'nullable|mimes:jpeg,jpg,png',
             'header'        => 'required',
             'footer'        => 'required',
             'home'          => 'required',
@@ -305,13 +314,65 @@ class SiteController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\site  $site
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(site $site)
     {
+        if (File::exists(public_path() . '/template/' . $site->domain)) {
+            File::deleteDirectories(public_path() . '/template/' . $site->domain);
+        }
         $site->delete();
 
         return Redirect::route('admin.sites.list')
             ->with('success', 'Xoá site thành công');
+    }
+
+    /**
+    */
+    public function addConfigToNginx($domain)
+    {
+        $configs = File::get('/var/www/docker/nginx/sites/default.conf');
+        $uri = '$uri';
+        $is_args = '$is_args$args';
+        $document_root = '$document_root$fastcgi_script_name';
+        $newConfig = '
+            server {
+                listen 80;
+
+                server_name '. $domain . ';
+                root /var/www/backend/public/template/'. $domain .';
+                index home.php index.php index.html index.htm;
+
+                location / {
+                    try_files $uri $uri/ /index.php$is_args$args};
+                }
+
+                location ~ \.php$ {
+                    try_files $uri /index.php =404;
+                    fastcgi_pass php-upstream;
+                    fastcgi_index index.php;
+                    fastcgi_buffers 16 16k;
+                    fastcgi_buffer_size 32k;
+                    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+                    # Fixes Timeout
+                    fastcgi_read_timeout 600;
+                    include fastcgi_params;
+                }
+
+                location ~ /\.ht {
+                    deny all;
+                }
+
+                location /.well-known/acme-challenge/ {
+                    root /var/www/letsencrypt/;
+                    log_not_found off;
+                }
+
+                error_log /var/log/nginx/ultrapc_api_error.log;
+                access_log /var/log/nginx/ultrapc_api_access.log;
+            }
+        ';
+        File::put('/var/www/docker/nginx/sites/default.conf', $configs . $newConfig);
     }
 }

@@ -24,7 +24,7 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('admin.sites.list') }}" class="waves-effect" {{ (request()->is('sites')) || (request()->is('admin/sites/*')) ? 'active' : '' }}>
+                                <a href="{{ route('admin.sites.list') }}" class="waves-effect {{ (request()->is('sites')) || (request()->is('admin/sites/*')) ? 'active' : '' }}">
                                     <i class="fas fa-sitemap"></i> <span> Quản lý site </span>
                                 </a>
                             </li>
