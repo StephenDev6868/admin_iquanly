@@ -52,8 +52,8 @@
                                     </td>
                                     <td >{{ $site->created_at }}</td>
                                     <td >{{ $site->updated_at }}</td>
-                                    <td >
-                                        <a href="{{ route('admin.sites.show', $site->id)  }}" class="btn btn-success">
+                                    <td style="display: flex">
+                                        <a href="{{ route('admin.sites.show', $site->id)  }}" class="btn btn-success mr-2">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                         <form method="post" action="{{ route('admin.sites.delete', $site->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">
