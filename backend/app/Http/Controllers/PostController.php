@@ -49,6 +49,7 @@ class PostController extends Controller
         }
 
         $posts = $posts->paginate(10);
+        dd($posts);
 
         return view('admin.posts.list', compact('posts'));
     }

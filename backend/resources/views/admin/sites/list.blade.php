@@ -45,10 +45,12 @@
                                 <tr>
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td>{{ $site->title  }}</td>
-                                    <td></td>
+                                    <td>
+                                        <img src="{{ 'http://site.local.pc:8082' . '/upload/logo/' . $site->logo }}" alt="" style="max-width: 100px;">
+                                    </td>
                                     <td>{{ $site->domain }}</td>
                                     <td>
-                                        <a href="{{ request()->getBaseUrl() . '/' . $site->domain . '/' . 'home.php' }}" target="_blank">{{ request()->getBaseUrl() . '/' . $site->domain . '/' . 'home.php' }}</a>
+                                        <a href="{{ request()->getBaseUrl() . '/template/' . $site->domain . '/' . 'home.php' }}" target="_blank">{{ request()->getBaseUrl() . '/' . $site->domain . '/' . 'home.php' }}</a>
                                     </td>
                                     <td >{{ $site->created_at }}</td>
                                     <td >{{ $site->updated_at }}</td>

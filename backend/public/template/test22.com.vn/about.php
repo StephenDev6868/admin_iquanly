@@ -65,7 +65,7 @@
         <div class="deactive-02 lg:hidden" id="menu-mobile">
           <ul class="absolute top-[50px] right-0 h02-menu">
             <li class="has-sub-02 ">
-              <span class="arrow"></span> <a href="/" class="">Trang chủ</a>
+              <span class="arrow"></span> <a href="./home.php" class="">Trang chủ</a>
             </li>
             <li class="has-sub-02">
               <span class="arrow"></span>
@@ -89,7 +89,7 @@
         <div class="hidden lg:block">
           <ul class="flex items-center gap-4 subMenu-02 relative">
             <li class="has-sub-02 active-02 flex items-center gap-2">
-              <a href="/" class="subMenu-02">Trang chủ</a>
+              <a href="./home.php" class="subMenu-02">Trang chủ</a>
               <svg version="1.1" class="svgHead-02 transition-all duration-500 w-2 h-2" id="Layer_1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 386.257 386.257" style="enable-background: new 0 0 386.257 386.257" xml:space="preserve">

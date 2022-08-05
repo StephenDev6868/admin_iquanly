@@ -115,8 +115,8 @@ class SiteController extends Controller
         $validator = Validator::make($inputs, [
             'title'         => 'required|max:255',
             'description'   => 'nullable|max:255',
-            'domain'        => 'required|max:255',
-            'logo'          => 'nullable|max:255|mimes:jpeg,jpg,png',
+            'domain'        => 'required|max:255|unique:sites,domain',
+            'logo'          => 'nullable|mimes:jpeg,jpg,png',
             'header'        => 'required',
             'footer'        => 'required',
             'home'          => 'required',
@@ -160,6 +160,7 @@ class SiteController extends Controller
         $this->generateFile($inputs['config'], $inputs['domain']);
 
         return Redirect::route('admin.sites.create')
+            ->withInput()
             ->with('success', 'Tạo site thành công');
     }
 
@@ -172,8 +173,8 @@ class SiteController extends Controller
         unset($config['header']);
         unset($config['footer']);
 
-        if (! File::exists(public_path(). '/'  .$folderName)){
-            File::makeDirectory(public_path(). '/' .$folderName);
+        if (! File::exists(public_path(). '/template/'  . $folderName)){
+            File::makeDirectory(public_path(). '/template/' . $folderName);
         }
         $newConfig = [];
         foreach ($config as $key => $value) {
@@ -182,7 +183,7 @@ class SiteController extends Controller
                 $newConfig['style'] = $header->style;
                 $newConfig['html'] = $header->html . $item->html . $footer->html;
                 $newConfig['js_handle'] = $item->js_handle;
-                File::put($folderName . '/'. $key . '.php',
+                File::put(public_path(). '/template/' . $folderName . '/'. $key . '.php',
                     view('admin.sites.generate', compact('newConfig'))
                         ->render()
                 );
@@ -194,7 +195,8 @@ class SiteController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\site  $site
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(site $site)
     {
@@ -211,6 +213,7 @@ class SiteController extends Controller
         $posts = $this->filterTemplate($configs, 'post');
         $post_details = $this->filterTemplate($configs, 'post-single');
         $policys = $this->filterTemplate($configs, 'policy');
+
         return view('admin.sites.edit', compact(
             'site',
             'headers',

@@ -26,19 +26,19 @@
 {{--                            library. It helps you provide your users with feedback on their form--}}
 {{--                            submission before sending it to your server.</p>--}}
 
-                        <form class="row" action="{{ route('admin.sites.doCreate') }}" method="POST">
+                        <form class="row" action="{{ route('admin.sites.doCreate') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-12 form-group">
                                 <label>Tiêu đề</label>
-                                <input type="text" name="title" class="form-control" required placeholder="Nhập tiêu đề"/>
+                                <input type="text" name="title" class="form-control" value="{{ old('title') }}" required placeholder="Nhập tiêu đề"/>
                             </div>
                             <div class="col-md-12 form-group">
                                 <label>Domain</label>
-                                <input type="text" name="domain" class="form-control" required placeholder="Nhập domain"/>
+                                <input type="text" name="domain" class="form-control" value="{{ old('domain') }}" required placeholder="Nhập domain"/>
                             </div>
                             <div class="col-md-12 form-group">
                                 <label>Mô tả</label>
-                                <textarea name="description" id="" cols="20" rows="10" placeholder="Nhập mô tả" class="form-control"></textarea>
+                                <textarea name="description" id="" cols="20" rows="10" placeholder="Nhập mô tả" class="form-control">{{ old('description') ?? '' }}</textarea>
                             </div>
                             <div class="col-md-12 form-group">
                                 <label>Logo</label>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-md-12 form-group">
                                 <label>Sitemap</label>
-                                <textarea name="sitemap" class="form-control" id="" cols="30" rows="10" placeholder="Nhập sitemap"></textarea>
+                                <textarea name="sitemap" class="form-control" id="" cols="30" rows="10" placeholder="Nhập sitemap">{{ old('sitemap') ?? '' }}</textarea>
                             </div>
                             <div class="col-md-12 form-group">
                                 <div class="row">

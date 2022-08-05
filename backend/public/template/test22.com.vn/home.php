@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/dist/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -16,28 +22,16 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     </head>
 <body>
-    <button
-    class="a01-button fixed right-[8px] bottom-[40px] rounded-md p-3 z-[1] opacity-0 transition-all duration-200" id="top-btn"
-  >
-    <svg
-      version="1.1"
-      class="w-4 h-4"
-      id="Capa_1"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      x="0px"
-      y="0px"
-      viewBox="0 0 384.923 384.923"
-      xml:space="preserve"
-    >
+    <button class="a02-button fixed right-[8px] bottom-[40px] rounded-md p-3 z-[1] opacity-0 transition-all duration-200"
+    id="top-btn">
+    <svg version="1.1" class="w-4 h-4" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 384.923 384.923" style="fill: #ffffff"
+      xml:space="preserve">
       <g>
-        <path
-          id="Arrow_Upward"
-          d="M321.337,122.567L201.046,3.479c-4.776-4.728-12.391-4.547-17.179,0l-120.291,119.1
+        <path id="Arrow_Upward" d="M321.337,122.567L201.046,3.479c-4.776-4.728-12.391-4.547-17.179,0l-120.291,119.1
           c-4.74,4.704-4.74,12.319,0,17.011c4.752,4.704,12.439,4.704,17.191,0l99.551-98.552v331.856c0,6.641,5.438,12.03,12.151,12.03
           s12.151-5.39,12.151-12.03V41.025l99.551,98.552c4.74,4.704,12.439,4.704,17.179,0C326.089,134.886,326.089,127.27,321.337,122.567
-          z"
-        />
+          z" />
         <g></g>
         <g></g>
         <g></g>
@@ -61,195 +55,152 @@
       <g></g>
       <g></g>
     </svg>
-    </button>
-    <header class="py-2" id="myHeader">
-      <div class="flex justify-between items-center px-2 md:px-8 xl:px-[88px]">
-        <div class="w-[34px] h-[34px]">
-          <a href="/"
-            ><img
-              src="../img/1.jpg"
-              alt="logo"
-              class="w-[34px] h-[34px] object-cover"
-          /></a>
-        </div>
-        <nav>
-          <div class="deactive lg:hidden" id="menu-mobile">
-            <ul class="absolute top-[50px] right-0 h01-menu">
-              <li class="has-sub active">
-                <span class="arrow"></span> <a href="./home.php" class="">Trang chủ</a>
-              </li>
-              <li class="has-sub">
-                <span class="arrow"></span>
-                <a href="./about.php" class="">Giới thiệu</a>
-              </li>
-              <li class="has-sub">
-                <span class="arrow"></span>
-                <a href="./post.php" class=""> Bài viết</a>
-              </li>
-              <li class="has-sub">
-                <span class="arrow"></span>
-                <a href="./shop.php"> Sản phẩm</a>
-              </li>
-              <li class="has-sub">
-                <span class="arrow"></span>
-                <a href="./policy.php" class="">Điều khoản chính sách</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="hidden lg:block">
-            <ul class="flex items-center gap-4 subMenu-01 relative">
-              <li class="has-sub active flex items-center gap-2">
-                <a href="./home.php" class="subMenu">Trang chủ</a>
-                <svg
-                  version="1.1"
-                  class="transition-all duration-500 w-2 h-2 svgColor-01"
-                  id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 386.257 386.257"
-                  style="enable-background: new 0 0 386.257 386.257"
-                  xml:space="preserve"
-                >
-                  <polygon points="0,96.879 193.129,289.379 386.257,96.879 " />
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                </svg>
-
-                <div class="sub-item pt-5">
-                  <ul class="h01-menu-lap px-2 py-4">
-                    <li><a href="#">Sub-1</a></li>
-                    <li><a href="#">Sub-2</a></li>
-                    <li><a href="#">Sub-3</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="has-sub">
-                <span class="arrow"></span>
-                <a href="./about.php" class="subMenu">Giới thiệu</a>
-              </li>
-              <li class="has-sub relative flex items-center gap-2">
-                <a href="./post.php" class="subMenu"
-                  > Bài viết</a
-                ><svg
-                  version="1.1"
-                  class=" transition-all duration-500 w-2 h-2 svgColor-01"
-                  id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 386.257 386.257"
-                  style="enable-background: new 0 0 386.257 386.257"
-                  xml:space="preserve"
-                >
-                  <polygon points="0,96.879 193.129,289.379 386.257,96.879 " />
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                </svg>
-                <div class="sub-item pt-5">
-                  <ul class="h01-menu-lap px-2 py-4">
-                    <li><a href="./author.php">Tác giả</a></li>
-                    <li><a href="./about.php">Về chúng tôi</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="has-sub relative flex items-center gap-2">
-                <a href="./shop.php" class="subMenu"
-                  > Sản phẩm</a
-                ><svg
-                  version="1.1"
-                  class="transition-all duration-500 w-2 h-2 svgColor-01"
-                  id="Layer_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 386.257 386.257"
-                  style="enable-background: new 0 0 386.257 386.257"
-                  xml:space="preserve"
-                >
-                  <polygon points="0,96.879 193.129,289.379 386.257,96.879 " />
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                </svg>
-                <div class="sub-item pt-5">
-                  <ul class="h01-menu-lap px-2 py-4">
-                    <li><a href="./product_single.php">Chi tiết sản phẩm</a></li>
-                    <li><a href="#">Giỏ hàng</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="has-sub">
-                <span class="arrow"></span>
-                <a href="./policy.php" class="subMenu">Điều khoản chính sách</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-        <button
-          class="border-[1px] rounded-md outline-none lg:hidden relative"
-          onclick="showMenu()"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width="30"
-            height="30"
-            viewBox="0 0 30 30"
-            style="fill: #000000"
-          >
-            <path
-              d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z"
-            ></path>
-          </svg>
-        </button>
-
+  </button>
+  <header class=" py-3 " id="myHeader">
+    <div class="flex justify-between items-center px-2 md:px-8 xl:px-[120px]">
+      <div class="w-[34px] h-[34px]">
+        <a href="/"><img src="../img/1.jpg" alt="logo" class="w-[34px] h-[34px] object-cover" /></a>
       </div>
-    </header><div class="content">
+      <nav>
+        <div class="deactive-02 lg:hidden" id="menu-mobile">
+          <ul class="absolute top-[50px] right-0 h02-menu">
+            <li class="has-sub-02 ">
+              <span class="arrow"></span> <a href="./home.php" class="">Trang chủ</a>
+            </li>
+            <li class="has-sub-02">
+              <span class="arrow"></span>
+              <a href="./about.php" class="">Giới thiệu</a>
+            </li>
+            <li class="has-sub-02">
+              <span class="arrow"></span>
+              <a href="./post.php" class=""> Bài viết</a>
+            </li>
+            <li class="has-sub-02">
+              <span class="arrow"></span>
+              <a href="./product.php"> Sản phẩm</a>
+            </li>
+            <li class="has-sub-02">
+              <span class="arrow"></span>
+              <a href="./policy.php" class="">Điều khoản chính sách</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hidden lg:block">
+          <ul class="flex items-center gap-4 subMenu-02 relative">
+            <li class="has-sub-02 active-02 flex items-center gap-2">
+              <a href="./home.php" class="subMenu-02">Trang chủ</a>
+              <svg version="1.1" class="svgHead-02 transition-all duration-500 w-2 h-2" id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 386.257 386.257" style="enable-background: new 0 0 386.257 386.257" xml:space="preserve">
+                <polygon points="0,96.879 193.129,289.379 386.257,96.879 " />
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+
+              <div class="sub-item-02 pt-5">
+                <ul class="h02-menu-lap px-2 py-4">
+                  <li><a href="#">Sub-1</a></li>
+                  <li><a href="#">Sub-2</a></li>
+                  <li><a href="#">Sub-3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="has-sub-02">
+              <span class="arrow"></span>
+              <a href="./about.php" class="subMenu-02">Giới thiệu</a>
+            </li>
+            <li class="has-sub-02 relative flex items-center gap-2">
+              <a href="./post.php" class="subMenu-02"> Bài viết</a><svg version="1.1"
+                class=" transition-all duration-500 w-2 h-2" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 386.257 386.257"
+                style="enable-background: new 0 0 386.257 386.257" xml:space="preserve">
+                <polygon points="0,96.879 193.129,289.379 386.257,96.879 " />
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+              <div class="sub-item-02 pt-5">
+                <ul class="h02-menu-lap px-2 py-4">
+                  <li><a href="./author.php">Tác giả</a></li>
+                  <li><a href="./about.php">Về chúng tôi</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="has-sub-02 relative flex items-center gap-2">
+              <a href="./product.php" class="subMenu-02"> Sản phẩm</a><svg version="1.1"
+                class="transition-all duration-500 w-2 h-2" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 386.257 386.257"
+                style="enable-background: new 0 0 386.257 386.257" xml:space="preserve">
+                <polygon points="0,96.879 193.129,289.379 386.257,96.879 " />
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+              <div class="sub-item-02 pt-5">
+                <ul class="h02-menu-lap px-2 py-4">
+                  <li><a href="./product_single.php">Chi tiết sản phẩm</a></li>
+                  <li><a href="#">Giỏ hàng</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="has-sub-02">
+              <span class="arrow"></span>
+              <a href="./policy.php" class="subMenu-02">Điều khoản chính sách</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <button class="border-[1px] rounded-md outline-none lg:hidden relative" onclick="showMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30"
+          style="fill: #000000">
+          <path
+            d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z">
+          </path>
+        </svg>
+      </button>
+      <div class="hidden lg:block">
+      </div>
+    </div>
+  </header><div class="content">
     <section>
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 px-2 md:px-8 xl:px-[120px]">
         <div class="col-span-12 lg:col-span-6">
