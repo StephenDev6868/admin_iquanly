@@ -6,6 +6,8 @@ use App\Models\Config;
 use App\Models\Site;
 use App\Services\Upload\UploadService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
@@ -154,14 +156,42 @@ class SiteController extends Controller
         ];
         $inputs['user_id'] = Auth::guard('user')->user()->id;
         $this->addConfigToNginx($inputs['domain']);
+
         $result = site::query()
             ->create($inputs);
 
         $this->generateFile($inputs['config'], $inputs['domain']);
+        $this->generateSiteMap($inputs);
 
-        return Redirect::route('admin.sites.create')
-            ->withInput()
+        return Redirect::route('admin.sites.list')
             ->with('success', 'Tạo site thành công');
+    }
+
+    /**
+     * Generate Site Map
+     *
+     * @param array $inputs Inputs
+     *
+     * @return mixed
+    */
+    public function generateSiteMap(array $inputs)
+    {
+        $domain = $inputs['domain'];
+        $sitemap = App::make('sitemap');
+        foreach ($inputs['config'] as $key => $value) {
+            if (!empty($value)) {
+                if (env('APP_ENV') == 'local') {
+                    $sitemap->add(env('APP_URL') . '/template/' . $domain . '/' . $key . '.php', Carbon::now(), '1.0', 'daily');
+                } else {
+                    $sitemap->add('https://' . $domain  .'/'. $key . '.php', Carbon::now(), '1.0', 'daily');
+                }
+            }
+        }
+
+        $sitemap->store('xml', '/template/' . $domain . '/sitemap');
+        if (File::exists(public_path() .'/template/'. $domain . '/sitemap.xml')) {
+            chmod(public_path() .'/template/'. $domain . '/sitemap.xml', 0777);
+        }
     }
 
     /**

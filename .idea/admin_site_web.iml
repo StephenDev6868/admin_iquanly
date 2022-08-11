@@ -119,6 +119,8 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/tijsverkoyen/css-to-inline-styles" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/nunomaduro/collision" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/roumen/sitemap" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/laravelium/sitemap" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

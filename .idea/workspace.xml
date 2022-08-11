@@ -2,17 +2,110 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/sitemap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/sitemap/styles/google-news.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/sitemap/styles/mobile.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/sitemap/styles/sitemapindex.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/sitemap/styles/xml.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/sitemap/google-news.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/sitemap/html.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/sitemap/ror-rdf.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/sitemap/ror-rss.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/sitemap/sitemapindex.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/sitemap/txt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/sitemap/xml-mobile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/sitemap/xml.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/admin_site_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/admin_site_web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/PostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/template/test22.com.vn/about.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/template/test22.com.vn/home.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/sites/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/sites/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/about.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/author.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/css/dist/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/home.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/2 (1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/2 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/2 (2).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/2 (3).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/2 (4).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/2 (5).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/img/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/policy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/post.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/post_single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test.site.pc/product_single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/about.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/author.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/css/dist/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/home.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/2 (1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/2 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/2 (2).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/2 (3).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/2 (4).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/2 (5).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/img/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/policy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/post.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/post_single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test2.site.pc/product_single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/about.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/author.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/css/dist/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/home.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/2 (1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/2 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/2 (2).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/2 (3).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/2 (4).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/2 (5).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/img/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test3.com.vn/policy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/about.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/author.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/css/dist/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/home.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/2 (1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/2 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/2 (2).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/2 (3).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/2 (4).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/2 (5).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/img/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/policy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/post.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/post_single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/template/test5.com.vn/product_single.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/sites/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/nginx/sites/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/sites/default.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,15 +236,21 @@
       <path value="$PROJECT_DIR$/backend/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/backend/vendor/tijsverkoyen/css-to-inline-styles" />
       <path value="$PROJECT_DIR$/backend/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/backend/vendor/roumen/sitemap" />
+      <path value="$PROJECT_DIR$/backend/vendor/laravelium/sitemap" />
     </include_path>
   </component>
   <component name="ProjectId" id="2BmLbaX5Wdt5SabPanNYAaBbYYN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -169,17 +268,17 @@
       <recent name="$PROJECT_DIR$/backend/public/assets/images/sites" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/public/template/test11.com.vn" />
       <recent name="$PROJECT_DIR$/backend/public/template/img" />
       <recent name="$PROJECT_DIR$/backend/public/admin/sites" />
       <recent name="$PROJECT_DIR$/backend/public" />
       <recent name="$PROJECT_DIR$/backend/public/assets/admin" />
-      <recent name="$PROJECT_DIR$/backend/app/Http/Services/Upload" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e01efad3-8834-47b9-bc48-b77043e38e2b" name="Changes" comment="" />
+      <changelist id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="" />
       <created>1657506385928</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -189,6 +288,8 @@
       <workItem from="1658023244576" duration="14174000" />
       <workItem from="1658468062492" duration="79205000" />
       <workItem from="1659504689499" duration="6344000" />
+      <workItem from="1660201463331" duration="3339000" />
+      <workItem from="1660205180451" duration="6638000" />
     </task>
     <servers />
   </component>
@@ -205,5 +306,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
