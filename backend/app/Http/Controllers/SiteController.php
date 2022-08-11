@@ -153,7 +153,7 @@ class SiteController extends Controller
             'policy'        => $inputs['policy'] ?? '',
         ];
         $inputs['user_id'] = Auth::guard('user')->user()->id;
-        //$this->addConfigToNginx($inputs['domain']);
+        $this->addConfigToNginx($inputs['domain']);
         $result = site::query()
             ->create($inputs);
 
@@ -332,47 +332,43 @@ class SiteController extends Controller
     public function addConfigToNginx($domain)
     {
         $configs = File::get('/var/www/docker/nginx/sites/default.conf');
-        $uri = '$uri';
-        $is_args = '$is_args$args';
-        $document_root = '$document_root$fastcgi_script_name';
         $newConfig = '
-            server {
-                listen 80;
+server {
+    listen 80;
 
-                server_name '. $domain . ';
-                root /var/www/backend/public/template/'. $domain .';
-                index home.php index.php index.html index.htm;
+    server_name www.' . $domain . ' '  . $domain . ';
+    root /var/www/backend/public/template/'. $domain .';
+    index home.php index.php index.html index.htm;
 
-                location / {
-                    try_files $uri $uri/ /index.php$is_args$args};
-                }
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
 
-                location ~ \.php$ {
-                    try_files $uri /index.php =404;
-                    fastcgi_pass php-upstream;
-                    fastcgi_index index.php;
-                    fastcgi_buffers 16 16k;
-                    fastcgi_buffer_size 32k;
-                    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    location ~ \.php$ {
+        try_files $uri /index.php =404;
+        fastcgi_pass php-upstream;
+        fastcgi_index index.php;
+        fastcgi_buffers 16 16k;
+        fastcgi_buffer_size 32k;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 
-                    # Fixes Timeout
-                    fastcgi_read_timeout 600;
-                    include fastcgi_params;
-                }
+        # Fixes Timeout
+        fastcgi_read_timeout 600;
+        include fastcgi_params;
+    }
 
-                location ~ /\.ht {
-                    deny all;
-                }
+    location ~ /\.ht {
+        deny all;
+    }
 
-                location /.well-known/acme-challenge/ {
-                    root /var/www/letsencrypt/;
-                    log_not_found off;
-                }
+    location /.well-known/acme-challenge/ {
+        root /var/www/letsencrypt/;
+        log_not_found off;
+    }
 
-                error_log /var/log/nginx/ultrapc_api_error.log;
-                access_log /var/log/nginx/ultrapc_api_access.log;
-            }
-        ';
+    error_log /var/log/nginx/ultrapc_api_error.log;
+    access_log /var/log/nginx/ultrapc_api_access.log;
+}';
         File::put('/var/www/docker/nginx/sites/default.conf', $configs . $newConfig);
     }
 }
