@@ -54,8 +54,8 @@
                                 <input type="file" name="logo" class="filestyle" data-buttonname="btn-secondary" accept=".jpeg,.jpg,.png">
                             </div>
                             <div class="col-md-12 form-group">
-                                <label>Sitemap</label>
-                                <textarea name="sitemap" class="form-control" id="" cols="30" rows="10" placeholder="Nhập sitemap">{{ $site->sitemap }}</textarea>
+                                <label>Sitemap: </label>
+                                <a href="{{ request()->getBaseUrl() . '/template/' . $site->domain . '/' . 'sitemap.xml' }}" target="_blank">sitemap.xml</a>
                             </div>
                             <div class="col-md-12 form-group">
                                 <div class="row">
@@ -77,7 +77,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $headerSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $headerSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -101,7 +101,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" target="_blank" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $footerSelected]) }}" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $footerSelected]) }}" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -125,7 +125,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $homeSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $homeSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -149,7 +149,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $aboutSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $aboutSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -172,7 +172,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $authorSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $authorSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -195,7 +195,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $policySelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $policySelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -218,7 +218,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $postSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $postSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -241,7 +241,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $postDetailSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $postDetailSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -264,7 +264,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $productSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $productSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -287,7 +287,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $productDetailSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $productDetailSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>

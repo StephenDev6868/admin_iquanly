@@ -40,10 +40,10 @@
                                 <label>Logo</label>
                                 <input type="file" name="logo" class="filestyle" data-buttonname="btn-secondary" accept=".jpeg,.jpg,.png">
                             </div>
-                            <div class="col-md-12 form-group">
-                                <label>Sitemap</label>
-                                <textarea name="sitemap" class="form-control" id="" cols="30" rows="10" placeholder="Nhập sitemap">{{ old('sitemap') ?? '' }}</textarea>
-                            </div>
+{{--                            <div class="col-md-12 form-group">--}}
+{{--                                <label>Sitemap</label>--}}
+{{--                                <textarea name="sitemap" class="form-control" id="" cols="30" rows="10" placeholder="Nhập sitemap">{{ old('sitemap') ?? '' }}</textarea>--}}
+{{--                            </div>--}}
                             <div class="col-md-12 form-group">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -65,7 +65,7 @@
                                                 <textarea name="header_more_config" class="form-control mt-3" cols="5" rows="4"></textarea>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $headerSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $headerSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -90,7 +90,7 @@
                                                 <textarea name="footer_more_config" class="form-control mt-3" cols="5" rows="4"></textarea>
                                             </div>
                                             <div class="col-md-1" target="_blank" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $footerSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $footerSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -114,7 +114,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $homeSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $homeSelected]) }}" target="_blank" class="btn btn-info btn-view-home">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -138,7 +138,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $aboutSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $aboutSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -161,7 +161,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $authorSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $authorSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -184,7 +184,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $policySelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $policySelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -207,7 +207,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $postSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $postSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -230,7 +230,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $postDetailSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $postDetailSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -253,7 +253,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $productSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => $productSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -276,7 +276,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-1" style="margin-top: 26px;">
-                                                <a href="{{ route('admin.sites.preview',['config' => $productDetailSelected]) }}" target="_blank" class="btn btn-primary">
+                                                <a href="{{ route('admin.sites.preview',['config' => request()->get('product_single') ?? $productDetailSelected]) }}" target="_blank" class="btn btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
@@ -320,6 +320,13 @@
     <script>
         $(document).ready(function() {
             $('form').parsley();
+            $('select[name="home"]').change(function () {
+                let href = $('.btn-view-home');
+                console.log(href.attr('href'));
+                let newHref = href.attr('href').substring(0, href.attr('href').length - 2)
+                console.log(newHref + '/' + this.value);
+                href.attr('href', newHref + '/' + this.value);
+            });
         });
     </script>
 @endsection

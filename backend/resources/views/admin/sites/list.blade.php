@@ -35,7 +35,7 @@
                                 <th>Logo</th>
                                 <th>domain</th>
                                 <th>View</th>
-                                <th>SiteMap</th>
+{{--                                <th>SiteMap</th>--}}
                                 <th>Created at</th>
                                 <th>Updated at</th>
                                 <th>Action</th>
@@ -51,11 +51,13 @@
                                     </td>
                                     <td>{{ $site->domain }}</td>
                                     <td>
-                                        <a href="{{ request()->getBaseUrl() . '/template/' . $site->domain . '/' . 'home.php' }}" target="_blank">{{ request()->getBaseUrl() . '/' . $site->domain . '/' . 'home.php' }}</a>
+                                        <a href="{{ request()->getBaseUrl() . '/template/' . $site->domain . '/' . 'home.php' }}" class="btn btn-info" target="_blank">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
                                     </td>
-                                    <td>
-                                        <a href="{{ request()->getBaseUrl() . '/template/' . $site->domain . '/' . 'sitemap.xml' }}" target="_blank">sitemap.xml</a>
-                                    </td>
+{{--                                    <td>--}}
+{{--                                        <a href="{{ request()->getBaseUrl() . '/template/' . $site->domain . '/' . 'sitemap.xml' }}" target="_blank">sitemap.xml</a>--}}
+{{--                                    </td>--}}
                                     <td >{{ $site->created_at }}</td>
                                     <td >{{ $site->updated_at }}</td>
                                     <td style="display: flex">

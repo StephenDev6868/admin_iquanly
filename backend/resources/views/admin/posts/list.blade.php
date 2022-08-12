@@ -47,13 +47,13 @@
                                         <td>{{ $post->title }}</td>
                                         @switch($post->status)
                                             @case(1)
-                                            <td class="badge badge-primary mt-2">Public</td>
+                                            <td class="badge badge-primary mt-2">Draft</td>
                                             @break
                                             @case(2)
                                             <td class="badge badge-warning mt-2">Submit</td>
                                             @break
                                             @default
-                                            <td class="badge badge-secondary mt-2">Draft</td>
+                                            <td class="badge badge-secondary mt-2">Public</td>
                                             @break
                                         @endswitch
                                         <td >{{ $post->created_at }}</td>
