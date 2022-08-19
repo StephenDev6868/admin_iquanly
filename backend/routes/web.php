@@ -53,7 +53,7 @@ Route::prefix('admin')->group(function () {
 
         Route::prefix('sites')->group(function () {
             Route::get('list', [\App\Http\Controllers\SiteController::class, 'index'])->name('admin.sites.list');
-            //Route::get('/test', [\App\Http\Controllers\SiteController::class, 'test'])->name('admin.sites.test');
+            Route::get('test/{site}', [\App\Http\Controllers\SiteController::class, 'editor'])->name('admin.sites.test');
             Route::get('/preview/{config}', [\App\Http\Controllers\SiteController::class, 'previewTemplate'])->name('admin.sites.preview');
             Route::get('/create', [\App\Http\Controllers\SiteController::class, 'create'])->name('admin.sites.create');
             Route::post('/create', [\App\Http\Controllers\SiteController::class, 'store'])->name('admin.sites.doCreate');

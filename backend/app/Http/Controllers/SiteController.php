@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Config;
 use App\Models\Site;
 use App\Services\Upload\UploadService;
+use Dotlogics\Grapesjs\App\Traits\EditorTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Validator;
 
 class SiteController extends Controller
 {
+    use EditorTrait;
     /**
      * Display a listing of the resource.
      *
@@ -28,9 +30,18 @@ class SiteController extends Controller
         return view('admin.sites.list', compact('sites'));
     }
 
+    public function editor(Request $request, Site $site)
+    {
+        $config = Config::query()->where('id', 3)->get(['*']);
+        //dd($config);
+        //dd($site);
+        return $this->show_gjs_editor($request, $site);
+    }
+
     public function test()
     {
-        return view('admin.sites.test');
+        $config = Config::query()->where('id', 3)->get(['*']);
+        return view('admin.sites.builder', compact('config'));
     }
 
     /**

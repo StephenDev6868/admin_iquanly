@@ -2,13 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/config/laravel-grapesjs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2022_08_15_133033_add_col_gjs_data_into_sites_and_config_tables.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/assets/editor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/assets/editor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/assets/editor.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/fonts/main-fonts.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/fonts/main-fonts.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/fonts/main-fonts.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/fonts/main-fonts.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/svg/icon-a.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/svg/icon-b.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/svg/icon-c.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/vendor/laravel-grapesjs/svg/icon-d.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/builder.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/laravel-grapesjs/edittor.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/laravel-grapesjs/gjs-blocks/example.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/vendor/laravel-grapesjs/templates/example.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/admin_site_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/admin_site_web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Site.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Site.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/posts/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/posts/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/sites/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/sites/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/sites/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/sites/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/nginx/sites/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/sites/default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/vendor/sitemap/xml-mobile.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/vendor/sitemap/xml-mobile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +160,7 @@
       <path value="$PROJECT_DIR$/backend/vendor/nunomaduro/collision" />
       <path value="$PROJECT_DIR$/backend/vendor/roumen/sitemap" />
       <path value="$PROJECT_DIR$/backend/vendor/laravelium/sitemap" />
+      <path value="$PROJECT_DIR$/backend/vendor/jd-dotlogics/laravel-grapesjs" />
     </include_path>
   </component>
   <component name="ProjectId" id="2BmLbaX5Wdt5SabPanNYAaBbYYN" />

@@ -121,6 +121,7 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/nunomaduro/collision" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/roumen/sitemap" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/laravelium/sitemap" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/jd-dotlogics/laravel-grapesjs" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
