@@ -8,17 +8,27 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Dotlogics\Grapesjs\App\Traits\EditableTrait;
 use Dotlogics\Grapesjs\App\Contracts\Editable;
 
-class Config extends Model implements Editable
+//class Config extends Model implements Editable
+//{
+//    use HasFactory, softDeletes, EditableTrait;
+//
+//    protected $table = 'configs';
+//
+//    protected $fillable = ['name', 'style', 'js_handle', 'html'];
+//
+//    public function editor()
+//    {
+//        $this->getHtmlAttribute();
+//    }
+//
+//}
+
+class Config extends Model
 {
-    use HasFactory, softDeletes, EditableTrait;
+    use HasFactory, softDeletes;
 
     protected $table = 'configs';
 
-    protected $fillable = ['name', 'style', 'js_handle'];
-
-    public function editor()
-    {
-        $this->getHtmlAttribute();
-    }
+    protected $fillable = ['name', 'style', 'js_handle', 'html'];
 
 }

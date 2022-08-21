@@ -1,5 +1,6 @@
 @extends('layouts.master-site')
 @section('css')
+
     {!!html_entity_decode($config['style'])!!}
 @endsection
 

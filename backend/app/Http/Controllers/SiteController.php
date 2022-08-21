@@ -104,15 +104,15 @@ class SiteController extends Controller
     */
     public function previewTemplate(Config $config)
     {
-        $html = view('admin.sites.preview', compact('config'))->render();
-        $html = html_entity_decode($html);
+        //$html = view('admin.sites.preview', compact('config'))->render();
+        //$html = html_entity_decode($html);
 //        File::makeDirectory(public_path(). '/test.com.vn');
 //        File::put('test.com.vn/test'. rand(1,10) . '.html',
 //            view('admin.sites.preview', compact('config'))
 //                ->with(['CardSave' => $html, 'message' => 'Success'])
 //                ->render()
 //        );
-        return view('admin.sites.preview', compact('config'));
+            return view('admin.sites.preview', compact('config'));
     }
 
     /**
