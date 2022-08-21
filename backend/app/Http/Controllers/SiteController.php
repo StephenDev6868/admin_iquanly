@@ -166,7 +166,7 @@ class SiteController extends Controller
             'policy'        => $inputs['policy'] ?? '',
         ];
         $inputs['user_id'] = Auth::guard('user')->user()->id;
-        $this->addConfigToNginx($inputs['domain']);
+        //$this->addConfigToNginx($inputs['domain']);
 
         $result = site::query()
             ->create($inputs);
