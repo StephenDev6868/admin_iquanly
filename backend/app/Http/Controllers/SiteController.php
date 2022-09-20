@@ -112,7 +112,10 @@ class SiteController extends Controller
 //                ->with(['CardSave' => $html, 'message' => 'Success'])
 //                ->render()
 //        );
-            return view('admin.sites.preview', compact('config'));
+
+        $view = view('admin.sites.preview', compact('config'))->render();
+        //dd($view);
+        return view('admin.sites.preview', compact('config'));
     }
 
     /**
@@ -126,20 +129,20 @@ class SiteController extends Controller
         $inputs = $request->all();
 
         $validator = Validator::make($inputs, [
-            'title'         => 'required|max:255',
-            'description'   => 'nullable|max:255',
-            'domain'        => 'required|max:255|unique:sites,domain',
-            'logo'          => 'nullable|mimes:jpeg,jpg,png',
-            'header'        => 'required',
-            'footer'        => 'required',
-            'home'          => 'required',
-            'about'         => 'required',
-            'author'        => 'nullable',
-            'post'          => 'nullable',
-            'post_single'   => 'nullable',
-            'product'       => 'nullable',
+            'title'          => 'required|max:255',
+            'description'    => 'nullable|max:255',
+            'domain'         => 'required|max:255|unique:sites,domain',
+            'logo'           => 'nullable|mimes:jpeg,jpg,png',
+            'header'         => 'required',
+            'footer'         => 'required',
+            'home'           => 'required',
+            'about'          => 'required',
+            'author'         => 'nullable',
+            'post'           => 'nullable',
+            'post_single'    => 'nullable',
+            'product'        => 'nullable',
             'product_single' => 'nullable',
-            'policy'        => 'nullable',
+            'policy'         => 'nullable',
         ]);
 
         if ($validator->fails()) {

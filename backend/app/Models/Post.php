@@ -22,6 +22,7 @@ class Post extends Model
         'content',
         'status',
         'avatar',
+        'category_id',
     ];
 
     /**

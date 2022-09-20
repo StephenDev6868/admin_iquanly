@@ -39,6 +39,14 @@
                                             <option value="3" {{ $post->status == 3 ? 'selected' : ''}}>Public</option>
                                         </select>
                                     </div>
+                                    <div class="col-md-12 mt-3">
+                                        <label>Danh mục bài viết</label>
+                                        <select name="category_id" id="" value="{{ old('category_id') }}" class="form-control">
+                                            @foreach($categorys as $category)
+                                                <option {{ $post->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 

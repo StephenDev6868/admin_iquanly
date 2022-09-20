@@ -43,6 +43,14 @@
                                             <option value="3">Public</option>
                                         </select>
                                     </div>
+                                    <div class="col-md-12 mt-3">
+                                        <label>Danh mục bài viết</label>
+                                        <select name="category_id" id="" value="{{ old('category_id') }}" class="form-control">
+                                            @foreach($categorys as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">

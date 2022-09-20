@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use App\Services\Upload\UploadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -60,7 +61,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return View('admin.posts.add');
+        $categorys = Category::all();
+        return View('admin.posts.add', compact('categorys'));
     }
 
     /**
@@ -109,8 +111,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $categorys = Category::all();
         $post->avatar = getenv('APP_URL') . '/upload/' . $this->folder_name . '/' . $post->avatar;
-        return View('admin.posts.edit', compact('post'));
+        return View('admin.posts.edit', compact('post', 'categorys'));
     }
 
     /**
