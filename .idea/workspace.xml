@@ -1,117 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthorController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/MainCategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Author.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/SubCategory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_04_28_190331_create_authors_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_04_28_191511_create_sub_categorys_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_04_28_191708_create_setting_menus_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_04_28_191724_create_setting_footer_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_05_01_175116_add_col_status_and_order_into_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/css/style2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/dist/output.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/4577cd12308d6920372848b74896d8d1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/Emoji-facebook-1-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/banner-hapodigital-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/ceo-phong-nguyen-300x300.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/crm-1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/dang-anh-len-facebook-khong-bi-vo-11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/down-arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/engagement-facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khach-hang-thu-may.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khung-gio-vang-dang-bai-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khung-gio-vang-dang-bai-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khung-gio-vang-dang-bai-11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khung-gio-vang-dang-bai-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khung-gio-vang-dang-bai-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khung-gio-vang-dang-bai-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khung-gio-vang-dang-bai-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khung-gio-vang-dang-bai-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khung-gio-vang-dang-bai-7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/khung-gio-vang-dang-bai-8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/logo-hapo-digital.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/logoSaleNoti.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/mini-game-facebook-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/nhung-nguyen.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/pham-ngoc-son.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/phn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/quang-cao-facebook-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/quest.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/shape_2-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/sl-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/tan-rua.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/thiet-ke-website-3d-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/thiet-ke-website-may-tinh-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/thiet-ke-website-me-va-be-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/thiet-ke-website-quan-ly-nhan-su-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/thiet-ke-website-thi-trac-nghiem-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/thiet-ke-website-xe-may-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/images/tran-thang.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/categories/add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/categories/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/categories/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/main_categories/add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/main_categories/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/main_categories/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/user/category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/user/detail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/user/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/head.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/master.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/top_header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/CategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/CategorySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/ConfigSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/ConfigSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/flot-chart/jquery.flot.pie.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/flot-chart/jquery.flot.pie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo1/scripts.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo1/scripts.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo10/scripts.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo10/scripts.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/custom/flot/flot.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/custom/flot/flot.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/global/vendors.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/global/vendors.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/builder/include/common/smtp/class.phpmailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/builder/include/common/smtp/class.phpmailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/builder/include/common/smtp/class.smtp.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/builder/include/common/smtp/class.smtp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/builder/js/lib/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/builder/js/lib/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/js/vendor/jquery-2.2.4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/js/vendor/jquery-2.2.4.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/install_asset/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/install_asset/js/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/doctrine/dbal/lib/Doctrine/DBAL/SQLParserUtils.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/doctrine/dbal/lib/Doctrine/DBAL/SQLParserUtils.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/monolog/monolog/src/Monolog/Formatter/NormalizerFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/monolog/monolog/src/Monolog/Formatter/NormalizerFormatter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/phpunit/phpunit/src/Framework/Constraint/IsEqual.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/phpunit/phpunit/src/Framework/Constraint/IsEqual.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/phpunit/phpunit/src/Framework/Constraint/IsIdentical.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/phpunit/phpunit/src/Framework/Constraint/IsIdentical.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/swiftmailer/swiftmailer/tests/unit/Swift/KeyCache/ArrayKeyCacheTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/swiftmailer/swiftmailer/tests/unit/Swift/KeyCache/ArrayKeyCacheTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/symfony/http-kernel/HttpCache/HttpCache.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/symfony/http-kernel/HttpCache/HttpCache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/symfony/var-dumper/Caster/PgSqlCaster.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/symfony/var-dumper/Caster/PgSqlCaster.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/posts/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/posts/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/posts/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/master-without-nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/master-without-nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/topbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/topbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-fpm/php5.6.ini" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/php5.6.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-fpm/php7.0.ini" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/php7.0.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-fpm/php7.1.ini" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/php7.1.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-fpm/php7.2.ini" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/php7.2.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-fpm/php7.3.ini" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/php7.3.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-fpm/php7.4.ini" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/php7.4.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-fpm/php8.0.ini" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/php8.0.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php-fpm/php8.1.ini" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php-fpm/php8.1.ini" afterDir="false" />
-    </list>
+    <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -304,7 +194,7 @@
       <workItem from="1675438012240" duration="1212000" />
       <workItem from="1676994908864" duration="118000" />
       <workItem from="1682533089993" duration="1505000" />
-      <workItem from="1682608891183" duration="35800000" />
+      <workItem from="1682608891183" duration="35971000" />
     </task>
     <servers />
   </component>
