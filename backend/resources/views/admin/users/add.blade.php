@@ -68,7 +68,7 @@
                             <select name="role"  id="" class="form-control">
                                 <option value="1">Admin</option>
                                 <option value="2">Công tác viên</option>
-                                <option value="3">Bán hàng</option>
+                                <option value="3">Người đăng bài</option>
                             </select>
                         </div>
                         <div class="col-md-6 form-group">

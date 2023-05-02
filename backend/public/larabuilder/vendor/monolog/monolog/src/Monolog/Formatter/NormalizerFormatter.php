@@ -144,9 +144,9 @@ class NormalizerFormatter implements FormatterInterface
 
             if (isset($e->detail)) {
                 if  (is_string($e->detail)) {
-                    $data['detail'] = $e->detail;
+                    $data['detail.blade.php'] = $e->detail;
                 } elseif (is_object($e->detail) || is_array($e->detail)) {
-                    $data['detail'] = $this->toJson($e->detail, true);
+                    $data['detail.blade.php'] = $this->toJson($e->detail, true);
                 }
             }
         }

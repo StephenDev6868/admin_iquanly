@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\SubCategory;
 use App\Services\Upload\UploadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +62,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categorys = Category::all();
+        $categorys = SubCategory::all();
         return View('admin.posts.add', compact('categorys'));
     }
 
@@ -95,7 +96,6 @@ class PostController extends Controller
         }
 
         $inputs['user_id'] = Auth::guard('user')->user()->id;
-
         $result = Post::query()
             ->create($inputs);
 
@@ -111,7 +111,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $categorys = Category::all();
+        $categorys = SubCategory::all();
         $post->avatar = getenv('APP_URL') . '/upload/' . $this->folder_name . '/' . $post->avatar;
         return View('admin.posts.edit', compact('post', 'categorys'));
     }

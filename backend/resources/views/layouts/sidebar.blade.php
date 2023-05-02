@@ -9,7 +9,17 @@
                             <li class="menu-title">Admin</li>
                             <li>
                                 <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
-                                    <i class="fas fa-user"></i> <span> Quản lý user </span>
+                                     <span> Quản lý user </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.mainCategories.list') }}" style="font-size: 12px;" class="waves-effect {{ (request()->is('main-categories')) || (request()->is('admin/main-categories/*')) ? 'active' : '' }}">
+                                     <span> Quản lý chuyên mục chính</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.categories.list') }}" class="waves-effect {{ (request()->is('category')) || (request()->is('admin/categories/*')) ? 'active' : '' }}">
+                                     <span> Quản lý chuyên mục </span>
                                 </a>
                             </li>
 {{--                            <li>--}}
@@ -19,13 +29,15 @@
 {{--                            </li>--}}
                             <li>
                                 <a href="{{ route('admin.posts.list') }}" class="waves-effect {{ (request()->is('posts')) || (request()->is('admin/posts/*')) ? 'active' : '' }}">
-                                    <i class="fas fa-comment-dots"></i> <span> Quản lý bài viết </span>
+                                   <span> Quản lý bài viết </span>
+{{--                                    <i class="fas fa-comment-dots"></i> <span> Quản lý bài viết </span>--}}
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('admin.sites.list') }}" class="waves-effect {{ (request()->is('sites')) || (request()->is('admin/sites/*')) ? 'active' : '' }}">
-                                    <i class="fas fa-sitemap"></i> <span> Quản lý site </span>
+                                    <span> Quản lý site </span>
+{{--                                    <i class="fas fa-sitemap"></i> <span> Quản lý site </span>--}}
                                 </a>
                             </li>
 

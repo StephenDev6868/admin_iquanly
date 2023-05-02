@@ -60,7 +60,7 @@
                                 <select name="role" id="" class="form-control">
                                     <option value="1" {{ $user->role === 1 ? 'selected' : ''}}>Admin</option>
                                     <option value="2" {{ $user->role === 2 ? 'selected' : ''}}">Công tác viên</option>
-                                    <option value="3" {{ $user->role === 3 ? 'selected' : ''}}">Bán hàng</option>
+                                    <option value="3" {{ $user->role === 3 ? 'selected' : ''}}">Người đăng bài</option>
                                 </select>
                             </div>
                             <div class="col-md-6 form-group">

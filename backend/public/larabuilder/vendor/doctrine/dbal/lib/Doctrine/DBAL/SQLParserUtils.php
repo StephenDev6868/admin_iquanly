@@ -46,7 +46,7 @@ class SQLParserUtils
      * For a statement with positional parameters, returns a zero-indexed list of placeholder position.
      * For a statement with named parameters, returns a map of placeholder positions to their parameter names.
      *
-     * @deprecated Will be removed as internal implementation detail.
+     * @deprecated Will be removed as internal implementation detail.blade.php.
      *
      * @param string $statement
      * @param bool   $isPositional

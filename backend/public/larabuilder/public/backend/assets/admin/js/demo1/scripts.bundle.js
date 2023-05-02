@@ -1918,7 +1918,7 @@ var KTAvatar = function(elementId, options) {
     var body = KTUtil.get('body');
 
     if (!element) {
-        return; 
+        return;
     }
 
     // Default options
@@ -2032,13 +2032,13 @@ var KTAvatar = function(elementId, options) {
     //////////////////////////
 
     /**
-     * Set default options 
+     * Set default options
      */
 
     the.setDefaults = function(options) {
         defaultOptions = options;
     };
-    
+
     /**
      * Attach event
      */
@@ -2072,7 +2072,7 @@ var KTDialog = function(options) {
 
     // Get element object
     var element;
-    var body = KTUtil.get('body');  
+    var body = KTUtil.get('body');
 
     // Default options
     var defaultOptions = {
@@ -2080,8 +2080,8 @@ var KTDialog = function(options) {
         'type'  : 'loader',
         'width' : 100,
         'state' : 'default',
-        'message' : 'Loading...' 
-    };    
+        'message' : 'Loading...'
+    };
 
     ////////////////////////////
     // ** Private Methods  ** //
@@ -2118,10 +2118,10 @@ var KTDialog = function(options) {
 
             element = document.createElement("DIV");
             KTUtil.setHTML(element, the.options.message);
-            
+
             KTUtil.addClass(element, 'kt-dialog kt-dialog--shown');
             KTUtil.addClass(element, 'kt-dialog--' + the.options.state);
-            KTUtil.addClass(element, 'kt-dialog--' + the.options.type); 
+            KTUtil.addClass(element, 'kt-dialog--' + the.options.type);
 
             if (the.options.placement == 'top center') {
                 KTUtil.addClass(element, 'kt-dialog--top-center');
@@ -2162,7 +2162,7 @@ var KTDialog = function(options) {
                 if (event.name == name) {
                     if (event.one == true) {
                         if (event.fired == false) {
-                            the.events[i].fired = true;                            
+                            the.events[i].fired = true;
                             return event.handler.call(this, the);
                         }
                     } else {
@@ -2189,7 +2189,7 @@ var KTDialog = function(options) {
     //////////////////////////
 
     /**
-     * Set default options 
+     * Set default options
      */
 
     the.setDefaults = function(options) {
@@ -2197,21 +2197,21 @@ var KTDialog = function(options) {
     };
 
     /**
-     * Check shown state 
+     * Check shown state
      */
     the.shown = function() {
         return the.state == 'shown';
     };
 
     /**
-     * Check hidden state 
+     * Check hidden state
      */
     the.hidden = function() {
         return the.state == 'hidden';
     };
 
     /**
-     * Show dialog 
+     * Show dialog
      */
     the.show = function() {
         return Plugin.show();
@@ -2349,7 +2349,7 @@ var KTHeader = function(elementId, options) {
                     if (st > offset) { // down scroll mode
                         KTUtil.addClass(body, on);
                         KTUtil.removeClass(body, off);
-                        
+
                         if (eventTriggerState) {
                             Plugin.eventTrigger('minimizeOn', the);
                             eventTriggerState = false;
@@ -2360,7 +2360,7 @@ var KTHeader = function(elementId, options) {
 
                         if (eventTriggerState == false) {
                             Plugin.eventTrigger('minimizeOff', the);
-                            eventTriggerState = true; 
+                            eventTriggerState = true;
                         }
                     }
                 } else {
@@ -2421,7 +2421,7 @@ var KTHeader = function(elementId, options) {
     //////////////////////////
 
     /**
-     * Set default options 
+     * Set default options
      */
 
     the.setDefaults = function(options) {
@@ -3335,7 +3335,7 @@ var KTOffcanvas = function(elementId, options) {
             } else {
                 // reset offcanvas
                 Plugin.init(options);
-                
+
                 // build offcanvas
                 Plugin.build();
 
@@ -3362,34 +3362,34 @@ var KTOffcanvas = function(elementId, options) {
         build: function() {
             // offcanvas toggle
             if (the.options.toggleBy) {
-                if (typeof the.options.toggleBy === 'string') { 
+                if (typeof the.options.toggleBy === 'string') {
                     KTUtil.addEvent( the.options.toggleBy, 'click', function(e) {
                         e.preventDefault();
                         Plugin.toggle();
-                    }); 
+                    });
                 } else if (the.options.toggleBy && the.options.toggleBy[0]) {
                     if (the.options.toggleBy[0].target) {
-                        for (var i in the.options.toggleBy) { 
+                        for (var i in the.options.toggleBy) {
                             KTUtil.addEvent( the.options.toggleBy[i].target, 'click', function(e) {
                                 e.preventDefault();
                                 Plugin.toggle();
-                            }); 
+                            });
                         }
                     } else {
-                        for (var i in the.options.toggleBy) { 
+                        for (var i in the.options.toggleBy) {
                             KTUtil.addEvent( the.options.toggleBy[i], 'click', function(e) {
                                 e.preventDefault();
                                 Plugin.toggle();
-                            }); 
+                            });
                         }
                     }
-                    
+
                 } else if (the.options.toggleBy && the.options.toggleBy.target) {
                     KTUtil.addEvent( the.options.toggleBy.target, 'click', function(e) {
                         e.preventDefault();
                         Plugin.toggle();
-                    }); 
-                } 
+                    });
+                }
             }
 
             // offcanvas close
@@ -3414,7 +3414,7 @@ var KTOffcanvas = function(elementId, options) {
         },
 
         toggle: function() {;
-            Plugin.eventTrigger('toggle'); 
+            Plugin.eventTrigger('toggle');
 
             if (the.state == 'shown') {
                 Plugin.hide(this);
@@ -3445,7 +3445,7 @@ var KTOffcanvas = function(elementId, options) {
                 KTUtil.addEvent(the.overlay, 'click', function(e) {
                     e.stopPropagation();
                     e.preventDefault();
-                    Plugin.hide(target);       
+                    Plugin.hide(target);
                 });
             }
 
@@ -3486,15 +3486,15 @@ var KTOffcanvas = function(elementId, options) {
                 for (var i in the.options.toggleBy) {
                     if (the.options.toggleBy[i].target === id) {
                         toggleBy = the.options.toggleBy[i];
-                    }        
+                    }
                 }
             } else if (the.options.toggleBy && the.options.toggleBy.target) {
                 toggleBy = the.options.toggleBy;
             }
 
-            if (toggleBy) {                
+            if (toggleBy) {
                 var el = KTUtil.get(toggleBy.target);
-                
+
                 if (mode === 'show') {
                     KTUtil.addClass(el, toggleBy.state);
                 }
@@ -4299,12 +4299,12 @@ var KTScrolltop = function(elementId, options) {
                     Plugin.handle();
                 });
             } else {
-                window.addEventListener('scroll', function() { 
+                window.addEventListener('scroll', function() {
                     Plugin.handle();
                 });
             }
 
-            // handle button click 
+            // handle button click
             KTUtil.addEvent(element, 'click', Plugin.scroll);
         },
 
@@ -4364,7 +4364,7 @@ var KTScrolltop = function(elementId, options) {
     //////////////////////////
 
     /**
-     * Set default options 
+     * Set default options
      */
 
     the.setDefaults = function(options) {
@@ -4414,7 +4414,7 @@ var KTToggle = function(elementId, options) {
 
     // Get element object
     var element = KTUtil.get(elementId);
-    var body = KTUtil.get('body');  
+    var body = KTUtil.get('body');
 
     if (!element) {
         return;
@@ -4424,7 +4424,7 @@ var KTToggle = function(elementId, options) {
     var defaultOptions = {
         togglerState: '',
         targetState: ''
-    };    
+    };
 
     ////////////////////////////
     // ** Private Methods  ** //
@@ -4474,7 +4474,7 @@ var KTToggle = function(elementId, options) {
         build: function() {
             KTUtil.addEvent(element, 'mouseup', Plugin.toggle);
         },
-        
+
         /**
          * Handles offcanvas click toggle
          */
@@ -4546,7 +4546,7 @@ var KTToggle = function(elementId, options) {
                 if (event.name == name) {
                     if (event.one == true) {
                         if (event.fired == false) {
-                            the.events[i].fired = true;                            
+                            the.events[i].fired = true;
                             return event.handler.call(this, the);
                         }
                     } else {
@@ -4573,7 +4573,7 @@ var KTToggle = function(elementId, options) {
     //////////////////////////
 
     /**
-     * Set default options 
+     * Set default options
      */
 
     the.setDefaults = function(options) {
@@ -4581,28 +4581,28 @@ var KTToggle = function(elementId, options) {
     };
 
     /**
-     * Get toggle state 
+     * Get toggle state
      */
     the.getState = function() {
         return the.state;
     };
 
     /**
-     * Toggle 
+     * Toggle
      */
     the.toggle = function() {
         return Plugin.toggle();
     };
 
     /**
-     * Toggle on 
+     * Toggle on
      */
     the.toggleOn = function() {
         return Plugin.toggleOn();
     };
 
     /**
-     * Toggle off 
+     * Toggle off
      */
     the.toggleOff = function() {
         return Plugin.toggleOff();
@@ -4645,7 +4645,7 @@ var KTWizard = function(elementId, options) {
     var body = KTUtil.get('body');
 
     if (!element) {
-        return; 
+        return;
     }
 
     // Default options
@@ -4744,7 +4744,7 @@ var KTWizard = function(elementId, options) {
                 var index = KTUtil.index(this) + 1;
                 if (index !== the.currentStep) {
                     Plugin.goTo(index, true);
-                }                
+                }
             });
         },
 
@@ -4774,7 +4774,7 @@ var KTWizard = function(elementId, options) {
                     callback = Plugin.eventTrigger('beforePrev');
                 }
             }
-            
+
             // Skip if stopped
             if (the.stopped === true) {
                 the.stopped = false;
@@ -4788,7 +4788,7 @@ var KTWizard = function(elementId, options) {
                     Plugin.eventTrigger('beforeChange');
                 }
 
-                // Set current step 
+                // Set current step
                 the.currentStep = number;
 
                 Plugin.updateUI();
@@ -4890,7 +4890,7 @@ var KTWizard = function(elementId, options) {
                         KTUtil.removeAttr(stepsInfo[i], 'data-ktwizard-state');
                     }
                 }
-            }  
+            }
 
             // Steps Content
             var stepsContent = KTUtil.findAll(the.element, '[data-ktwizard-type="step-content"]');
@@ -4902,7 +4902,7 @@ var KTWizard = function(elementId, options) {
                         KTUtil.removeAttr(stepsContent[i], 'data-ktwizard-state');
                     }
                 }
-            }            
+            }
         },
 
         /**
@@ -4964,7 +4964,7 @@ var KTWizard = function(elementId, options) {
     //////////////////////////
 
     /**
-     * Set default options 
+     * Set default options
      */
 
     the.setDefaults = function(options) {
@@ -4972,28 +4972,28 @@ var KTWizard = function(elementId, options) {
     };
 
     /**
-     * Go to the next step 
+     * Go to the next step
      */
     the.goNext = function(eventHandle) {
         return Plugin.goTo(Plugin.getNextStep(), eventHandle);
     };
 
     /**
-     * Go to the prev step 
+     * Go to the prev step
      */
     the.goPrev = function(eventHandle) {
         return Plugin.goTo(Plugin.getPrevStep(),eventHandle);
     };
 
     /**
-     * Go to the last step 
+     * Go to the last step
      */
     the.goLast = function(eventHandle) {
         return Plugin.goTo(Plugin.getLastStep(), eventHandle);
     };
 
     /**
-     * Go to the first step 
+     * Go to the first step
      */
     the.goFirst = function(eventHandle) {
         return Plugin.goTo(Plugin.getFirstStep(), eventHandle);
@@ -5007,40 +5007,40 @@ var KTWizard = function(elementId, options) {
     };
 
     /**
-     * Cancel step 
+     * Cancel step
      */
     the.stop = function() {
         return Plugin.stop();
     };
 
     /**
-     * Resume step 
+     * Resume step
      */
     the.start = function() {
         return Plugin.start();
     };
 
     /**
-     * Get current step number 
+     * Get current step number
      */
     the.getStep = function() {
         return the.currentStep;
     };
 
     /**
-     * Check last step 
+     * Check last step
      */
     the.isLastStep = function() {
         return Plugin.isLastStep();
     };
 
     /**
-     * Check first step 
+     * Check first step
      */
     the.isFirstStep = function() {
         return Plugin.isFirstStep();
     };
-    
+
     /**
      * Attach event
      */
@@ -5892,7 +5892,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 					find('.' + pfx + 'datatable__row:first-child').
 					find('.' + pfx + 'datatable__cell').
 					// exclude expand icon
-					not('.' + pfx + 'datatable__toggle-detail').
+					not('.' + pfx + 'datatable__toggle-detail.blade.php').
 					not(':hidden').length;
 
 				if (columns > 0) {
@@ -5908,7 +5908,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 					$(datatable.table).find('.' + pfx + 'datatable__row').
 							find('.' + pfx + 'datatable__cell').
 							// exclude expand icon
-							not('.' + pfx + 'datatable__toggle-detail').
+							not('.' + pfx + 'datatable__toggle-detail.blade.php').
 							not(':hidden').each(function(tdi, td) {
 
 						var width = minWidth;
@@ -6523,7 +6523,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 
 						// page info
 						if (Plugin.getOption('toolbar.items.info')) {
-							pg.pagerLayout['info'] = $('<div/>').addClass(pfx + 'datatable__pager-info').append($('<span/>').addClass(pfx + 'datatable__pager-detail'));
+							pg.pagerLayout['info'] = $('<div/>').addClass(pfx + 'datatable__pager-info').append($('<span/>').addClass(pfx + 'datatable__pager-detail.blade.php'));
 						}
 
 						$.each(Plugin.getOption('toolbar.layout'), function(i, layout) {
@@ -6690,7 +6690,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 						var start = Math.max(pg.meta.perpage * (pg.meta.page - 1) + 1, 1);
 						var end = Math.min(start + pg.meta.perpage - 1, pg.meta.total);
 						// page info update
-						$(pg.pager).find('.' + pfx + 'datatable__pager-info').find('.' + pfx + 'datatable__pager-detail').html(Plugin.dataPlaceholder(
+						$(pg.pager).find('.' + pfx + 'datatable__pager-info').find('.' + pfx + 'datatable__pager-detail.blade.php').html(Plugin.dataPlaceholder(
 							Plugin.getOption('translate.toolbar.pagination.items.info'), {
 								start: start,
 								end: pg.meta.perpage === -1 ? pg.meta.total : end,
@@ -6858,7 +6858,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 			 * Setup sub datatable
 			 */
 			setupSubDatatable: function() {
-				var subTableCallback = Plugin.getOption('detail.content');
+				var subTableCallback = Plugin.getOption('detail.blade.php.content');
 				if (typeof subTableCallback !== 'function') return;
 
 				// subtable already exist
@@ -6963,7 +6963,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 										addClass(pfx + 'datatable__toggle-subtable').
 										attr('href', '#').
 										attr('data-value', value).
-										attr('title', Plugin.getOption('detail.title')).
+										attr('title', Plugin.getOption('detail.blade.php.title')).
 										on('click', toggleSubTable).
 										append($('<i/>').css('width', $(td).data('width')).addClass(Plugin.getOption('layout.icons.rowDetail.collapse'))));
 							}
@@ -7112,13 +7112,13 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 					var row = $(this).closest('.' + pfx + 'datatable__row');
 					var detailRow = $(row).next();
 
-					if (!$(detailRow).hasClass(pfx + 'datatable__row-detail')) {
+					if (!$(detailRow).hasClass(pfx + 'datatable__row-detail.blade.php')) {
 						$(this).find('i').removeClass(Plugin.getOption('layout.icons.rowDetail.collapse')).addClass(Plugin.getOption('layout.icons.rowDetail.expand'));
 
 						var hiddenCells = $(row).find('.' + pfx + 'datatable__cell:hidden');
 						var clonedCells = hiddenCells.clone().show();
 
-						detailRow = $('<tr/>').addClass(pfx + 'datatable__row-detail').insertAfter(row);
+						detailRow = $('<tr/>').addClass(pfx + 'datatable__row-detail.blade.php').insertAfter(row);
 						var detailRowTd = $('<td/>').addClass(pfx + 'datatable__detail').attr('colspan', Plugin.getTotalColumns()).appendTo(detailRow);
 
 						var detailSubTable = $('<table/>');
@@ -7160,30 +7160,30 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 						// toggle show hidden columns
 						$(datatable.tableBody).find('.' + pfx + 'datatable__row').each(function() {
 							// if no toggle yet
-							if($(this).find('.' + pfx + 'datatable__toggle-detail').length === 0) {
+							if($(this).find('.' + pfx + 'datatable__toggle-detail.blade.php').length === 0) {
 								// add toggle
 								$(this).prepend($('<td/>').
-										addClass(pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail').
+										addClass(pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail.blade.php').
 										append($('<a/>').
-											addClass(pfx + 'datatable__toggle-detail').
+											addClass(pfx + 'datatable__toggle-detail.blade.php').
 											attr('href', '').
 											on('click', toggleHiddenColumns).
 											append('<i class="' + Plugin.getOption('layout.icons.rowDetail.collapse') + '"></i>')));
 							}
 
 							// check if subtable toggle exist
-							if ($(datatable.tableHead).find('.' + pfx + 'datatable__toggle-detail').length === 0) {
+							if ($(datatable.tableHead).find('.' + pfx + 'datatable__toggle-detail.blade.php').length === 0) {
 								// add empty column to the header and footer
 								$(datatable.tableHead).
 									find('.' + pfx + 'datatable__row').
 									first().
-									prepend('<th class="' + pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail"><span></span></th>');
+									prepend('<th class="' + pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail.blade.php"><span></span></th>');
 								$(datatable.tableFoot).
 									find('.' + pfx + 'datatable__row').
 									first().
-									prepend('<th class="' + pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail"><span></span></th>');
+									prepend('<th class="' + pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail.blade.php"><span></span></th>');
 							} else {
-								$(datatable.tableHead).find('.' + pfx + 'datatable__toggle-detail').find('span');
+								$(datatable.tableHead).find('.' + pfx + 'datatable__toggle-detail.blade.php').find('span');
 							}
 						});
 					}
@@ -7375,7 +7375,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 			getOneRow: function(tablePart, row, tdOnly) {
 				if (typeof tdOnly === 'undefined') tdOnly = true;
 				// get list of <tr>
-				var result = $(tablePart).find('.' + pfx + 'datatable__row:not(.' + pfx + 'datatable__row-detail):nth-child(' + row + ')');
+				var result = $(tablePart).find('.' + pfx + 'datatable__row:not(.' + pfx + 'datatable__row-detail.blade.php):nth-child(' + row + ')');
 				if (tdOnly) {
 					// get list of <td> or <th>
 					result = result.find('.' + pfx + 'datatable__cell');
@@ -7787,7 +7787,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 				// row even class
 				$(datatable.tableBody).find('.' + pfx + 'datatable__row').removeClass(pfx + 'datatable__row--even');
 				if ($(datatable.wrap).hasClass(pfx + 'datatable--subtable')) {
-					$(datatable.tableBody).find('.' + pfx + 'datatable__row:not(.' + pfx + 'datatable__row-detail):even').addClass(pfx + 'datatable__row--even');
+					$(datatable.tableBody).find('.' + pfx + 'datatable__row:not(.' + pfx + 'datatable__row-detail.blade.php):even').addClass(pfx + 'datatable__row--even');
 				} else {
 					$(datatable.tableBody).find('.' + pfx + 'datatable__row:nth-child(even)').addClass(pfx + 'datatable__row--even');
 				}
@@ -8848,11 +8848,11 @@ var KTChat = function () {
 			return;
 		}
 
-		// initialize perfect scrollbar(see:  https://github.com/utatti/perfect-scrollbar) 
+		// initialize perfect scrollbar(see:  https://github.com/utatti/perfect-scrollbar)
 		KTUtil.scrollInit(messageListEl, {
 			windowScroll: false, // allow browser scroll when the scroll reaches the end of the side
 			mobileNativeScroll: true,  // enable native scroll for mobile
-			desktopNativeScroll: false, // disable native scroll and use custom scroll for desktop 
+			desktopNativeScroll: false, // disable native scroll and use custom scroll for desktop
 			resetHeightOnDestroy: true,  // reset css height on scroll feature destroyed
 			handleWindowResize: true, // recalculate hight on window resize
 			rememberPosition: true, // remember scroll position in cookie
@@ -8862,7 +8862,7 @@ var KTChat = function () {
 				// Mobile mode
 				if (KTUtil.isInResponsiveRange('tablet-and-mobile')) {
 					return KTUtil.hasAttr(messageListEl, 'data-mobile-height') ? parseInt(KTUtil.attr(messageListEl, 'data-mobile-height')) : 300;
-				} 
+				}
 
 				// Desktop mode
 				if (KTUtil.isInResponsiveRange('desktop') && KTUtil.hasAttr(messageListEl, 'data-height')) {
@@ -8873,7 +8873,7 @@ var KTChat = function () {
 				var portletHeadEl = KTUtil.find(parentEl, '.kt-portlet > .kt-portlet__head');
 				var portletBodyEl = KTUtil.find(parentEl, '.kt-portlet > .kt-portlet__body');
 				var portletFootEl = KTUtil.find(parentEl, '.kt-portlet > .kt-portlet__foot');
-				
+
 				if (KTUtil.isInResponsiveRange('desktop')) {
 					height = KTLayout.getContentHeight();
 				} else {
@@ -8902,9 +8902,9 @@ var KTChat = function () {
 
 				// remove additional space
 				height = height - 5;
-				
+
 				return height;
-			} 
+			}
 		});
 
 		// messaging
@@ -8912,23 +8912,23 @@ var KTChat = function () {
 			var scrollEl = KTUtil.find(parentEl, '.kt-scroll');
 			var messagesEl = KTUtil.find(parentEl, '.kt-chat__messages');
             var textarea = KTUtil.find(parentEl, '.kt-chat__input textarea');
-            
+
             if (textarea.value.length === 0 ) {
                 return;
             }
 
-			var node = document.createElement("DIV");  
+			var node = document.createElement("DIV");
 			KTUtil.addClass(node, 'kt-chat__message kt-chat__message--brand kt-chat__message--right');
 
-			var html = 
-				'<div class="kt-chat__user">' +				
+			var html =
+				'<div class="kt-chat__user">' +
 					'<span class="kt-chat__datetime">Just now</span>' +
-					'<a href="#" class="kt-chat__username">Jason Muller</span></a>' +					
+					'<a href="#" class="kt-chat__username">Jason Muller</span></a>' +
 					'<span class="kt-media kt-media--circle kt-media--sm">' +
-						'<img src="./assets/media/users/100_12.jpg" alt="image">'  + 
+						'<img src="./assets/media/users/100_12.jpg" alt="image">'  +
 					'</span>' +
 				'</div>' +
-				'<div class="kt-chat__text kt-bg-light-brand">' + 
+				'<div class="kt-chat__text kt-bg-light-brand">' +
 					textarea.value
 				'</div>';
 
@@ -8936,25 +8936,25 @@ var KTChat = function () {
 			messagesEl.appendChild(node);
 			textarea.value = '';
 			scrollEl.scrollTop = parseInt(KTUtil.css(messagesEl, 'height'));
-			
+
 			var ps;
 			if (ps = KTUtil.data(scrollEl).get('ps')) {
 				ps.update();
-			}					
-			
+			}
+
 			setTimeout(function() {
-				var node = document.createElement("DIV");  
+				var node = document.createElement("DIV");
 				KTUtil.addClass(node, 'kt-chat__message kt-chat__message--success');
 
-				var html = 
+				var html =
 					'<div class="kt-chat__user">' +
 						'<span class="kt-media kt-media--circle kt-media--sm">' +
-							'<img src="./assets/media/users/100_13.jpg" alt="image">'  + 
+							'<img src="./assets/media/users/100_13.jpg" alt="image">'  +
 						'</span>' +
 						'<a href="#" class="kt-chat__username">Max Born</span></a>' +
 						'<span class="kt-chat__datetime">Just now</span>' +
 					'</div>' +
-					'<div class="kt-chat__text kt-bg-light-success">' + 
+					'<div class="kt-chat__text kt-bg-light-success">' +
 					'Right before vacation season we have the next Big Deal for you. <br>Book the car of your dreams and save up to <b>25%*</b> worldwide.'
 					'</div>';
 
@@ -8962,11 +8962,11 @@ var KTChat = function () {
 				messagesEl.appendChild(node);
 				textarea.value = '';
 				scrollEl.scrollTop = parseInt(KTUtil.css(messagesEl, 'height'));
-				
+
 				var ps;
 				if (ps = KTUtil.data(scrollEl).get('ps')) {
 					ps.update();
-				}					
+				}
 			}, 2000);
 		}
 
@@ -8976,7 +8976,7 @@ var KTChat = function () {
 				handleMessaging();
 				e.preventDefault();
 
-				return false; 
+				return false;
 			}
 		});
 
@@ -8996,7 +8996,7 @@ var KTChat = function () {
 				//KTUtil.getByID('kt_app_chat_launch_btn').click();
 			}, 1000);
         },
-        
+
         setup: function(element) {
             initChat(element);
         }
@@ -9008,7 +9008,7 @@ if (typeof module !== 'undefined') {
 	module.exports = KTChat;
 }
 
-KTUtil.ready(function() {	
+KTUtil.ready(function() {
 	KTChat.init();
 });
 "use strict";
@@ -9019,29 +9019,29 @@ var KTDemoPanel = function() {
 
     var init = function() {
         offcanvas = new KTOffcanvas(demoPanel, {
-            overlay: true,  
+            overlay: true,
             baseClass: 'kt-demo-panel',
             closeBy: 'kt_demo_panel_close',
             toggleBy: 'kt_demo_panel_toggle'
-        }); 
+        });
 
         var head = KTUtil.find(demoPanel, '.kt-demo-panel__head');
         var body = KTUtil.find(demoPanel, '.kt-demo-panel__body');
 
         KTUtil.scrollInit(body, {
-            disableForMobile: true, 
-            resetHeightOnDestroy: true, 
-            handleWindowResize: true, 
+            disableForMobile: true,
+            resetHeightOnDestroy: true,
+            handleWindowResize: true,
             height: function() {
                 var height = parseInt(KTUtil.getViewPort().height);
-               
+
                 if (head) {
                     height = height - parseInt(KTUtil.actualHeight(head));
                     height = height - parseInt(KTUtil.css(head, 'marginBottom'));
                 }
-        
+
                 height = height - parseInt(KTUtil.css(demoPanel, 'paddingTop'));
-                height = height - parseInt(KTUtil.css(demoPanel, 'paddingBottom'));    
+                height = height - parseInt(KTUtil.css(demoPanel, 'paddingBottom'));
 
                 return height;
             }
@@ -9065,13 +9065,13 @@ var KTDemoPanel = function() {
                 var expires = new Date(new Date().getTime() + 15 * 60 * 1000); // expire in 15 minutes from now
                 Cookies.set('kt_demo_panel_shown', 1, { expires: expires });
                 offcanvas.show();
-            } 
+            }
         }, 4000);
     }
 
-    return {     
-        init: function() {  
-            init(); 
+    return {
+        init: function() {
+            init();
             remind();
         }
     };
@@ -9253,18 +9253,18 @@ var KTQuickPanel = function() {
 
     var initOffcanvas = function() {
         new KTOffcanvas(panel, {
-            overlay: true,  
+            overlay: true,
             baseClass: 'kt-quick-panel',
             closeBy: 'kt_quick_panel_close_btn',
             toggleBy: 'kt_quick_panel_toggler_btn'
-        });   
+        });
     }
 
     var initNotifications = function() {
         KTUtil.scrollInit(notificationPanel, {
-            mobileNativeScroll: true, 
-            resetHeightOnDestroy: true, 
-            handleWindowResize: true, 
+            mobileNativeScroll: true,
+            resetHeightOnDestroy: true,
+            handleWindowResize: true,
             height: function() {
                 return getContentHeight();
             }
@@ -9273,9 +9273,9 @@ var KTQuickPanel = function() {
 
     var initLogs = function() {
         KTUtil.scrollInit(logsPanel, {
-            mobileNativeScroll: true, 
-            resetHeightOnDestroy: true, 
-            handleWindowResize: true, 
+            mobileNativeScroll: true,
+            resetHeightOnDestroy: true,
+            handleWindowResize: true,
             height: function() {
                 return getContentHeight();
             }
@@ -9284,9 +9284,9 @@ var KTQuickPanel = function() {
 
     var initSettings = function() {
         KTUtil.scrollInit(settingsPanel, {
-            mobileNativeScroll: true, 
-            resetHeightOnDestroy: true, 
-            handleWindowResize: true, 
+            mobileNativeScroll: true,
+            resetHeightOnDestroy: true,
+            handleWindowResize: true,
             height: function() {
                 return getContentHeight();
             }
@@ -9294,16 +9294,16 @@ var KTQuickPanel = function() {
     }
 
     var updatePerfectScrollbars = function() {
-        $(panel).find('a[data-toggle="tab"]').on('shown.bs.tab', function (e) { 
+        $(panel).find('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             KTUtil.scrollUpdate(notificationPanel);
             KTUtil.scrollUpdate(logsPanel);
             KTUtil.scrollUpdate(settingsPanel);
         });
     }
 
-    return {     
-        init: function() {  
-            initOffcanvas(); 
+    return {
+        init: function() {
+            initOffcanvas();
             initNotifications();
             initLogs();
             initSettings();

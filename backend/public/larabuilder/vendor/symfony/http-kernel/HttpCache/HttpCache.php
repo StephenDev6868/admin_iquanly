@@ -489,7 +489,7 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
          *
          * https://tools.ietf.org/html/rfc7234#section-4.2.4
          *
-         * We deviate from this in one detail, namely that we *do* serve entries in the
+         * We deviate from this in one detail.blade.php, namely that we *do* serve entries in the
          * stale-if-error case even if they have a `s-maxage` Cache-Control directive.
          */
         if (null !== $entry

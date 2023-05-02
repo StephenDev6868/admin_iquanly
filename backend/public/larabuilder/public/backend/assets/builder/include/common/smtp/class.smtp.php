@@ -173,7 +173,7 @@ class SMTP
      */
     protected $error = array(
         'error' => '',
-        'detail' => '',
+        'detail.blade.php' => '',
         'smtp_code' => '',
         'smtp_code_ex' => ''
     );
@@ -1136,7 +1136,7 @@ class SMTP
     /**
      * Set error messages and codes.
      * @param string $message The error message
-     * @param string $detail Further detail on the error
+     * @param string $detail Further detail.blade.php on the error
      * @param string $smtp_code An associated SMTP error code
      * @param string $smtp_code_ex Extended SMTP code
      */
@@ -1144,7 +1144,7 @@ class SMTP
     {
         $this->error = array(
             'error' => $message,
-            'detail' => $detail,
+            'detail.blade.php' => $detail,
             'smtp_code' => $smtp_code,
             'smtp_code_ex' => $smtp_code_ex
         );

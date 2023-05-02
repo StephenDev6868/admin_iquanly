@@ -23,6 +23,9 @@ class Post extends Model
         'status',
         'avatar',
         'category_id',
+        'keyword',
+        'sub_keyword',
+        'sort_description',
     ];
 
     /**

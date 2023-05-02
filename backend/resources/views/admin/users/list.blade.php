@@ -39,7 +39,7 @@
                                     <option value="">All</option>
                                     <option value="1" {{ request()->get('role') == 1 ? 'selected' : '' }}>Admin</option>
                                     <option value="2" {{ request()->get('role') == 2 ? 'selected' : '' }}>CTV</option>
-                                    <option value="3" {{ request()->get('role') == 3 ? 'selected' : '' }}>Bán hàng</option>
+                                    <option value="3" {{ request()->get('role') == 3 ? 'selected' : '' }}>Người đăng bài</option>
                                 </select>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                                                 <td class="badge badge-warning mt-2">CTV</td>
                                                 @break
                                             @default
-                                                <td class="badge badge-secondary mt-2">Bán hàng</td>
+                                                <td class="badge badge-secondary mt-2">Người đăng bài</td>
                                                 @break
                                         @endswitch
                                         <td >{{ $user->created_at }}</td>

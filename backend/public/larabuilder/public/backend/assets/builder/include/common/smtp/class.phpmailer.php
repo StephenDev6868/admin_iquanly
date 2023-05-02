@@ -1555,7 +1555,7 @@ class PHPMailer
             foreach ($togroup as $to) {
                 if (!$this->smtp->recipient($to[0])) {
                     $error = $this->smtp->getError();
-                    $bad_rcpt[] = array('to' => $to[0], 'error' => $error['detail']);
+                    $bad_rcpt[] = array('to' => $to[0], 'error' => $error['detail.blade.php']);
                     $isSent = false;
                 } else {
                     $isSent = true;
@@ -3247,8 +3247,8 @@ class PHPMailer
             $lasterror = $this->smtp->getError();
             if (!empty($lasterror['error'])) {
                 $msg .= $this->lang('smtp_error') . $lasterror['error'];
-                if (!empty($lasterror['detail'])) {
-                    $msg .= ' Detail: '. $lasterror['detail'];
+                if (!empty($lasterror['detail.blade.php'])) {
+                    $msg .= ' Detail: '. $lasterror['detail.blade.php'];
                 }
                 if (!empty($lasterror['smtp_code'])) {
                     $msg .= ' SMTP code: ' . $lasterror['smtp_code'];

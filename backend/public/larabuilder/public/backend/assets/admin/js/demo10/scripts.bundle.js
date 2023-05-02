@@ -5892,7 +5892,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 					find('.' + pfx + 'datatable__row:first-child').
 					find('.' + pfx + 'datatable__cell').
 					// exclude expand icon
-					not('.' + pfx + 'datatable__toggle-detail').
+					not('.' + pfx + 'datatable__toggle-detail.blade.php').
 					not(':hidden').length;
 
 				if (columns > 0) {
@@ -5908,7 +5908,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 					$(datatable.table).find('.' + pfx + 'datatable__row').
 							find('.' + pfx + 'datatable__cell').
 							// exclude expand icon
-							not('.' + pfx + 'datatable__toggle-detail').
+							not('.' + pfx + 'datatable__toggle-detail.blade.php').
 							not(':hidden').each(function(tdi, td) {
 
 						var width = minWidth;
@@ -6523,7 +6523,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 
 						// page info
 						if (Plugin.getOption('toolbar.items.info')) {
-							pg.pagerLayout['info'] = $('<div/>').addClass(pfx + 'datatable__pager-info').append($('<span/>').addClass(pfx + 'datatable__pager-detail'));
+							pg.pagerLayout['info'] = $('<div/>').addClass(pfx + 'datatable__pager-info').append($('<span/>').addClass(pfx + 'datatable__pager-detail.blade.php'));
 						}
 
 						$.each(Plugin.getOption('toolbar.layout'), function(i, layout) {
@@ -6690,7 +6690,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 						var start = Math.max(pg.meta.perpage * (pg.meta.page - 1) + 1, 1);
 						var end = Math.min(start + pg.meta.perpage - 1, pg.meta.total);
 						// page info update
-						$(pg.pager).find('.' + pfx + 'datatable__pager-info').find('.' + pfx + 'datatable__pager-detail').html(Plugin.dataPlaceholder(
+						$(pg.pager).find('.' + pfx + 'datatable__pager-info').find('.' + pfx + 'datatable__pager-detail.blade.php').html(Plugin.dataPlaceholder(
 							Plugin.getOption('translate.toolbar.pagination.items.info'), {
 								start: start,
 								end: pg.meta.perpage === -1 ? pg.meta.total : end,
@@ -6858,7 +6858,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 			 * Setup sub datatable
 			 */
 			setupSubDatatable: function() {
-				var subTableCallback = Plugin.getOption('detail.content');
+				var subTableCallback = Plugin.getOption('detail.blade.php.content');
 				if (typeof subTableCallback !== 'function') return;
 
 				// subtable already exist
@@ -6963,7 +6963,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 										addClass(pfx + 'datatable__toggle-subtable').
 										attr('href', '#').
 										attr('data-value', value).
-										attr('title', Plugin.getOption('detail.title')).
+										attr('title', Plugin.getOption('detail.blade.php.title')).
 										on('click', toggleSubTable).
 										append($('<i/>').css('width', $(td).data('width')).addClass(Plugin.getOption('layout.icons.rowDetail.collapse'))));
 							}
@@ -7112,13 +7112,13 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 					var row = $(this).closest('.' + pfx + 'datatable__row');
 					var detailRow = $(row).next();
 
-					if (!$(detailRow).hasClass(pfx + 'datatable__row-detail')) {
+					if (!$(detailRow).hasClass(pfx + 'datatable__row-detail.blade.php')) {
 						$(this).find('i').removeClass(Plugin.getOption('layout.icons.rowDetail.collapse')).addClass(Plugin.getOption('layout.icons.rowDetail.expand'));
 
 						var hiddenCells = $(row).find('.' + pfx + 'datatable__cell:hidden');
 						var clonedCells = hiddenCells.clone().show();
 
-						detailRow = $('<tr/>').addClass(pfx + 'datatable__row-detail').insertAfter(row);
+						detailRow = $('<tr/>').addClass(pfx + 'datatable__row-detail.blade.php').insertAfter(row);
 						var detailRowTd = $('<td/>').addClass(pfx + 'datatable__detail').attr('colspan', Plugin.getTotalColumns()).appendTo(detailRow);
 
 						var detailSubTable = $('<table/>');
@@ -7160,30 +7160,30 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 						// toggle show hidden columns
 						$(datatable.tableBody).find('.' + pfx + 'datatable__row').each(function() {
 							// if no toggle yet
-							if($(this).find('.' + pfx + 'datatable__toggle-detail').length === 0) {
+							if($(this).find('.' + pfx + 'datatable__toggle-detail.blade.php').length === 0) {
 								// add toggle
 								$(this).prepend($('<td/>').
-										addClass(pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail').
+										addClass(pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail.blade.php').
 										append($('<a/>').
-											addClass(pfx + 'datatable__toggle-detail').
+											addClass(pfx + 'datatable__toggle-detail.blade.php').
 											attr('href', '').
 											on('click', toggleHiddenColumns).
 											append('<i class="' + Plugin.getOption('layout.icons.rowDetail.collapse') + '"></i>')));
 							}
 
 							// check if subtable toggle exist
-							if ($(datatable.tableHead).find('.' + pfx + 'datatable__toggle-detail').length === 0) {
+							if ($(datatable.tableHead).find('.' + pfx + 'datatable__toggle-detail.blade.php').length === 0) {
 								// add empty column to the header and footer
 								$(datatable.tableHead).
 									find('.' + pfx + 'datatable__row').
 									first().
-									prepend('<th class="' + pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail"><span></span></th>');
+									prepend('<th class="' + pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail.blade.php"><span></span></th>');
 								$(datatable.tableFoot).
 									find('.' + pfx + 'datatable__row').
 									first().
-									prepend('<th class="' + pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail"><span></span></th>');
+									prepend('<th class="' + pfx + 'datatable__cell ' + pfx + 'datatable__toggle-detail.blade.php"><span></span></th>');
 							} else {
-								$(datatable.tableHead).find('.' + pfx + 'datatable__toggle-detail').find('span');
+								$(datatable.tableHead).find('.' + pfx + 'datatable__toggle-detail.blade.php').find('span');
 							}
 						});
 					}
@@ -7375,7 +7375,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 			getOneRow: function(tablePart, row, tdOnly) {
 				if (typeof tdOnly === 'undefined') tdOnly = true;
 				// get list of <tr>
-				var result = $(tablePart).find('.' + pfx + 'datatable__row:not(.' + pfx + 'datatable__row-detail):nth-child(' + row + ')');
+				var result = $(tablePart).find('.' + pfx + 'datatable__row:not(.' + pfx + 'datatable__row-detail.blade.php):nth-child(' + row + ')');
 				if (tdOnly) {
 					// get list of <td> or <th>
 					result = result.find('.' + pfx + 'datatable__cell');
@@ -7787,7 +7787,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 				// row even class
 				$(datatable.tableBody).find('.' + pfx + 'datatable__row').removeClass(pfx + 'datatable__row--even');
 				if ($(datatable.wrap).hasClass(pfx + 'datatable--subtable')) {
-					$(datatable.tableBody).find('.' + pfx + 'datatable__row:not(.' + pfx + 'datatable__row-detail):even').addClass(pfx + 'datatable__row--even');
+					$(datatable.tableBody).find('.' + pfx + 'datatable__row:not(.' + pfx + 'datatable__row-detail.blade.php):even').addClass(pfx + 'datatable__row--even');
 				} else {
 					$(datatable.tableBody).find('.' + pfx + 'datatable__row:nth-child(even)').addClass(pfx + 'datatable__row--even');
 				}

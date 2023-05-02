@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --blue-sky-color: #009EE2;
+    --green-color:#61AA11;
+    --divider-color: #FF5A00;
+    --question-color: #554cbf;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+img{
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+.nav-menu li a{
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 13px 20px;
+    display: block;
+    cursor: pointer;
+}
+.nav-menu li:hover a{
+    color: var(--blue-sky-color);
+    border-bottom: 3px solid var(--blue-sky-color);
+    transition: 0.1s all;
+}
+.nav-menu li.has-child{
+    background-position: 96% 52%;
+    background-size    : auto;
+    background-repeat  : no-repeat;
+    background-image   : url(/images/down-arrow.png);
+    padding-right      : 4px;
+    position: relative;
+}
+.nav-menu li.has-child:hover > .sub-menu{
+    display: block;
+}
+.sub-menu{
+    padding-top: 5px;
+    min-width: 300px;
+    display: none;
+}
+.sub-menu ul{
+    background-color: var(--green-color);
+}
+.sub-menu ul li a{
+    cursor: pointer;
+    display: block;
+    color: white !important;
+    border: none !important;
+    text-transform: uppercase;
+}
+.sub-menu ul li:hover a{
+    background-color: #1E9600 !important;
+    color: white !important;
+    border: none !important;
+    transition: 0.5s all;
+}
+.nav-menu li.active a{
+    color: var(--blue-sky-color);
+    border-bottom: 3px solid var(--blue-sky-color);
+}
+.cate-title{
+    margin-bottom: 20px;
+    position: relative;
+}
+.cate-title h3{
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.cate-title::after{
+    content: "";
+    position: absolute;
+    width: 35%;
+    bottom: -20px;
+    border: 1px solid var(--divider-color);
+}
+.cate li{
+    list-style-type: circle;
+    color: var(--divider-color);
+    margin-left: 20px;
+}
+.cate li::marker{
+    font-size: 25px;
+}
+.cate li a{
+    color: white;
+    display: block;
+    padding: 4px 0;
+    font-weight: 500;
+}
+
+#menuToggle {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 16;
+    width: 30px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle input
+{
+    top: -10px;
+    left: -10px;
+    display: flex;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+#menuToggle span
+{
+    display: flex;
+    width: 29px;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: black;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 5px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+    opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+    transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span
+{
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -1px);
+    background: black;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu-mobile
+{
+    position: fixed;
+    min-width: 100%;
+    top: 0;
+    left:0;
+
+    background-color: var(--green-color);
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(0, -100%);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menuToggle input:checked ~ ul
+{
+    transform: none;
+    margin-top: 83px;
+}
+#menu-mobile li a{
+    display: block;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+    padding: 10px 20px;
+}
+#menu-mobile li.has-child{
+    background-position: 96% 52%;
+    background-size    : auto;
+    background-repeat  : no-repeat;
+    background-image   : url(/images/down-arrow.png);
+    padding-right      : 4px;
+    position: relative;
+}
+#menu-mobile li.has-child .sub-menu{
+    min-width: 100%;
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin-left: 35px;
+}
+#menu-mobile li.has-child .sub-menu li a{
+    font-size: 14px !important;
+}
+#menu-mobile li.has-child:hover > .sub-menu{
+    display: block;
+}
+.quest li a{
+    padding: 10px 14px;
+    border-top: 1px solid #ddd;
+    font-size: 22px;
+    color: #0c1636;
+}
+.quest li.active a{
+    border-top: 1px solid var(--question-color);
+    color: var(--question-color);
+    font-weight: 500;
+    background-color: rgba(0,0,0,.03);
+}
+.quest li:hover a{
+    border-top: 1px solid var(--question-color);
+    color: var(--question-color);
+    transition: 0.5s all;
+}
+.quest li:hover a svg{
+    fill: var(--question-color);
+    transform: rotate(-180deg);
+    transition: 0.5s all;
+}
+.quest li.active a svg{
+    fill: var(--question-color);
+    transform: rotate(-180deg);
+    transition: 0.5s all;
+}
+.quest li a svg{
+    transition: 0.5s all;
+}
+.contact li{
+    list-style-type: disc;
+    margin-left: 24px;
+}
+.contact li span{
+    font-weight: 500;
+}
+
+.contact li a{
+    background-color: unset !important;
+    border: none !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+}
+.contact li:hover a{
+    color: black !important;
+    transition: 0.5s all;
+}
+.bt-top::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 10%;
+    border: 1px solid black;
+}
+.services li a{
+    font-weight: 500;
+}
+.services li:not(:last-child) a{
+    border-bottom: 1px dashed var(--green-color);
+    padding: 4px 0;
+}
+.ser::after{
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 45%;
+    margin: 0 auto;
+    width: 10%;
+    border: 1px solid var(--divider-color);
+}
+.box{
+    background-color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 24%);
+}
+.banner{
+    background-color: #23a455;
+    background-image: url(../images/sl-6.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.banner .overlay{
+    background-color: transparent;
+    background-image: linear-gradient(180deg, #78A936 0%, #4E731B 93%);
+    opacity: 0.95;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.star-rating i {
+    display: inline-block;
+    position: relative;
+    font-style: normal;
+    cursor: default;
+}
+.star-rating i:before{
+    content: "★";
+    display: block;
+    font-size: inherit;
+    font-family: inherit;
+    position: absolute;
+    overflow: hidden;
+    color: #f0ad4e;
+    top: 0;
+    left: 0
+}
+.card{
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 7%);
+}
+.line-clamp-2{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.category-title{
+    background-image: url(../images/crm-1.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.category-title .overlay{
+    background-color: transparent;
+    background-image: linear-gradient(180deg, #61AA11 0%, #CE9900 100%);
+    opacity: 0.91;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.pagination li.active a{
+    color: black;
+    font-weight: 500;
+}
+.pagination li:hover a{
+    color: black;
+    transition: 0.5s all;
+}
+.pagination li a{
+    color: #c36;
+}
+.breadcrumb a{
+    color: var(--green-color);
+    font-weight: 500;
+}
+.breadcrumb div a{
+    color: black;
+}
+.breadcrumb span{
+    font-size: 12px;
+}
+.comments{
+    padding: 25px 25px 25px 25px;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #E9E9E9;
+    border-radius: 5px 5px 5px 5px;
+}
+@media screen and (max-width: 767px) {
+    .quest li a{
+        font-size: 19px;
+    }
+}

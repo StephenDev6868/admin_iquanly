@@ -16,7 +16,7 @@ use SebastianBergmann\Comparator\ComparisonFailure;
  * Constraint that asserts that one value is identical to another.
  *
  * Identical check is performed with PHP's === operator, the operator is
- * explained in detail at
+ * explained in detail.blade.php at
  * {@url https://php.net/manual/en/types.comparisons.php}.
  * Two values are identical if they have the same value and are of the same
  * type.
