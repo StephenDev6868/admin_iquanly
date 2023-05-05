@@ -32,8 +32,8 @@
                             <div class="col-md-12 form-group">
                                 <label>Trạng thái</label>
                                 <select id="package_type" class="spr-text-field form-control" name="status" required>
-                                    <option value="1" selected="{{ $category->status == 1 }}">Show</option>
-                                    <option value="0" selected="{{ $category->status == 0 }}" >Hide</option>
+                                    <option value="1" {{ $category->status == 1 ? 'selected' : '' }}>Show</option>
+                                    <option value="0" {{ $category->status == 0 ? 'selected' : '' }} >Hide</option>
                                 </select>
                             </div>
                             <div class="col-md-12 form-group m-b-0">

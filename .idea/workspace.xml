@@ -3,7 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/nginx/sites/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/sites/default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/SubCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/SubCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/seeders/CategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/CategorySeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/categories/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/categories/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/categories/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/main_categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/main_categories/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/posts/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/posts/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/user/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user/category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/user/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/top_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/top_header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +211,7 @@
       <workItem from="1675438012240" duration="1212000" />
       <workItem from="1676994908864" duration="118000" />
       <workItem from="1682533089993" duration="1505000" />
-      <workItem from="1682608891183" duration="36556000" />
+      <workItem from="1682608891183" duration="53661000" />
     </task>
     <servers />
   </component>

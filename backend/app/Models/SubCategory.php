@@ -14,8 +14,14 @@ class SubCategory extends Model
 
     protected $fillable = ['name', 'slug', 'category_id', 'status'];
 
-    protected function category()
+    public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'id', 'category_id');
+    }
+
 }

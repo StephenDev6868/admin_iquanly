@@ -12,25 +12,17 @@
             <ul class="nav-menu w-full lg:flex items-center justify-center lg:flex-wrap gap-y-4 hidden ">
                 @foreach($categorys as $category)
                     @if($category->hasSubCategories()->count() > 0)
-                        <li class="has-child"><a href="#">{{$category->name}}</a>
+                        <li class="has-child"><a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'parent']) }}">{{$category->name}}</a>
                             <div class="sub-menu absolute top-[50px]">
                                 <ul>
                                     @foreach($category->hasSubCategories()->get() as $item)
-                                        <li><a href="#">{{ $item->name }}</a></li>
+                                        <li><a href="{{ route('user.category.list', ['slug' => $item->slug, 'type' => 'sub']) }}">{{ $item->name }}</a></li>
                                     @endforeach
-
-{{--                                    <li><a href="#">Dịch vụ backlink</a></li>--}}
-{{--                                    <li><a href="#">Dịch vụ backlink entity [Hot]</a></li>--}}
-{{--                                    <li><a href="#">Dịch vụ chăm sóc website</a></li>--}}
-{{--                                    <li><a href="#">Dịch vụ thiết kế website</a></li>--}}
-{{--                                    <li><a href="#">Dịch vụ book báo</a></li>--}}
-{{--                                    <li><a href="#">Dịch vụ guest post</a></li>--}}
-{{--                                    <li><a href="#">Báo điện tử</a></li>--}}
                                 </ul>
                             </div>
                         </li>
                     @else
-                        <li><a href="#">{{$category->name}}</a></li>
+                        <li><a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'parent']) }}">{{$category->name}}</a></li>
                     @endif
 
 

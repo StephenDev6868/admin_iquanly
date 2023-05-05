@@ -1,4 +1,3 @@
-footer>
 <div class="w-full h-[50px]" style="transform:rotate(180deg)">
     <svg class="w-full h-[50px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"
          preserveAspectRatio="none">

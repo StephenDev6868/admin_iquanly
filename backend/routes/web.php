@@ -73,6 +73,7 @@ Route::prefix('admin')->group(function () {
                 ->name('admin.categories.edit');
             Route::put('update/{subCategory}', [\App\Http\Controllers\CategoryController::class, 'update'])
                 ->name('admin.categories.doEdit');
+            Route::delete('{subCategory}', [\App\Http\Controllers\CategoryController::class, 'destroy']);
         });
 
         Route::prefix('main-categories')->group(function () {
@@ -104,3 +105,7 @@ Route::prefix('admin')->group(function () {
 //Route::get('/{id}', [\App\Http\Controllers\LexaController::class, 'index']);
 
 Route::get('', [\App\Http\Controllers\ClientController::class, 'index']);
+Route::get('{slug}/{type}', [\App\Http\Controllers\ClientController::class, 'category'])
+    ->name('user.category.list');
+Route::get('/{slug}/detail/{post}', [\App\Http\Controllers\ClientController::class, 'detail'])
+    ->name('user.category.detail');

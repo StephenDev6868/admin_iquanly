@@ -33,6 +33,7 @@
                                 <th>STT</th>
                                 <th>Tên chuyên mục</th>
                                 <th>Thuộc chuyên mục chính</th>
+                                <th>Số lượng bài post</th>
                                 <th>Trạng Thái</th>
                                 <th>Ngày Tạo</th>
                                 <th>Ngày Cập Nhập</th>
@@ -45,6 +46,7 @@
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td>{{ optional($data)->name }}</td>
                                     <td>{{ optional($data)->category->name }}</td>
+                                    <td>{{ optional($data)->posts->count() }}</td>
                                     @switch($data->status)
                                         @case(1)
                                         <td class="badge badge-primary mt-2">Show</td>
@@ -59,9 +61,13 @@
                                         <a href="{{ route('admin.categories.edit', ['subCategory' => $data->getKey()])  }}" class="btn btn-success">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <a href="" class="btn btn-danger">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
+                                        <form method="post" action="{{ route('admin.sites.delete', $data->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger waves-effect waves-light">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

@@ -33,6 +33,7 @@
                                 <th>STT</th>
                                 <th>Người Đăng</th>
                                 <th>Tiêu Đề</th>
+                                <th>Chuyên mục</th>
                                 <th>Trạng Thái</th>
                                 <th>Ngày Tạo</th>
                                 <th>Ngày Cập Nhập</th>
@@ -45,6 +46,7 @@
                                         <th scope="row">{{ $loop->index + 1 }}</th>
                                         <td>{{ optional($post->userName())->full_name }}</td>
                                         <td>{{ $post->title }}</td>
+                                        <td>{{ $post->category->name }}</td>
                                         @switch($post->status)
                                             @case(1)
                                             <td class="badge badge-primary mt-2">Draft</td>

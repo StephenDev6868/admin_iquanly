@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -94,10 +95,18 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Category $category)
     {
-        //
+        $checkExists = Post::query()
+            ->where('category_id', $category->getKey())
+            ->exists();
+        if ($checkExists) {
+            return Redirect::route('admin.categories.list')
+                ->with('error', 'Lưu chuyên mục thất bại');
+        }
+        return Redirect::route('admin.categories.list')
+            ->with('success', 'Xoá chuyên mục thành công');
     }
 }
