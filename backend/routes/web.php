@@ -104,7 +104,7 @@ Route::prefix('admin')->group(function () {
 
 //Route::get('/{id}', [\App\Http\Controllers\LexaController::class, 'index']);
 
-Route::get('', [\App\Http\Controllers\ClientController::class, 'index']);
+Route::get('', [\App\Http\Controllers\ClientController::class, 'index'])->name('home');
 Route::get('{slug}/{type}', [\App\Http\Controllers\ClientController::class, 'category'])
     ->name('user.category.list');
 Route::get('/{slug}/detail/{post}', [\App\Http\Controllers\ClientController::class, 'detail'])

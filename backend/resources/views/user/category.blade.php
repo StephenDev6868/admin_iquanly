@@ -4,7 +4,6 @@
         <section>
             <div class="mt-[85px] category-title">
                 <div class="overlay">
-
                 </div>
                 <div class="relative z-10 px-[20px] max-w-[1390px] mx-auto py-20">
                     <h2 class="uppercase text-white text-3xl">{{ $nameCategory }}</h2>

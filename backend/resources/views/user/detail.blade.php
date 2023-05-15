@@ -7,15 +7,17 @@
                     <div class="col-span-9">
                         <div class="border-[1px] border-dashed p-4">
                             <div class="flex flex-col">
+                                {{--breadcrumb--}}
                                 <div class="breadcrumb flex items-center gap-2 flex-wrap md:flex-nowrap">
-                                    <a href="#" class="whitespace-nowrap">HapoDigital</a>
+                                    <a href="{{ route('home') }}" class="whitespace-nowrap">Trang chủ</a>
                                     <span>>></span>
-                                    <a href="#" class="whitespace-nowrap">FaceBook Marketing</a>
+                                    <a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'sub']) }}" class="whitespace-nowrap">{{ $category->name }}</a>
                                     <span>>></span>
                                     <div class="truncate ">
-                                        <a href="#">Khung giờ vàng đăng bài bán hàng trên mạng xã hội facebook</a>
+                                        <a href="{{ route('user.category.detail', ['slug' => $post->category->slug, 'post' => $post->id]) }}">{{$post->title}}</a>
                                     </div>
                                 </div>
+{{--                                {{ Breadcrumbs::render('blog') }}--}}
                                 <div class="flex items-center gap-4 py-6">
                                     <div class="flex items-center gap-1">
                                         <div class="w-[23px] h-[23px] rounded-full">

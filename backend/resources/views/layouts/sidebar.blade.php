@@ -34,12 +34,12 @@
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="{{ route('admin.sites.list') }}" class="waves-effect {{ (request()->is('sites')) || (request()->is('admin/sites/*')) ? 'active' : '' }}">
-                                    <span> Quản lý site </span>
+{{--                            <li>--}}
+{{--                                <a href="{{ route('admin.sites.list') }}" class="waves-effect {{ (request()->is('sites')) || (request()->is('admin/sites/*')) ? 'active' : '' }}">--}}
+{{--                                    <span> Quản lý site </span>--}}
 {{--                                    <i class="fas fa-sitemap"></i> <span> Quản lý site </span>--}}
-                                </a>
-                            </li>
+{{--                                </a>--}}
+{{--                            </li>--}}
 
                             <!-- -------------------------------------------------------------------------------- -->
 

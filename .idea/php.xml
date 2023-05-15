@@ -116,6 +116,7 @@
       <path value="$PROJECT_DIR$/backend/vendor/roumen/sitemap" />
       <path value="$PROJECT_DIR$/backend/vendor/laravelium/sitemap" />
       <path value="$PROJECT_DIR$/backend/vendor/jd-dotlogics/laravel-grapesjs" />
+      <path value="$PROJECT_DIR$/backend/vendor/davejamesmiller/laravel-breadcrumbs" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

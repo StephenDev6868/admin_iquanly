@@ -2,22 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/config/breadcrumbs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/breadcrumbs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/admin_site_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/admin_site_web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/SubCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/SubCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/CategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/CategorySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/categories/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/categories/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/categories/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/main_categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/main_categories/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/posts/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/posts/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/user/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user/category.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/user/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/top_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/top_header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/sites/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/sites/default.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +148,7 @@
       <path value="$PROJECT_DIR$/backend/vendor/roumen/sitemap" />
       <path value="$PROJECT_DIR$/backend/vendor/laravelium/sitemap" />
       <path value="$PROJECT_DIR$/backend/vendor/jd-dotlogics/laravel-grapesjs" />
+      <path value="$PROJECT_DIR$/backend/vendor/davejamesmiller/laravel-breadcrumbs" />
     </include_path>
   </component>
   <component name="ProjectId" id="2BmLbaX5Wdt5SabPanNYAaBbYYN" />
@@ -160,17 +159,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/abc/Documents/Freelancer-job/admin_site_web/backend/resources/views/admin/main_categories",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/abc/Documents/Freelancer-job/admin_site_web/backend/resources/views/admin/main_categories&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/main_categories" />
@@ -211,7 +210,8 @@
       <workItem from="1675438012240" duration="1212000" />
       <workItem from="1676994908864" duration="118000" />
       <workItem from="1682533089993" duration="1505000" />
-      <workItem from="1682608891183" duration="53661000" />
+      <workItem from="1682608891183" duration="55561000" />
+      <workItem from="1683689586534" duration="13837000" />
     </task>
     <servers />
   </component>
