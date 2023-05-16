@@ -99,6 +99,10 @@ Route::prefix('admin')->group(function () {
                 ->name('admin.author.doEdit');
             Route::delete('{author}', [\App\Http\Controllers\AuthorController::class, 'destroy']);
         });
+
+        Route::prefix('sitemap')->group(function () {
+            Route::get('', [\App\Http\Controllers\SitemapController::class, 'sitemap'])->name('admin.sitemap');
+        });
     });
 });
 
