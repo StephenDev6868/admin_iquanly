@@ -2,45 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/BoardController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/PermissionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/RoleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Board.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Company.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Permission.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Role.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/CompaniesSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/PermissionSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/RoleSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_05_165906_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_07_07_084903_create_products_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_07_07_093159_create_posts_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_07_07_170319_create_sites_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_07_10_165648_add_col_avatar_into_products_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_07_16_130713_add_col_avatar_into_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_05_160413_create_permissions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_07_21_135540_create_configs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_07_24_081509_add_col_js_import_into_configs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_07_25_164949_add_col_user_id_into_configs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_08_15_133033_add_col_gjs_data_into_sites_and_config_tables.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_09_18_040203_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_05_160124_create_roles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_09_18_061648_add_col_category_id_into_table_posts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_04_28_190331_create_authors_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_04_28_191511_create_sub_categorys_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_04_28_191708_create_setting_menus_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_05_155124_create_companies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_04_28_191724_create_setting_footer_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_05_155739_create_boards_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_05_01_175116_add_col_status_and_order_into_categories_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_05_02_174556_add_col_2_into_posts_tables.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_05_04_154715_change_type_cols_into_posts_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/master-without-nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/master-without-nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/topbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/topbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/nginx/sites/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/sites/default.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -240,7 +202,7 @@
       <workItem from="1683689586534" duration="13837000" />
       <workItem from="1691142317086" duration="25000" />
       <workItem from="1696519841664" duration="3318000" />
-      <workItem from="1696523551059" duration="1963000" />
+      <workItem from="1696523551059" duration="3127000" />
     </task>
     <servers />
   </component>
