@@ -33,15 +33,6 @@ Route::prefix('admin')->group(function () {
             Route::delete('/delete/{user}', [\App\Http\Controllers\UserController::class, 'destroy'])->name('admin.users.delete');
         });
 
-//        Route::prefix('product')->group(function () {
-//            Route::get('', [\App\Http\Controllers\ProductController::class, 'index'])->name('admin.products.list');
-//            Route::get('/create', [\App\Http\Controllers\ProductController::class, 'create'])->name('admin.products.create');
-//            Route::post('/create', [\App\Http\Controllers\ProductController::class, 'create'])->name('admin.products.create');
-//            Route::get('/show/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('admin.products.show');
-//            Route::put('/update/{product}', [\App\Http\Controllers\ProductController::class, 'update'])->name('admin.products.update');
-//            Route::delete('/delete/{product}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('admin.products.delete');
-//        });
-
         Route::prefix('posts')->group(function () {
             Route::get('', [\App\Http\Controllers\PostController::class, 'index'])->name('admin.posts.list');
             Route::get('/create', [\App\Http\Controllers\PostController::class, 'create'])->name('admin.posts.create');

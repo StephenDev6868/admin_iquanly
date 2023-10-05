@@ -9,36 +9,42 @@
                             <li class="menu-title">Admin</li>
                             <li>
                                 <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
-                                     <span> Quản lý user </span>
+                                     <span> Quản lý công ty </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.mainCategories.list') }}" style="font-size: 12px;" class="waves-effect {{ (request()->is('main-categories')) || (request()->is('admin/main-categories/*')) ? 'active' : '' }}">
-                                     <span> Quản lý chuyên mục chính</span>
+                                <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
+                                    <span> Quản lý phòng ban </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.categories.list') }}" class="waves-effect {{ (request()->is('category')) || (request()->is('admin/categories/*')) ? 'active' : '' }}">
-                                     <span> Quản lý chuyên mục </span>
+                                <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
+                                    <span> Quản lý nhân viên </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
+                                    <span> Quản lý chức danh </span>
                                 </a>
                             </li>
 {{--                            <li>--}}
-{{--                                <a href="{{ route('admin.products.list') }}" class="waves-effect {{ (request()->is('products')) || (request()->is('admin/product/*')) ? 'active' : '' }}">--}}
-{{--                                    <i class="fas fa-shopping-bag"></i> <span> Quản lý sản phẩm </span>--}}
+{{--                                <a href="{{ route('admin.mainCategories.list') }}" style="font-size: 12px;" class="waves-effect {{ (request()->is('main-categories')) || (request()->is('admin/main-categories/*')) ? 'active' : '' }}">--}}
+{{--                                     <span> Quản lý chuyên mục chính</span>--}}
 {{--                                </a>--}}
 {{--                            </li>--}}
-                            <li>
-                                <a href="{{ route('admin.posts.list') }}" class="waves-effect {{ (request()->is('posts')) || (request()->is('admin/posts/*')) ? 'active' : '' }}">
-                                   <span> Quản lý bài viết </span>
+{{--                            <li>--}}
+{{--                                <a href="{{ route('admin.categories.list') }}" class="waves-effect {{ (request()->is('category')) || (request()->is('admin/categories/*')) ? 'active' : '' }}">--}}
+{{--                                     <span> Quản lý chuyên mục </span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="{{ route('admin.posts.list') }}" class="waves-effect {{ (request()->is('posts')) || (request()->is('admin/posts/*')) ? 'active' : '' }}">--}}
+{{--                                   <span> Quản lý bài viết </span>--}}
 {{--                                    <i class="fas fa-comment-dots"></i> <span> Quản lý bài viết </span>--}}
-                                </a>
-                            </li>
+{{--                                </a>--}}
+{{--                            </li>--}}
 
-                            <li>
-                                <a href="{{ route('admin.sitemap') }}" class="waves-effect {{ (request()->is('sitemap')) || (request()->is('admin/sitemap/*')) ? 'active' : '' }}">
-                                    <span> Quản lý sitemap </span>
-                                </a>
-                            </li>
+
 
                             <!-- -------------------------------------------------------------------------------- -->
 

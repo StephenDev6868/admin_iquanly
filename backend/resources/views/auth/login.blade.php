@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="text-center m-0">
-                    <a href="index" class="logo logo-admin">Admin Hapo Digital</a>
+                    <a href="index" class="logo logo-admin">Admin Site</a>
                 </h3>
                 <div class="p-3">
                     <h4 class="text-muted font-18 m-b-5 text-center">Welcome Back !</h4>
@@ -32,7 +32,7 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
                             <div class="offset-8 col-6">
-                                <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
+                                <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Đăng nhập</button>
                             </div>
                         </div>
 

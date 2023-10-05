@@ -15,18 +15,23 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
-            $table->string('login_id')->unique();
-            $table->string('email')->unique()->nullable();
-            $table->date('birthday')->nullable();
+            $table->string('full_name');
+            $table->string('cccd');
+            $table->dateTime('birthday')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('login_id');
             $table->string('password');
-            $table->tinyInteger('role')->default(3);
-            $table->boolean('is_privilege')->default(false);
-            $table->string('api_token')->nullable();
+            $table->boolean('is_super_admin')->default(false);
             $table->rememberToken();
+            $table->unsignedBigInteger('role_id')->nullable();;
+            $table->unsignedBigInteger('board_id')->nullable();;
+            $table->dateTime('begin_work')->nullable();;
+            $table->string('status_work')->default(1);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('board_id')->references('id')->on('boards');
         });
     }
 

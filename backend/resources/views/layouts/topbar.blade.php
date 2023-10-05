@@ -5,7 +5,7 @@
                 <div class="topbar-left">
                     <a href="index" class="logo">
                         <span class="text-light">
-                            Admin Hapo
+                            Admin Iquanly
                         </span>
                         <i>
                             <img src="{{ URL::asset('assets/images/logo-sm.png')}}" alt="" height="22">
