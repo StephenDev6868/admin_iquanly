@@ -2,107 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/Enums/Screen.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_07_162908_add_col_email_into_users_tables.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_08_085058_config_col_status_work_into_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_08_085653_add_col_company_i_d_into_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_09_023558_add_col_stk_and_bank_and_is_rent_moto_into_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/BoardSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/CompanySeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/StaffSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/boards/add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/boards/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/boards/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/company/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/roles/add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/roles/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/roles/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/admin_site_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/admin_site_web.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_09_092209_add_col_phone_number_into_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/BoardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/BoardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/RoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/UserStaffController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Board.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Board.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2023_10_05_165906_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_05_165906_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/CompaniesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/CompaniesSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/bootstrap-session-timeout/bootstrap-session-timeout.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/bootstrap-session-timeout/bootstrap-session-timeout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/datatables/responsive.bootstrap4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/datatables/responsive.bootstrap4.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/select2/js/select2.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/select2/js/select2.full.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/select2/js/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/select2/js/select2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/summernote/summernote-bs4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/summernote/summernote-bs4.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/plugins/charmap/plugin.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/plugins/charmap/plugin.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/plugins/emoticons/plugin.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/plugins/emoticons/plugin.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/plugins/imagetools/plugin.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/plugins/imagetools/plugin.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/plugins/table/plugin.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/plugins/table/plugin.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/plugins/textcolor/plugin.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/plugins/textcolor/plugin.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/tinymce.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/plugins/tinymce/tinymce.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/app/Http/Controllers/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/app/Http/Controllers/PermissionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/app/Http/Controllers/RoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo1/pages/login/login-1.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo1/pages/login/login-1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo1/pages/login/login-general.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo1/pages/login/login-general.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo1/scripts.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo1/scripts.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo10/pages/login/login-1.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo10/pages/login/login-1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo10/pages/login/login-general.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo10/pages/login/login-general.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo10/scripts.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/js/demo10/scripts.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/custom/datatables/datatables.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/custom/datatables/datatables.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/custom/jquery-ui/jquery-ui.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/custom/jquery-ui/jquery-ui.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/custom/jstree/jstree.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/custom/jstree/jstree.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/global/vendors.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/admin/vendors/global/vendors.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/builder/js/builder.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/builder/js/builder.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/builder/js/lib/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/builder/js/lib/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/js/jquery.slicknav.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/assets/js/jquery.slicknav.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/datatables/responsive.bootstrap4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/datatables/responsive.bootstrap4.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/select2/select2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/select2/select2.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/plugins/charmap/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/plugins/charmap/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/plugins/emoticons/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/plugins/emoticons/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/plugins/imagetools/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/plugins/imagetools/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/plugins/table/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/plugins/table/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/plugins/textcolor/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/plugins/textcolor/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/themes/inlite/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/themes/inlite/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/themes/mobile/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/themes/mobile/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/themes/modern/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/themes/modern/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/tinymce.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/backend/plugins/tinymce/tinymce.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/install_asset/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/install_asset/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/install_asset/js/select2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/install_asset/js/select2.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/login_asset/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/login_asset/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/theme/default/assets/js/jquery.steps.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/theme/default/assets/js/jquery.steps.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/public/theme/default/assets/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/public/theme/default/assets/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/resources/views/backend/dashboard-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/resources/views/backend/dashboard-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/resources/views/backend/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/resources/views/backend/user/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/resources/views/backend/user/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/resources/views/backend/user/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/resources/views/backend/user/modal/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/resources/views/backend/user/modal/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/doctrine/dbal/lib/Doctrine/DBAL/Query/Expression/ExpressionBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/doctrine/dbal/lib/Doctrine/DBAL/Query/Expression/ExpressionBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/dompdf/dompdf/lib/html5lib/TreeBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/dompdf/dompdf/lib/html5lib/TreeBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/fzaninotto/faker/src/Faker/Provider/cs_CZ/Text.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/fzaninotto/faker/src/Faker/Provider/cs_CZ/Text.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/fzaninotto/faker/src/Faker/Provider/pl_PL/Text.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/fzaninotto/faker/src/Faker/Provider/pl_PL/Text.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/hamcrest/hamcrest-php/tests/Hamcrest/Xml/HasXPathTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/hamcrest/hamcrest-php/tests/Hamcrest/Xml/HasXPathTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/laravel/framework/src/Illuminate/Foundation/Inspiring.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/laravel/framework/src/Illuminate/Foundation/Inspiring.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/larabuilder/vendor/rmccue/requests/bin/create_pear_package.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/larabuilder/vendor/rmccue/requests/bin/create_pear_package.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/topbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/topbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/DOCUMENTATION/themes/hugo-material-docs/layouts/partials/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/docker/DOCUMENTATION/themes/hugo-material-docs/layouts/partials/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/redis/redis.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/redis/redis.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/UserStaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/UserStaffController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Company.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,7 +210,7 @@
       <workItem from="1696519841664" duration="3318000" />
       <workItem from="1696523551059" duration="3631000" />
       <workItem from="1696695440788" duration="7721000" />
-      <workItem from="1696708378972" duration="32863000" />
+      <workItem from="1696708378972" duration="36997000" />
     </task>
     <servers />
   </component>

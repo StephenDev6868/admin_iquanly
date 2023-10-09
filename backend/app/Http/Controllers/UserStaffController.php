@@ -136,8 +136,6 @@ class UserStaffController extends Controller
         $inputs = $request->all();
         $validator = Validator::make($inputs, [
             'login_id'         => 'required|min:8|max:255|unique:users,login_id,' . $user->getKey(),
-//            'password'         => 'required|min:8|max:255',
-//            'password_confirm' => 'required|min:8|max:255|same:password',
             'full_name'        => 'required|min:1|max:255',
             'email'            => 'required|email',
             'birthday'         => 'required',
