@@ -6,7 +6,7 @@ var KTLoginV1 = function () {
 	var login = $('#kt_login');
 
 	var showErrorMsg = function (form, type, msg) {
-		var alert = $('<div class="kt-alert kt-alert--outline alert alert-' + type + ' alert-dismissible" role="alert">\
+		var alert = $('<div class="kt-alert kt-alert--outline alert alert-' + type + ' alert-dismissible" roles="alert">\
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>\
 			<span></span>\
 		</div>');

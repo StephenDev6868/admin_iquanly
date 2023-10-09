@@ -13,13 +13,13 @@ class PermissionController extends Controller
     {
 		$permission_list = array();
 		$role_id = $role_id;
-		
+
 		if ($role_id !=''){
 		   $permission_list = AccessControl::where("role_id",$role_id)
 										   ->pluck('permission')
-										   ->toArray(); 
+										   ->toArray();
 		}
-		
+
 		$notallowed = array(
 		    '\App\Http\Controllers\Auth\LoginController',
 		    'App\Http\Controllers\Auth\LoginController',
@@ -30,7 +30,7 @@ class PermissionController extends Controller
 			'App\Http\Controllers\DashboardController',
 			'App\Http\Controllers\EmailSubscriberController',
 			'App\Http\Controllers\ProfileController',
-			'App\Http\Controllers\UserController',
+            'App\Http\Controllers\UserStaffController',
 			'App\Http\Controllers\LanguageController',
 			'App\Http\Controllers\UtilityController',
 			'App\Http\Controllers\StaffController',
@@ -46,16 +46,16 @@ class PermissionController extends Controller
 			'App\Http\Controllers\PermissionController',
 			'App\Http\Controllers\API\UserController',
 			'App\Http\Controllers\Install\InstallController',
-			'App\Http\Controllers\Install\UpdateController',	
+			'App\Http\Controllers\Install\UpdateController',
 		);
-		
+
 		//Get Subscribed Package Details
 		if( has_membership_system() == 'enabled' ){
 		    $company = Auth::user()->company;
 			$package_fields = array(
-				'contacts_limit'             => 'App\Http\Controllers\ContactController', 
+				'contacts_limit'             => 'App\Http\Controllers\ContactController',
 				'invoice_limit'              => 'App\Http\Controllers\InvoiceController',
-				'quotation_limit'            => 'App\Http\Controllers\QuotationController', 
+				'quotation_limit'            => 'App\Http\Controllers\QuotationController',
 				'project_management_module'  => array(
 													'App\Http\Controllers\ProjectController',
 													'App\Http\Controllers\LeadController',
@@ -70,14 +70,14 @@ class PermissionController extends Controller
 													'App\Http\Controllers\RepeatingExpenseController',
 													'App\Http\Controllers\RepeatingIncomeController',
 												),
-				'file_manager'               => 'App\Http\Controllers\FileManagerController', 
+				'file_manager'               => 'App\Http\Controllers\FileManagerController',
 				'inventory_module'           => array(
-													'App\Http\Controllers\PurchaseController', 
-													'App\Http\Controllers\SalesReturnController', 
-													'App\Http\Controllers\SalesReturnController', 
-				                                ), 
+													'App\Http\Controllers\PurchaseController',
+													'App\Http\Controllers\SalesReturnController',
+													'App\Http\Controllers\SalesReturnController',
+				                                ),
 			);
-		    
+
 			foreach($package_fields as $key => $value){
 				if($company->$key == 'No'){
 					if( ! is_array($value) ){
@@ -89,27 +89,27 @@ class PermissionController extends Controller
 					}
 				}
 			}
-		}		
-		
+		}
+
 		$ignoreRoute = array(
 		    //'events.show',
 			//'notices.show',
 		);
-		
+
 		$app = app();
 
 		$routeCollection = $app->routes->getRoutes();
-		
+
 		$routes = [];
-	
-		
+
+
 		// loop through the collection of routes
 		foreach ($routeCollection as $route) {
 
 			// get the action which is an array of items
 			$action = $route->getAction();
 
-			// if the action has the key 'controller' 
+			// if the action has the key 'controller'
 			if (array_key_exists('controller', $action)) {
 
 				// explode the string with @ creating an array with a count of 2
@@ -119,40 +119,40 @@ class PermissionController extends Controller
 				if(in_array($explodedAction[0],$notallowed)){
 					continue;
 				}
-				
+
 				if (!isset($routes[$explodedAction[0]])) {
 					$routes[$explodedAction[0]] = [];
 				}
-				
+
 				$test = new $explodedAction[0]();
 				if(method_exists($test ,$explodedAction[1])){
 				    $routes[$explodedAction[0]][] = array("method"=>$explodedAction[1],"action"=>$route->action);
-				}	
+				}
 			}
 		}
 
 		$permission = array();
-		
+
 		foreach($routes as $key => $route){
 			foreach($route as $r){
 				if (strpos($r['method'], 'get') === 0) {
 				   continue;
-				}	
+				}
 
                 if(array_key_exists('as',$r['action'])){
 					$routeName = $r['action']['as'];
                     //If not needed so ignore
 					if(in_array($routeName, $ignoreRoute)){
 						continue;
-					}					
+					}
 			    	$permission[$key][$routeName] = $r['method'];
 				}
 
 			}
 		}
-		
-	
-		
+
+
+
 		foreach($permission as $key => $val){
 			foreach($val as $name => $url){
 				if($url == "store" && in_array("create", $val)){
@@ -165,28 +165,28 @@ class PermissionController extends Controller
 		}
 
 		return view('backend.permission.create',compact('permission','permission_list','role_id'));
-		
+
     }
-	
+
 	public function store(Request $request){
 		$this->validate($request, [
             'role_id'     => 'required',
             'permissions' => 'required'
         ]);
-		
+
 		$permission = AccessControl::where('role_id', $request->role_id);
         $permission->delete();
-		
+
 		foreach($request->permissions as $role){
 			$permission = new AccessControl();
 			$permission->role_id = $request->role_id;
 			$permission->permission = $role;
 			$permission->save();
 		}
-		
+
 		return redirect('permission/control')->with('success', _lang('Saved Sucessfully'));
-		
+
 	}
-	
-   
+
+
 }

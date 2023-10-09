@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Permission;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,16 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        DB::table('categories')->truncate();
-//        DB::table('sub_categorys')->truncate();
-//        DB::table('users')->truncate();
-//        DB::table('posts')->truncate();
         $this->call([
+            CompaniesSeeder::class,
+            BoardSeeder::class,
             PermissionSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            StaffSeeder::class,
         ]);
-        // \App\Models\User::factory(10)->create();
-
     }
 }

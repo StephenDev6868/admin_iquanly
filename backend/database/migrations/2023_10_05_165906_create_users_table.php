@@ -15,12 +15,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
-            $table->string('cccd');
+            $table->string('full_name')->nullable();
+            $table->string('cccd')->nullable();
             $table->dateTime('birthday')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('login_id');
-            $table->string('password');
+            $table->string('login_id')->nullable();
+            $table->string('password')->nullable();
             $table->boolean('is_super_admin')->default(false);
             $table->rememberToken();
             $table->unsignedBigInteger('role_id')->nullable();;

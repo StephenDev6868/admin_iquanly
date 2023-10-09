@@ -17,11 +17,14 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'full_name' => 'manager one',
-            'login_id'  => 'manager_one',
-            'password'  => Hash::make('123123123'),
-            'cccd'      => '00000000000',
-            'role_id'      => '1',
+            'full_name'     => 'manager one',
+            'login_id'      => 'manager_one',
+            'password'      => Hash::make('123123123'),
+            'cccd'          => '00000000000',
+            'role_id'       => '1',
+            'title_level'   => 'Tổng quản lý',
+            'created_at'    => now(),
+            'updated_at'    => now(),
         ]);
     }
 }

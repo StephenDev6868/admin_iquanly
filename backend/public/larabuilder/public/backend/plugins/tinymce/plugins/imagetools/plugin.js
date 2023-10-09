@@ -1922,7 +1922,7 @@ var imagetools = (function () {
       default:
         return ir;
       }
-      
+
     };
     var notJpeg = function () {
       return ir;
@@ -2213,12 +2213,12 @@ var imagetools = (function () {
           }
         });
       }
-      global$8('<div id="' + id + '" class="' + prefix + 'croprect-container"' + ' role="grid" aria-dropeffect="execute">').appendTo(containerElm);
+      global$8('<div id="' + id + '" class="' + prefix + 'croprect-container"' + ' roles="grid" aria-dropeffect="execute">').appendTo(containerElm);
       global$1.each(blockers, function (blocker) {
         global$8('#' + id, containerElm).append('<div id="' + id + '-' + blocker + '"class="' + prefix + 'croprect-block" style="display: none" data-mce-bogus="all">');
       });
       global$1.each(handles, function (handle) {
-        global$8('#' + id, containerElm).append('<div id="' + id + '-' + handle.name + '" class="' + prefix + 'croprect-handle ' + prefix + 'croprect-handle-' + handle.name + '"' + 'style="display: none" data-mce-bogus="all" role="gridcell" tabindex="-1"' + ' aria-label="' + handle.label + '" aria-grabbed="false">');
+        global$8('#' + id, containerElm).append('<div id="' + id + '-' + handle.name + '" class="' + prefix + 'croprect-handle ' + prefix + 'croprect-handle-' + handle.name + '"' + 'style="display: none" data-mce-bogus="all" roles="gridcell" tabindex="-1"' + ' aria-label="' + handle.label + '" aria-grabbed="false">');
       });
       dragHelpers = global$1.map(handles, createDragHelper);
       repaint(currentRect);

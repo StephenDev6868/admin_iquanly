@@ -11,7 +11,7 @@ class Inspiring
      *
      * Taylor & Dayle made this commit from Jungfraujoch. (11,333 ft.)
      *
-     * May McGinnis always control the board. #LaraconUS2015
+     * May McGinnis always control the boards. #LaraconUS2015
      *
      * RIP Charlie - Feb 6, 2018
      *

@@ -23,7 +23,7 @@ class UserFactory extends Factory
             'password' => Hash::make('123123123'),
             'birthday' => now(),
             'login_id' => 'aneed@gmail.com',
-            'role'     => rand(1,3),
+            'roles'     => rand(1,3),
             'is_privilege' => false,
             'remember_token' => Str::random(10),
         ];

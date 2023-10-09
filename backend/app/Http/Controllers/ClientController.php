@@ -13,10 +13,10 @@ class ClientController extends Controller
 {
     public function index()
     {
-        $categorys = Category::query()
-            ->where('status', 1)
-            ->get();
-        return view('user.index', compact('categorys'));
+//        $categorys = Category::query()
+//            ->where('status', 1)
+//            ->get();
+        return view('index');
     }
 
     public function category(string $slug, string $type)

@@ -123,6 +123,9 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/laravelium/sitemap" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/jd-dotlogics/laravel-grapesjs" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/davejamesmiller/laravel-breadcrumbs" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/hanneskod/classtools" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/bensampo/laravel-enum" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/laminas/laminas-code" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -8,7 +8,7 @@ use Validator;
 
 class RoleController extends Controller
 {
-	
+
 	/**
      * Create a new controller instance.
      *
@@ -18,7 +18,7 @@ class RoleController extends Controller
     {
         date_default_timezone_set(get_option('timezone','Asia/Dhaka'));
     }
-	
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +29,7 @@ class RoleController extends Controller
         $roles = Role::Where("company_id",company_id())
                      ->orderBy("id","desc")
                      ->get();
-        return view('backend.accounting.staff.role.list',compact('roles'));
+        return view('backend.accounting.staff.roles.list',compact('roles'));
     }
 
     /**
@@ -40,9 +40,9 @@ class RoleController extends Controller
     public function create(Request $request)
     {
         if( ! $request->ajax()){
-           return view('backend.accounting.staff.role.create');
+           return view('backend.accounting.staff.roles.create');
         }else{
-           return view('backend.accounting.staff.role.modal.create');
+           return view('backend.accounting.staff.roles.modal.create');
         }
     }
 
@@ -53,22 +53,22 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {	
+    {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50',
 			'description' => '',
         ]);
 
         if ($validator->fails()) {
-            if($request->ajax()){ 
+            if($request->ajax()){
                 return response()->json(['result'=>'error','message'=>$validator->errors()->all()]);
             }else{
                 return redirect()->route('roles.create')
                 	             ->withErrors($validator)
                 	             ->withInput();
-            }			
+            }
         }
-	
+
 
         $role = new Role();
         $role->name = $request->input('name');
@@ -82,9 +82,9 @@ class RoleController extends Controller
         }else{
            return response()->json(['result'=>'success','action'=>'store','message'=>_lang('Saved Successfully'),'data'=>$role, 'table' => '#roles_table']);
         }
-        
+
    }
-	
+
 
     /**
      * Display the specified resource.
@@ -96,11 +96,11 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         if(! $request->ajax()){
-            return view('backend.accounting.staff.role.view',compact('role','id'));
+            return view('backend.accounting.staff.roles.view',compact('role','id'));
         }else{
-            return view('backend.accounting.staff.role.modal.view',compact('role','id'));
-        } 
-        
+            return view('backend.accounting.staff.roles.modal.view',compact('role','id'));
+        }
+
     }
 
     /**
@@ -113,11 +113,11 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         if(! $request->ajax()){
-            return view('backend.accounting.staff.role.edit',compact('role','id'));
+            return view('backend.accounting.staff.roles.edit',compact('role','id'));
         }else{
-            return view('backend.accounting.staff.role.modal.edit',compact('role','id'));
-        }  
-        
+            return view('backend.accounting.staff.roles.modal.edit',compact('role','id'));
+        }
+
     }
 
     /**
@@ -135,29 +135,29 @@ class RoleController extends Controller
 		]);
 
 		if ($validator->fails()) {
-			if($request->ajax()){ 
+			if($request->ajax()){
 				return response()->json(['result'=>'error','message'=>$validator->errors()->all()]);
 			}else{
 				return redirect()->route('roles.edit', $id)
 							->withErrors($validator)
 							->withInput();
-			}			
+			}
 		}
-	 	
-		
+
+
         $role = Role::find($id);
 		$role->name = $request->input('name');
 		$role->description = $request->input('description');
         $role->company_id = company_id();
-	
+
         $role->save();
-		
+
 		if(! $request->ajax()){
            return redirect()->route('roles.index')->with('success', _lang('Updated Successfully'));
         }else{
 		   return response()->json(['result'=>'success','action'=>'update', 'message'=>_lang('Updated Successfully'),'data'=>$role, 'table' => '#roles_table']);
 		}
-	    
+
     }
 
     /**

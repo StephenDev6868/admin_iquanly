@@ -38,7 +38,7 @@ foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), Re
 	if (preg_match('/\.php$/', $file)) 	{
 		$name = str_replace($path . DIRECTORY_SEPARATOR, '', $file);
 		$name = str_replace(DIRECTORY_SEPARATOR, '/', $name);
-		$context['files'][] = "\t\t\t\t\t" . '<file install-as="Requests/' . $name . '" name="' . $name . '" role="php" />';
+		$context['files'][] = "\t\t\t\t\t" . '<file install-as="Requests/' . $name . '" name="' . $name . '" roles="php" />';
 	}
 }
 

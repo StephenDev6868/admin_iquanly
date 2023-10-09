@@ -56,7 +56,7 @@ return array(
     'App\\Http\\Controllers\\ServiceController' => $baseDir . '/app/Http/Controllers/ServiceController.php',
     'App\\Http\\Controllers\\StaffController' => $baseDir . '/app/Http/Controllers/StaffController.php',
     'App\\Http\\Controllers\\TaxController' => $baseDir . '/app/Http/Controllers/TaxController.php',
-    'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
+    'App\\Http\\Controllers\\UserStaffController' => $baseDir . '/app/Http/Controllers/UserStaffController.php',
     'App\\Http\\Controllers\\UtilityController' => $baseDir . '/app/Http/Controllers/UtilityController.php',
     'App\\Http\\Controllers\\WebsiteController' => $baseDir . '/app/Http/Controllers/WebsiteController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

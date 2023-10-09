@@ -67,7 +67,7 @@
    <div class="col-lg-12">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="header-title mt-0 mb-3">{{ _lang('New Registered Users') }}</h4>                                    
+				<h4 class="header-title mt-0 mb-3">{{ _lang('New Registered Users') }}</h4>
 				<div class="table-responsive browser_users">
 					<table class="table table-bordered mb-0">
 						<thead class="thead-light">
@@ -86,19 +86,19 @@
 									<tr id="row_{{ $user->id }}">
 										<td class='name'>
 										<div class="media">
-											<img src="{{ $user->profile_picture != "" ? asset('public/uploads/profile/'.$user->profile_picture) : asset('public/images/avatar.png') }}" alt="avatar" class="thumb-sm rounded-circle mr-2">                                       
+											<img src="{{ $user->profile_picture != "" ? asset('public/uploads/profile/'.$user->profile_picture) : asset('public/images/avatar.png') }}" alt="avatar" class="thumb-sm rounded-circle mr-2">
 											<div class="media-body align-self-center text-truncate">
 												<h6 class="mt-0 text-dark">{{ _lang('USER ID') }} - #{{ $user->id }}</h6>
 												<p class="text-muted mb-0">{{ $user->name }}</p>
 											</div><!--end media-body-->
 										</div>
 										</td>
-										<td class='company'>{{ $user->company->business_name }}</td>			
-										<td class='email'>{{ $user->email }}</td>			
-										<td class='package_id'>{{ $user->company->package->package_name }}({{ ucwords($user->company->package_type) }})</td>						
-										<td class='membership_type text-center'>{!! $user->company->membership_type == 'trial' ? clean(status(ucwords($user->company->membership_type), 'danger')) : clean(status(ucwords($user->company->membership_type), 'success')) !!}</td>		
+										<td class='company'>{{ $user->company->business_name }}</td>
+										<td class='email'>{{ $user->email }}</td>
+										<td class='package_id'>{{ $user->company->package->package_name }}({{ ucwords($user->company->package_type) }})</td>
+										<td class='membership_type text-center'>{!! $user->company->membership_type == 'trial' ? clean(status(ucwords($user->company->membership_type), 'danger')) : clean(status(ucwords($user->company->membership_type), 'success')) !!}</td>
 										<td class="text-center">
-										<a href="{{ action('UserController@show', $user['id'])}}" data-title="{{ $user->name }}" class="btn btn-primary btn-xs ajax-modal">{{ _lang('View') }}</a>
+										<a href="{{ action('UserStaffController@show', $user['id'])}}" data-title="{{ $user->name }}" class="btn btn-primary btn-xs ajax-modal">{{ _lang('View') }}</a>
 										</td>
 									</tr>
 								@endforeach
@@ -108,7 +108,7 @@
 								</tr>
 							@endif
 						</tbody>
-					</table> <!--end table-->                                               
+					</table> <!--end table-->
 				</div><!--end /div-->
 			</div><!--end card-body-->
 		</div><!--end card-->
@@ -122,7 +122,7 @@
    <div class="col-lg-12">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="header-title mt-0 mb-3">{{ _lang('Recent Payments') }}</h4>                                    
+				<h4 class="header-title mt-0 mb-3">{{ _lang('Recent Payments') }}</h4>
 				<div class="table-responsive browser_users">
 					<table class="table table-bordered mb-0">
 						<thead class="thead-light">
@@ -145,8 +145,8 @@
 										<td>{{ date("$date_format $time_format",strtotime($history->created_at)) }}</td>
 										<td>{{ $history->company->business_name }}</td>
 										<td>{{ $history->title }}({{ ucwords($history->package_type) }})</td>
-										<td>{{ $history->method }}</td>					
-										<td class="text-right"><b>{{ $history->currency.' '.$history->amount }}</b></td>			
+										<td>{{ $history->method }}</td>
+										<td class="text-right"><b>{{ $history->currency.' '.$history->amount }}</b></td>
 									</tr>
 								@endforeach
 							@else
@@ -155,7 +155,7 @@
 								</tr>
 							@endif
 						</tbody>
-					</table> <!--end table-->                                               
+					</table> <!--end table-->
 				</div><!--end /div-->
 			</div><!--end card-body-->
 		</div><!--end card-->

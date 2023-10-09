@@ -777,9 +777,9 @@ S2.define('select2/utils',[
 
   var id = 0;
   Utils.GetUniqueElementId = function (element) {
-    // Get a unique element Id. If element has no id, 
-    // creates a new unique number, stores it in the id 
-    // attribute and returns the new id. 
+    // Get a unique element Id. If element has no id,
+    // creates a new unique number, stores it in the id
+    // attribute and returns the new id.
     // If an id already exists, it simply returns it.
 
     var select2Id = element.getAttribute('data-select2-id');
@@ -798,7 +798,7 @@ S2.define('select2/utils',[
 
   Utils.StoreData = function (element, name, value) {
     // Stores an item in the cache for a specified element.
-    // name is the cache key.    
+    // name is the cache key.
     var id = Utils.GetUniqueElementId(element);
     if (!Utils.__cache[id]) {
       Utils.__cache[id] = {};
@@ -809,19 +809,19 @@ S2.define('select2/utils',[
 
   Utils.GetData = function (element, name) {
     // Retrieves a value from the cache by its key (name)
-    // name is optional. If no name specified, return 
+    // name is optional. If no name specified, return
     // all cache items for the specified element.
     // and for a specified element.
     var id = Utils.GetUniqueElementId(element);
     if (name) {
       if (Utils.__cache[id]) {
-        return Utils.__cache[id][name] != null ? 
+        return Utils.__cache[id][name] != null ?
 	      Utils.__cache[id][name]:
 	      $(element).data(name); // Fallback to HTML5 data attribs.
       }
       return $(element).data(name); // Fallback to HTML5 data attribs.
     } else {
-      return Utils.__cache[id];			   
+      return Utils.__cache[id];
     }
   };
 
@@ -852,7 +852,7 @@ S2.define('select2/results',[
 
   Results.prototype.render = function () {
     var $results = $(
-      '<ul class="select2-results__options" role="tree"></ul>'
+      '<ul class="select2-results__options" roles="tree"></ul>'
     );
 
     if (this.options.get('multiple')) {
@@ -875,7 +875,7 @@ S2.define('select2/results',[
     this.hideLoading();
 
     var $message = $(
-      '<li role="treeitem" aria-live="assertive"' +
+      '<li roles="treeitem" aria-live="assertive"' +
       ' class="select2-results__option"></li>'
     );
 
@@ -1403,7 +1403,7 @@ S2.define('select2/selection/base',[
 
   BaseSelection.prototype.render = function () {
     var $selection = $(
-      '<span class="select2-selection" role="combobox" ' +
+      '<span class="select2-selection" roles="combobox" ' +
       ' aria-haspopup="true" aria-expanded="false">' +
       '</span>'
     );
@@ -1568,8 +1568,8 @@ S2.define('select2/selection/single',[
 
     $selection.html(
       '<span class="select2-selection__rendered"></span>' +
-      '<span class="select2-selection__arrow" role="presentation">' +
-        '<b role="presentation"></b>' +
+      '<span class="select2-selection__arrow" roles="presentation">' +
+        '<b roles="presentation"></b>' +
       '</span>'
     );
 
@@ -1722,7 +1722,7 @@ S2.define('select2/selection/multiple',[
   MultipleSelection.prototype.selectionContainer = function () {
     var $container = $(
       '<li class="select2-selection__choice">' +
-        '<span class="select2-selection__choice__remove" role="presentation">' +
+        '<span class="select2-selection__choice__remove" roles="presentation">' +
           '&times;' +
         '</span>' +
       '</li>'
@@ -1938,7 +1938,7 @@ S2.define('select2/selection/search',[
       '<li class="select2-search select2-search--inline">' +
         '<input class="select2-search__field" type="search" tabindex="-1"' +
         ' autocomplete="off" autocorrect="off" autocapitalize="none"' +
-        ' spellcheck="false" role="textbox" aria-autocomplete="list" />' +
+        ' spellcheck="false" roles="textbox" aria-autocomplete="list" />' +
       '</li>'
     );
 
@@ -4002,7 +4002,7 @@ S2.define('select2/dropdown/search',[
       '<span class="select2-search select2-search--dropdown">' +
         '<input class="select2-search__field" type="search" tabindex="-1"' +
         ' autocomplete="off" autocorrect="off" autocapitalize="none"' +
-        ' spellcheck="false" role="textbox" />' +
+        ' spellcheck="false" roles="textbox" />' +
       '</span>'
     );
 
@@ -4212,7 +4212,7 @@ S2.define('select2/dropdown/infiniteScroll',[
     var $option = $(
       '<li ' +
       'class="select2-results__option select2-results__option--load-more"' +
-      'role="treeitem" aria-disabled="true"></li>'
+      'roles="treeitem" aria-disabled="true"></li>'
     );
 
     var message = this.options.get('translations').get('loadingMore');
@@ -5098,7 +5098,7 @@ S2.define('select2/options',[
 
       $e.attr('ajax--url', Utils.GetData($e[0], 'ajaxUrl'));
       Utils.StoreData($e[0], 'ajax-Url', Utils.GetData($e[0], 'ajaxUrl'));
-	  
+
     }
 
     var dataset = {};

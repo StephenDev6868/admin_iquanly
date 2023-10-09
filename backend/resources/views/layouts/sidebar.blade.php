@@ -8,12 +8,12 @@
                         <ul class="metismenu" id="side-menu">
                             <li class="menu-title">Admin</li>
                             <li>
-                                <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
+                                <a href="{{ route('admin.companies.list') }}" class="waves-effect {{ (request()->is('companies')) || (request()->is('admin/companies/*')) ? 'active' : '' }}">
                                      <span> Quản lý công ty </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
+                                <a href="{{ route('admin.boards.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/boards/*')) ? 'active' : '' }}">
                                     <span> Quản lý phòng ban </span>
                                 </a>
                             </li>
@@ -23,8 +23,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
-                                    <span> Quản lý chức danh </span>
+                                <a href="{{ route('admin.roles.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/roles/*')) ? 'active' : '' }}">
+                                    <span> Quản lý nhóm phân quyền </span>
                                 </a>
                             </li>
 {{--                            <li>--}}

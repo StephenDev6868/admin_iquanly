@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Board;
+use App\Models\Company;
+use App\Models\Role;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
-class UserController extends Controller
+class UserStaffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +23,7 @@ class UserController extends Controller
     {
         $params = $request->only([
             'key_word',
-            'role'
+            'roles'
         ]);
 
         $users = User::query()
@@ -28,18 +32,18 @@ class UserController extends Controller
 
         if (!empty($params['key_word'])) {
             $users = $users->where(function ($query) use ($params) {
-                $query->where('first_name', 'like', '%' . $params['key_word'] . '%');
-                $query->orWhere('last_name', 'like', '%' . $params['key_word'] . '%');
+                $query->where('full_name', 'like', '%' . $params['key_word'] . '%');
+                $query->orWhere('phone_number', 'like', '%' . $params['key_word'] . '%');
+                $query->orWhere('cccd', 'like', '%' . $params['key_word'] . '%');
                 $query->orWhere('email', 'like', '%' . $params['key_word'] . '%');
             });
         }
 
-        if (!empty($params['role'])) {
-            $users = $users->where('role', $params['role']);
-        }
-
+//        if (!empty($params['roles'])) {
+//            $users = $users->where('roles', $params['roles']);
+//        }
         $users = $users->paginate(10);
-
+        //  dd($users);
         return view('admin.users.list', compact('users'));
     }
 
@@ -50,7 +54,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.add');
+        $roles = Role::all();
+        $companies = Company::all();
+        $boards = Board::all();
+        return view('admin.users.add', compact('roles', 'companies', 'boards'));
     }
 
     /**
@@ -66,12 +73,15 @@ class UserController extends Controller
             'login_id'         => 'required|min:8|max:255|unique:users,login_id',
             'password'         => 'required|min:8|max:255',
             'password_confirm' => 'required|min:8|max:255|same:password',
-            'first_name'       => 'required|min:1|max:255',
-            'last_name'        => 'required|min:1|max:255',
-            'email'            => 'required|email',
+            'full_name'        => 'required|min:1|max:255',
+            'email'            => 'required|email|unique:users,email',
             'birthday'         => 'required|date_format:m/d/Y',
-            'role'             => 'required|numeric',
-            'is_privilege'     => 'required',
+            'begin_work'       => 'required|date_format:m/d/Y',
+            'role_id'          => 'required|numeric',
+            'board_id'         => 'required',
+            'company_id'       => 'required',
+            'phone_number'     => 'required|unique:users,phone_number',
+            'cccd'             => 'required|unique:users,cccd',
         ]);
         if ($validator->fails()) {
             return Redirect::back()
@@ -84,7 +94,7 @@ class UserController extends Controller
 
         if ($result) {
             return Redirect::route('admin.users.list')
-                ->with('success', 'Tạo user thành công');;
+                ->with('success', 'Tạo nhân viên thành công');;
         }
     }
 
@@ -97,7 +107,10 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('admin.users.edit', compact('user'));
+        $roles = Role::all();
+        $companies = Company::all();
+        $boards = Board::all();
+        return view('admin.users.edit', compact('user', 'roles', 'companies', 'boards'));
     }
 
     /**
@@ -114,31 +127,38 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param User $user
      * @param  \Illuminate\Http\Request  $request
+     * @param User $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(User $user ,Request $request)
+    public function update(Request $request, User $user)
     {
         $inputs = $request->all();
         $validator = Validator::make($inputs, [
             'login_id'         => 'required|min:8|max:255|unique:users,login_id,' . $user->getKey(),
-            'first_name'       => 'required|min:1|max:255',
-            'last_name'        => 'required|min:1|max:255',
+//            'password'         => 'required|min:8|max:255',
+//            'password_confirm' => 'required|min:8|max:255|same:password',
+            'full_name'        => 'required|min:1|max:255',
             'email'            => 'required|email',
-            'birthday'         => 'required|date_format:m/d/Y',
-            'role'             => 'required|numeric',
-            'is_privilege'     => 'required',
+            'birthday'         => 'required',
+            'begin_work'       => 'required',
+            'role_id'          => 'required|numeric',
+            'board_id'         => 'required',
+            'company_id'       => 'required',
+            'phone_number'     => 'required|unique:users,phone_number,' . $user->getKey(),
+            'cccd'             => 'required|unique:users,cccd,' . $user->getKey(),
         ]);
         if ($validator->fails()) {
             return Redirect::back()
                 ->withInput()
                 ->with('error', $validator->errors()->first());
         }
+        $inputs['begin_work'] = Carbon::parse($inputs['begin_work'])->format('Y-m-d');
         $result = $user->update($inputs);
-
-        return Redirect::route('admin.users.list')
-            ->with('success', 'Cập nhập thông tin user thành công');
+        if ($result) {
+            return Redirect::route('admin.users.list')
+                ->with('success', 'Cập nhập thông tin nhân viên thành công');
+        }
     }
 
     /**

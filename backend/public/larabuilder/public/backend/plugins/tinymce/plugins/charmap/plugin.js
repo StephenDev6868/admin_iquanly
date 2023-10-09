@@ -1129,7 +1129,7 @@ var charmap = (function () {
     var gridHtml, x, y;
     var width = Math.min(charmap.length, 25);
     var height = Math.ceil(charmap.length / width);
-    gridHtml = '<table role="presentation" cellspacing="0" class="mce-charmap"><tbody>';
+    gridHtml = '<table roles="presentation" cellspacing="0" class="mce-charmap"><tbody>';
     for (y = 0; y < height; y++) {
       gridHtml += '<tr>';
       for (x = 0; x < width; x++) {
@@ -1138,7 +1138,7 @@ var charmap = (function () {
           var chr = charmap[index];
           var charCode = parseInt(chr[0], 10);
           var chrText = chr ? String.fromCharCode(charCode) : '&nbsp;';
-          gridHtml += '<td title="' + chr[1] + '">' + '<div tabindex="-1" title="' + chr[1] + '" role="button" data-chr="' + charCode + '">' + chrText + '</div>' + '</td>';
+          gridHtml += '<td title="' + chr[1] + '">' + '<div tabindex="-1" title="' + chr[1] + '" roles="button" data-chr="' + charCode + '">' + chrText + '</div>' + '</td>';
         } else {
           gridHtml += '<td />';
         }

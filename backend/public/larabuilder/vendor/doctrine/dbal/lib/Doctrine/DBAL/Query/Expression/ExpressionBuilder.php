@@ -44,8 +44,8 @@ class ExpressionBuilder
      * Example:
      *
      *     [php]
-     *     // (u.type = ?) AND (u.role = ?)
-     *     $expr->andX('u.type = ?', 'u.role = ?'));
+     *     // (u.type = ?) AND (u.roles = ?)
+     *     $expr->andX('u.type = ?', 'u.roles = ?'));
      *
      * @param mixed $x Optional clause. Defaults = null, but requires
      *                 at least one defined when converting to string.
@@ -63,8 +63,8 @@ class ExpressionBuilder
      * Example:
      *
      *     [php]
-     *     // (u.type = ?) OR (u.role = ?)
-     *     $qb->where($qb->expr()->orX('u.type = ?', 'u.role = ?'));
+     *     // (u.type = ?) OR (u.roles = ?)
+     *     $qb->where($qb->expr()->orX('u.type = ?', 'u.roles = ?'));
      *
      * @param mixed $x Optional clause. Defaults = null, but requires
      *                 at least one defined when converting to string.

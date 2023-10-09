@@ -9295,7 +9295,7 @@ var mobile = (function () {
       },
       onOpenSubmenu: function (container, item, submenu) {
         var w = $_1q71b5130jkmcdzxd.get(container.element());
-        var menu = $_7zr14e11bjkmcdzk4.ancestor(item.element(), '[role="menu"]').getOrDie('hacky');
+        var menu = $_7zr14e11bjkmcdzk4.ancestor(item.element(), '[roles="menu"]').getOrDie('hacky');
         var menuComp = container.getSystem().getByDom(menu).getOrDie();
         $_1q71b5130jkmcdzxd.set(submenu.element(), w);
         Transitioning.progressTo(menuComp, 'before');
@@ -9303,7 +9303,7 @@ var mobile = (function () {
         Transitioning.progressTo(submenu, 'current');
       },
       onCollapseMenu: function (container, item, menu) {
-        var submenu = $_7zr14e11bjkmcdzk4.ancestor(item.element(), '[role="menu"]').getOrDie('hacky');
+        var submenu = $_7zr14e11bjkmcdzk4.ancestor(item.element(), '[roles="menu"]').getOrDie('hacky');
         var submenuComp = container.getSystem().getByDom(submenu).getOrDie();
         Transitioning.progressTo(submenuComp, 'after');
         Transitioning.progressTo(menu, 'current');

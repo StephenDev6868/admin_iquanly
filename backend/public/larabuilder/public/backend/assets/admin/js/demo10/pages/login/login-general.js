@@ -6,7 +6,7 @@ var KTLoginGeneral = function() {
     var login = $('#kt_login');
 
     var showErrorMsg = function(form, type, msg) {
-        var alert = $('<div class="kt-alert kt-alert--outline alert alert-' + type + ' alert-dismissible" role="alert">\
+        var alert = $('<div class="kt-alert kt-alert--outline alert alert-' + type + ' alert-dismissible" roles="alert">\
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>\
 			<span></span>\
 		</div>');
@@ -72,7 +72,7 @@ var KTLoginGeneral = function() {
         $('#kt_login_signin_submit').click(function(e) {
             e.preventDefault();
             var btn = $(this);
-            var form = $(this).closest('form');           
+            var form = $(this).closest('form');
 
             form.validate({
                 rules: {
@@ -185,7 +185,7 @@ var KTLoginGeneral = function() {
 
             form.ajaxSubmit({
                 url: '',
-                success: function(response, status, xhr, $form) { 
+                success: function(response, status, xhr, $form) {
                 	// similate 2s delay
                 	setTimeout(function() {
                 		btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false); // remove

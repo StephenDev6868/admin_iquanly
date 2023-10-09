@@ -3913,7 +3913,7 @@ class HTML5_TreeBuilder {
             'xlink:actuate' => ['xlink', 'actuate', self::NS_XLINK],
             'xlink:arcrole' => ['xlink', 'arcrole', self::NS_XLINK],
             'xlink:href' => ['xlink', 'href', self::NS_XLINK],
-            'xlink:role' => ['xlink', 'role', self::NS_XLINK],
+            'xlink:roles' => ['xlink', 'roles', self::NS_XLINK],
             'xlink:show' => ['xlink', 'show', self::NS_XLINK],
             'xlink:title' => ['xlink', 'title', self::NS_XLINK],
             'xlink:type' => ['xlink', 'type', self::NS_XLINK],

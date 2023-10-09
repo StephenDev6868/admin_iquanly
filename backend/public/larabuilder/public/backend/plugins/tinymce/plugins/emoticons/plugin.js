@@ -34,12 +34,12 @@ var emoticons = (function () {
   ];
   var getHtml = function (pluginUrl) {
     var emoticonsHtml;
-    emoticonsHtml = '<table role="list" class="mce-grid">';
+    emoticonsHtml = '<table roles="list" class="mce-grid">';
     global$1.each(emoticons, function (row) {
       emoticonsHtml += '<tr>';
       global$1.each(row, function (icon) {
         var emoticonUrl = pluginUrl + '/img/smiley-' + icon + '.gif';
-        emoticonsHtml += '<td><a href="#" data-mce-url="' + emoticonUrl + '" data-mce-alt="' + icon + '" tabindex="-1" ' + 'role="option" aria-label="' + icon + '"><img src="' + emoticonUrl + '" style="width: 18px; height: 18px" role="presentation" /></a></td>';
+        emoticonsHtml += '<td><a href="#" data-mce-url="' + emoticonUrl + '" data-mce-alt="' + icon + '" tabindex="-1" ' + 'roles="option" aria-label="' + icon + '"><img src="' + emoticonUrl + '" style="width: 18px; height: 18px" roles="presentation" /></a></td>';
       });
       emoticonsHtml += '</tr>';
     });

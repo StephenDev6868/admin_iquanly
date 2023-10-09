@@ -15,17 +15,17 @@ class HasXPathTest extends \Hamcrest\AbstractMatcherTest
     <user>
         <id>alice</id>
         <name>Alice Frankel</name>
-        <role>admin</role>
+        <roles>admin</roles>
     </user>
     <user>
         <id>bob</id>
         <name>Bob Frankel</name>
-        <role>user</role>
+        <roles>user</roles>
     </user>
     <user>
         <id>charlie</id>
         <name>Charlie Chan</name>
-        <role>user</role>
+        <roles>user</roles>
     </user>
 </users>
 XML;
@@ -53,7 +53,7 @@ HTML;
     public function testMatchesWhenXPathIsFound()
     {
         assertThat('one match', self::$doc, hasXPath('user[id = "bob"]'));
-        assertThat('two matches', self::$doc, hasXPath('user[role = "user"]'));
+        assertThat('two matches', self::$doc, hasXPath('user[roles = "user"]'));
     }
 
     public function testDoesNotMatchWhenXPathIsNotFound()
@@ -93,7 +93,7 @@ HTML;
         assertThat(
             'two matches',
             self::$doc,
-            hasXPath('count(user[role = "user"])', 2)
+            hasXPath('count(user[roles = "user"])', 2)
         );
     }
 
@@ -107,7 +107,7 @@ HTML;
         assertThat(
             'one match',
             self::$doc,
-            not(hasXPath('count(user[role = "admin"])', 2))
+            not(hasXPath('count(user[roles = "admin"])', 2))
         );
     }
 
@@ -121,7 +121,7 @@ HTML;
         assertThat(
             'two matches',
             self::$doc,
-            hasXPath('user/role', equalTo('user'))
+            hasXPath('user/roles', equalTo('user'))
         );
     }
 
@@ -135,7 +135,7 @@ HTML;
         assertThat(
             'no matches',
             self::$doc,
-            not(hasXPath('user/role', equalTo('owner')))
+            not(hasXPath('user/roles', equalTo('owner')))
         );
     }
 

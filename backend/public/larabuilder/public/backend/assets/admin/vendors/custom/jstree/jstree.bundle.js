@@ -593,7 +593,7 @@
 					return this.nodeType === 3 && (!this.nodeValue || /^\s+$/.test(this.nodeValue));
 				})
 				.remove();
-			this.element.html("<" + "ul class='jstree-container-ul jstree-children' role='group'><" + "li id='j" + this._id + "_loading' class='jstree-initial-node jstree-loading jstree-leaf jstree-last' role='tree-item'><i class='jstree-icon jstree-ocl'></i><" + "a class='jstree-anchor' href='#'><i class='jstree-icon jstree-themeicon-hidden'></i>" + this.get_string('Loading ...') + "</a></li></ul>");
+			this.element.html("<" + "ul class='jstree-container-ul jstree-children' roles='group'><" + "li id='j" + this._id + "_loading' class='jstree-initial-node jstree-loading jstree-leaf jstree-last' roles='tree-item'><i class='jstree-icon jstree-ocl'></i><" + "a class='jstree-anchor' href='#'><i class='jstree-icon jstree-themeicon-hidden'></i>" + this.get_string('Loading ...') + "</a></li></ul>");
 			this.element.attr('aria-activedescendant', 'j' + this._id + '_loading');
 			this._data.core.li_height = this.get_container_ul().children("li").first().outerHeight() || 24;
 			this._data.core.node = this._create_prototype_node();
@@ -3587,7 +3587,7 @@
 
 			var c = this.get_container_ul()[0].className;
 			if (!skip_loading) {
-				this.element.html("<" + "ul class='" + c + "' role='group'><" + "li class='jstree-initial-node jstree-loading jstree-leaf jstree-last' role='treeitem' id='j" + this._id + "_loading'><i class='jstree-icon jstree-ocl'></i><" + "a class='jstree-anchor' href='#'><i class='jstree-icon jstree-themeicon-hidden'></i>" + this.get_string('Loading ...') + "</a></li></ul>");
+				this.element.html("<" + "ul class='" + c + "' roles='group'><" + "li class='jstree-initial-node jstree-loading jstree-leaf jstree-last' roles='treeitem' id='j" + this._id + "_loading'><i class='jstree-icon jstree-ocl'></i><" + "a class='jstree-anchor' href='#'><i class='jstree-icon jstree-themeicon-hidden'></i>" + this.get_string('Loading ...') + "</a></li></ul>");
 				this.element.attr('aria-activedescendant', 'j' + this._id + '_loading');
 			}
 			this.load_node($.jstree.root, function (o, s) {
@@ -6000,7 +6000,7 @@
 		 * * `_disabled` - a boolean indicating if this action should be disabled
 		 * * `label` - a string - the name of the action (could be a function returning a string)
 		 * * `title` - a string - an optional tooltip for the item
-		 * * `action` - a function to be executed if this item is chosen, the function will receive 
+		 * * `action` - a function to be executed if this item is chosen, the function will receive
 		 * * `icon` - a string, can be a path to an icon or a className, if using an image that is in the current directory use a `./` prefix, otherwise it will be detected as a class
 		 * * `shortcut` - keyCode which will trigger the action if the menu is open (for example `113` for rename, which equals F2)
 		 * * `shortcut_label` - shortcut label (like for example `F2` for rename)
@@ -7286,7 +7286,7 @@
 	 *		"id1" : [{ "text" : "Child of ID1", "id" : "c1" }, { "text" : "Another child of ID1", "id" : "c2" }],
 	 *		"id2" : [{ "text" : "Child of ID2", "id" : "c3" }]
 	 *	}
-	 * 
+	 *
 	 * @name $.jstree.defaults.massload
 	 * @plugin massload
 	 */

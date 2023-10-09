@@ -191,14 +191,14 @@ var textcolor = (function () {
     var id = global$1.DOM.uniqueId('mcearia');
     var getColorCellHtml = function (color, title) {
       var isNoColor = color === 'transparent';
-      return '<td class="mce-grid-cell' + (isNoColor ? ' mce-colorbtn-trans' : '') + '">' + '<div id="' + id + '-' + count++ + '"' + ' data-mce-color="' + (color ? color : '') + '"' + ' role="option"' + ' tabIndex="-1"' + ' style="' + (color ? 'background-color: ' + color : '') + '"' + ' title="' + global$3.translate(title) + '">' + (isNoColor ? '&#215;' : '') + '</div>' + '</td>';
+      return '<td class="mce-grid-cell' + (isNoColor ? ' mce-colorbtn-trans' : '') + '">' + '<div id="' + id + '-' + count++ + '"' + ' data-mce-color="' + (color ? color : '') + '"' + ' roles="option"' + ' tabIndex="-1"' + ' style="' + (color ? 'background-color: ' + color : '') + '"' + ' title="' + global$3.translate(title) + '">' + (isNoColor ? '&#215;' : '') + '</div>' + '</td>';
     };
     colors = $_f23av0rijkmcdxz0.mapColors(colorMap);
     colors.push({
       text: global$3.translate('No color'),
       color: 'transparent'
     });
-    html = '<table class="mce-grid mce-grid-border mce-colorbutton-grid" role="list" cellspacing="0"><tbody>';
+    html = '<table class="mce-grid mce-grid-border mce-colorbutton-grid" roles="list" cellspacing="0"><tbody>';
     last = colors.length - 1;
     for (y = 0; y < rows; y++) {
       html += '<tr>';
@@ -214,7 +214,7 @@ var textcolor = (function () {
       html += '</tr>';
     }
     if (hasColorPicker) {
-      html += '<tr>' + '<td colspan="' + cols + '" class="mce-custom-color-btn">' + '<div id="' + id + '-c" class="mce-widget mce-btn mce-btn-small mce-btn-flat" ' + 'role="button" tabindex="-1" aria-labelledby="' + id + '-c" style="width: 100%">' + '<button type="button" role="presentation" tabindex="-1">' + global$3.translate('Custom...') + '</button>' + '</div>' + '</td>' + '</tr>';
+      html += '<tr>' + '<td colspan="' + cols + '" class="mce-custom-color-btn">' + '<div id="' + id + '-c" class="mce-widget mce-btn mce-btn-small mce-btn-flat" ' + 'roles="button" tabindex="-1" aria-labelledby="' + id + '-c" style="width: 100%">' + '<button type="button" roles="presentation" tabindex="-1">' + global$3.translate('Custom...') + '</button>' + '</div>' + '</td>' + '</tr>';
       html += '<tr>';
       for (x = 0; x < cols; x++) {
         html += getColorCellHtml('', 'Custom color');

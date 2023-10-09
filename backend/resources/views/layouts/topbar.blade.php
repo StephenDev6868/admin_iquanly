@@ -17,7 +17,7 @@
 
                     <ul class="navbar-right d-flex list-inline float-right mb-0">
 {{--                        <li class="dropdown notification-list d-none d-sm-block">--}}
-{{--                            <form role="search" class="app-search">--}}
+{{--                            <form roles="search" class="app-search">--}}
 {{--                                <div class="form-group mb-0">--}}
 {{--                                    <input type="text" class="form-control" placeholder="Search..">--}}
 {{--                                    <button type="submit"><i class="fa fa-search"></i></button>--}}
@@ -26,7 +26,7 @@
 {{--                        </li>--}}
 
 {{--                        <li class="dropdown notification-list">--}}
-{{--                            <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">--}}
+{{--                            <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" roles="button" aria-haspopup="false" aria-expanded="false">--}}
 {{--                                <i class="ti-bell noti-icon"></i>--}}
 {{--                                <span class="badge badge-pill badge-danger noti-icon-badge">3</span>--}}
 {{--                            </a>--}}
@@ -99,7 +99,7 @@
 {{--                        </li>--}}
 {{--                        <li class="d-none d-sm-block">--}}
 {{--                            <div class="dropdown pt-3 d-inline-block">--}}
-{{--                                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                <a class="btn btn-light dropdown-toggle" href="#" roles="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
 {{--                                    Create--}}
 {{--                                </a>--}}
 

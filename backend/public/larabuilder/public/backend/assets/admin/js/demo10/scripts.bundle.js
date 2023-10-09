@@ -16,7 +16,7 @@ var KTApp = function() {
 
         el.tooltip({
             trigger: triggerValue,
-            template: '<div class="tooltip ' + skin + ' ' + width + '" role="tooltip">\
+            template: '<div class="tooltip ' + skin + ' ' + width + '" roles="tooltip">\
                 <div class="arrow"></div>\
                 <div class="tooltip-inner"></div>\
             </div>'
@@ -37,7 +37,7 @@ var KTApp = function() {
         el.popover({
             trigger: triggerValue,
             template: '\
-            <div class="popover ' + skin + '" role="tooltip">\
+            <div class="popover ' + skin + '" roles="tooltip">\
                 <div class="arrow"></div>\
                 <h3 class="popover-header"></h3>\
                 <div class="popover-body"></div>\
@@ -3849,7 +3849,7 @@ var KTPortlet = function(elementId, options) {
                         placement: placement,
                         offset: (fullscreenOn ? '0,10px,0,0' : '0,5px'),
                         trigger: 'hover',
-                        template: '<div class="tooltip tooltip-portlet tooltip bs-tooltip-' + placement + '" role="tooltip">\
+                        template: '<div class="tooltip tooltip-portlet tooltip bs-tooltip-' + placement + '" roles="tooltip">\
                             <div class="tooltip-arrow arrow"></div>\
                             <div class="tooltip-inner"></div>\
                         </div>'
@@ -3867,7 +3867,7 @@ var KTPortlet = function(elementId, options) {
                         placement: placement,
                         offset: (fullscreenOn ? '0,10px,0,0' : '0,5px'),
                         trigger: 'hover',
-                        template: '<div class="tooltip tooltip-portlet tooltip bs-tooltip-' + placement + '" role="tooltip">\
+                        template: '<div class="tooltip tooltip-portlet tooltip bs-tooltip-' + placement + '" roles="tooltip">\
                             <div class="tooltip-arrow arrow"></div>\
                             <div class="tooltip-inner"></div>\
                         </div>'
@@ -3885,7 +3885,7 @@ var KTPortlet = function(elementId, options) {
                         placement: placement,
                         offset: (fullscreenOn ? '0,10px,0,0' : '0,5px'),
                         trigger: 'hover',
-                        template: '<div class="tooltip tooltip-portlet tooltip bs-tooltip-' + placement + '" role="tooltip">\
+                        template: '<div class="tooltip tooltip-portlet tooltip bs-tooltip-' + placement + '" roles="tooltip">\
                             <div class="tooltip-arrow arrow"></div>\
                             <div class="tooltip-inner"></div>\
                         </div>'
@@ -3903,7 +3903,7 @@ var KTPortlet = function(elementId, options) {
                         placement: placement,
                         offset: (fullscreenOn ? '0,10px,0,0' : '0,5px'),
                         trigger: 'hover',
-                        template: '<div class="tooltip tooltip-portlet tooltip bs-tooltip-' + placement + '" role="tooltip">\
+                        template: '<div class="tooltip tooltip-portlet tooltip bs-tooltip-' + placement + '" roles="tooltip">\
                             <div class="tooltip-arrow arrow"></div>\
                             <div class="tooltip-inner"></div>\
                         </div>'

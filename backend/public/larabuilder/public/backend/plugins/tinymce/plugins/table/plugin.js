@@ -9872,16 +9872,16 @@ var table = (function () {
     });
     var generateTableGrid = function () {
       var html = '';
-      html = '<table role="grid" class="mce-grid mce-grid-border" aria-readonly="true">';
+      html = '<table roles="grid" class="mce-grid mce-grid-border" aria-readonly="true">';
       for (var y = 0; y < 10; y++) {
         html += '<tr>';
         for (var x = 0; x < 10; x++) {
-          html += '<td role="gridcell" tabindex="-1"><a id="mcegrid' + (y * 10 + x) + '" href="#" ' + 'data-mce-x="' + x + '" data-mce-y="' + y + '"></a></td>';
+          html += '<td roles="gridcell" tabindex="-1"><a id="mcegrid' + (y * 10 + x) + '" href="#" ' + 'data-mce-x="' + x + '" data-mce-y="' + y + '"></a></td>';
         }
         html += '</tr>';
       }
       html += '</table>';
-      html += '<div class="mce-text-center" role="presentation">1 x 1</div>';
+      html += '<div class="mce-text-center" roles="presentation">1 x 1</div>';
       return html;
     };
     var selectGrid = function (editor, tx, ty, control) {

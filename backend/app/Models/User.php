@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -21,16 +22,27 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
+        'full_name',
         'email',
         'login_id',
-        'is_privilege',
+        'is_super_admin',
         'email',
         'remember_token',
         'birthday',
-        'role',
+        'role_id',
+        'board_id',
+        'company_id',
+        'address',
+        'phone_number',
         'password',
+        'begin_work',
+        'status_work',
+        'cccd',
+        'title_level',
+        'stk',
+        'bank',
+        'amount_month',
+        'is_rent_moto',
     ];
 
     /**
@@ -43,6 +55,35 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function roleName($user_id): string
+    {
+        $data = User::query()->join('roles', 'roles.id','=', 'users.role_id')
+            ->where('users.id', $user_id)
+            ->select(['roles.name as roleName'])
+            ->first();
+        return $data ? $data->roleName: 'N/A';
+    }
+
+    public function boardName($user_id): string
+    {
+        $data = User::query()->join('boards', 'boards.id','=', 'users.board_id')
+            ->where('users.id', $user_id)
+            ->select(['boards.name as boardName'])
+            ->first();
+
+        return $data ? $data->boardName : 'N/A';
+    }
+
+    public function companyName($user_id): string
+    {
+        $data = User::query()->join('companies', 'companies.id','=', 'users.company_id')
+            ->where('users.id', $user_id)
+            ->select(['companies.name as companyName'])
+            ->first();
+
+        return $data->companyName;
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -50,5 +91,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at' => 'date:d-m-Y',
     ];
 }
