@@ -14,6 +14,7 @@ final class Screen extends Enum
     const BOARD = 'BOARD';
     const COMPANY = 'COMPANY';
     const USER = 'USER';
+    const STAFF = 'STAFF';
     const ROLE = 'ROLE';
     const WAREHOUSETOOL = 'WAREHOUSETOOL';
     const WAREHOUSEDEVICE = 'WAREHOUSEDEVICE';
@@ -31,6 +32,7 @@ final class Screen extends Enum
         Screen::WAREHOUSEMATERIAL   => 'Quản lý kho nguyên vật liệu',
         Screen::WAREHOUSEPRODUCT   => 'Quản lý kho thành phẩm',
         Screen::WAREHOUSEHAFTPRODUCT   => 'Quản lý kho bán thành phẩm',
+        Screen::STAFF   => 'Màn hình Thông tin Nhân viên',
     ];
 
 }

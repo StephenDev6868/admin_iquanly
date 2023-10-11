@@ -91,6 +91,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'created_at' => 'date:d-m-Y',
+        'birthday' => 'date:Y-m-d',
+        'begin_work' => 'date:Y-m-d',
+        'created_at' => 'date:Y-m-d',
     ];
 }

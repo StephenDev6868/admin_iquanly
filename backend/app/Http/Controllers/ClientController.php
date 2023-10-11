@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
@@ -16,7 +17,14 @@ class ClientController extends Controller
 //        $categorys = Category::query()
 //            ->where('status', 1)
 //            ->get();
-        return view('index');
+        return view('staff.index');
+        //return view('tables-');
+    }
+
+    public function info()
+    {
+        $user = Auth::guard('user')->user();
+        return view('staff.info', compact('user'));
     }
 
     public function category(string $slug, string $type)

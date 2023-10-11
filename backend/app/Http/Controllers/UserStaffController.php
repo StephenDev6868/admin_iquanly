@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class UserStaffController extends Controller
 {
@@ -42,7 +43,7 @@ class UserStaffController extends Controller
 //        if (!empty($params['roles'])) {
 //            $users = $users->where('roles', $params['roles']);
 //        }
-        $users = $users->paginate(10);
+        $users = $users->orderBy('updated_at', 'desc')->paginate(10);
         //  dd($users);
         return view('admin.users.list', compact('users'));
     }
@@ -57,7 +58,8 @@ class UserStaffController extends Controller
         $roles = Role::all();
         $companies = Company::all();
         $boards = Board::all();
-        return view('admin.users.add', compact('roles', 'companies', 'boards'));
+        $pass_init = rand(100000, 999999);
+        return view('admin.users.add', compact('roles', 'companies', 'boards', 'pass_init'));
     }
 
     /**
@@ -70,13 +72,12 @@ class UserStaffController extends Controller
     {
         $inputs = $request->all();
         $validator = Validator::make($inputs, [
-            'login_id'         => 'required|min:8|max:255|unique:users,login_id',
-            'password'         => 'required|min:8|max:255',
-            'password_confirm' => 'required|min:8|max:255|same:password',
+            'login_id'         => 'required|min:6|max:255|unique:users,login_id',
+            // 'password_confirm' => 'required|min:8|max:255|same:password',
             'full_name'        => 'required|min:1|max:255',
             'email'            => 'required|email|unique:users,email',
-            'birthday'         => 'required|date_format:m/d/Y',
-            'begin_work'       => 'required|date_format:m/d/Y',
+            'birthday'         => 'required|date_format:d-m-Y',
+            'begin_work'       => 'required|date_format:d-m-Y',
             'role_id'          => 'required|numeric',
             'board_id'         => 'required',
             'company_id'       => 'required',
@@ -88,7 +89,7 @@ class UserStaffController extends Controller
                 ->withInput()
                 ->with('error', $validator->errors()->first());
         }
-        $inputs['password'] = Hash::make($inputs['password']);
+        $inputs['password'] = Hash::make($inputs['pass_init']);
 
         $result = User::query()->create($inputs);
 
@@ -134,12 +135,19 @@ class UserStaffController extends Controller
     public function update(Request $request, User $user)
     {
         $inputs = $request->all();
+        if ($inputs['status_work'] != 1 ) {
+            $user->update([
+                'status_work' => $inputs['status_work'],
+            ]);
+            return Redirect::route('admin.users.list')
+                ->with('success', 'Cập nhập thông tin nhân viên thành công');
+        }
         $validator = Validator::make($inputs, [
-            'login_id'         => 'required|min:8|max:255|unique:users,login_id,' . $user->getKey(),
+            'login_id'         => 'required|min:6|max:255|unique:users,login_id,' . $user->getKey(),
             'full_name'        => 'required|min:1|max:255',
             'email'            => 'required|email',
-            'birthday'         => 'required',
-            'begin_work'       => 'required',
+            'birthday'         => 'required|date_format:d-m-Y',
+            'begin_work'       => 'required|date_format:d-m-Y',
             'role_id'          => 'required|numeric',
             'board_id'         => 'required',
             'company_id'       => 'required',
@@ -152,6 +160,7 @@ class UserStaffController extends Controller
                 ->with('error', $validator->errors()->first());
         }
         $inputs['begin_work'] = Carbon::parse($inputs['begin_work'])->format('Y-m-d');
+        $inputs['birthday'] = Carbon::parse($inputs['birthday'])->format('Y-m-d');
         $result = $user->update($inputs);
         if ($result) {
             return Redirect::route('admin.users.list')

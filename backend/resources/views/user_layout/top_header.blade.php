@@ -9,50 +9,50 @@
                     <img src="{{ asset('assets/images/logo-hapo-digital.png') }}" alt="Logo" class="w-full object-contain">
                 </a>
             </div>
-            <ul class="nav-menu w-full lg:flex items-center justify-center lg:flex-wrap gap-y-4 hidden ">
-                @foreach($categorys as $category)
-                    @if($category->hasSubCategories()->count() > 0)
-                        <li class="has-child"><a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'parent']) }}">{{$category->name}}</a>
-                            <div class="sub-menu absolute top-[50px]">
-                                <ul>
-                                    @foreach($category->hasSubCategories()->get() as $item)
-                                        <li><a href="{{ route('user.category.list', ['slug' => $item->slug, 'type' => 'sub']) }}">{{ $item->name }}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </li>
-                    @else
-                        <li><a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'parent']) }}">{{$category->name}}</a></li>
-                    @endif
+{{--            <ul class="nav-menu w-full lg:flex items-center justify-center lg:flex-wrap gap-y-4 hidden ">--}}
+{{--                @foreach($categorys as $category)--}}
+{{--                    @if($category->hasSubCategories()->count() > 0)--}}
+{{--                        <li class="has-child"><a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'parent']) }}">{{$category->name}}</a>--}}
+{{--                            <div class="sub-menu absolute top-[50px]">--}}
+{{--                                <ul>--}}
+{{--                                    @foreach($category->hasSubCategories()->get() as $item)--}}
+{{--                                        <li><a href="{{ route('user.category.list', ['slug' => $item->slug, 'type' => 'sub']) }}">{{ $item->name }}</a></li>--}}
+{{--                                    @endforeach--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                    @else--}}
+{{--                        <li><a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'parent']) }}">{{$category->name}}</a></li>--}}
+{{--                    @endif--}}
 
 
-                @endforeach
-            </ul>
-            <div id="menuToggle" class="lg:!hidden">
-                <input type="checkbox" id="checkMenu" />
-                <span></span>
-                <span></span>
-                <span></span>
-                <ul id="menu-mobile">
-                    @foreach($categorys as $category)
-                        @if($category->hasSubCategories()->count() > 0)
-                            <li class="has-child"><a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'parent']) }}">{{$category->name}}</a>
-                                <div class="sub-menu absolute top-[50px]">
-                                    <ul>
-                                        @foreach($category->hasSubCategories()->get() as $item)
-                                            <li><a href="{{ route('user.category.list', ['slug' => $item->slug, 'type' => 'sub']) }}">{{ $item->name }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </li>
-                        @else
-                            <li><a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'parent']) }}">{{$category->name}}</a></li>
-                        @endif
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--            <div id="menuToggle" class="lg:!hidden">--}}
+{{--                <input type="checkbox" id="checkMenu" />--}}
+{{--                <span></span>--}}
+{{--                <span></span>--}}
+{{--                <span></span>--}}
+{{--                <ul id="menu-mobile">--}}
+{{--                    @foreach($categorys as $category)--}}
+{{--                        @if($category->hasSubCategories()->count() > 0)--}}
+{{--                            <li class="has-child"><a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'parent']) }}">{{$category->name}}</a>--}}
+{{--                                <div class="sub-menu absolute top-[50px]">--}}
+{{--                                    <ul>--}}
+{{--                                        @foreach($category->hasSubCategories()->get() as $item)--}}
+{{--                                            <li><a href="{{ route('user.category.list', ['slug' => $item->slug, 'type' => 'sub']) }}">{{ $item->name }}</a></li>--}}
+{{--                                        @endforeach--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
+{{--                        @else--}}
+{{--                            <li><a href="{{ route('user.category.list', ['slug' => $category->slug, 'type' => 'parent']) }}">{{$category->name}}</a></li>--}}
+{{--                        @endif--}}
 
-                    @endforeach
+{{--                    @endforeach--}}
 {{--                    s--}}
-                </ul>
-            </div>
+{{--                </ul>--}}
+{{--            </div>--}}
         </div>
     </div>
 </header>

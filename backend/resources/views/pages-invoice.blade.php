@@ -2,7 +2,6 @@
 
 @section('content')
             <div class="container-fluid">
-
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-title-box">
@@ -12,7 +11,7 @@
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
                                         <li class="breadcrumb-item active">Invoice</li>
                                     </ol>
-            
+
                                     <div class="state-information d-none d-sm-block">
                                         <div class="state-graph">
                                             <div id="header-chart-1"></div>
@@ -32,7 +31,6 @@
                             <div class="col-12">
                                 <div class="card m-b-20">
                                     <div class="card-body">
-        
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="invoice-title">
@@ -79,7 +77,7 @@
                                                 </div>
                                             </div>
                                         </div>
-        
+
                                         <div class="row">
                                             <div class="col-12">
                                                 <div>
@@ -142,7 +140,7 @@
                                                                 </tbody>
                                                             </table>
                                                         </div>
-        
+
                                                         <div class="d-print-none">
                                                             <div class="float-right">
                                                                 <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
@@ -151,14 +149,14 @@
                                                         </div>
                                                     </div>
                                                 </div>
-        
+
                                             </div>
                                         </div> <!-- end row -->
-        
+
                                     </div>
                                 </div>
                             </div> <!-- end col -->
-                        </div> <!-- end row -->        
+                        </div> <!-- end row -->
 
 
                     </div> <!-- container-fluid -->

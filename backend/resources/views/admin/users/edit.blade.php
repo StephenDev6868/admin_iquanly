@@ -1,5 +1,11 @@
 @extends('layouts.master')
-
+@section('css')
+    <!-- Plugins css -->
+    <link href="{{ URL::asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css')}}" />
+    <link href="{{ URL::asset('assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" />
+@endsection
 @section('content')
     <div class="container-fluid">
 
@@ -31,23 +37,28 @@
                             <input type="text" name="login_id" value="{{ $user->login_id ?? old('login_id') }}" class="form-control" required placeholder="Nhập login ID"/>
                         </div>
                         <div class="col-md-6 form-group">
+                            <label>Mật khẩu khởi tạo ({{ $user->first_login ? 'Nhân viên đã login' : 'Nhân viên chưa login'  }})</label>
+                            <input type="text" name="password" value="{{ $user->pass_init ?? old('pass_init') }}" {{ $user->first_login ? 'disabled' : ''}} id="pass2" class="form-control" required
+                                   placeholder="Nhập mật khẩu"/>
+                        </div>
+                        <div class="col-md-6 form-group">
                             <label>Trạng thái làm việc</label>
-                            <select name="is_super_admin" id="" class="form-control">
+                            <select name="status_work" id="" class="form-control">
                                 <option value="1" {{ $user->status_work == 1 ? 'selected' : '' }}>Active</option>
                                 <option value="0" {{ $user->status_work == 0 ? 'selected' : '' }}>Unactive</option>
                             </select>
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Họ và tên</label>
-                            <input type="text" name="full_name" value="{{ $user->full_name ?? old('full_name') }}" class="form-control" required placeholder="Nhập họ"/>
+                            <input type="text" name="full_name" value="{{ $user->full_name ?? old('full_name') }}" class="form-control" required placeholder="Nhập họ và tên"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Email</label>
-                            <input type="text" name="email" value="{{ $user->email ?? old('email') }}" class="form-control" required placeholder="Nhập email"/>
+                            <input type="text" name="email" value="{{ $user->email ?? old('email') }}" class="form-control" placeholder="Nhập email"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Số CCCD/CMND</label>
-                            <input type="text" name="cccd" value="{{ $user->cccd ?? old('cccd') }}" class="form-control" required placeholder="Nhập họ"/>
+                            <input type="text" name="cccd" value="{{ $user->cccd ?? old('cccd') }}" class="form-control" required placeholder="Nhập cccd/cmnd"/>
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Số điện thoại</label>
@@ -73,7 +84,7 @@
                             <label>Ngày sinh</label>
                             <div>
                                 <div class="input-group">
-                                    <input type="text" value="{{ $user->birthday ?? old('birthday') }}" name="birthday" class="form-control" placeholder="mm-dd-yyyy" id="datepicker-autoclose-1">
+                                    <input type="text" value="{{  $user->birthday ? $user->birthday->format('d-m-Y') : old('birthday') }}" data-date-format="dd-mm-yyyy" name="birthday" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                     </div>
@@ -84,7 +95,7 @@
                             <label>Ngày bắt đầu làm việc</label>
                             <div>
                                 <div class="input-group">
-                                    <input type="text" value="{{ $user->begin_work ?? old('begin_work') }}" name="begin_work" class="form-control" placeholder="mm-dd-yyyy" id="datepicker-autoclose-2">
+                                    <input type="text" value="{{ $user->begin_work ? $user->begin_work->format('d-m-Y') : old('begin_work') }}" data-date-format="dd-mm-yyyy" name="begin_work" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                     </div>
@@ -109,7 +120,7 @@
                         </div>
 
                         <div class="col-md-6 form-group">
-                            <label>Chức danh</label>
+                            <label>Nhóm phân quyền</label>
                             <select name="role_id" id="" class="form-control">
                                 @foreach($roles as $key => $role)
                                     <option value="{{ $role->getKey() }}" {{ $role->getKey() === $user->role_id ? 'selected' : '' }}>{{ $role->name }}</option>

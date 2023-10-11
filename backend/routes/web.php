@@ -126,8 +126,16 @@ Route::prefix('admin')->group(function () {
 
 //Route::get('/{id}', [\App\Http\Controllers\LexaController::class, 'index']);
 
-Route::get('', [\App\Http\Controllers\ClientController::class, 'index'])->name('home');
-Route::get('{slug}/{type}', [\App\Http\Controllers\ClientController::class, 'category'])
-    ->name('user.category.list');
-Route::get('/{slug}/detail/{post}', [\App\Http\Controllers\ClientController::class, 'detail'])
-    ->name('user.category.detail');
+Route::get('login', [\App\Http\Controllers\AuthController::class, 'loginStaff'])->name('loginStaff');
+Route::post('login', [\App\Http\Controllers\AuthController::class, 'doLoginStaff'])->name('doLoginStaff');
+
+Route::group(['middleware' => 'auth:user'], function() {
+    Route::prefix('users')->group(function () {
+        Route::get('', [\App\Http\Controllers\ClientController::class, 'index'])->name('user.home');
+        Route::get('info', [\App\Http\Controllers\ClientController::class, 'info'])->name('user.info');
+    });
+});
+//Route::get('{slug}/{type}', [\App\Http\Controllers\ClientController::class, 'category'])
+//    ->name('user.category.list');
+//Route::get('/{slug}/detail/{post}', [\App\Http\Controllers\ClientController::class, 'detail'])
+//    ->name('user.category.detail');

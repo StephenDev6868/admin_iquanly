@@ -2,11 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_09_092209_add_col_phone_number_into_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_10_183749_add_pass_init_into_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/seeders/FakePassAndLoginIdSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/auth/login-staff.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/staff/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/staff/info.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Enums/Screen.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Enums/Screen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/UserStaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/UserStaffController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/pages-invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/pages-invoice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/head.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/top_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/top_header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,24 +168,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/abc/Documents/Freelancer-job/admin_iquanly&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/abc/Documents/Freelancer-job/admin_iquanly/backend/resources/views/auth",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/resources/views/auth" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/main_categories" />
       <recent name="$PROJECT_DIR$/backend/public/template/test.site.pc" />
       <recent name="$PROJECT_DIR$/backend/public/template/css" />
       <recent name="$PROJECT_DIR$/backend/public/css" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/public/template/test11.com.vn" />
@@ -210,7 +225,8 @@
       <workItem from="1696519841664" duration="3318000" />
       <workItem from="1696523551059" duration="3631000" />
       <workItem from="1696695440788" duration="7721000" />
-      <workItem from="1696708378972" duration="36997000" />
+      <workItem from="1696708378972" duration="37527000" />
+      <workItem from="1696953074491" duration="18528000" />
     </task>
     <servers />
   </component>
