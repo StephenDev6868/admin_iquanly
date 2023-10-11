@@ -50,10 +50,11 @@ class AuthController extends Controller
         $result = Auth::guard('user')->attempt($inputs);
         $user = Auth::guard('user')->user();
 
-        if ($user['status_work'] !== 1) {
+        if ($user && $user['status_work'] !== 1) {
             return Redirect::route('login.view')
                 ->with('error', 'Tài khoản này đang tạm ngưng hoạt động');
         }
+
 
         if ($result) {
             return Redirect::route('user.home')

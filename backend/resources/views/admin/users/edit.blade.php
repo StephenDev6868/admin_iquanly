@@ -43,6 +43,7 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Trạng thái làm việc</label>
+
                             <select name="status_work" id="" class="form-control">
                                 <option value="1" {{ $user->status_work == 1 ? 'selected' : '' }}>Active</option>
                                 <option value="0" {{ $user->status_work == 0 ? 'selected' : '' }}>Unactive</option>

@@ -43,6 +43,8 @@ class User extends Authenticatable
         'bank',
         'amount_month',
         'is_rent_moto',
+        'pass_init',
+        'first_login',
     ];
 
     /**
