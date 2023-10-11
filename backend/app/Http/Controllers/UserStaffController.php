@@ -89,6 +89,8 @@ class UserStaffController extends Controller
                 ->withInput()
                 ->with('error', $validator->errors()->first());
         }
+        $inputs['begin_work'] = Carbon::parse($inputs['begin_work'])->format('Y-m-d');
+        $inputs['birthday'] = Carbon::parse($inputs['birthday'])->format('Y-m-d');
         $inputs['password'] = Hash::make($inputs['pass_init']);
 
         $result = User::query()->create($inputs);
