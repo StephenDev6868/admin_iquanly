@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_10_183749_add_pass_init_into_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/FakePassAndLoginIdSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/auth/login-staff.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/staff/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/staff/info.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/layouts/master-staff.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Enums/Screen.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Enums/Screen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/UserStaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/UserStaffController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/pages-invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/pages-invoice.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/head.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/user_layout/top_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/user_layout/top_header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/staff/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/staff/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/staff/info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/staff/info.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +210,7 @@
       <workItem from="1696523551059" duration="3631000" />
       <workItem from="1696695440788" duration="7721000" />
       <workItem from="1696708378972" duration="37527000" />
-      <workItem from="1696953074491" duration="18528000" />
+      <workItem from="1696953074491" duration="19209000" />
     </task>
     <servers />
   </component>
