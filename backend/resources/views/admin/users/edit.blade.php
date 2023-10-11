@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Mật khẩu khởi tạo ({{ $user->first_login ? 'Nhân viên đã login' : 'Nhân viên chưa login'  }})</label>
-                            <input type="text" name="password" value="{{ $user->pass_init ?? old('pass_init') }}" {{ $user->first_login ? 'disabled' : ''}} id="pass2" class="form-control" required
+                            <input type="text" name="pass_init" value="{{ $user->pass_init ?? old('pass_init') }}" {{ $user->first_login ? 'disabled' : ''}} id="pass2" class="form-control" required
                                    placeholder="Nhập mật khẩu"/>
                         </div>
                         <div class="col-md-6 form-group">
