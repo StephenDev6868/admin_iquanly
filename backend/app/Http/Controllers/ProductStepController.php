@@ -18,9 +18,18 @@ class ProductStepController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $productSteps = ProductStep::query()->paginate(10);
+        $key_word = $request->get('key_word');
+
+        $query = ProductStep::query();
+
+        if (!empty($key_word)) {
+            $query->where(function ($query) use ($key_word) {
+                $query->where('name', 'like', '%' . $key_word . '%');
+            });
+        }
+        $productSteps = $query->paginate(10);
         return view('admin.product-steps.list', compact('productSteps'));
     }
 
@@ -50,7 +59,7 @@ class ProductStepController extends Controller
             'product_id' => 'required',
             'coefficient' => 'required',
             'unit_price' => 'required',
-            'user_ids' => 'required',
+            // 'user_ids' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -73,10 +82,11 @@ class ProductStepController extends Controller
                 'updated_at' => now(),
             ];
         }
+        if (count($dataWorkQuantity) > 0) {
+            WorkQuantity::query()->insert($dataWorkQuantity);
+        }
 
-        $result2 = WorkQuantity::query()->insert($dataWorkQuantity);
-
-        if ($result && $result2) {
+        if ($result) {
             return Redirect::route('admin.productSteps.list')
                 ->with('success', 'Tạo sản phẩm thành công');;
         }

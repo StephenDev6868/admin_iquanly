@@ -16,7 +16,7 @@
         </div>
         <!-- end row -->
 
-        <form action="{{ route('admin.products.list')  }}" class="row" method="GET">
+        <form action="{{ route('admin.productSteps.list')  }}" class="row" method="GET">
             <div class="col-12">
                 <div class="card m-b-20">
                     <div class="card-body">

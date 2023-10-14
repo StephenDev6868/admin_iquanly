@@ -2,95 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductStepController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/ProductStep.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/WorkQuantity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_12_160617_create_products_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_12_161616_create_product_steps_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_14_153604_create_work_quantities_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/common/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/css/select2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/css/select2.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/af.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/az.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/bg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/bn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/bs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/dsb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/et.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/eu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/gl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/hi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/hsb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/hy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/is.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/ka.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/km.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/ko.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/lt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/lv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/mk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/ms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/ne.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/ps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/pt-BR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/sl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/sq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/sr-Cyrl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/sr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/th.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/tk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/uk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/zh-CN.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/i18n/zh-TW.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/select2.full.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/select2.full.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/select2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/assets/js/select2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/quantity.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/admin_site_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/admin_site_web.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/charts-chartjs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/charts-chartjs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/pages-timeline.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/pages-timeline.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductStepController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductStepController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,18 +151,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/abc/Documents/Freelancer-job/admin_iquanly/backend/public/assets/css",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/abc/Documents/Freelancer-job/admin_iquanly/backend/public/assets/css&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/public/assets/css" />
@@ -297,7 +211,7 @@
       <workItem from="1696695440788" duration="7721000" />
       <workItem from="1696708378972" duration="37527000" />
       <workItem from="1696953074491" duration="30492000" />
-      <workItem from="1697133066422" duration="31000000" />
+      <workItem from="1697133066422" duration="32600000" />
     </task>
     <servers />
   </component>
