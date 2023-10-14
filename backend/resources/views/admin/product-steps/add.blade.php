@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('css')
     <!-- Plugins css -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/common/common.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css')}}" />
@@ -12,7 +14,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Thêm sản phẩm </h4>
+                    <h4 class="page-title">Thêm công đoạn </h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Lexa</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Forms</a></li>
@@ -27,38 +29,53 @@
             <div class="col-lg-12">
                 <div class="card m-b-20">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title mb-3">Nhập thông tin sản phẩm</h4>
-                        <form class="row" action="{{ route('admin.products.update', ['product' => $product->getKey()]) }}" method="POST" enctype="multipart/form-data">
-                            @method('PUT')
+                        <h4 class="mt-0 header-title mb-3">Thông tin công đoạn</h4>
+                        <form class="row" action="{{ route('admin.productSteps.doCreate') }}" method="POST" enctype="multipart/form-data">
+                            @method('POST')
                             @csrf
-                            <div class="col-md-12 form-group">
-                                <label>Tên sản phẩm</label>
-                                <input type="text" name="name" value="{{ $product->name ?? old('name') }}" class="form-control" required placeholder="Nhập tên sản phẩm"/>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <label>Mã sản phẩm</label>
-                                <input type="text" name="code" value="{{ $product->code ?? old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Ngày bắt đầu</label>
-                                <div>
-                                    <div class="input-group">
-                                        <input type="text" value="{{ $product->start_at ?? old('start_at') }}" data-date-format="dd-mm-yyyy" name="start_at" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+{{--                            <div class="col-md-12 m-b-20">--}}
+{{--                                <button type="button" class="btn btn-success waves-effect waves-light btn-add-step">--}}
+{{--                                    Thêm công đoạn--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+                            <div class="col-md-12 form-group step-box-area">
+                                <div class="row jumbotron step-box-item" style="padding: 10px 0 !important;">
+                                    <div class="col-md-3 form-group">
+                                        <div class="m-t-20">
+                                            <h4 class="text-muted">Nhập tên công đoạn:</h4>
+                                            <textarea id="textarea" name="name" class="form-control" maxlength="225" rows="6" placeholder="Nhập tên công đoạn"></textarea>
                                         </div>
-                                    </div><!-- input-group -->
-                                </div>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Ngày kết thúc</label>
-                                <div>
-                                    <div class="input-group">
-                                        <input type="text" value="{{ $product->end_at ??  old('end_at') }}" data-date-format="dd-mm-yyyy" name="end_at" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="col-md-12 form-group">
+                                            <label>Chọn sản phẩm: </label>
+                                            <select name="product_id" id="" class="form-control">
+                                                @foreach($products as $key => $product)
+                                                    <option value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
-                                    </div><!-- input-group -->
+{{--                                        <div class="col-md-12 form-group">--}}
+{{--                                            <label>Thời gian: </label>--}}
+{{--                                            <input type="text" name="time" value="{{ old('time') }}" class="form-control" required placeholder="Nhập thời gian"/>--}}
+{{--                                        </div>--}}
+                                        <div class="col-md-12 form-group">
+                                            <label>Hệ số: </label>
+                                            <input type="text" name="coefficient" value="{{ old('coefficient') }}" class="form-control" required placeholder="Nhập hệ số"/>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <label>Đơn giá: </label>
+                                            <input type="text" name="unit_price" value="{{ old('unit_price') }}" class="form-control" required placeholder="Nhập đơn giá"/>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <label>Chọn công nhân: </label>
+                                            <select class="js-example-basic-multiple" name="user_ids[]" multiple="multiple">
+                                                @foreach($users as $key => $user)
+                                                    <option value="{{ $user->getKey() }}">{{ $user->full_name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group m-b-0 text-right">
@@ -80,6 +97,7 @@
 @endsection
 
 @section('script')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- Parsley js -->
     <script src="{{ URL::asset('assets/plugins/parsleyjs/parsley.min.js')}}"></script>
     <script src="{{ URL::asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
@@ -99,7 +117,12 @@
 @section('script-bottom')
     <script>
         $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
             $('form').parsley();
+
+            $('.btn-add-step').on('click', function (e) {
+                $('.step-box-item').clone().appendTo('.step-box-area')
+            })
 
             if($("#elm1").length > 0){
                 tinymce.init({

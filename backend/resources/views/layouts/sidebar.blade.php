@@ -27,6 +27,16 @@
                                     <span> Quản lý nhóm phân quyền </span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.products.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/products/*')) ? 'active' : '' }}">
+                                    <span> Quản lý sản phẩm </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.productSteps.list') }}" style="white-space: nowrap;letter-spacing: -0.9px" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/product-steps/*')) ? 'active' : '' }}">
+                                    <span> Quản lý công đoạn cho sản phẩm </span>
+                                </a>
+                            </li>
 {{--                            <li>--}}
 {{--                                <a href="{{ route('admin.mainCategories.list') }}" style="font-size: 12px;" class="waves-effect {{ (request()->is('main-categories')) || (request()->is('admin/main-categories/*')) ? 'active' : '' }}">--}}
 {{--                                     <span> Quản lý chuyên mục chính</span>--}}

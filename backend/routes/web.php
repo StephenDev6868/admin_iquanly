@@ -49,6 +49,25 @@ Route::prefix('admin')->group(function () {
             Route::delete('/delete/{board}', [\App\Http\Controllers\BoardController::class, 'destroy'])->name('admin.boards.delete');
         });
 
+        Route::prefix('products')->group(function () {
+            Route::get('', [\App\Http\Controllers\ProductController::class, 'index'])->name('admin.products.list');
+            Route::get('/create', [\App\Http\Controllers\ProductController::class, 'create'])->name('admin.products.create');
+            Route::post('/create', [\App\Http\Controllers\ProductController::class, 'store'])->name('admin.products.doCreate');
+            Route::get('/show/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('admin.products.show');
+            Route::put('/update/{product}', [\App\Http\Controllers\ProductController::class, 'update'])->name('admin.products.update');
+            Route::delete('/delete/{product}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('admin.products.delete');
+        });
+
+        Route::prefix('product-steps')->group(function () {
+            Route::get('', [\App\Http\Controllers\ProductStepController::class, 'index'])->name('admin.productSteps.list');
+            Route::get('/create', [\App\Http\Controllers\ProductStepController::class, 'create'])->name('admin.productSteps.create');
+            Route::post('/create', [\App\Http\Controllers\ProductStepController::class, 'store'])->name('admin.productSteps.doCreate');
+            Route::get('/show/{productStep}', [\App\Http\Controllers\ProductStepController::class, 'show'])->name('admin.productSteps.show');
+            Route::get('/show-quantity', [\App\Http\Controllers\ProductStepController::class, 'showQuantity'])->name('admin.productSteps.showQuantity');
+            Route::put('/update/{productStep}', [\App\Http\Controllers\ProductStepController::class, 'update'])->name('admin.productSteps.update');
+            Route::delete('/delete/{productStep}', [\App\Http\Controllers\ProductStepController::class, 'destroy'])->name('admin.productSteps.delete');
+        });
+
         Route::prefix('roles')->group(function () {
             Route::get('', [\App\Http\Controllers\RoleController::class, 'index'])->name('admin.roles.list');
             Route::get('/create', [\App\Http\Controllers\RoleController::class, 'create'])->name('admin.roles.create');
@@ -69,58 +88,58 @@ Route::prefix('admin')->group(function () {
             Route::delete('/delete/{post}', [\App\Http\Controllers\PostController::class, 'destroy'])->name('admin.posts.delete');
         });
 
-        Route::prefix('sites')->group(function () {
-            Route::get('list', [\App\Http\Controllers\SiteController::class, 'index'])->name('admin.sites.list');
-            Route::get('test/{site}', [\App\Http\Controllers\SiteController::class, 'editor'])->name('admin.sites.test');
-            Route::get('/preview/{config}', [\App\Http\Controllers\SiteController::class, 'previewTemplate'])->name('admin.sites.preview');
-            Route::get('/create', [\App\Http\Controllers\SiteController::class, 'create'])->name('admin.sites.create');
-            Route::post('/create', [\App\Http\Controllers\SiteController::class, 'store'])->name('admin.sites.doCreate');
-            Route::get('/show/{site}', [\App\Http\Controllers\SiteController::class, 'show'])->name('admin.sites.show');
-            Route::put('/update/{site}', [\App\Http\Controllers\SiteController::class, 'update'])->name('admin.sites.update');
-            Route::delete('/delete/{site}', [\App\Http\Controllers\SiteController::class, 'destroy'])->name('admin.sites.delete');
-        });
-
-        Route::prefix('categories')->group(function () {
-            Route::get('', [\App\Http\Controllers\CategoryController::class, 'index'])
-                ->name('admin.categories.list');
-            Route::get('create', [\App\Http\Controllers\CategoryController::class, 'create'])
-                ->name('admin.categories.create');
-            Route::post('doCreate', [\App\Http\Controllers\CategoryController::class, 'store'])
-                ->name('admin.categories.doCreate');
-            Route::get('detail.blade.php/{subCategory}', [\App\Http\Controllers\CategoryController::class, 'show'])
-                ->name('admin.categories.edit');
-            Route::put('update/{subCategory}', [\App\Http\Controllers\CategoryController::class, 'update'])
-                ->name('admin.categories.doEdit');
-            Route::delete('{subCategory}', [\App\Http\Controllers\CategoryController::class, 'destroy']);
-        });
-
-        Route::prefix('main-categories')->group(function () {
-            Route::get('', [\App\Http\Controllers\MainCategoryController::class, 'index'])->name('admin.mainCategories.list');
-            Route::get('create', [\App\Http\Controllers\MainCategoryController::class, 'create'])->name('admin.mainCategories.add');
-            Route::post('doCreate', [\App\Http\Controllers\MainCategoryController::class, 'store'])->name('admin.mainCategories.doCreate');
-            Route::get('detail.blade.php/{category}', [\App\Http\Controllers\MainCategoryController::class, 'show'])
-                ->name('admin.mainCategories.edit');
-            Route::put('update/{category}', [\App\Http\Controllers\MainCategoryController::class, 'update'])
-                ->name('admin.mainCategories.doEdit');
-        });
-
-        Route::prefix('author')->group(function () {
-            Route::get('', [\App\Http\Controllers\AuthorController::class, 'index'])
-                ->name('admin.author.list');
-            Route::get('/show/{author}', [\App\Http\Controllers\AuthorController::class, 'show'])
-                ->name('admin.author.detail.blade.php');
-            Route::get('/create', [\App\Http\Controllers\AuthorController::class, 'create'])
-                ->name('admin.author.create');
-            Route::post('/create', [\App\Http\Controllers\AuthorController::class, 'store'])
-                ->name('admin.author.doCreate');
-            Route::put('/update/{author}', [\App\Http\Controllers\AuthorController::class, 'update'])
-                ->name('admin.author.doEdit');
-            Route::delete('{author}', [\App\Http\Controllers\AuthorController::class, 'destroy']);
-        });
-
-        Route::prefix('sitemap')->group(function () {
-            Route::get('', [\App\Http\Controllers\SitemapController::class, 'sitemap'])->name('admin.sitemap');
-        });
+//        Route::prefix('sites')->group(function () {
+//            Route::get('list', [\App\Http\Controllers\SiteController::class, 'index'])->name('admin.sites.list');
+//            Route::get('test/{site}', [\App\Http\Controllers\SiteController::class, 'editor'])->name('admin.sites.test');
+//            Route::get('/preview/{config}', [\App\Http\Controllers\SiteController::class, 'previewTemplate'])->name('admin.sites.preview');
+//            Route::get('/create', [\App\Http\Controllers\SiteController::class, 'create'])->name('admin.sites.create');
+//            Route::post('/create', [\App\Http\Controllers\SiteController::class, 'store'])->name('admin.sites.doCreate');
+//            Route::get('/show/{site}', [\App\Http\Controllers\SiteController::class, 'show'])->name('admin.sites.show');
+//            Route::put('/update/{site}', [\App\Http\Controllers\SiteController::class, 'update'])->name('admin.sites.update');
+//            Route::delete('/delete/{site}', [\App\Http\Controllers\SiteController::class, 'destroy'])->name('admin.sites.delete');
+//        });
+//
+//        Route::prefix('categories')->group(function () {
+//            Route::get('', [\App\Http\Controllers\CategoryController::class, 'index'])
+//                ->name('admin.categories.list');
+//            Route::get('create', [\App\Http\Controllers\CategoryController::class, 'create'])
+//                ->name('admin.categories.create');
+//            Route::post('doCreate', [\App\Http\Controllers\CategoryController::class, 'store'])
+//                ->name('admin.categories.doCreate');
+//            Route::get('detail.blade.php/{subCategory}', [\App\Http\Controllers\CategoryController::class, 'show'])
+//                ->name('admin.categories.edit');
+//            Route::put('update/{subCategory}', [\App\Http\Controllers\CategoryController::class, 'update'])
+//                ->name('admin.categories.doEdit');
+//            Route::delete('{subCategory}', [\App\Http\Controllers\CategoryController::class, 'destroy']);
+//        });
+//
+//        Route::prefix('main-categories')->group(function () {
+//            Route::get('', [\App\Http\Controllers\MainCategoryController::class, 'index'])->name('admin.mainCategories.list');
+//            Route::get('create', [\App\Http\Controllers\MainCategoryController::class, 'create'])->name('admin.mainCategories.add');
+//            Route::post('doCreate', [\App\Http\Controllers\MainCategoryController::class, 'store'])->name('admin.mainCategories.doCreate');
+//            Route::get('detail.blade.php/{category}', [\App\Http\Controllers\MainCategoryController::class, 'show'])
+//                ->name('admin.mainCategories.edit');
+//            Route::put('update/{category}', [\App\Http\Controllers\MainCategoryController::class, 'update'])
+//                ->name('admin.mainCategories.doEdit');
+//        });
+//
+//        Route::prefix('author')->group(function () {
+//            Route::get('', [\App\Http\Controllers\AuthorController::class, 'index'])
+//                ->name('admin.author.list');
+//            Route::get('/show/{author}', [\App\Http\Controllers\AuthorController::class, 'show'])
+//                ->name('admin.author.detail.blade.php');
+//            Route::get('/create', [\App\Http\Controllers\AuthorController::class, 'create'])
+//                ->name('admin.author.create');
+//            Route::post('/create', [\App\Http\Controllers\AuthorController::class, 'store'])
+//                ->name('admin.author.doCreate');
+//            Route::put('/update/{author}', [\App\Http\Controllers\AuthorController::class, 'update'])
+//                ->name('admin.author.doEdit');
+//            Route::delete('{author}', [\App\Http\Controllers\AuthorController::class, 'destroy']);
+//        });
+//
+//        Route::prefix('sitemap')->group(function () {
+//            Route::get('', [\App\Http\Controllers\SitemapController::class, 'sitemap'])->name('admin.sitemap');
+//        });
     });
 });
 

@@ -1,10 +1,13 @@
 @extends('layouts.master')
-
 @section('css')
-    <!-- Dropzone css -->
-    <link href="{{ URL::asset('assets/plugins/dropzone/dist/dropzone.css')}}" rel="stylesheet" type="text/css">
+    <!-- Plugins css -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/common/common.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css')}}" />
+    <link href="{{ URL::asset('assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" />
 @endsection
-
 @section('content')
     <div class="container-fluid">
 
@@ -27,91 +30,100 @@
                 <div class="card m-b-20">
                     <div class="card-body">
                         <h4 class="mt-0 header-title mb-3">Nhập thông tin sản phẩm</h4>
-                        <form class="row" action="#">
+                        <form class="row" action="{{ route('admin.products.doCreate') }}" method="POST" enctype="multipart/form-data">
+                            @method('POST')
+                            @csrf
                             <div class="col-md-12 form-group">
-                                <label>Tiêu đề</label>
-                                <input type="text" name="title" class="form-control" required placeholder="Type something"/>
+                                <label>Tên sản phẩm</label>
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" required placeholder="Nhập tên sản phẩm"/>
                             </div>
-
-                            <div class="col-12 form-group">
-                                <div class="card m-b-20">
-                                    <div class="card-body">
-
-                                        <h4 class="mt-0 header-title">Dropzone</h4>
-                                        <p class="text-muted m-b-30 font-14">DropzoneJS is an open source library
-                                            that provides drag’n’drop file uploads with image previews.
-                                        </p>
-
-                                        <div class="m-b-30">
-                                            <form action="#" class="dropzone">
-                                                <div class="fallback">
-                                                    <input name="file" type="file" multiple="multiple">
-                                                </div>
-                                            </form>
-                                        </div>
-
-                                        <div class="text-center m-t-15">
-                                            <button type="button" class="btn btn-primary waves-effect waves-light">Send Files</button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-
                             <div class="col-md-12 form-group">
-                                <label>Xác Nhận Mật khẩu</label>
-                                <input type="password" class="form-control" required
-                                       data-parsley-equalto="#pass2"
-                                       placeholder="Re-Type Password"/>
+                                <label>Mã sản phẩm</label>
+                                <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>
                             </div>
-                        </form>
-                        <div class="form-group m-b-0">
-                            <div>
+{{--                            <div class="col-md-12 m-b-20">--}}
+{{--                                <button type="submit" class="btn btn-success waves-effect waves-light">--}}
+{{--                                    Thêm công đoạn--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-12 form-group">--}}
+{{--                                <div class="row jumbotron" style="padding: 10px 0 !important;">--}}
+{{--                                    <div class="col-md-3 form-group">--}}
+{{--                                        <div class="m-t-20">--}}
+{{--                                            <h4 class="text-muted">Công đoạn 1</h4>--}}
+{{--                                            <p class="text-bold m-b-15 font-14">--}}
+{{--                                               Nhập tên công đoạn:--}}
+{{--                                            </p>--}}
+{{--                                            <textarea id="textarea" class="form-control" maxlength="225" rows="3" placeholder="This textarea has a limit of 225 chars."></textarea>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-md-9">--}}
+{{--                                        <div class="col-md-12 form-group">--}}
+{{--                                            <label>Thời gian</label>--}}
+{{--                                            <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-12 form-group">--}}
+{{--                                            <label>Hệ số</label>--}}
+{{--                                            <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-12 form-group">--}}
+{{--                                            <label>Đơn giá</label>--}}
+{{--                                            <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-12 form-group">--}}
+{{--                                            <label>Chọn công nhân:</label>--}}
+{{--                                            <select class="js-example-basic-multiple" name="states[]" multiple="multiple">--}}
+{{--                                                <option value="AL">Alabama</option>--}}
+{{--                                                <option value="WY">Wyoming</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+
+
+{{--                            <div class="col-md-6 form-group">--}}
+{{--                                <label>Ngày bắt đầu</label>--}}
+{{--                                <div>--}}
+{{--                                    <div class="input-group">--}}
+{{--                                        <input type="text" value="{{ old('start_at') }}" data-date-format="dd-mm-yyyy" name="start_at" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">--}}
+{{--                                        <div class="input-group-append">--}}
+{{--                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>--}}
+{{--                                        </div>--}}
+{{--                                    </div><!-- input-group -->--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-6 form-group">--}}
+{{--                                <label>Ngày kết thúc</label>--}}
+{{--                                <div>--}}
+{{--                                    <div class="input-group">--}}
+{{--                                        <input type="text" value="{{ old('end_at') }}" data-date-format="dd-mm-yyyy" name="end_at" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">--}}
+{{--                                        <div class="input-group-append">--}}
+{{--                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>--}}
+{{--                                        </div>--}}
+{{--                                    </div><!-- input-group -->--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+                            <div class="col-md-12 form-group m-b-0 text-right">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                    Submit
+                                    Lưu
                                 </button>
                                 <button type="reset" class="btn btn-secondary waves-effect m-l-5">
                                     Cancel
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div> <!-- end col -->
         </div>
         <!-- end row -->
 
-        <div class="row">
-            <div class="col-12">
-                <div class="card m-b-20">
-                    <div class="card-body">
-
-                        <h4 class="mt-0 header-title">Dropzone</h4>
-                        <p class="text-muted m-b-30 font-14">DropzoneJS is an open source library
-                            that provides drag’n’drop file uploads with image previews.
-                        </p>
-
-                        <div class="m-b-30">
-                            <form action="#" class="dropzone">
-                                <div class="fallback">
-                                    <input name="file" type="file" multiple="multiple">
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="text-center m-t-15">
-                            <button type="button" class="btn btn-primary waves-effect waves-light">Send Files</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div> <!-- end col -->
-        </div> <!-- end row -->
-
     </div> <!-- container-fluid -->
 @endsection
 
 @section('script')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- Parsley js -->
     <script src="{{ URL::asset('assets/plugins/parsleyjs/parsley.min.js')}}"></script>
     <script src="{{ URL::asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
@@ -124,14 +136,38 @@
     <!-- Plugins Init js -->
     <script src="{{ URL::asset('assets/pages/form-advanced.js')}}"></script>
 
-    <!-- Dropzone js -->
-    <script src="{{ URL::asset('assets/plugins/dropzone/dist/dropzone.js')}}"></script>
+    <!--Wysiwig js-->
+    <script src="{{ URL::asset('assets/plugins/tinymce/tinymce.min.js')}}"></script>
 @endsection
 
 @section('script-bottom')
     <script>
         $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
             $('form').parsley();
+
+            if($("#elm1").length > 0){
+                tinymce.init({
+                    selector: "textarea#elm1",
+                    theme: "modern",
+                    height: 500,
+                    plugins: [
+                        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                        "save table contextmenu directionality emoticons template paste textcolor"
+                    ],
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",
+                    style_formats: [
+                        {title: 'Bold text', inline: 'b'},
+                        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+                        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+                        {title: 'Example 1', inline: 'span', classes: 'example1'},
+                        {title: 'Example 2', inline: 'span', classes: 'example2'},
+                        {title: 'Table styles'},
+                        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+                    ]
+                });
+            }
         });
     </script>
 @endsection

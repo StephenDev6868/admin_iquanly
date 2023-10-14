@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\ProductStepController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,19 +22,26 @@ class Product extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
-        'title',
-        'content',
-        'status',
-        'avatar',
+        'creator_id',
+        'name',
+        'code',
+//        'start_at',
+//        'end_at',
     ];
+
+    public function creatorName(int $creator_id)
+    {
+        $data = Product::query()->join('users', 'users.id', '=', 'products.creator_id')
+            ->where('users.id', $creator_id)
+            ->select(['users.full_name as fullName'])
+            ->first();
+        return optional($data)->fullName;
+    }
 
 	/**
     */
-    public function userName()
+    public function steps()
     {
-        return $this->hasOne(User::class, 'id', 'user_id')
-            ->select(DB::raw("CONCAT(users.first_name, ' ',  users.last_name) as full_name"))
-            ->first();
+        return $this->hasMany(ProductStepController::class, 'product_id', 'id');
     }
 }

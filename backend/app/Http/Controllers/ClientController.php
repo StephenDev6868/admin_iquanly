@@ -17,7 +17,7 @@ class ClientController extends Controller
 //        $categorys = Category::query()
 //            ->where('status', 1)
 //            ->get();
-        return view('charts-chartjs');
+        return view('staff.index');
         //return view('tables-');
     }
 

@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Quản lý sản phẩm</h4>
+                    <h4 class="page-title">Quản lý công đoạn sản phẩm</h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Lexa</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Tables</a></li>
@@ -20,24 +20,13 @@
             <div class="col-12">
                 <div class="card m-b-20">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">Tìm kiếm sản phẩm</h4>
+                        <h4 class="mt-0 header-title">Tìm kiếm công đoạn</h4>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Từ khoá</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" value="{{ request()->get('key_word' ?? '') }}" name="key_word" placeholder="Nhập từ khoá" id="example-text-input">
                             </div>
                         </div>
-{{--                        <div class="form-group row">--}}
-{{--                            <label class="col-sm-2 col-form-label">Trạng thái</label>--}}
-{{--                            <div class="col-sm-10">--}}
-{{--                                <select class="form-control" name="status">--}}
-{{--                                    <option value="">All</option>--}}
-{{--                                    <option value="1" {{ request()->get('status') == 1 ? 'selected' : '' }}>Bản public</option>--}}
-{{--                                    <option value="2" {{ request()->get('status') == 2 ? 'selected' : '' }}>Bản submit</option>--}}
-{{--                                    <option value="3" {{ request()->get('status') == 3 ? 'selected' : '' }}>Bán Nháp</option>--}}
-{{--                                </select>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                         <div class="form-group row m-b-0 text-right">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">
@@ -57,41 +46,41 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-add">
-                    <a href="{{ route('admin.products.create')  }}" class="btn btn-info mb-4">Thêm sản phẩm</a>
+                    <a href="{{ route('admin.productSteps.create')  }}" class="btn btn-info mb-4">Thêm công đoạn</a>
                 </div>
                 <div class="card m-b-20">
                     <div class="card-body">
                         <div class="table-title d-flex justify-content-between">
-                            <h4 class="mt-0 header-title">Danh sách sản phẩm</h4>
-                            {{ $products->links() }}
+                            <h4 class="mt-0 header-title">Danh sách công đoạn sản phẩm</h4>
+                            {{ $productSteps->links() }}
                         </div>
                         <table class="table table-striped mb-0">
                             <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Người tạo</th>
+                                <th>Tên công đoạn</th>
                                 <th>Tên sản phẩm</th>
-                                <th>Mã sản phẩm</th>
-{{--                                <th>Ngày bắt đầu</th>--}}
-{{--                                <th>Ngày kết thúc</th>--}}
+                                <th>Đơn giá</th>
+                                <th>Hệ số</th>
+                                <th>Ngày tạo</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($products as $key => $product)
+                                @foreach($productSteps as $key => $productStep)
                                     <tr>
                                         <th scope="row">{{ $loop->index + 1 }}</th>
-                                        <td>{{ optional($product)->creatorName($product->getKey()) ?? 'admin' }}</td>
-                                        <td>{{ $product->name }}</td>
-                                        <td>{{ $product->code }}</td>
-{{--                                        <td >{{ $product->start_at }}</td>--}}
-{{--                                        <td >{{ $product->end_start }}</td>--}}
+                                        <td>{{ $productStep->name }}</td>
+                                        <td>{{ $productStep->product->name }}</td>
+                                        <td>{{ $productStep->unit_price }}</td>
+                                        <td>{{ $productStep->coefficient }}</td>
+                                        <td >{{ $productStep->created_at }}</td>
                                         <td >
-                                            <a href="{{ route('admin.products.show', ['product' => $product->getKey()])  }}" class="btn btn-success">
+                                            <a href="{{ route('admin.productSteps.show', ['productStep' => $productStep->getKey()])  }}" class="btn btn-success">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                            <a href="" class="btn btn-danger">
-                                                <i class="fas fa-trash"></i>
+                                            <a href="{{ route('admin.productSteps.showQuantity', ['productStep' => $productStep->getKey()]) }}" class="btn btn-info">
+                                                <i class="fas fa-user"></i>
                                             </a>
                                         </td>
                                     </tr>
