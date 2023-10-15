@@ -29,19 +29,32 @@
                 <div class="card m-b-20">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">Tìm kiếm công đoạn</h4>
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="example-text-input" class="col-sm-2 col-form-label">Từ khoá</label>--}}
-{{--                            <div class="col-sm-10">--}}
-{{--                                <input class="form-control" type="text" value="{{ request()->get('key_word' ?? '') }}" name="key_word" placeholder="Nhập từ khoá" id="example-text-input">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Tên và mã sản phẩm</label>
+                            <select name="product_id" id="" class="form-control col-sm-12">
+                                <option value="">Tất cả</option>
+                                @foreach($products as $key => $product)
+                                    <option {{ request()->query('product_id') == $product->getKey() ? 'selected' : '' }} value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Tên Công đoạn</label>
                             <select name="productStep" id="" class="form-control col-sm-12">
+                                <option value="">Tất cả</option>
                                 @foreach($productSteps as $key => $productStep)
                                     <option {{ request()->query('productStep') == $productStep->getKey() ? 'selected' : '' }} value="{{ $productStep->getKey() }}">{{ $productStep->name}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Ngày làm việc</label>
+                            <div class="input-group">
+                                <input type="text" value="{{ request()->query('date_work') ?? old('date_work') }}" data-date-format="dd-mm-yyyy" name="date_work" class="form-control" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                </div>
+                            </div><!-- input-group -->
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Tên Nhân viên</label>
@@ -80,44 +93,58 @@
                                 {{ $data->appends(['productStep' => $step])->links() }}
                             </div>
                         @endif
-                        <table class="table table-striped mb-0">
-                            <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Tên công đoạn</th>
-                                <th>Tên công nhân phụ trách</th>
-                                <th>Đơn giá</th>
-                                <th>Hệ số</th>
-                                <th>Sản lượng</th>
-                                <th>Ngày làm việc</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($data as $key => $item)
+                        <form action="{{ route('admin.productSteps.updateQuantity')  }}" class="row" method="POST">
+                            @csrf
+                            <table class="table table-striped mb-0">
+                                <thead>
                                 <tr>
-                                    <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td>{{ $item->productName }}</td>
-                                    <td>{{ $item->productStepName }}</td>
-                                    <td>{{ $item->userFullName }}</td>
-                                    <td>{{ $item->unitPrice }}</td>
-                                    <td>{{ $item->coefficient }}</td>
-                                    <td>
-                                        <input type="text" value="{{ $item->quantity }}" name="quantity[]">
-                                        <input type="hidden" value="{{ $item->getKey() }}" name="work_quantity_id">
-                                    </td>
-                                    <td>
-                                        <div class="input-group">
-                                            <input type="text" value="{{ \Illuminate\Support\Carbon::parse($item->date_work)->format('d-m-Y') ??  old('date_work') }}" data-date-format="dd-mm-yyyy" name="date_work" disabled class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-                                            </div>
-                                        </div>
-                                    </td>
+                                    <th style="white-space: nowrap;">STT</th>
+                                    <th style="white-space: nowrap;">Tên sản phẩm</th>
+                                    <th style="white-space: nowrap;">Mã sản phẩm</th>
+                                    <th style="white-space: nowrap;">Tên công đoạn</th>
+                                    <th style="white-space: nowrap;">Tên công nhân</th>
+                                    <th style="white-space: nowrap;">Đơn giá</th>
+                                    <th style="white-space: nowrap;">Hệ số</th>
+                                    <th style="white-space: nowrap;">Sản lượng</th>
+                                    <th style="white-space: nowrap;">Ngày làm việc</th>
                                 </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                @foreach($data as $key => $item)
+                                    <tr>
+                                        <th scope="row">{{ $loop->index + 1 }}</th>
+                                        <td>{{ $item->productName }}</td>
+                                        <td>{{ $item->productCode }}</td>
+                                        <td>{{ $item->productStepName }}</td>
+                                        <td>{{ $item->userFullName }}</td>
+                                        <td>{{ $item->unitPrice }}</td>
+                                        <td>{{ $item->coefficient }}</td>
+                                        <td>
+                                            <input type="number" value="{{ $item->quantity }}" name="{{$item->workQuantityId}}">
+                                        </td>
+                                        <td>
+                                            <div class="input-group">
+                                                <input type="text" value="{{ \Illuminate\Support\Carbon::parse($item->date_work)->format('d-m-Y') ??  old('date_work') }}" data-date-format="dd-mm-yyyy" name="date_work" disabled class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="col-md-12 form-group mt-3 m-b-0 text-right">
+                                <div>
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                        Cập nhập số liệu
+                                    </button>
+                                    <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                                        Huỷ
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div> <!-- end col -->

@@ -21,7 +21,9 @@ class ProductStepController extends Controller
     public function index(Request $request)
     {
         $key_word = $request->get('key_word');
+        $product_id = $request->get('product_id');
 
+        $products = Product::all();
         $query = ProductStep::query();
 
         if (!empty($key_word)) {
@@ -29,8 +31,13 @@ class ProductStepController extends Controller
                 $query->where('name', 'like', '%' . $key_word . '%');
             });
         }
+
+        if (!empty($product_id)) {
+            $query->where('product_id', $product_id);
+        }
+
         $productSteps = $query->paginate(10);
-        return view('admin.product-steps.list', compact('productSteps'));
+        return view('admin.product-steps.list', compact('productSteps', 'products'));
     }
 
     /**
@@ -108,7 +115,10 @@ class ProductStepController extends Controller
     public function showQuantity(Request $request)
     {
         $input = $request->query();
-        $step = $input['productStep'];
+        $product_id = $input['product_id'] ?? null;
+        $date_work = $input['date_work'] ?? null;
+        $step = $input['productStep'] ?? null;
+        $products = Product::all();
         $productSteps = ProductStep::all();
         $users = User::query()->where('board_id', '=', 2)->get();
         $query = WorkQuantity::query()
@@ -119,18 +129,29 @@ class ProductStepController extends Controller
             ->select([
                 'products.id as productId',
                 'products.name as productName',
+                'products.code as productCode',
                 'product_steps.id as productStepId',
                 'product_steps.name as productStepName',
                 'product_steps.coefficient as coefficient',
                 'product_steps.unit_price as unitPrice',
                 'users.id as userId',
                 'users.full_name as userFullName',
+                'work_quantities.id as workQuantityId',
                 'work_quantities.quantity as quantity',
                 'work_quantities.date_work as date_work',
             ]);
         //->orderBy('work_quantities.date_work', 'desc')->paginate(10);
-        if ($input['productStep']) {
+        if ($product_id) {
+            $query->where('work_quantities.product_id', $product_id);
+        }
+
+        if ($step) {
             $query->where('work_quantities.product_step_id', $input['productStep']);
+        }
+
+        if ($date_work) {
+            $date_work = \Illuminate\Support\Carbon::parse($date_work)->format('Y-m-d');
+            $query->where('work_quantities.date_work', '=',  $date_work);
         }
 
         if (isset($input['user_ids']) && count($input['user_ids']) > 0) {
@@ -138,7 +159,21 @@ class ProductStepController extends Controller
         }
         $isShowPagination = !(isset($input['user_ids']) && count($input['user_ids']));
         $data = (isset($input['user_ids']) && count($input['user_ids'])) ? $query->get() : $query->paginate(10);
-        return view('admin.product-steps.quantity', compact('data', 'step', 'users', 'productSteps', 'isShowPagination'));
+        return view('admin.product-steps.quantity', compact('data', 'step', 'users', 'products', 'productSteps', 'isShowPagination'));
+    }
+
+    public function updateQuantity(Request $request)
+    {
+        $inputs = $request->all();
+        foreach ($inputs as $key => $input) {
+            if ($key !== '_token') {
+                WorkQuantity::query()->where('id', (int) $key)->update(['quantity' => $input]);
+            }
+        }
+
+        return Redirect::back()
+            ->withInput()
+            ->with('success', 'Cập nhập dữ liệu thành công');
     }
 
     /**

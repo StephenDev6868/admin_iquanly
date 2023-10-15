@@ -123,6 +123,9 @@
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>
+                                            <a href="{{ route('admin.productSteps.showQuantity', ['user_ids' => [$user->getKey()]]) }}" class="btn btn-info ml-2">
+                                                <i class="fas fa-user"></i>
+                                            </a>
                                         </td>
 {{--                                        @endif--}}
                                     </tr>
