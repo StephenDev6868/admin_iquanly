@@ -66,7 +66,7 @@
                     <div class="card-body">
                         <div class="table-title d-flex justify-content-between">
                             <h4 class="mt-0 header-title">Danh sách công đoạn sản phẩm</h4>
-                            {{ $productSteps->links() }}
+                            {{ $productSteps->appends(['product_id' => request()->query('product_id')])->links() }}
                         </div>
                         <table class="table table-striped mb-0">
                             <thead>

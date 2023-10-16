@@ -136,6 +136,7 @@
                             </table>
                             <div class="col-md-12 form-group mt-3 m-b-0 text-right">
                                 <div>
+                                    <a href="{{route('admin.productSteps.list')}}" class="btn btn-info waffect waves-light">Back</a>
                                     <button type="submit" class="btn btn-primary waves-effect waves-light">
                                         Cập nhập số liệu
                                     </button>
