@@ -78,7 +78,7 @@
                                 <th>Đơn giá</th>
                                 <th>Hệ số</th>
                                 <th>Ngày tạo</th>
-                                <th>Action</th>
+                                <th>Thao tác</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -94,6 +94,9 @@
                                         <td >
                                             <a href="{{ route('admin.productSteps.show', ['productStep' => $productStep->getKey()])  }}" class="btn btn-success">
                                                 <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                            <a href="{{ route('admin.productSteps.showGenerateWorkQuantity', ['productStep' => $productStep->getKey()])  }}" class="btn btn-warning">
+                                                <i class="fas fa-plus"></i>
                                             </a>
                                             <a href="{{ route('admin.productSteps.showQuantity', ['productStep' => $productStep->getKey()]) }}" class="btn btn-info">
                                                 <i class="fas fa-user"></i>

@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Sửa công đoạn </h4>
+                    <h4 class="page-title">Tạo dữ liệu sản lượng cho công nhân </h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Lexa</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Forms</a></li>
@@ -29,53 +29,53 @@
             <div class="col-lg-12">
                 <div class="card m-b-20">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title mb-3">Thông tin công đoạn</h4>
-                        <form class="row" action="{{ route('admin.productSteps.update', ['productStep' => $productStep->getKey()]) }}" method="POST" enctype="multipart/form-data">
-                            @method('PUT')
+                        <h4 class="mt-0 header-title mb-3">Thông tin dữ liệu</h4>
+                        <form class="row" action="{{ route('admin.productSteps.doGenerateWorkQuantity', ['productStep' => $productStep->getKey()]) }}" method="POST" enctype="multipart/form-data">
+                            @method('POST')
                             @csrf
                             <div class="col-md-12 form-group step-box-area">
                                 <div class="row jumbotron step-box-item" style="padding: 10px 0 !important;">
                                     <div class="col-md-3 form-group">
                                         <div class="m-t-20">
-                                            <h4 class="text-muted">Nhập tên công đoạn:</h4>
-                                            <textarea id="textarea" name="name" class="form-control" maxlength="225" rows="6" placeholder="Nhập tên công đoạn">{{ $productStep->name }}</textarea>
+                                            <h4 class="text-muted">Tên công đoạn:</h4>
+                                            <textarea readonly id="textarea" name="name" class="form-control" maxlength="225" rows="6" placeholder="Nhập tên công đoạn">{{ $productStep->name }}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-9">
                                         <div class="col-md-12 form-group">
-                                            <label>Chọn sản phẩm: </label>
-                                            <select name="product_id" id="" class="form-control">
+                                            <label>Thông tin sản phẩm: </label>
+                                            <select name="product_id" id="" class="form-control" readonly="true">
                                                 @foreach($products as $key => $product)
                                                     <option value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
 
-{{--                                        <div class="col-md-12 form-group">--}}
-{{--                                            <label>Thời gian: </label>--}}
-{{--                                            <div class="input-group">--}}
-{{--                                                <input type="text" value="{{ old('date_work') }}" data-date-format="dd-mm-yyyy" name="date_work" class="form-control" placeholder="mm-dd-yyyy" id="datepicker-autoclose">--}}
-{{--                                                <div class="input-group-append">--}}
-{{--                                                    <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>--}}
-{{--                                                </div>--}}
-{{--                                            </div><!-- input-group -->--}}
-{{--                                        </div>--}}
+                                        <div class="col-md-12 form-group">
+                                            <label>Chọn ngày làm việc: </label>
+                                            <div class="input-group">
+                                                <input type="text" value="{{ old('date_work') }}" data-date-format="dd-mm-yyyy" name="date_work" class="form-control" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                                </div>
+                                            </div><!-- input-group -->
+                                        </div>
                                         <div class="col-md-12 form-group">
                                             <label>Hệ số: </label>
-                                            <input type="text" name="coefficient" value="{{ $productStep->coefficient ?? old('coefficient') }}" class="form-control" required placeholder="Nhập hệ số"/>
+                                            <input type="text" readonly="true" name="coefficient" value="{{ $productStep->coefficient ?? old('coefficient') }}" class="form-control" required placeholder="Nhập hệ số"/>
                                         </div>
                                         <div class="col-md-12 form-group">
                                             <label>Đơn giá: </label>
-                                            <input type="text" name="unit_price" value="{{ $productStep->unit_price ?? old('unit_price') }}" class="form-control" required placeholder="Nhập đơn giá"/>
+                                            <input type="text" readonly="true" name="unit_price" value="{{ $productStep->unit_price ?? old('unit_price') }}" class="form-control" required placeholder="Nhập đơn giá"/>
                                         </div>
-{{--                                        <div class="col-md-12 form-group">--}}
-{{--                                            <label>Chọn công nhân:</label>--}}
-{{--                                            <select class="js-example-basic-multiple" name="user_ids[]" multiple="multiple">--}}
-{{--                                                @foreach($users as $key => $user)--}}
-{{--                                                    <option value="{{ $user->getKey() }}">{{ $user->full_name }}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
+                                        <div class="col-md-12 form-group">
+                                            <label>Chọn công nhân:</label>
+                                            <select class="js-example-basic-multiple" name="user_ids[]" multiple="multiple">
+                                                @foreach($users as $key => $user)
+                                                    <option value="{{ $user->getKey() }}">{{ $user->full_name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
 @endsection
 
 @section('script')
-{{--    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>--}}
+    {{--    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>--}}
     <!-- Parsley js -->
     <script src="{{ URL::asset('assets/js/select2.min.js')}}"></script>
     <script src="{{ URL::asset('assets/plugins/parsleyjs/parsley.min.js')}}"></script>
