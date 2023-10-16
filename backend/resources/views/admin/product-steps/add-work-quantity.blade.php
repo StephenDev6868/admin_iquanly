@@ -46,7 +46,7 @@
                                             <label>Thông tin sản phẩm: </label>
                                             <select name="product_id" id="" class="form-control" readonly="true">
                                                 @foreach($products as $key => $product)
-                                                    <option value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code }}</option>
+                                                    <option {{ $product->getKey() === $productStep->product->id ? 'selected' :'' }} value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

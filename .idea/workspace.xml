@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/add-work-quantity.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductStepController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductStepController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/add-work-quantity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/add-work-quantity.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +212,7 @@
       <workItem from="1696695440788" duration="7721000" />
       <workItem from="1696708378972" duration="37527000" />
       <workItem from="1696953074491" duration="30492000" />
-      <workItem from="1697133066422" duration="44535000" />
+      <workItem from="1697133066422" duration="52757000" />
     </task>
     <servers />
   </component>

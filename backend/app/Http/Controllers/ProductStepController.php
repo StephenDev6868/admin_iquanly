@@ -74,9 +74,8 @@ class ProductStepController extends Controller
                 ->withInput()
                 ->with('error', $validator->errors()->first());
         }
-        $userIds = $inputs['user_ids'];
         $result = ProductStep::query()->create($inputs);
-
+        $userIds = $inputs['user_ids'] ?? [];
         $dataWorkQuantity = [];
         foreach ($userIds as $key => $userId) {
             $dataWorkQuantity[] = [
