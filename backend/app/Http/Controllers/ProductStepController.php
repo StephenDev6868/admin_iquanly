@@ -159,7 +159,7 @@ class ProductStepController extends Controller
         $result2 = WorkQuantity::query()->insert($dataWorkQuantity);
 
         if ($result2) {
-            return Redirect::route('admin.productSteps.showQuantity', ['date_work' => $inputs['date_work'],'user_ids' => $inputs['user_ids']])
+            return Redirect::route('admin.productSteps.showQuantity', ['productStep' => $productStep->getKey(), 'date_work' => $inputs['date_work'],'user_ids' => $inputs['user_ids']])
                 ->with('success', 'Tạo dữ liệu sản lượng thành công');
         }
     }

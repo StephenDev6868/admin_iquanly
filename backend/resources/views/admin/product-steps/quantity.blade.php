@@ -90,7 +90,7 @@
                         @if($isShowPagination)
                             <div class="table-title d-flex justify-content-between">
                                 <h4 class="mt-0 header-title">Danh sách sản lượng theo công đoạn</h4>
-                                {{ $data->appends(['productStep' => $step])->links() }}
+                                {{ $data->appends(['product_id' => request()->query('product_id'), 'productStep' => $step, 'date_work' => request()->query('date_work'), 'user_ids' => request()->query('user_ids')])->links() }}
                             </div>
                         @endif
                         <form action="{{ route('admin.productSteps.updateQuantity')  }}" class="row" method="POST">
