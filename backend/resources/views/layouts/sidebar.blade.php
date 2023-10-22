@@ -37,6 +37,15 @@
                                     <span> Quản lý công đoạn cho sản phẩm </span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/warehouse-/*')) ? 'active' : '' }}"><span>Quản lý kho <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <ul class="submenu">
+                                    <li><a href="{{ route('admin.wDevices.list')  }}" class="{{ (request()->is('users')) || (request()->is('admin/warehouse-device/*')) ? 'active' : '' }}">Quản lý kho thiết bị</a></li>
+                                    <li><a href="{{ route('admin.wTools.list')  }}" class="{{ (request()->is('users')) || (request()->is('admin/warehouse-tool/*')) ? 'active' : '' }}">Quản lý kho dụng cụ</a></li>
+                                    <li><a href="{{ route('admin.wMaterial.list')  }}">Quản lý kho nguyên vật liệu</a></li>
+{{--                                    <li><a href="{{ route('admin.wMaterial.list')  }}">Quản lý kho bán thành phẩm</a></li>--}}
+                                </ul>
+                            </li>
 {{--                            <li>--}}
 {{--                                <a href="{{ route('admin.mainCategories.list') }}" style="font-size: 12px;" class="waves-effect {{ (request()->is('main-categories')) || (request()->is('admin/main-categories/*')) ? 'active' : '' }}">--}}
 {{--                                     <span> Quản lý chuyên mục chính</span>--}}

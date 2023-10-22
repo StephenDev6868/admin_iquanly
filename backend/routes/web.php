@@ -88,6 +88,33 @@ Route::prefix('admin')->group(function () {
             Route::put('/update/{post}', [\App\Http\Controllers\PostController::class, 'update'])->name('admin.posts.update');
             Route::delete('/delete/{post}', [\App\Http\Controllers\PostController::class, 'destroy'])->name('admin.posts.delete');
         });
+
+        Route::prefix('warehouse-device')->group(function () {
+            Route::get('', [\App\Http\Controllers\WDeviceController::class, 'index'])->name('admin.wDevices.list');
+            Route::get('/create', [\App\Http\Controllers\WDeviceController::class, 'create'])->name('admin.wDevices.create');
+            Route::post('/create', [\App\Http\Controllers\WDeviceController::class, 'store'])->name('admin.wDevices.doCreate');
+            Route::get('/show/{wDevice}', [\App\Http\Controllers\WDeviceController::class, 'show'])->name('admin.wDevices.show');
+            Route::put('/update/{wDevice}', [\App\Http\Controllers\WDeviceController::class, 'update'])->name('admin.wDevices.update');
+            Route::delete('/delete/{wDevice}', [\App\Http\Controllers\WDeviceController::class, 'destroy'])->name('admin.wDevices.delete');
+        });
+
+        Route::prefix('warehouse-tool')->group(function () {
+            Route::get('', [\App\Http\Controllers\WToolController::class, 'index'])->name('admin.wTools.list');
+            Route::get('/create', [\App\Http\Controllers\WToolController::class, 'create'])->name('admin.wTools.create');
+            Route::post('/create', [\App\Http\Controllers\WToolController::class, 'store'])->name('admin.wTools.doCreate');
+            Route::get('/show/{wTool}', [\App\Http\Controllers\WToolController::class, 'show'])->name('admin.wTools.show');
+            Route::put('/update/{wTool}', [\App\Http\Controllers\WToolController::class, 'update'])->name('admin.wTools.update');
+            Route::delete('/delete/{wTool}', [\App\Http\Controllers\WToolController::class, 'destroy'])->name('admin.wTools.delete');
+        });
+
+        Route::prefix('warehouse-material')->group(function () {
+            Route::get('', [\App\Http\Controllers\WMaterialController::class, 'index'])->name('admin.wMaterial.list');
+            Route::get('/create', [\App\Http\Controllers\WMaterialController::class, 'create'])->name('admin.wMaterial.create');
+            Route::post('/create', [\App\Http\Controllers\WMaterialController::class, 'store'])->name('admin.wMaterial.doCreate');
+            Route::get('/show/{board}', [\App\Http\Controllers\WMaterialController::class, 'show'])->name('admin.wMaterial.show');
+            Route::put('/update/{board}', [\App\Http\Controllers\WMaterialController::class, 'update'])->name('admin.wMaterial.update');
+            Route::delete('/delete/{board}', [\App\Http\Controllers\WMaterialController::class, 'destroy'])->name('admin.wMaterial.delete');
+        });
     });
 });
 
