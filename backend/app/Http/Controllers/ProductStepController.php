@@ -134,7 +134,6 @@ class ProductStepController extends Controller
     public function doGenerateWorkQuantity(Request $request, ProductStep $productStep)
     {
         $inputs = $request->all();
-        //dd($inputs);
         $inputs['date_work'] =  Carbon::parse($inputs['date_work'])->format('Y-m-d');
         $dataWorkQuantity = [];
         $userIds = $inputs['user_ids'];
@@ -217,7 +216,10 @@ class ProductStepController extends Controller
         $inputs = $request->all();
         foreach ($inputs as $key => $input) {
             if ($key !== '_token') {
-                WorkQuantity::query()->where('id', (int) $key)->update(['quantity' => $input]);
+                WorkQuantity::query()->where('id', (int) $key)->update([
+                    'quantity' => $input[0] ?? 0,
+                    'date_work' =>  Carbon::parse($input[1] ?? '')->format('Y-m-d'),
+                ]);
             }
         }
 

@@ -120,11 +120,11 @@
                                         <td>{{ $item->unitPrice }}</td>
                                         <td>{{ $item->coefficient }}</td>
                                         <td>
-                                            <input type="number" value="{{ $item->quantity }}" name="{{$item->workQuantityId}}">
+                                            <input type="number" value="{{ $item->quantity }}" name="{{$item->workQuantityId}}[]">
                                         </td>
                                         <td>
                                             <div class="input-group">
-                                                <input type="text" value="{{ \Illuminate\Support\Carbon::parse($item->date_work)->format('d-m-Y') ??  old('date_work') }}" data-date-format="dd-mm-yyyy" name="date_work" disabled class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
+                                                <input type="text" value="{{ \Illuminate\Support\Carbon::parse($item->date_work)->format('d-m-Y') ??  old('date_work') }}" data-date-format="dd-mm-yyyy" name="{{$item->workQuantityId}}[]" class="form-control" placeholder="dd-mm-yyyy" id="{{'datepicker-autoclose' . $loop->index}}">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                                 </div>
