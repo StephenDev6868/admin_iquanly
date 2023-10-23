@@ -75,7 +75,7 @@ class AuthController extends Controller
         ]);
 
         $validator = Validator::make($inputs, [
-            'login_id' => 'required|min:8|max:255|exists:users,login_id',
+            'login_id' => 'required|min:6|max:255|exists:users,login_id',
             'password' => 'required|min:6|max:255',
         ]);
 
