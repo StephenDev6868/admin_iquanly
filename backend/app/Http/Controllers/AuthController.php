@@ -34,8 +34,8 @@ class AuthController extends Controller
         ]);
 
         $validator = Validator::make($inputs, [
-            'login_id' => 'required|min:6|max:255|exists:users,login_id',
-            'password' => 'required|min:6|max:255',
+            'login_id' => 'required|min:5|max:255|exists:users,login_id',
+            'password' => 'required|min:5|max:255',
         ],[
             'login_id.exists' => 'Nhập sai login_id xin vui lòng nhập lại',
             'password.min'    => 'Mật khẩu phải lỡn hơn 6 ký tự',
