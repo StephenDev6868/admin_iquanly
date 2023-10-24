@@ -68,7 +68,7 @@
                                 <select name="status" id="" class="form-control">
                                     <option value="1" {{ $wTool->status === '1' ? 'selected' : '' }}>Bình Thường</option>
                                     <option value="2" {{ $wTool->status === '2' ? 'selected' : '' }}>Hỏng</option>
-                                    <option value="4" {{ $wTool->status === '3' ? 'selected' : '' }}>Đang sửa</option>
+                                    <option value="3" {{ $wTool->status === '3' ? 'selected' : '' }}>Đang sửa</option>
                                 </select>
                             </div>
                             <div class="col-md-12 form-group">

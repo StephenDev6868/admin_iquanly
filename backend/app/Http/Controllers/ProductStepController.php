@@ -207,6 +207,7 @@ class ProductStepController extends Controller
             $query->whereIn('work_quantities.user_id', $input['user_ids']);
         }
         $isShowPagination = !(isset($input['user_ids']) && count($input['user_ids']));
+        $query->orderBy('work_quantities.date_work', 'desc');
         $data = (isset($input['user_ids']) && count($input['user_ids'])) ? $query->get() : $query->paginate(10);
         return view('admin.product-steps.quantity', compact('data', 'step', 'users', 'products', 'productSteps', 'isShowPagination'));
     }
