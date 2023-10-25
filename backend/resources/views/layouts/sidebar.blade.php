@@ -42,7 +42,7 @@
                                 <ul class="submenu">
                                     <li><a href="{{ route('admin.wDevices.list')  }}" class="{{ (request()->is('users')) || (request()->is('admin/warehouse-device/*')) ? 'active' : '' }}">Quản lý kho thiết bị</a></li>
                                     <li><a href="{{ route('admin.wTools.list')  }}" class="{{ (request()->is('users')) || (request()->is('admin/warehouse-tool/*')) ? 'active' : '' }}">Quản lý kho dụng cụ</a></li>
-                                    <li><a href="{{ route('admin.wMaterial.list')  }}">Quản lý kho nguyên vật liệu</a></li>
+                                    <li><a href="{{ route('admin.wMaterials.list')  }}" style="white-space: nowrap" class="{{ (request()->is('users')) || (request()->is('admin/warehouse-material/*')) ? 'active' : '' }}">Quản lý kho nguyên vật liệu</a></li>
 {{--                                    <li><a href="{{ route('admin.wMaterial.list')  }}">Quản lý kho bán thành phẩm</a></li>--}}
                                 </ul>
                             </li>

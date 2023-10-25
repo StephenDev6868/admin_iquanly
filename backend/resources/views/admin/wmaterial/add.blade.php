@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Thêm phòng ban </h4>
+                    <h4 class="page-title">Thêm nguyên vật liệu </h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Lexa</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Forms</a></li>
@@ -29,22 +29,79 @@
             <div class="col-lg-12">
                 <div class="card m-b-20">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title mb-3">Nhập thông tin phòng ban</h4>
-                        <form class="row" action="{{ route('admin.boards.doCreate') }}" method="POST" enctype="multipart/form-data">
+                        <h4 class="mt-0 header-title mb-3">Nhập thông tin nguyên vật liệu </h4>
+                        <form class="row" action="{{ route('admin.wMaterials.doCreate') }}" method="POST" enctype="multipart/form-data">
                             @method('POST')
                             @csrf
-                            <div class="col-md-12 form-group">
-                                <label>Tên phòng ban</label>
-                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" required placeholder="Nhập tên chuyên mục"/>
+                            <div class="col-md-6 form-group">
+                                <label>Tên nguyên vật liệu </label>
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" required placeholder="Nhập tên nguyên vật liệu  "/>
                             </div>
-                            <div class="col-md-12 form-group">
-                                <label>Thuộc công ty</label>
-                                <select id="company_id" class="spr-text-field form-control" name="company_id" required>
-                                    @foreach($company as $item)
-                                        <option value="{{ $item->getKey() }}">{{ $item->name }}</option>
-                                    @endforeach
-                                </select>
+                            <div class="col-md-6 form-group">
+                                <label>Mã nguyên vật liệu </label>
+                                <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã nguyên vật liệu  "/>
                             </div>
+                            <div class="col-md-6 form-group">
+                                <label>Số lượng nhập </label>
+                                <input type="text" name="quantity_input" value="{{ old('quantity_input') }}" class="form-control" required placeholder="Nhập Số lượng  "/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Số lượng tồn </label>
+                                <input type="text" name="quantity_contain" value="{{ old('quantity_contain') }}" class="form-control" required placeholder="Nhập Số lượng tồn "/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Số lượng sử dụng </label>
+                                <input type="text" name="quantity_use" value="{{ old('quantity_use') }}" class="form-control" required placeholder="Nhập Số lượng sử dụng  "/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Ngày nhập kho </label>
+                                <div>
+                                    <div class="input-group">
+                                        <input type="text" value="{{ old('date_added') }}" data-date-format="dd-mm-yyyy" name="date_added" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+{{--                            <div class="col-md-6 form-group">--}}
+{{--                                <label>Ngày mua</label>--}}
+{{--                                <div>--}}
+{{--                                    <div class="input-group">--}}
+{{--                                        <input type="text" value="{{ old('date_buy') }}" data-date-format="dd-mm-yyyy" name="date_buy" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">--}}
+{{--                                        <div class="input-group-append">--}}
+{{--                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-6 form-group">--}}
+{{--                                <label>Ngày hết hạn bảo hành</label>--}}
+{{--                                <div>--}}
+{{--                                    <div class="input-group">--}}
+{{--                                        <input type="text" value="{{ old('date_warranty') }}" data-date-format="dd-mm-yyyy" name="date_warranty" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">--}}
+{{--                                        <div class="input-group-append">--}}
+{{--                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>--}}
+{{--                                        </div>--}}
+{{--                                    </div><!-- input-group -->--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-12 form-group">--}}
+{{--                                <label>Trạng thái</label>--}}
+{{--                                <select name="status" id="" class="form-control">--}}
+{{--                                    <option value="1">Bình Thường</option>--}}
+{{--                                    <option value="2">Hỏng</option>--}}
+{{--                                    <option value="3">Đang sửa</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-12 form-group">--}}
+{{--                                <label>Người giữ nguyên vật liệu: </label>--}}
+{{--                                <select class="js-example-basic-multiple" name="in_charge_user[]" multiple="multiple">--}}
+{{--                                    @foreach($users as $key => $user)--}}
+{{--                                        <option value="{{ $user->getKey() }}">{{ $user->full_name }}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
                             <div class="col-md-12 form-group m-b-0 text-right">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">
                                     Lưu
@@ -83,6 +140,7 @@
 @section('script-bottom')
     <script>
         $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
             $('form').parsley();
 
             if($("#elm1").length > 0){

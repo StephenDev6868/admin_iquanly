@@ -108,12 +108,12 @@ Route::prefix('admin')->group(function () {
         });
 
         Route::prefix('warehouse-material')->group(function () {
-            Route::get('', [\App\Http\Controllers\WMaterialController::class, 'index'])->name('admin.wMaterial.list');
-            Route::get('/create', [\App\Http\Controllers\WMaterialController::class, 'create'])->name('admin.wMaterial.create');
-            Route::post('/create', [\App\Http\Controllers\WMaterialController::class, 'store'])->name('admin.wMaterial.doCreate');
-            Route::get('/show/{board}', [\App\Http\Controllers\WMaterialController::class, 'show'])->name('admin.wMaterial.show');
-            Route::put('/update/{board}', [\App\Http\Controllers\WMaterialController::class, 'update'])->name('admin.wMaterial.update');
-            Route::delete('/delete/{board}', [\App\Http\Controllers\WMaterialController::class, 'destroy'])->name('admin.wMaterial.delete');
+            Route::get('', [\App\Http\Controllers\WMaterialController::class, 'index'])->name('admin.wMaterials.list');
+            Route::get('/create', [\App\Http\Controllers\WMaterialController::class, 'create'])->name('admin.wMaterials.create');
+            Route::post('/create', [\App\Http\Controllers\WMaterialController::class, 'store'])->name('admin.wMaterials.doCreate');
+            Route::get('/show/{wMaterial}', [\App\Http\Controllers\WMaterialController::class, 'show'])->name('admin.wMaterials.show');
+            Route::put('/update/{wMaterial}', [\App\Http\Controllers\WMaterialController::class, 'update'])->name('admin.wMaterials.update');
+            Route::delete('/delete/{wMaterial}', [\App\Http\Controllers\WMaterialController::class, 'destroy'])->name('admin.wMaterials.delete');
         });
     });
 });
