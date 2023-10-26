@@ -19,7 +19,7 @@ class WMaterialController extends Controller
     public function index()
     {
         $datas = WMaterial::query()->paginate(10);
-        return view('admin.wMaterial.list', compact('datas'));
+        return view('admin.wmaterial.list', compact('datas'));
     }
 
     /**
