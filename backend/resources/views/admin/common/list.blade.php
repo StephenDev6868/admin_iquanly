@@ -43,10 +43,10 @@
                                 <tr>
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td>
-                                        <input type="text" name="{{ $data->getKey() }}[]" value="{{ optional($data)->name ?? ''}}">
+                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->name ?? ''}}">
                                     </td>
                                     <td>
-                                        <input type="text" name="{{ $data->getKey() }}[]" value="{{ optional($data)->code ?? ''}}">
+                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->code ?? ''}}">
                                     </td>
                                     <td class="d-flex">
 {{--                                        <form method="post" action="{{ route('admin.wTools.delete', $data->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">--}}
@@ -103,10 +103,10 @@
                                 <tr>
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td>
-                                        <input type="text" name="{{ $data->getKey() }}[]" value="{{ optional($data)->name ?? ''}}">
+                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->name ?? ''}}">
                                     </td>
                                     <td>
-                                        <input type="text" name="{{ $data->getKey() }}[]" value="{{ optional($data)->code ?? ''}}">
+                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->code ?? ''}}">
                                     </td>
                                     <td>
                                         <select id="{{'unit' . ($loop->index + 1) }}" class="spr-text-field form-control" name="{{ $data->getKey() }}[]" required>

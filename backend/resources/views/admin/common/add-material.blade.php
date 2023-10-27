@@ -30,7 +30,7 @@
                 <div class="card m-b-20">
                     <div class="card-body">
                         <h4 class="mt-0 header-title mb-3">Nhập thông tin nguyên liệu  </h4>
-                        <form class="row" action="{{ route('admin.commons.doUpdateMaterial') }}" method="POST" enctype="multipart/form-data">
+                        <form class="row" action="{{ route('admin.commons.doCreateMaterial') }}" method="POST" enctype="multipart/form-data">
                             @method('POST')
                             @csrf
                             <div class="col-md-6 form-group">
