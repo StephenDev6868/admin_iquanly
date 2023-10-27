@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/app/Enums/Unit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CommonController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/Material.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/Supplier.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_26_173251_materials.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_26_173557_supplier.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/common/add-material.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/common/add-supplier.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/common/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/WMaterial.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/WMaterial.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

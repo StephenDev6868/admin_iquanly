@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Thêm nguyên vật liệu </h4>
+                    <h4 class="page-title">Chỉnh sửa nguyên vật liệu </h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Lexa</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Forms</a></li>
@@ -30,28 +30,36 @@
                 <div class="card m-b-20">
                     <div class="card-body">
                         <h4 class="mt-0 header-title mb-3">Nhập thông tin nguyên vật liệu </h4>
-                        <form class="row" action="{{ route('admin.wMaterials.update', ['wMaterial' => $wMaterial->getKey()]) }}" method="POST" enctype="multipart/form-data">
+                        <form class="row" action="{{ route('admin.wMaterials.update', ['wMaterial' => $wMaterial->getKey() ]) }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="col-md-6 form-group">
-                                <label>Tên nguyên vật liệu </label>
-                                <input type="text" name="name" value="{{ $wMaterial->name ??  old('name') }}" class="form-control" required placeholder="Nhập tên nguyên vật liệu  "/>
+                                <label>Nhà cung cấp </label>
+                                <select name="material_id" id="" class="form-control">
+                                    @foreach($suppliers as $key => $data)
+                                        <option value="{{ $data->getKey() }}" {{ $data->getKey() === $wMaterial->material_id ? 'selected' : '' }}>{{ $data->name . ' - ' . $data->code }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Mã nguyên vật liệu </label>
-                                <input type="text" name="code" value="{{ $wMaterial->code ?? old('code') }}" class="form-control" required placeholder="Nhập mã nguyên vật liệu  "/>
+                                <label>Tên và mã nguyên vật liệu </label>
+                                <select name="supplier_id" id="" class="form-control">
+                                    @foreach($materials as $key => $data)
+                                        <option value="{{ $data->getKey() }}" {{ $data->getKey() === $wMaterial->supplier_id ? 'selected' : '' }}>{{ $data->name . ' - ' . $data->code . ' (' . $data->unit . ') ' }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Số lượng nhập </label>
-                                <input type="text" name="quantity_input" value="{{ $wMaterial->quantity_input ?? old('quantity_input') }}" class="form-control" required placeholder="Nhập Số lượng  "/>
+                                <input type="text" name="quantity_input" value="{{ $wMaterial->quantity_input ??  old('quantity_input') }}" class="form-control" required placeholder="Nhập Số lượng  "/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Số lượng tồn </label>
-                                <input type="text" name="quantity_contain" value="{{ $wMaterial->quantity_contain ?? old('quantity_contain') }}" class="form-control" required placeholder="Nhập Số lượng tồn "/>
+                                <input type="text" name="quantity_contain" value="{{ $wMaterial->quantity_contain ?? old('quantity_contain') }}" class="form-control"  placeholder="Nhập Số lượng tồn "/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Số lượng sử dụng </label>
-                                <input type="text" name="quantity_use" value="{{ $wMaterial->quantity_use ?? old('quantity_use') }}" class="form-control" required placeholder="Nhập Số lượng sử dụng  "/>
+                                <input type="text" name="quantity_use" value="{{ $wMaterial->quantity_use ?? old('quantity_use') }}" class="form-control" placeholder="Nhập Số lượng sử dụng  "/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Ngày nhập kho </label>

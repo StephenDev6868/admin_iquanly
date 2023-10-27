@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Material;
+use App\Models\Supplier;
 use App\Models\User;
 use App\Models\WMaterial;
 use Illuminate\Http\Request;
@@ -30,7 +32,9 @@ class WMaterialController extends Controller
     public function create()
     {
         $users = User::query()->where('board_id', '=', 2)->get();
-        return view('admin.wmaterial.add', compact('users'));
+        $materials = Material::all();
+        $suppliers = Supplier::all();
+        return view('admin.wmaterial.add', compact('users', 'suppliers', 'materials'));
     }
 
     /**
@@ -43,8 +47,8 @@ class WMaterialController extends Controller
     {
         $inputs = $request->all();
         $validator =  Validator::make($inputs, [
-            'code' => 'required',
-            'name' => 'required',
+            'material_id' => 'required|exists:materials,id',
+            'supplier_id' => 'required|exists:suppliers,id',
             'quantity_input' => 'required',
             'date_added' => 'required',
         ]);
@@ -71,7 +75,9 @@ class WMaterialController extends Controller
     public function show(WMaterial $wMaterial)
     {
         $wMaterial->date_added = Carbon::parse($wMaterial->date_added)->format('d-m-Y');
-        return view('admin.wmaterial.edit', compact('wMaterial'));
+        $materials = Material::all();
+        $suppliers = Supplier::all();
+        return view('admin.wmaterial.edit', compact('wMaterial', 'materials', 'suppliers'));
     }
 
     /**
@@ -96,8 +102,8 @@ class WMaterialController extends Controller
     {
         $inputs = $request->all();
         $validator =  Validator::make($inputs, [
-            'code' => 'required',
-            'name' => 'required',
+            'material_id' => 'required|exists:materials,id',
+            'supplier_id' => 'required|exists:suppliers,id',
             'quantity_input' => 'required',
             'date_added' => 'required',
         ]);

@@ -34,12 +34,20 @@
                             @method('POST')
                             @csrf
                             <div class="col-md-6 form-group">
-                                <label>Tên nguyên vật liệu </label>
-                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" required placeholder="Nhập tên nguyên vật liệu  "/>
+                                <label>Nhà cung cấp </label>
+                                <select name="material_id" id="" class="form-control">
+                                    @foreach($suppliers as $key => $data)
+                                        <option value="{{ $data->getKey() }}">{{ $data->name . ' - ' . $data->code }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Mã nguyên vật liệu </label>
-                                <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã nguyên vật liệu  "/>
+                                <label>Tên và mã nguyên vật liệu </label>
+                                <select name="supplier_id" id="" class="form-control">
+                                    @foreach($materials as $key => $data)
+                                        <option value="{{ $data->getKey() }}">{{ $data->name . ' - ' . $data->code . ' (' . $data->unit . ') ' }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Số lượng nhập </label>
@@ -47,11 +55,11 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Số lượng tồn </label>
-                                <input type="text" name="quantity_contain" value="{{ old('quantity_contain') }}" class="form-control" required placeholder="Nhập Số lượng tồn "/>
+                                <input type="text" name="quantity_contain" value="{{ old('quantity_contain') }}" class="form-control"  placeholder="Nhập Số lượng tồn "/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Số lượng sử dụng </label>
-                                <input type="text" name="quantity_use" value="{{ old('quantity_use') }}" class="form-control" required placeholder="Nhập Số lượng sử dụng  "/>
+                                <input type="text" name="quantity_use" value="{{ old('quantity_use') }}" class="form-control" placeholder="Nhập Số lượng sử dụng  "/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Ngày nhập kho </label>

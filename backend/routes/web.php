@@ -115,6 +115,16 @@ Route::prefix('admin')->group(function () {
             Route::put('/update/{wMaterial}', [\App\Http\Controllers\WMaterialController::class, 'update'])->name('admin.wMaterials.update');
             Route::delete('/delete/{wMaterial}', [\App\Http\Controllers\WMaterialController::class, 'destroy'])->name('admin.wMaterials.delete');
         });
+
+        Route::prefix('common')->group(function () {
+            Route::get('', [\App\Http\Controllers\CommonController::class, 'showAllConfig'])->name('admin.commons.list');
+            Route::get('/create-supplier', [\App\Http\Controllers\CommonController::class, 'createSupplier'])->name('admin.commons.createSupplier');
+            Route::post('/create-supplier', [\App\Http\Controllers\CommonController::class, 'doCreateSupplier'])->name('admin.commons.doCreateSupplier');
+            Route::put('/update-suppliers', [\App\Http\Controllers\CommonController::class, 'doUpdateSupplier'])->name('admin.commons.doUpdateSuppliers');
+            Route::get('/create-material', [\App\Http\Controllers\CommonController::class, 'createMaterial'])->name('admin.commons.createMaterial');
+            Route::post('/create-material', [\App\Http\Controllers\CommonController::class, 'doCreateMaterial'])->name('admin.commons.doCreateMaterial');
+            Route::put('/update-materials', [\App\Http\Controllers\CommonController::class, 'doUpdateMaterial'])->name('admin.commons.doUpdateMaterials');
+        });
     });
 });
 

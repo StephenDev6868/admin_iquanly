@@ -31,11 +31,13 @@
                             <thead>
                             <tr>
                                 <th>STT</th>
+                                <th>Tên nhà cung cấp</th>
                                 <th>Tên nguyên vật liệu</th>
                                 <th>Mã nguyên vật liệu</th>
+                                <th>Đơn vị</th>
                                 <th>Số lượng nhập</th>
-                                <th>Số lượng tồn</th>
-                                <th>Số lượng sử dụng</th>
+{{--                                <th>Số lượng tồn</th>--}}
+{{--                                <th>Số lượng sử dụng</th>--}}
                                 <th>Ngày nhập</th>
                                 <th>Thao tác</th>
                             </tr>
@@ -44,11 +46,11 @@
                             @foreach($datas as $key => $data)
                                 <tr>
                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td>{{ optional($data)->name }}</td>
-                                    <td>{{ optional($data)->code }}</td>
+                                    <td>{{ optional($data)->supplier->name }}</td>
+                                    <td>{{ optional($data)->parentMaterial->name }}</td>
+                                    <td>{{ optional($data)->parentMaterial->code }}</td>
+                                    <td class="text-center">{{ ' (' . optional($data)->parentMaterial->unit . ') ' }}</td>
                                     <td>{{ optional($data)->quantity_input }}</td>
-                                    <td>{{ optional($data)->quantity_contain }}</td>
-                                    <td>{{ optional($data)->quantity_use }}</td>
                                     <td>{{ optional($data)->date_added }}</td>
                                     <td class="d-flex">
                                         <a href="{{ route('admin.wMaterials.show', ['wMaterial' => $data->getKey()])  }}" class="btn btn-success mr-2">

@@ -41,10 +41,16 @@
                                 <a href="javascript:void(0);" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/warehouse-/*')) ? 'active' : '' }}"><span>Quản lý kho <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
                                     <li><a href="{{ route('admin.wDevices.list')  }}" class="{{ (request()->is('users')) || (request()->is('admin/warehouse-device/*')) ? 'active' : '' }}">Quản lý kho thiết bị</a></li>
+                                    <li><a href="{{ route('admin.wDevices.list')  }}" class="{{ (request()->is('users')) || (request()->is('admin/warehouse-device/*')) ? 'active' : '' }}">Quản lý kho thiết bị</a></li>
                                     <li><a href="{{ route('admin.wTools.list')  }}" class="{{ (request()->is('users')) || (request()->is('admin/warehouse-tool/*')) ? 'active' : '' }}">Quản lý kho dụng cụ</a></li>
                                     <li><a href="{{ route('admin.wMaterials.list')  }}" style="white-space: nowrap" class="{{ (request()->is('users')) || (request()->is('admin/warehouse-material/*')) ? 'active' : '' }}">Quản lý kho nguyên vật liệu</a></li>
 {{--                                    <li><a href="{{ route('admin.wMaterial.list')  }}">Quản lý kho bán thành phẩm</a></li>--}}
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.commons.list') }}" style="white-space: nowrap;letter-spacing: -0.9px" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/common/*')) ? 'active' : '' }}">
+                                    <span> Cấu hình các thông tin chung </span>
+                                </a>
                             </li>
 {{--                            <li>--}}
 {{--                                <a href="{{ route('admin.mainCategories.list') }}" style="font-size: 12px;" class="waves-effect {{ (request()->is('main-categories')) || (request()->is('admin/main-categories/*')) ? 'active' : '' }}">--}}
