@@ -61,11 +61,13 @@
                             @endforeach
                             </tbody>
                         </table>
-                        <div class="col-md-12 form-group mt-3 m-b-0 text-right">
-                            <button type="submit" class="btn btn-primary waves-effect mt-2 waves-light">
-                                Lưu
-                            </button>
-                        </div>
+                        @if(count($suppliers) > 0)
+                            <div class="col-md-12 form-group mt-3 m-b-0 text-right">
+                                <button type="submit" class="btn btn-primary waves-effect mt-2 waves-light">
+                                    Lưu
+                                </button>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div> <!-- end col -->
@@ -127,11 +129,13 @@
                             @endforeach
                             </tbody>
                         </table>
-                        <div class="col-md-12 form-group mt-3 m-b-0 text-right">
-                            <button type="submit" class="btn btn-primary waves-effect mt-2 waves-light">
-                                Lưu
-                            </button>
-                        </div>
+                        @if(count($materials) > 0)
+                            <div class="col-md-12 form-group mt-3 m-b-0 text-right">
+                                <button type="submit" class="btn btn-primary waves-effect mt-2 waves-light">
+                                    Lưu
+                                </button>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div> <!-- end col -->
