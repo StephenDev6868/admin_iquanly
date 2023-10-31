@@ -48,12 +48,12 @@
                             <div class="col-md-6 form-group">
                                 <label>Loại hàng cung cấp</label>
                                 <select name="type_supply" id="" class="form-control">
-                                    <option value="Vải">Vải</option>
-                                    <option value="Chỉ">Chỉ</option>
-                                    <option value="Thùng Carton">Thùng Carton</option>
-                                    <option value="Phụ Liệu May">Phụ Liệu May</option>
-                                    <option value="Nhãn Mác">Nhãn Mác</option>
-                                    <option value="Dụng Cụ">Dụng Cụ</option>
+                                    <option value="Vải" {{ $supplier->type_supply === 'Vải' ? 'selected' : ''  }}>Vải</option>
+                                    <option value="Chỉ" {{ $supplier->type_supply === 'Chỉ' ? 'selected' : ''  }}>Chỉ</option>
+                                    <option value="Thùng Carton" {{ $supplier->type_supply === 'Thùng Carton' ? 'selected' : ''  }}>Thùng Carton</option>
+                                    <option value="Phụ Liệu May" {{ $supplier->type_supply === 'Phụ Liệu May' ? 'selected' : ''  }}>Phụ Liệu May</option>
+                                    <option value="Nhãn Mác" {{ $supplier->type_supply === 'Nhãn Mác' ? 'selected' : ''  }}>Nhãn Mác</option>
+                                    <option value="Dụng Cụ" {{ $supplier->type_supply === 'Dụng Cụ' ? 'selected' : ''  }}>Dụng Cụ</option>
                                 </select>
                             </div>
                             <div class="col-md-6 form-group">
