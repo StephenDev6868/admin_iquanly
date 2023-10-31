@@ -116,6 +116,33 @@ Route::prefix('admin')->group(function () {
             Route::delete('/delete/{wMaterial}', [\App\Http\Controllers\WMaterialController::class, 'destroy'])->name('admin.wMaterials.delete');
         });
 
+        Route::prefix('customer')->group(function () {
+            Route::get('', [\App\Http\Controllers\CustomerController::class, 'index'])->name('admin.customers.list');
+            Route::get('/create', [\App\Http\Controllers\CustomerController::class, 'create'])->name('admin.customers.create');
+            Route::post('/create', [\App\Http\Controllers\CustomerController::class, 'store'])->name('admin.customers.doCreate');
+            Route::get('/show/{customer}', [\App\Http\Controllers\CustomerController::class, 'show'])->name('admin.customers.show');
+            Route::put('/update/{customer}', [\App\Http\Controllers\CustomerController::class, 'update'])->name('admin.customers.update');
+            Route::delete('/delete/{customer}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('admin.customers.delete');
+        });
+
+        Route::prefix('supplier')->group(function () {
+            Route::get('', [\App\Http\Controllers\SupplierController::class, 'index'])->name('admin.suppliers.list');
+            Route::get('/create', [\App\Http\Controllers\SupplierController::class, 'create'])->name('admin.suppliers.create');
+            Route::post('/create', [\App\Http\Controllers\SupplierController::class, 'store'])->name('admin.suppliers.doCreate');
+            Route::get('/show/{supplier}', [\App\Http\Controllers\SupplierController::class, 'show'])->name('admin.suppliers.show');
+            Route::put('/update/{supplier}', [\App\Http\Controllers\SupplierController::class, 'update'])->name('admin.suppliers.update');
+            Route::delete('/delete/{supplier}', [\App\Http\Controllers\SupplierController::class, 'destroy'])->name('admin.suppliers.delete');
+        });
+
+        Route::prefix('partner')->group(function () {
+            Route::get('', [\App\Http\Controllers\PartnerController::class, 'index'])->name('admin.partners.list');
+            Route::get('/create', [\App\Http\Controllers\PartnerController::class, 'create'])->name('admin.partners.create');
+            Route::post('/create', [\App\Http\Controllers\PartnerController::class, 'store'])->name('admin.partners.doCreate');
+            Route::get('/show/{partner}', [\App\Http\Controllers\PartnerController::class, 'show'])->name('admin.partners.show');
+            Route::put('/update/{partner}', [\App\Http\Controllers\PartnerController::class, 'update'])->name('admin.partners.update');
+            Route::delete('/delete/{partner}', [\App\Http\Controllers\PartnerController::class, 'destroy'])->name('admin.partners.delete');
+        });
+
         Route::prefix('common')->group(function () {
             Route::get('', [\App\Http\Controllers\CommonController::class, 'showAllConfig'])->name('admin.commons.list');
             Route::get('/create-supplier', [\App\Http\Controllers\CommonController::class, 'createSupplier'])->name('admin.commons.createSupplier');

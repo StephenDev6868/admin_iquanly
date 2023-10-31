@@ -47,6 +47,14 @@
                                 </ul>
                             </li>
                             <li>
+                                <a href="javascript:void(0);" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/customer/*')) || (request()->is('admin/partner/*')) || (request()->is('admin/supplier/*')) ? 'active' : '' }}"><span>Quản lý đối tác <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <ul class="submenu">
+                                    <li><a href="{{ route('admin.customers.list')  }}" class="{{ (request()->is('users')) || (request()->is('admin/customer/*')) ? 'active' : '' }}">Quản lý khách hàng</a></li>
+                                    <li><a href="{{ route('admin.suppliers.list')  }}" class="{{ (request()->is('users')) || (request()->is('admin/supplier/*')) ? 'active' : '' }}">Quản lý nhà cung cấp</a></li>
+                                    <li><a href="{{ route('admin.partners.list')  }}" style="white-space: nowrap" class="{{ (request()->is('users')) || (request()->is('admin/partner/*')) ? 'active' : '' }}">Quản lý đối tác</a></li>
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="{{ route('admin.commons.list') }}" style="white-space: nowrap;letter-spacing: -0.9px" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/common/*')) ? 'active' : '' }}">
                                     <span> Cấu hình các thông tin chung </span>
                                 </a>

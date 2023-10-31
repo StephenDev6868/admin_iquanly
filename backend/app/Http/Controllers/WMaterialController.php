@@ -18,10 +18,23 @@ class WMaterialController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $datas = WMaterial::query()->paginate(10);
-        return view('admin.wmaterial.list', compact('datas'));
+        $materials = Material::all();
+        $suppliers = Supplier::all();
+        $inputs = $request->input();
+        $query = WMaterial::query();
+        if (isset($inputs['supplier_id']) && $inputs['supplier_id']) {
+            $query->where('supplier_id', $inputs['supplier_id']);
+        }
+        if (isset($inputs['material_id']) && $inputs['material_id']) {
+            $query->where('material_id', $inputs['material_id']);
+        }
+        if (isset($inputs['date_added']) && $inputs['date_added']) {
+            $query->where('date_added', Carbon::parse($inputs['date_added'])->format('Y-m-d'));
+        }
+        $datas = $query->paginate(10);
+        return view('admin.wmaterial.list', compact('datas', 'materials', 'suppliers'));
     }
 
     /**

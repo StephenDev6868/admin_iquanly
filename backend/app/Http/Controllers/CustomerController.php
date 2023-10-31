@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\WTool;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
-class WToolController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class WToolController extends Controller
      */
     public function index()
     {
-        $datas = WTool::query()->paginate(10);
-        return view('admin.wtool.list', compact('datas'));
+        $datas = Customer::query()->paginate(10);
+        return view('admin.customer.list', compact('datas'));
     }
 
     /**
@@ -28,8 +27,7 @@ class WToolController extends Controller
      */
     public function create()
     {
-        $users = User::query()->where('board_id', '=', 2)->get();
-        return view('admin.wtool.add', compact('users'));
+        return view('admin.customer.add');
     }
 
     /**
@@ -40,14 +38,15 @@ class WToolController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs = $request->all();
-        $inputs['in_charge_user'] = count($inputs['in_charge_user']) > 0 ? $inputs['in_charge_user'][0] : 1;
+        $inputs = $request->input();
         $validator =  Validator::make($inputs, [
             'code' => 'required',
             'name' => 'required',
-            'date_warranty' => 'required',
-            'date_buy' => 'required',
-            'status' => 'required',
+            'postcode' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'nation' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -55,33 +54,32 @@ class WToolController extends Controller
                 ->withInput()
                 ->with('error', $validator->errors()->first());
         }
-        $result = WTool::query()->create($inputs);
+        $result = Customer::query()->create($inputs);
 
         if ($result) {
-            return Redirect::route('admin.wTools.list')
-                ->with('success', 'Thêm dụng cụ thành công');;
+            return Redirect::route('admin.customers.list')
+                ->with('success', 'Thêm khách hàng thành công');;
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\WTool  $wTool
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function show(WTool $wTool)
+    public function show(Customer $customer)
     {
-        $users = User::query()->where('board_id', '=', 2)->get();
-        return view('admin.wtool.edit', compact('wTool', 'users'));
+        return view('admin.customer.edit', compact('customer'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\WTool  $wTool
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(WTool $wTool)
+    public function edit(Customer $customer)
     {
         //
     }
@@ -90,19 +88,20 @@ class WToolController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\WTool  $wTool
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, WTool $wTool)
+    public function update(Request $request, Customer $customer)
     {
-        $inputs = $request->all();
-        $inputs['in_charge_user'] = count($inputs['in_charge_user']) > 0 ? $inputs['in_charge_user'][0] : 1;
+        $inputs = $request->input();
         $validator =  Validator::make($inputs, [
             'code' => 'required',
             'name' => 'required',
-            'date_warranty' => 'required',
-            'date_buy' => 'required',
-            'status' => 'required',
+            'postcode' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'nation' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -110,27 +109,27 @@ class WToolController extends Controller
                 ->withInput()
                 ->with('error', $validator->errors()->first());
         }
-        $result = $wTool->update($inputs);
+        $result = $customer->update($inputs);
 
         if ($result) {
-            return Redirect::route('admin.wTools.list')
-                ->with('success', 'Cập nhập dụng cụ thành công');;
+            return Redirect::route('admin.customers.list')
+                ->with('success', 'Chỉnh sửa khách hàng thành công');;
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\WTool  $wTool
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(WTool $wTool)
+    public function destroy(Customer $customer)
     {
-        $result = $wTool->delete();
+        $result = $customer->delete();
 
         if ($result) {
-            return Redirect::route('admin.wDevices.list')
-                ->with('success', 'Xoá dụng cụ thành công');;
+            return Redirect::route('admin.customer.list')
+                ->with('success', 'Xoá khách hàng thành công');;
         }
     }
 }

@@ -14,7 +14,66 @@
                 </div>
             </div>
         </div>
-        <!-- end row -->
+
+        <form action="{{ route('admin.wMaterials.list') }}" class="row">
+            <div class="col-12">
+                <div class="card m-b-20">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Tìm kiếm nguyên vật liệu</h4>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Từ khoá</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" value="{{ request()->get('key_word' ?? '') }}" name="key_word" placeholder="Nhập từ khoá" id="example-text-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Nhà cung cấp</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="supplier_id">
+                                    <option value="">Tất cả</option>
+                                    @foreach($suppliers as $supplier)
+                                        <option value="{{ $supplier->getKey() }}" {{ request()->query('supplier_id') == $supplier->getKey() ? 'selected' : ''  }}>{{ $supplier->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Tên và mã nguyên liệu</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="material_id">
+                                    <option value="">Tất cả</option>
+                                    @foreach($materials as $material)
+                                        <option value="{{ $material->getKey() }}" {{ request()->query('material_id') == $material->getKey() ? 'selected' : '' }}>{{ $material->name . '-' . $material->code  }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Ngày nhập</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="text" value="{{ old('date_added') ?? request()->query('date_added') }}" data-date-format="dd-mm-yyyy" name="date_added" class="form-control" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                    </div>
+                                </div><!-- input-group -->
+                            </div>
+                        </div>
+                        <div class="form-group row m-b-0 text-right">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                    Submit
+                                </button>
+                                <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </form>
 
         <div class="row">
             <div class="col-lg-12">
@@ -36,6 +95,7 @@
                                 <th>Mã nguyên vật liệu</th>
                                 <th>Đơn vị</th>
                                 <th>Số lượng nhập</th>
+                                <th>Số lượng tồn</th>
 {{--                                <th>Số lượng tồn</th>--}}
 {{--                                <th>Số lượng sử dụng</th>--}}
                                 <th>Ngày nhập</th>
@@ -51,6 +111,7 @@
                                     <td>{{ optional($data)->parentMaterial->code }}</td>
                                     <td class="text-center">{{ ' (' . optional($data)->parentMaterial->unit . ') ' }}</td>
                                     <td>{{ optional($data)->quantity_input }}</td>
+                                    <td>{{ optional($data)->quantity_contain ?? '0' }}</td>
                                     <td>{{ optional($data)->date_added }}</td>
                                     <td class="d-flex">
                                         <a href="{{ route('admin.wMaterials.show', ['wMaterial' => $data->getKey()])  }}" class="btn btn-success mr-2">
@@ -74,4 +135,16 @@
         </div> <!-- end row -->
 
     </div> <!-- container-fluid -->
+@endsection
+
+@section('script')
+    {{--    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>--}}
+    <!-- Parsley js -->
+    <script src="{{ URL::asset('assets/plugins/parsleyjs/parsley.min.js')}}"></script>
+    <script src="{{ URL::asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
+    <script src="{{ URL::asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+    <script src="{{ URL::asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+    <!-- Plugins Init js -->
+    <script src="{{ URL::asset('assets/pages/form-advanced.js')}}"></script>
+    <!--Wysiwig js-->
 @endsection

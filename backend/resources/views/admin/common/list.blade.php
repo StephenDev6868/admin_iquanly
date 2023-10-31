@@ -16,39 +16,39 @@
         </div>
         <!-- end row -->
 
-        <form action="{{ route('admin.commons.doUpdateSuppliers')  }}" class="row" method="POST" enctype="multipart/form-data">
-            @method('PUT')
-            @csrf
-            <div class="col-lg-6">
-                <div class="table-add">
-                    <a href="{{ route('admin.commons.createSupplier')  }}" class="btn btn-info mb-4">Thêm nhà cung cấp mới</a>
-                </div>
-                <div class="card m-b-20">
-                    <div class="card-body">
-                        <div class="table-title d-flex justify-content-between">
-                            <h4 class="mt-0 header-title">Danh sách nhà cung cấp</h4>
-                            {{ $suppliers->links() }}
-                        </div>
-                        <table class="table table-striped mb-0">
-                            <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Tên nhà cung cấp</th>
-                                <th>Mã nhà cung cấp</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($suppliers as $key => $data)
-                                <tr>
-                                    <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td>
-                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->name ?? ''}}">
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->code ?? ''}}">
-                                    </td>
-                                    <td class="d-flex">
+{{--        <form action="{{ route('admin.commons.doUpdateSuppliers')  }}" class="row" method="POST" enctype="multipart/form-data">--}}
+{{--            @method('PUT')--}}
+{{--            @csrf--}}
+{{--            <div class="col-lg-6">--}}
+{{--                <div class="table-add">--}}
+{{--                    <a href="{{ route('admin.commons.createSupplier')  }}" class="btn btn-info mb-4">Thêm nhà cung cấp mới</a>--}}
+{{--                </div>--}}
+{{--                <div class="card m-b-20">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <div class="table-title d-flex justify-content-between">--}}
+{{--                            <h4 class="mt-0 header-title">Danh sách nhà cung cấp</h4>--}}
+{{--                            {{ $suppliers->links() }}--}}
+{{--                        </div>--}}
+{{--                        <table class="table table-striped mb-0">--}}
+{{--                            <thead>--}}
+{{--                            <tr>--}}
+{{--                                <th>STT</th>--}}
+{{--                                <th>Tên nhà cung cấp</th>--}}
+{{--                                <th>Mã nhà cung cấp</th>--}}
+{{--                                <th></th>--}}
+{{--                            </tr>--}}
+{{--                            </thead>--}}
+{{--                            <tbody>--}}
+{{--                            @foreach($suppliers as $key => $data)--}}
+{{--                                <tr>--}}
+{{--                                    <th scope="row">{{ $loop->index + 1 }}</th>--}}
+{{--                                    <td>--}}
+{{--                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->name ?? ''}}">--}}
+{{--                                    </td>--}}
+{{--                                    <td>--}}
+{{--                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->code ?? ''}}">--}}
+{{--                                    </td>--}}
+{{--                                    <td class="d-flex">--}}
 {{--                                        <form method="post" action="{{ route('admin.wTools.delete', $data->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">--}}
 {{--                                            @csrf--}}
 {{--                                            @method('DELETE')--}}
@@ -56,22 +56,22 @@
 {{--                                                <i class="fas fa-trash"></i>--}}
 {{--                                            </button>--}}
 {{--                                        </form>--}}
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                        @if(count($suppliers) > 0)
-                            <div class="col-md-12 form-group mt-3 m-b-0 text-right">
-                                <button type="submit" class="btn btn-primary waves-effect mt-2 waves-light">
-                                    Lưu
-                                </button>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            </div> <!-- end col -->
-        </form> <!-- end row -->
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+{{--                            @endforeach--}}
+{{--                            </tbody>--}}
+{{--                        </table>--}}
+{{--                        @if(count($suppliers) > 0)--}}
+{{--                            <div class="col-md-12 form-group mt-3 m-b-0 text-right">--}}
+{{--                                <button type="submit" class="btn btn-primary waves-effect mt-2 waves-light">--}}
+{{--                                    Lưu--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div> <!-- end col -->--}}
+{{--        </form>--}}
 
         <hr>
 

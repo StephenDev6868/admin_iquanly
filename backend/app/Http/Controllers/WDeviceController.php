@@ -130,7 +130,7 @@ class WDeviceController extends Controller
 
         if ($result) {
             return Redirect::route('admin.wDevices.list')
-                ->with('success', ' thiết bị thành công');;
+                ->with('success', 'Xoá thiết bị thành công');;
         }
     }
 }

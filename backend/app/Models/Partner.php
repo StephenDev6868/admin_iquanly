@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Supplier extends Model
+class Partner extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -14,13 +14,10 @@ class Supplier extends Model
         'name',
         'code',
         'address',
-        'tax',
-        'type_supply',
-        'piority',
-        'dept',
-        'money_tc',
-        'postcode',
         'email',
+        'postcode',
         'phone_number',
+        'nation',
+        'tax',
     ];
 }

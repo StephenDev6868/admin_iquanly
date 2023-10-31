@@ -2,7 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/common/add-supplier.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/common/add-supplier.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CustomerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/PartnerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SupplierController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/Customer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/Partner.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_30_114737_create_customers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_30_114818_create_partners_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_30_162431_alert_cols_into_suplliers_2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_10_31_032719_alert_col_tax_into_tables.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/customer/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/customer/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/customer/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/partner/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/partner/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/partner/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/supplier/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/supplier/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/supplier/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/WDeviceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/WDeviceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/WToolController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/WToolController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Supplier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,25 +174,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/abc/Documents/Freelancer-job/admin_iquanly/backend/resources/views/admin/wtool&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/abc/Documents/Freelancer-job/admin_iquanly/backend/resources/views/admin/supplier",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/resources/views/admin/supplier" />
+      <recent name="$PROJECT_DIR$/backend/resources/views/admin/partner" />
+      <recent name="$PROJECT_DIR$/backend/resources/views/admin/customer" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/wtool" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/wmaterial" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/wdevice" />
-      <recent name="$PROJECT_DIR$/backend/public/assets/css" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/product-steps" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/wmaterial" />

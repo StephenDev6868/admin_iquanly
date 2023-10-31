@@ -22,11 +22,15 @@ class WMaterial extends Model
 
     public function parentMaterial()
     {
-        return $this->hasOne(Material::class, 'id', 'material_id');
+        return $this->hasOne(Material::class, 'id', 'material_id')
+            ->orWhereNull('deleted_at')
+            ->orWhereNotNull('deleted_at');
     }
 
     public function supplier()
     {
-        return $this->hasOne(Supplier::class, 'id', 'supplier_id');
+        return $this->hasOne(Supplier::class, 'id', 'supplier_id')
+            ->orWhereNull('deleted_at')
+            ->orWhereNotNull('deleted_at');
     }
 }
