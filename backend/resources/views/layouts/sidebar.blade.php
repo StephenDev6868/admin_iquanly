@@ -8,34 +8,64 @@
                         <ul class="metismenu" id="side-menu">
                             <li class="menu-title">Admin</li>
                             <li>
-                                <a href="{{ route('admin.companies.list') }}" class="waves-effect {{ (request()->is('companies')) || (request()->is('admin/companies/*')) ? 'active' : '' }}">
-                                     <span> Quản lý công ty </span>
-                                </a>
+                                <a href="javascript:void(0);" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/customer/*')) || (request()->is('admin/roles/*')) || (request()->is('admin/boards/*')) || (request()->is('admin/companies/*')) || (request()->is('admin/common/*')) || (request()->is('admin/partner/*')) || (request()->is('admin/supplier/*')) ? 'active' : '' }}"><span>Cấu hình chung <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{ route('admin.commons.list') }}" style="white-space: nowrap;letter-spacing: -0.9px" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/common/*')) ? 'active' : '' }}">
+                                            <span> Cấu hình các thông tin chung </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.companies.list') }}" class="waves-effect {{ (request()->is('companies')) || (request()->is('admin/companies/*')) ? 'active' : '' }}">
+                                            <span> Quản lý công ty </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.boards.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/boards/*')) ? 'active' : '' }}">
+                                            <span> Quản lý phòng ban </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.roles.list') }}" style="white-space: nowrap;" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/roles/*')) ? 'active' : '' }}">
+                                            <span> Quản lý nhóm phân quyền </span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li>
-                                <a href="{{ route('admin.boards.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/boards/*')) ? 'active' : '' }}">
-                                    <span> Quản lý phòng ban </span>
-                                </a>
-                            </li>
+{{--                            <li>--}}
+{{--                                <a href="{{ route('admin.companies.list') }}" class="waves-effect {{ (request()->is('companies')) || (request()->is('admin/companies/*')) ? 'active' : '' }}">--}}
+{{--                                     <span> Quản lý công ty </span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="{{ route('admin.boards.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/boards/*')) ? 'active' : '' }}">--}}
+{{--                                    <span> Quản lý phòng ban </span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
                             <li>
                                 <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
                                     <span> Quản lý nhân viên </span>
                                 </a>
                             </li>
+{{--                            <li>--}}
+{{--                                <a href="{{ route('admin.orders.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/orders/*')) ? 'active' : '' }}">--}}
+{{--                                    <span> Quản lý sản đơn hàng </span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
                             <li>
-                                <a href="{{ route('admin.roles.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/roles/*')) ? 'active' : '' }}">
-                                    <span> Quản lý nhóm phân quyền </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.products.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/products/*')) ? 'active' : '' }}">
-                                    <span> Quản lý sản phẩm </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.productSteps.list') }}" style="white-space: nowrap;letter-spacing: -0.9px" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/product-steps/*')) ? 'active' : '' }}">
-                                    <span> Quản lý công đoạn cho sản phẩm </span>
-                                </a>
+                                <a href="javascript:void(0);" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/products-/*')) || (request()->is('admin/product-steps/*')) ? 'active' : '' }}"><span>Quản lý sản phẩm <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{ route('admin.products.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/products/*')) ? 'active' : '' }}">
+                                            <span> Cấu hình sản phẩm </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.productSteps.list') }}" style="white-space: nowrap;letter-spacing: -0.9px" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/product-steps/*')) ? 'active' : '' }}">
+                                            <span> Quản lý công đoạn cho sản phẩm </span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/warehouse-/*')) ? 'active' : '' }}"><span>Quản lý kho <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
@@ -53,11 +83,6 @@
                                     <li><a href="{{ route('admin.suppliers.list')  }}" class="{{ (request()->is('users')) || (request()->is('admin/supplier/*')) ? 'active' : '' }}">Quản lý nhà cung cấp</a></li>
                                     <li><a href="{{ route('admin.partners.list')  }}" style="white-space: nowrap" class="{{ (request()->is('users')) || (request()->is('admin/partner/*')) ? 'active' : '' }}">Quản lý đối tác</a></li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.commons.list') }}" style="white-space: nowrap;letter-spacing: -0.9px" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/common/*')) ? 'active' : '' }}">
-                                    <span> Cấu hình các thông tin chung </span>
-                                </a>
                             </li>
 {{--                            <li>--}}
 {{--                                <a href="{{ route('admin.mainCategories.list') }}" style="font-size: 12px;" class="waves-effect {{ (request()->is('main-categories')) || (request()->is('admin/main-categories/*')) ? 'active' : '' }}">--}}
