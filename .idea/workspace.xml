@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/supplier/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/supplier/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_11_05_180509_add_cols_into_w_materials_table_part_1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CommonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CommonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Material.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Material.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/common/add-material.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/common/add-material.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/common/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/common/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,25 +161,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/abc/Documents/Freelancer-job/admin_iquanly/backend/resources/views/admin/supplier",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/abc/Documents/Freelancer-job/admin_iquanly/backend/resources/views/admin/orders&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/resources/views/admin/orders" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/supplier" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/partner" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/customer" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/wtool" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/wmaterial" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/wmaterial" />
@@ -212,6 +224,9 @@
       <workItem from="1697133066422" duration="62679000" />
       <workItem from="1697732882427" duration="48785000" />
       <workItem from="1698032517895" duration="18908000" />
+      <workItem from="1698829525581" duration="1869000" />
+      <workItem from="1699147647353" duration="20275000" />
+      <workItem from="1699291698862" duration="10298000" />
     </task>
     <servers />
   </component>

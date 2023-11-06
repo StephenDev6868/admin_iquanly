@@ -57,6 +57,7 @@ class CommonController extends Controller
             'code' => 'required',
             'name' => 'required',
             'unit' => 'required',
+            'mToKg' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -64,7 +65,6 @@ class CommonController extends Controller
                 ->withInput()
                 ->with('error', $validator->errors()->first());
         }
-
         $result = Material::query()->create($inputs);
 
         if ($result) {
@@ -83,6 +83,7 @@ class CommonController extends Controller
                     'name' => $input[0] ?? '',
                     'code' => $input[1] ?? '',
                     'unit' => $input[2] ?? '',
+                    'mToKg' => $input[3] ?? '',
                 ]
             );
         }

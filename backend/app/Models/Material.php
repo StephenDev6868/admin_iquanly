@@ -14,5 +14,6 @@ class Material extends Model
         'code',
         'name',
         'unit',
+        'mToKg',
     ];
 }

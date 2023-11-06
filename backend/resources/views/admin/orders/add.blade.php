@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('css')
     <!-- Plugins css -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/common/common.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css')}}" />
@@ -12,7 +14,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Thêm sản phẩm </h4>
+                    <h4 class="page-title">Thêm đơn hàng </h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Lexa</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Forms</a></li>
@@ -27,69 +29,80 @@
             <div class="col-lg-12">
                 <div class="card m-b-20">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title mb-3">Nhập thông tin sản phẩm</h4>
-                        <form class="row" action="{{ route('admin.products.update', ['product' => $product->getKey()]) }}" method="POST" enctype="multipart/form-data">
-                            @method('PUT')
+                        <h4 class="mt-0 header-title mb-3">Nhập thông tin đơn hàng </h4>
+                        <form class="row" action="{{ route('admin.orders.doCreate') }}" method="POST" enctype="multipart/form-data">
+                            @method('POST')
                             @csrf
-                            <div class="col-md-12 form-group">
-                                <label>Tên sản phẩm</label>
-                                <input type="text" name="name" value="{{ $product->name ?? old('name') }}" class="form-control" required placeholder="Nhập tên sản phẩm"/>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <label>Mã sản phẩm</label>
-                                <input type="text" name="code" value="{{ $product->code ?? old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>
+                            <div class="col-md-6 form-group">
+                                <label>Tên đơn hàng  </label>
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" required placeholder="Nhập tên đơn hàng  "/>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Size</label>
-                                <select class="form-control" name="size">
-                                    @foreach($sizes as $key => $size)
-                                        <option {{ $product->size === $size ? 'selected' : ''  }} value="{{ $size }}">{{ $size }}</option>
+                                <label>Mã khách hàng </label>
+                                <select class="form-control" name="code">
+                                    @foreach($customers as $key => $customer)
+                                        <option value="{{ $customer->code }}">{{ $customer->code }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>Part number</label>
-                                <input type="text" name="part_number" value="{{ $product->part_number ??  old('part_number') }}" class="form-control" required placeholder="Nhập Part number"/>
-                            </div>
                             <div class="col-md-12 form-group jumbotron" style="padding: 1rem 1rem;">
                                 <div class="top-detail d-flex justify-content-between mb-2">
-                                    <h5>Nhập chi tiết nguyên vật liệu </h5>
-                                    <button type="button" class="btn btn-primary add-material" style="height: 50px; width: 50px;"><i class="fas fa-plus"></i></button>
+                                    <h5>Nhập chi tiết đơn hàng </h5>
+                                    <button type="button" class="btn btn-primary add-order-detail" style="height: 50px; width: 50px;"><i class="fas fa-plus"></i></button>
                                 </div>
                                 <div class="detail-order">
                                     <table class="table table-light table-bordered mb-0">
                                         <thead>
                                         <tr>
                                             <th class="d-none">STT</th>
-                                            <th>Tên và mã nguyên liệu</th>
-                                            <th>Định mức</th>
+                                            <th>Số lượng</th>
+                                            <th>Tên và mã sản phẩm (size)</th>
                                             <th></th>
                                         </tr>
                                         </thead>
                                         <tbody class="area-order-detail">
-                                            @foreach($product->materials as $value)
-                                                <tr id="1-detail-order-input" class="detail-order-input">
-                                                    <th class="stt d-none">
-                                                        1
-                                                    </th>
-                                                    <th>
-                                                        <select class="form-control" name="material[id][]">
-                                                            <option value=""></option>
-                                                            @foreach($materials as $key => $material)
-                                                                <option {{ $value['id'] ==  $material->getKey() ? 'selected' : '' }} value="{{ $material->getKey() }}">{{ $material->name . ' - ' . $material->code }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </th>
-                                                    <th>
-                                                        <input type="text" name="material[quota][]" value="{{ $value['quota'] ?? old('quota')  }}" class="form-control" required placeholder="Nhập định mức ">
-                                                    </th>
-                                                    <th>
-                                                        <button type="button" id="btn-remove-1" data-index="1" onClick="return removeItem(this)" class="btn btn-danger remove-item"><i class="fas fa-trash"></i></button>
-                                                    </th>
-                                                </tr>
-                                            @endforeach
+                                            <tr id="1-detail-order-input" class="detail-order-input">
+                                                <th class="stt d-none">
+                                                    1
+                                                </th>
+                                                <th>
+                                                    <input type="text" name="orders[amount][]" value="{{ old('amount')  }}" class="form-control" required placeholder="Nhập số lượng ">
+                                                </th>
+                                                <th>
+                                                    <select class="form-control" name="orders[product_id][]">
+                                                        @foreach($products as $key => $product)
+                                                            <option value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code . ' - (' . $product->size . ')' }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </th>
+                                                <th>
+                                                    <button type="button" id="btn-remove-1" data-index="1" onClick="return removeItemOrder(this)" class="btn btn-danger remove-item-order"><i class="fas fa-trash"></i></button>
+                                                </th>
+                                            </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Ngày bắt đầu</label>
+                                <div>
+                                    <div class="input-group">
+                                        <input type="text" value="{{ old('start_at') }}" data-date-format="dd-mm-yyyy" name="start_at" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Ngày kết thúc</label>
+                                <div>
+                                    <div class="input-group">
+                                        <input type="text" value="{{ old('end_at') }}" data-date-format="dd-mm-yyyy" name="end_at" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                        </div>
+                                    </div><!-- input-group -->
                                 </div>
                             </div>
                             <div class="col-md-12 form-group m-b-0 text-right">
@@ -129,11 +142,10 @@
 
 @section('script-bottom')
     <script>
-        function removeItem(e) {
+        function removeItemOrder(e) {
             let id = '#' + e['id'];
             $(id).parent().parent().remove();
         }
-
 
         $(document).ready(function() {
             $('.js-example-basic-multiple').select2();
@@ -162,17 +174,24 @@
                 });
             }
 
-            $('.add-material').click(function (e) {
+
+            $('.add-order-detail').click(function (e) {
                 const currentEle = $('.detail-order-input').eq(0);
                 const number = +currentEle.find('.stt').text().match(/\d+/g).join("")
                 const nextNumber = number + 1;
                 const newtEle = currentEle.clone();
                 newtEle.find('.stt').text(nextNumber)
-                // remove-item btn-remove-1
-                newtEle.find('.remove-item').attr('data-index' , nextNumber);
-                newtEle.find('.remove-item').attr('id', 'btn-remove-' + nextNumber);
+                // remove-item-order btn-remove-1
+                newtEle.find('.remove-item-order').attr('data-index' , nextNumber);
+                newtEle.find('.remove-item-order').attr('id', 'btn-remove-' + nextNumber);
                 newtEle.clone().prependTo('.area-order-detail');
             });
+
+            // $('.remove-item-order').unbind().on('click', function (e) {
+            //     console.log('1111')
+            //     // var ele = $(this);
+            //     // console.log('111111',ele.attr('id'))
+            // })
         });
     </script>
 @endsection

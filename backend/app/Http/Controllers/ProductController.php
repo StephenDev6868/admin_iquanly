@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
+use App\Models\Material;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -30,7 +31,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.add');
+        $sizes = [
+            '3XL',
+            '2XL',
+            'XL',
+            'M',
+            'S',
+        ];
+        $materials = Material::all();
+        return view('admin.products.add', compact('sizes', 'materials'));
     }
 
     /**
@@ -46,6 +55,8 @@ class ProductController extends Controller
         $validator = Validator::make($inputs, [
             'name' => 'Required|max:255',
             'code' => 'Required|max:255|unique:products,code',
+            'size' => 'Required|max:255',
+            'part_number' => 'Required|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -56,6 +67,17 @@ class ProductController extends Controller
 
         // $inputs['start_at'] = Carbon::parse($inputs['start_at'])->format('Y-m-d');
         // $inputs['end_at'] = Carbon::parse($inputs['end_at'])->format('Y-m-d');
+        $ids = $inputs['material']['id'];
+        $i = 0;
+        $newItem = [];
+        foreach ($ids as $value) {
+            $newItem[] = [
+                'id' => $value,
+                'quota' => $inputs['material']['quota'][$i]
+            ];
+            $i++;
+        }
+        $inputs['materials'] = $newItem;
         $inputs['creator_id'] = optional($user)->id;
         $result = Product::query()->create($inputs);
 
@@ -73,7 +95,15 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('admin.products.edit', compact('product'));
+        $sizes = [
+            '3XL',
+            '2XL',
+            'XL',
+            'M',
+            'S',
+        ];
+        $materials = Material::all();
+        return view('admin.products.edit', compact('product', 'sizes', 'materials'));
     }
 
     /**
@@ -100,7 +130,9 @@ class ProductController extends Controller
         $user = Auth::guard('user')->user();
         $validator = Validator::make($inputs, [
             'name' => 'Required|max:255',
-            'code' => 'Required|max:255|unique:products,code,' . $product->getKey()
+            'code' => 'Required|max:255|unique:products,code,' . $product->getKey(),
+            'size' => 'Required|max:255',
+            'part_number' => 'Required|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -108,9 +140,17 @@ class ProductController extends Controller
                 ->withInput()
                 ->with('error', $validator->errors()->first());
         }
-
-        // $inputs['start_at'] = Carbon::parse($inputs['start_at'])->format('Y-m-d');
-        // $inputs['end_at'] = Carbon::parse($inputs['end_at'])->format('Y-m-d');
+        $ids = $inputs['material']['id'];
+        $i = 0;
+        $newItem = [];
+        foreach ($ids as $value) {
+            $newItem[] = [
+                'id' => $value,
+                'quota' => $inputs['material']['quota'][$i]
+            ];
+            $i++;
+        }
+        $inputs['materials'] = $newItem;
         $inputs['creator_id'] = optional($user)->id;
         $result = $product->update($inputs);
 

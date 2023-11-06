@@ -25,6 +25,9 @@ class Product extends Model
         'creator_id',
         'name',
         'code',
+        'size',
+        'part_number',
+        'materials',
 //        'start_at',
 //        'end_at',
     ];
@@ -44,4 +47,8 @@ class Product extends Model
     {
         return $this->hasMany(ProductStepController::class, 'product_id', 'id');
     }
+
+    public $casts = [
+        'materials' => 'array'
+    ];
 }

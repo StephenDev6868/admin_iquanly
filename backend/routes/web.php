@@ -143,6 +143,15 @@ Route::prefix('admin')->group(function () {
             Route::delete('/delete/{partner}', [\App\Http\Controllers\PartnerController::class, 'destroy'])->name('admin.partners.delete');
         });
 
+        Route::prefix('orders')->group(function () {
+            Route::get('', [\App\Http\Controllers\OrderController::class, 'index'])->name('admin.orders.list');
+            Route::get('/create', [\App\Http\Controllers\OrderController::class, 'create'])->name('admin.orders.create');
+            Route::post('/create', [\App\Http\Controllers\OrderController::class, 'store'])->name('admin.orders.doCreate');
+            Route::get('/show/{order}', [\App\Http\Controllers\OrderController::class, 'show'])->name('admin.orders.show');
+            Route::put('/update/{order}', [\App\Http\Controllers\OrderController::class, 'update'])->name('admin.orders.update');
+            Route::delete('/delete/{order}', [\App\Http\Controllers\OrderController::class, 'destroy'])->name('admin.orders.delete');
+        });
+
         Route::prefix('common')->group(function () {
             Route::get('', [\App\Http\Controllers\CommonController::class, 'showAllConfig'])->name('admin.commons.list');
             Route::get('/create-supplier', [\App\Http\Controllers\CommonController::class, 'createSupplier'])->name('admin.commons.createSupplier');

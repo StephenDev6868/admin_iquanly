@@ -95,6 +95,7 @@
                                 <th>Tên nguyên liệu</th>
                                 <th>Mã nguyên liệu</th>
                                 <th>Đơn vị</th>
+                                <th>Định lượng (m/kg)</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -115,6 +116,9 @@
                                             <option value="{{ \App\Enums\Unit::KG  }}" {{ \App\Enums\Unit::KG === optional($data)->unit ? 'selected' : '' }}>{{ \App\Enums\Unit::KG  }}</option>
                                             <option value="{{ \App\Enums\Unit::MET  }}" {{ \App\Enums\Unit::MET === optional($data)->unit ? 'selected' : '' }}>{{ \App\Enums\Unit::MET  }}</option>
                                         </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->mToKg ?? ''}}">
                                     </td>
                                     <td class="d-flex">
 {{--                                        <form method="post" action="{{ route('admin.wTools.delete', $data->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">--}}

@@ -47,11 +47,11 @@
                                     <span> Quản lý nhân viên </span>
                                 </a>
                             </li>
-{{--                            <li>--}}
-{{--                                <a href="{{ route('admin.orders.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/orders/*')) ? 'active' : '' }}">--}}
-{{--                                    <span> Quản lý sản đơn hàng </span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
+                            <li>
+                                <a href="{{ route('admin.orders.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/orders/*')) ? 'active' : '' }}">
+                                    <span> Quản lý sản đơn hàng </span>
+                                </a>
+                            </li>
                             <li>
                                 <a href="javascript:void(0);" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/products-/*')) || (request()->is('admin/product-steps/*')) ? 'active' : '' }}"><span>Quản lý sản phẩm <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">

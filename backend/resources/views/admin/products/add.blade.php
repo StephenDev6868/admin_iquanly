@@ -41,69 +41,57 @@
                                 <label>Mã sản phẩm</label>
                                 <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>
                             </div>
-{{--                            <div class="col-md-12 m-b-20">--}}
-{{--                                <button type="submit" class="btn btn-success waves-effect waves-light">--}}
-{{--                                    Thêm công đoạn--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-12 form-group">--}}
-{{--                                <div class="row jumbotron" style="padding: 10px 0 !important;">--}}
-{{--                                    <div class="col-md-3 form-group">--}}
-{{--                                        <div class="m-t-20">--}}
-{{--                                            <h4 class="text-muted">Công đoạn 1</h4>--}}
-{{--                                            <p class="text-bold m-b-15 font-14">--}}
-{{--                                               Nhập tên công đoạn:--}}
-{{--                                            </p>--}}
-{{--                                            <textarea id="textarea" class="form-control" maxlength="225" rows="3" placeholder="This textarea has a limit of 225 chars."></textarea>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-md-9">--}}
-{{--                                        <div class="col-md-12 form-group">--}}
-{{--                                            <label>Thời gian</label>--}}
-{{--                                            <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-12 form-group">--}}
-{{--                                            <label>Hệ số</label>--}}
-{{--                                            <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-12 form-group">--}}
-{{--                                            <label>Đơn giá</label>--}}
-{{--                                            <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-12 form-group">--}}
-{{--                                            <label>Chọn công nhân:</label>--}}
-{{--                                            <select class="js-example-basic-multiple" name="states[]" multiple="multiple">--}}
-{{--                                                <option value="AL">Alabama</option>--}}
-{{--                                                <option value="WY">Wyoming</option>--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-
-{{--                            <div class="col-md-6 form-group">--}}
-{{--                                <label>Ngày bắt đầu</label>--}}
-{{--                                <div>--}}
-{{--                                    <div class="input-group">--}}
-{{--                                        <input type="text" value="{{ old('start_at') }}" data-date-format="dd-mm-yyyy" name="start_at" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">--}}
-{{--                                        <div class="input-group-append">--}}
-{{--                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>--}}
-{{--                                        </div>--}}
-{{--                                    </div><!-- input-group -->--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-6 form-group">--}}
-{{--                                <label>Ngày kết thúc</label>--}}
-{{--                                <div>--}}
-{{--                                    <div class="input-group">--}}
-{{--                                        <input type="text" value="{{ old('end_at') }}" data-date-format="dd-mm-yyyy" name="end_at" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">--}}
-{{--                                        <div class="input-group-append">--}}
-{{--                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>--}}
-{{--                                        </div>--}}
-{{--                                    </div><!-- input-group -->--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            <div class="col-md-6 form-group">
+                                <label>Size</label>
+                                <select class="form-control" name="size">
+                                    @foreach($sizes as $key => $size)
+                                        <option value="{{ $size }}">{{ $size }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Part number</label>
+                                <input type="text" name="part_number" value="{{ old('part_number') }}" class="form-control" required placeholder="Nhập Part number"/>
+                            </div>
+                            <div class="col-md-12 form-group jumbotron" style="padding: 1rem 1rem;">
+                                <div class="top-detail d-flex justify-content-between mb-2">
+                                    <h5>Nhập chi tiết nguyên vật liệu </h5>
+                                    <button type="button" class="btn btn-primary add-material" style="height: 50px; width: 50px;"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="detail-order">
+                                    <table class="table table-light table-bordered mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th class="d-none">STT</th>
+                                            <th>Tên và mã nguyên liệu</th>
+                                            <th>Định mức</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="area-order-detail">
+                                        <tr id="1-detail-order-input" class="detail-order-input">
+                                            <th class="stt d-none">
+                                                1
+                                            </th>
+                                            <th>
+                                                <select class="form-control" name="material[id][]">
+                                                    <option value=""></option>
+                                                    @foreach($materials as $key => $material)
+                                                        <option value="{{ $material->getKey() }}">{{ $material->name . ' - ' . $material->code }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </th>
+                                            <th>
+                                                <input type="text" name="material[quota][]" value="{{ old('quota')  }}" class="form-control" required placeholder="Nhập định mức ">
+                                            </th>
+                                            <th>
+                                                <button type="button" id="btn-remove-1" data-index="1" onClick="return removeItem(this)" class="btn btn-danger remove-item"><i class="fas fa-trash"></i></button>
+                                            </th>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                             <div class="col-md-12 form-group m-b-0 text-right">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">
                                     Lưu
@@ -142,6 +130,12 @@
 
 @section('script-bottom')
     <script>
+        function removeItem(e) {
+            let id = '#' + e['id'];
+            $(id).parent().parent().remove();
+        }
+
+
         $(document).ready(function() {
             $('.js-example-basic-multiple').select2();
             $('form').parsley();
@@ -168,6 +162,18 @@
                     ]
                 });
             }
+
+            $('.add-material').click(function (e) {
+                const currentEle = $('.detail-order-input').eq(0);
+                const number = +currentEle.find('.stt').text().match(/\d+/g).join("")
+                const nextNumber = number + 1;
+                const newtEle = currentEle.clone();
+                newtEle.find('.stt').text(nextNumber)
+                // remove-item btn-remove-1
+                newtEle.find('.remove-item').attr('data-index' , nextNumber);
+                newtEle.find('.remove-item').attr('id', 'btn-remove-' + nextNumber);
+                newtEle.clone().prependTo('.area-order-detail');
+            });
         });
     </script>
 @endsection

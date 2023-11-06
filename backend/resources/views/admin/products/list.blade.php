@@ -72,6 +72,8 @@
                                 <th>Người tạo</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Mã sản phẩm</th>
+                                <th>Size</th>
+                                <th>Part number</th>
 {{--                                <th>Ngày bắt đầu</th>--}}
 {{--                                <th>Ngày kết thúc</th>--}}
                                 <th>Action</th>
@@ -84,6 +86,8 @@
                                         <td>{{ optional($product)->creatorName($product->getKey()) ?? 'admin' }}</td>
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->code }}</td>
+                                        <td>{{ $product->size }}</td>
+                                        <td>{{ $product->part_number }}</td>
 {{--                                        <td >{{ $product->start_at }}</td>--}}
 {{--                                        <td >{{ $product->end_start }}</td>--}}
                                         <td >

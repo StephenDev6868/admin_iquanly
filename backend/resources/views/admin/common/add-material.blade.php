@@ -50,6 +50,10 @@
                                     <option value="{{ \App\Enums\Unit::MET  }}">{{ \App\Enums\Unit::MET  }}</option>
                                 </select>
                             </div>
+                            <div class="col-md-6 form-group">
+                                <label>Định lượng (m/kg)  </label>
+                                <input type="text" name="mToKg" value="{{ old('mToKg') }}" class="form-control" required placeholder="Nhập định lượng   "/>
+                            </div>
                             <div class="col-md-12 form-group m-b-0 text-right">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">
                                     Lưu
@@ -87,6 +91,7 @@
 
 @section('script-bottom')
     <script>
+
         $(document).ready(function() {
             $('.js-example-basic-multiple').select2();
             $('form').parsley();
@@ -113,6 +118,8 @@
                     ]
                 });
             }
+
+
         });
     </script>
 @endsection
