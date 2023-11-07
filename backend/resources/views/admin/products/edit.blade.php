@@ -67,7 +67,29 @@
                                         </tr>
                                         </thead>
                                         <tbody class="area-order-detail">
-                                            @foreach($product->materials as $value)
+                                            @if($product->materials)
+                                                @foreach($product->materials as $value)
+                                                    <tr id="1-detail-order-input" class="detail-order-input">
+                                                        <th class="stt d-none">
+                                                            1
+                                                        </th>
+                                                        <th>
+                                                            <select class="form-control" name="material[id][]">
+                                                                <option value=""></option>
+                                                                @foreach($materials as $key => $material)
+                                                                    <option {{ $value['id'] ==  $material->getKey() ? 'selected' : '' }} value="{{ $material->getKey() }}">{{ $material->name . ' - ' . $material->code }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </th>
+                                                        <th>
+                                                            <input type="text" name="material[quota][]" value="{{ $value['quota'] ?? old('quota')  }}" class="form-control" required placeholder="Nhập định mức ">
+                                                        </th>
+                                                        <th>
+                                                            <button type="button" id="btn-remove-1" data-index="1" onClick="return removeItem(this)" class="btn btn-danger remove-item"><i class="fas fa-trash"></i></button>
+                                                        </th>
+                                                    </tr>
+                                                @endforeach
+                                            @else
                                                 <tr id="1-detail-order-input" class="detail-order-input">
                                                     <th class="stt d-none">
                                                         1
@@ -76,18 +98,18 @@
                                                         <select class="form-control" name="material[id][]">
                                                             <option value=""></option>
                                                             @foreach($materials as $key => $material)
-                                                                <option {{ $value['id'] ==  $material->getKey() ? 'selected' : '' }} value="{{ $material->getKey() }}">{{ $material->name . ' - ' . $material->code }}</option>
+                                                                <option  value="{{ $material->getKey() }}">{{ $material->name . ' - ' . $material->code }}</option>
                                                             @endforeach
                                                         </select>
                                                     </th>
                                                     <th>
-                                                        <input type="text" name="material[quota][]" value="{{ $value['quota'] ?? old('quota')  }}" class="form-control" required placeholder="Nhập định mức ">
+                                                        <input type="text" name="material[quota][]" value="{{ old('quota')  }}" class="form-control" required placeholder="Nhập định mức ">
                                                     </th>
                                                     <th>
                                                         <button type="button" id="btn-remove-1" data-index="1" onClick="return removeItem(this)" class="btn btn-danger remove-item"><i class="fas fa-trash"></i></button>
                                                     </th>
                                                 </tr>
-                                            @endforeach
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
