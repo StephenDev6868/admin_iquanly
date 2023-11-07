@@ -51,8 +51,31 @@
                                 </select>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Định lượng (m/kg)  </label>
-                                <input type="text" name="mToKg" value="{{ old('mToKg') }}" class="form-control" required placeholder="Nhập định lượng   "/>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Định mức </label>
+                                        <input type="text" name="num_quota" value="{{ old('num_quota') }}" class="form-control" required placeholder="Nhập định mức   "/>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>Đơn vị Định mức </label>
+                                        <div class="d-flex" style="column-gap: 10px;">
+                                            <select id="unit" class="spr-text-field form-control" name="unit_quota_1" required style="width: 50%">
+                                                <option value="{{ \App\Enums\Unit::CAI  }}">{{ \App\Enums\Unit::CAI  }}</option>
+                                                <option value="{{ \App\Enums\Unit::CUON  }}">{{ \App\Enums\Unit::CUON  }}</option>
+                                                <option value="{{ \App\Enums\Unit::KG  }}">{{ \App\Enums\Unit::KG  }}</option>
+                                                <option value="{{ \App\Enums\Unit::MET  }}">{{ \App\Enums\Unit::MET  }}</option>
+                                            </select>
+                                            <h5 style="margin-top: 3px !important;">/</h5>
+                                            <select id="unit" class="spr-text-field form-control" name="unit_quota_2" required style="width: 50%">
+                                                <option value="{{ \App\Enums\Unit::CAI  }}">{{ \App\Enums\Unit::CAI  }}</option>
+                                                <option value="{{ \App\Enums\Unit::CUON  }}">{{ \App\Enums\Unit::CUON  }}</option>
+                                                <option value="{{ \App\Enums\Unit::KG  }}">{{ \App\Enums\Unit::KG  }}</option>
+                                                <option value="{{ \App\Enums\Unit::MET  }}">{{ \App\Enums\Unit::MET  }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-12 form-group m-b-0 text-right">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">

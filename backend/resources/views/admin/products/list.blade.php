@@ -90,7 +90,10 @@
                                         <td>{{ $product->part_number }}</td>
 {{--                                        <td >{{ $product->start_at }}</td>--}}
 {{--                                        <td >{{ $product->end_start }}</td>--}}
-                                        <td >
+                                        <td>
+                                            <a href="{{ route('admin.products.create', ['product_id' => $product->getKey()])  }}" class="btn btn-secondary">
+                                                <i class="fas fa-plus"></i>
+                                            </a>
                                             <a href="{{ route('admin.products.show', ['product' => $product->getKey()])  }}" class="btn btn-success">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>

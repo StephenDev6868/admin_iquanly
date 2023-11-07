@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-md-12 form-group jumbotron" style="padding: 1rem 1rem;">
                                 <div class="top-detail d-flex justify-content-between mb-2">
-                                    <h5>Nhập chi tiết nguyên vật liệu </h5>
+                                    <h5>Nhập chi tiết nguyên vật liệu làm sản phẩm</h5>
                                     <button type="button" class="btn btn-primary add-material" style="height: 50px; width: 50px;"><i class="fas fa-plus"></i></button>
                                 </div>
                                 <div class="detail-order">
@@ -61,8 +61,8 @@
                                         <thead>
                                         <tr>
                                             <th class="d-none">STT</th>
-                                            <th>Tên và mã nguyên liệu</th>
-                                            <th>Định mức</th>
+                                            <th>Tên và mã nguyên liệu (định mức)</th>
+                                            <th>Định mức cho 1 sản phẩm</th>
                                             <th></th>
                                         </tr>
                                         </thead>
@@ -77,7 +77,7 @@
                                                             <select class="form-control" name="material[id][]">
                                                                 <option value=""></option>
                                                                 @foreach($materials as $key => $material)
-                                                                    <option {{ $value['id'] ==  $material->getKey() ? 'selected' : '' }} value="{{ $material->getKey() }}">{{ $material->name . ' - ' . $material->code }}</option>
+                                                                    <option {{ $value['id'] ==  $material->getKey() ? 'selected' : '' }} value="{{ $material->getKey() }}">{{ $material->name . ' - ' . $material->code. ' (' . $material->num_quota. ' ' . $material->unit_quota . ')' }}</option>
                                                                 @endforeach
                                                             </select>
                                                         </th>

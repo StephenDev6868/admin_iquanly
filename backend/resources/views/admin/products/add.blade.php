@@ -35,11 +35,11 @@
                             @csrf
                             <div class="col-md-12 form-group">
                                 <label>Tên sản phẩm</label>
-                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" required placeholder="Nhập tên sản phẩm"/>
+                                <input type="text" name="name" value="{{ $product->name ?? old('name') }}" class="form-control" required placeholder="Nhập tên sản phẩm"/>
                             </div>
                             <div class="col-md-12 form-group">
                                 <label>Mã sản phẩm</label>
-                                <input type="text" name="code" value="{{ old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>
+                                <input type="text" name="code" value="{{ $product->code ?? old('code') }}" class="form-control" required placeholder="Nhập mã sản phẩm"/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Size</label>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-md-12 form-group jumbotron" style="padding: 1rem 1rem;">
                                 <div class="top-detail d-flex justify-content-between mb-2">
-                                    <h5>Nhập chi tiết nguyên vật liệu </h5>
+                                    <h5>Nhập chi tiết nguyên vật liệu làm sản phẩm </h5>
                                     <button type="button" class="btn btn-primary add-material" style="height: 50px; width: 50px;"><i class="fas fa-plus"></i></button>
                                 </div>
                                 <div class="detail-order">
@@ -63,8 +63,8 @@
                                         <thead>
                                         <tr>
                                             <th class="d-none">STT</th>
-                                            <th>Tên và mã nguyên liệu</th>
-                                            <th>Định mức</th>
+                                            <th>Tên và mã nguyên liệu (định mức)</th>
+                                            <th>Định mức cho 1 sản phẩm</th>
                                             <th></th>
                                         </tr>
                                         </thead>
@@ -77,7 +77,7 @@
                                                 <select class="form-control" name="material[id][]">
                                                     <option value=""></option>
                                                     @foreach($materials as $key => $material)
-                                                        <option value="{{ $material->getKey() }}">{{ $material->name . ' - ' . $material->code }}</option>
+                                                        <option value="{{ $material->getKey() }}">{{ $material->name . ' - ' . $material->code. ' (' . $material->num_quota. ' ' . $material->unit_quota . ')' }}</option>
                                                     @endforeach
                                                 </select>
                                             </th>

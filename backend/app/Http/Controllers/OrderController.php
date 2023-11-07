@@ -58,6 +58,7 @@ class OrderController extends Controller
             'code' => 'required|max:255',
             'start_at' => 'required',
             'end_at' => 'required',
+            'loss' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -83,7 +84,7 @@ class OrderController extends Controller
 
         if ($result) {
             return Redirect::route('admin.orders.list')
-                ->with('success', 'Tạo sản phẩm thành công');;
+                ->with('success', 'Tạo đơn hàng thành công');;
         }
     }
 
@@ -126,6 +127,7 @@ class OrderController extends Controller
             'code' => 'required|max:255',
             'start_at' => 'required',
             'end_at' => 'required',
+            'loss' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -150,7 +152,7 @@ class OrderController extends Controller
 
         if ($result) {
             return Redirect::route('admin.orders.list')
-                ->with('success', 'Tạo sản phẩm thành công');;
+                ->with('success', 'Tạo đơn hàng thành công');;
         }
     }
 
@@ -162,6 +164,9 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return Redirect::route('admin.orders.list')
+            ->with('success', 'Xoá đơn hàng thành công');;
+
     }
 }

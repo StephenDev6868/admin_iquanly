@@ -78,7 +78,7 @@
         <form action="{{ route('admin.commons.doUpdateMaterials')  }}" class="row" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 <div class="table-add">
                     <a href="{{ route('admin.commons.createMaterial') }}" class="btn btn-info mb-4">Thêm nguyên liệu mới</a>
                 </div>
@@ -95,12 +95,18 @@
                                 <th>Tên nguyên liệu</th>
                                 <th>Mã nguyên liệu</th>
                                 <th>Đơn vị</th>
-                                <th>Định lượng (m/kg)</th>
+                                <th>Định mức</th>
+                                <th nowrap="true">Đơn vị Định mức</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($materials as $key => $data)
+                                @php
+                                    $data_unit_quota = $data->unit_quota ? explode('/', $data->unit_quota) : [];
+                                    $data_unit_quota_1 = $data_unit_quota[0] ?? null;
+                                    $data_unit_quota_2 = $data_unit_quota[1] ?? null;
+                                @endphp
                                 <tr>
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td>
@@ -118,9 +124,24 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->mToKg ?? ''}}">
+                                        <input type="text" class="form-control" name="{{ $data->getKey() }}[]" value="{{ optional($data)->num_quota ?? ''}}">
                                     </td>
-                                    <td class="d-flex">
+                                    <td class="d-flex" style="column-gap: 10px;">
+                                        <select id="{{'unit' . ($loop->index + 1) }}" class="spr-text-field form-control" name="{{ $data->getKey() }}[]" required>
+                                            <option value="{{ \App\Enums\Unit::CAI  }}" {{ \App\Enums\Unit::CAI === $data_unit_quota_1 ? 'selected' : '' }} >{{ \App\Enums\Unit::CAI  }}</option>
+                                            <option value="{{ \App\Enums\Unit::CUON  }}" {{ \App\Enums\Unit::CUON === $data_unit_quota_1 ? 'selected' : '' }}>{{ \App\Enums\Unit::CUON  }}</option>
+                                            <option value="{{ \App\Enums\Unit::KG  }}" {{ \App\Enums\Unit::KG === $data_unit_quota_1 ? 'selected' : '' }}>{{ \App\Enums\Unit::KG  }}</option>
+                                            <option value="{{ \App\Enums\Unit::MET  }}" {{ \App\Enums\Unit::MET === $data_unit_quota_1 ? 'selected' : '' }}>{{ \App\Enums\Unit::MET  }}</option>
+                                        </select>
+                                        <h5 style="margin-top: 3px !important;">/</h5>
+                                        <select id="{{'unit_second' . ($loop->index + 1) }}" class="spr-text-field form-control" name="{{ $data->getKey() }}[]" required>
+                                            <option value="{{ \App\Enums\Unit::CAI  }}" {{ \App\Enums\Unit::CAI === $data_unit_quota_2 ? 'selected' : '' }} >{{ \App\Enums\Unit::CAI  }}</option>
+                                            <option value="{{ \App\Enums\Unit::CUON  }}" {{ \App\Enums\Unit::CUON === $data_unit_quota_2 ? 'selected' : '' }}>{{ \App\Enums\Unit::CUON  }}</option>
+                                            <option value="{{ \App\Enums\Unit::KG  }}" {{ \App\Enums\Unit::KG === $data_unit_quota_2 ? 'selected' : '' }}>{{ \App\Enums\Unit::KG  }}</option>
+                                            <option value="{{ \App\Enums\Unit::MET  }}" {{ \App\Enums\Unit::MET === $data_unit_quota_2 ? 'selected' : '' }}>{{ \App\Enums\Unit::MET  }}</option>
+                                        </select>
+                                    </td>
+{{--                                    <td class="d-flex">--}}
 {{--                                        <form method="post" action="{{ route('admin.wTools.delete', $data->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">--}}
 {{--                                            @csrf--}}
 {{--                                            @method('DELETE')--}}
@@ -128,7 +149,7 @@
 {{--                                                <i class="fas fa-trash"></i>--}}
 {{--                                            </button>--}}
 {{--                                        </form>--}}
-                                    </td>
+{{--                                    </td>--}}
                                 </tr>
                             @endforeach
                             </tbody>

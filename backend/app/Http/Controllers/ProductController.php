@@ -29,8 +29,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $product_id = $request->query('product_id');
+        $product = Product::query()->find($product_id);
         $sizes = [
             '3XL',
             '2XL',
@@ -39,7 +41,7 @@ class ProductController extends Controller
             'S',
         ];
         $materials = Material::all();
-        return view('admin.products.add', compact('sizes', 'materials'));
+        return view('admin.products.add', compact('sizes', 'materials', 'product'));
     }
 
     /**
@@ -54,7 +56,7 @@ class ProductController extends Controller
         $user = Auth::guard('user')->user();
         $validator = Validator::make($inputs, [
             'name' => 'Required|max:255',
-            'code' => 'Required|max:255|unique:products,code',
+            'code' => 'Required|max:255',
             'size' => 'Required|max:255',
             'part_number' => 'Required|max:255',
         ]);

@@ -13,8 +13,8 @@ class CommonController extends Controller
     public function showAllConfig()
     {
         $materials = Material::query()->paginate(10);
-        $suppliers = Supplier::query()->paginate(10);
-        return view('admin.common.list', compact('materials', 'suppliers'));
+        //$suppliers = Supplier::query()->paginate(10);
+        return view('admin.common.list', compact('materials'));
     }
 
     public function createSupplier()
@@ -57,7 +57,9 @@ class CommonController extends Controller
             'code' => 'required',
             'name' => 'required',
             'unit' => 'required',
-            'mToKg' => 'required',
+            'num_quota' => 'required',
+            'unit_quota_1' => 'required',
+            'unit_quota_2' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -65,6 +67,7 @@ class CommonController extends Controller
                 ->withInput()
                 ->with('error', $validator->errors()->first());
         }
+        $inputs['unit_quota'] = $inputs['unit_quota_1'] . '/' . $inputs['unit_quota_2'];
         $result = Material::query()->create($inputs);
 
         if ($result) {
@@ -83,7 +86,8 @@ class CommonController extends Controller
                     'name' => $input[0] ?? '',
                     'code' => $input[1] ?? '',
                     'unit' => $input[2] ?? '',
-                    'mToKg' => $input[3] ?? '',
+                    'num_quota' => $input[3] ?? '',
+                    'unit_quota' => ($input[4] ?? '') . '/' . ($input[5] ?? ''),
                 ]
             );
         }

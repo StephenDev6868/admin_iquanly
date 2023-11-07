@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_11_07_155913_alert_cols_into_material_part5.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_11_07_174933_add_col_loss_into_orders_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CommonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CommonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Material.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Material.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/common/add-material.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/common/add-material.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/common/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/common/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/orders/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/orders/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/orders/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/orders/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/orders/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/orders/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/add.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/products/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/products/list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +230,7 @@
       <workItem from="1698032517895" duration="18908000" />
       <workItem from="1698829525581" duration="1869000" />
       <workItem from="1699147647353" duration="20275000" />
-      <workItem from="1699291698862" duration="11281000" />
+      <workItem from="1699291698862" duration="27542000" />
     </task>
     <servers />
   </component>

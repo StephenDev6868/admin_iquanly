@@ -33,6 +33,12 @@
                                 <th>STT</th>
                                 <th>Tên đơn hàng</th>
                                 <th>Mã khách hàng</th>
+                                <th>
+                                    Thông tin đơn hàng
+                                </th>
+                                <th>
+                                    Nguyên vật liệu cần mua
+                                </th>
                                 <th>Ngày bắt đầu</th>
                                 <th>Ngày kết thúc</th>
                                 <th>Thao tác</th>
@@ -40,10 +46,59 @@
                             </thead>
                             <tbody>
                             @foreach($datas as $key => $data)
+                                @php
+                                    $ingredients = count_material_for_order($data->toArray());
+                                @endphp
                                 <tr>
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td>{{ optional($data)->name }}</td>
                                     <td>{{ optional($data)->code }}</td>
+                                    <td style="display: grid; border: none">
+                                        @foreach($data->detail_product as $key2 => $value)
+                                            <div class="area-info d-flex align-items-center" style="column-gap: 10px;">
+                                                <code> {{ $value['amount'] . ' ' . get_product_info_text($value['id']) }} </code>
+                                            </div>
+
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                            <i class="fas fa-eye"></i> Click me
+                                        </button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Danh sách nguyên vật liệu cần mua</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @foreach($ingredients as $key => $ingredient)
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item active">{{$key}}</li>
+                                                                @foreach($ingredient as $item)
+                                                                    <li class="list-group-item">
+                                                                        {{ $item['quantity'] . ' (' . $item['unit'] . ') ' . $item['name']  }}
+                                                                    </li>
+                                                                @endforeach
+{{--                                                                <li class="list-group-item">Dapibus ac facilisis in</li>--}}
+{{--                                                                <li class="list-group-item">Morbi leo risus</li>--}}
+{{--                                                                <li class="list-group-item">Porta ac consectetur ac</li>--}}
+{{--                                                                <li class="list-group-item">Vestibulum at eros</li>--}}
+                                                            </ul>
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>{{ optional($data)->start_at }}</td>
                                     <td>{{ optional($data)->end_at }}</td>
                                     <td class="d-flex">

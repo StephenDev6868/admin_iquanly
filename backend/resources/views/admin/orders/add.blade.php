@@ -45,10 +45,15 @@
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="col-md-12 form-group jumbotron" style="padding: 1rem 1rem;">
                                 <div class="top-detail d-flex justify-content-between mb-2">
                                     <h5>Nhập chi tiết đơn hàng </h5>
                                     <button type="button" class="btn btn-primary add-order-detail" style="height: 50px; width: 50px;"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div class="form-group" style="width: 22%">
+                                    <label>Phần trăm hao hụt cho phép:  </label>
+                                    <input type="text" name="loss" value="{{ old('loss') }}" class="form-control" required placeholder="% "/>
                                 </div>
                                 <div class="detail-order">
                                     <table class="table table-light table-bordered mb-0">
