@@ -48,7 +48,7 @@ class ProductStepController extends Controller
     public function create()
     {
         $products = Product::all();
-        $users = User::query()->where('board_id', '=', 2)->get();
+        $users = User::query()->whereIn('board_id', [1,2,4])->get();
         return view('admin.product-steps.add', compact('products', 'users'));
     }
 
@@ -107,7 +107,7 @@ class ProductStepController extends Controller
     public function show(ProductStep $productStep)
     {
         $products = Product::all();
-        $users = User::query()->where('board_id', '=', 2)->get();
+        $users = User::query()->whereIn('board_id', [1,2,4])->get();
         return view('admin.product-steps.edit', compact('productStep', 'products', 'users'));
     }
 
@@ -171,7 +171,7 @@ class ProductStepController extends Controller
         $step = $input['productStep'] ?? null;
         $products = Product::all();
         $productSteps = ProductStep::all();
-        $users = User::query()->where('board_id', '=', 2)->get();
+        $users = User::query()->whereIn('board_id', [1,2,4])->get();
         $query = WorkQuantity::query()
             ->join('product_steps', 'product_steps.id', '=', 'work_quantities.product_step_id')
             ->join('products', 'products.id', '=', 'product_steps.product_id')
