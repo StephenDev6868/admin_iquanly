@@ -120,7 +120,7 @@ class ProductStepController extends Controller
     public function showGenerateWorkQuantity(ProductStep $productStep)
     {
         $products = Product::all();
-        $users = User::query()->where('board_id', '=', 2)->get();
+        $users = User::query()->whereIn('board_id', [1,2,4])->get();
         return view('admin.product-steps.add-work-quantity', compact('productStep', 'products', 'users'));
     }
 
