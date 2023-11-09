@@ -35,7 +35,7 @@
                             @csrf
                             <div class="col-md-6 form-group">
                                 <label>Nhà cung cấp </label>
-                                <select name="material_id" id="" class="form-control">
+                                <select name="supplier_id" id="" class="form-control">
                                     @foreach($suppliers as $key => $data)
                                         <option value="{{ $data->getKey() }}">{{ $data->name . ' - ' . $data->code }}</option>
                                     @endforeach
@@ -43,7 +43,7 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Tên và mã nguyên vật liệu </label>
-                                <select name="supplier_id" id="" class="form-control">
+                                <select name="material_id" id="" class="form-control">
                                     @foreach($materials as $key => $data)
                                         <option value="{{ $data->getKey() }}">{{ $data->name . ' - ' . $data->code . ' (' . $data->unit . ') ' }}</option>
                                     @endforeach

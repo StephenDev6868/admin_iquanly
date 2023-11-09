@@ -79,10 +79,10 @@
                                                     <div class="modal-body">
                                                         @foreach($ingredients as $key => $ingredient)
                                                             <ul class="list-group mt-1">
-                                                                <li class="list-group-item active">{{$key}}</li>
+                                                                <li class="list-group-item active"><b>Tên đơn hàng: {{$key}}</b></li>
                                                                 @foreach($ingredient as $item)
                                                                     <li class="list-group-item">
-                                                                        {{ $item['quantity'] . ' - ' . ' (' . $item['unit'] . ') ' . $item['name']  }}
+                                                                        <b>Số lượng: </b> {{ $item['quantity'] . ' - ' . ' (' . $item['unit'] . ') ' . $item['name']  }}
                                                                     </li>
                                                                 @endforeach
                                                             </ul>

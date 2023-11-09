@@ -54,7 +54,7 @@ if (! function_exists('count_material_for_order')) {
                     'size' => $product->size,
                 ];
             }
-            $key = $value['amount'] . ' ' . $product->name . ' - ' . $product->code . ' (' . $product->size . ')';
+            $key = $value['amount'] . ' - ' . $product->name . ' - ' . $product->code . ' (' . $product->size . ')';
             $ingredient[$key] = $ingredient_item;
         }
         return $ingredient;
