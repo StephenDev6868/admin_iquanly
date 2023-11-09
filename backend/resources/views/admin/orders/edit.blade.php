@@ -76,7 +76,7 @@
                                                 <th>
                                                     <select class="form-control" name="orders[product_id][]">
                                                         @foreach($products as $key => $product)
-                                                            <option {{ $value['id'] == $product->getKey() ? 'selected' : ''  }} value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code . ' - (' . $product->size . ')' }}</option>
+                                                            <option {{ $value['id'] == $product->getKey() ? 'selected' : ''  }} value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code . ' - (' . $product->size . ') - (' . $product->part_number . ')' }}</option>
                                                         @endforeach
                                                     </select>
                                                 </th>

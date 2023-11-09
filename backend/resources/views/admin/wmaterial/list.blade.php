@@ -84,22 +84,22 @@
                     <div class="card-body">
                         <div class="table-title d-flex justify-content-between">
                             <h4 class="mt-0 header-title">Danh sách nguyên vật liệu</h4>
-                            {{--                            {{ $boards->links() }}--}}
+                            {{ $datas->links() }}
                         </div>
                         <table class="table table-striped mb-0">
                             <thead>
                             <tr>
-                                <th>STT</th>
-                                <th>Tên nhà cung cấp</th>
-                                <th>Tên nguyên vật liệu</th>
-                                <th>Mã nguyên vật liệu</th>
-                                <th>Đơn vị</th>
-                                <th>Số lượng nhập</th>
-                                <th>Số lượng tồn</th>
+                                <th nowrap="true">STT</th>
+                                <th nowrap="true">Tên nhà cung cấp</th>
+                                <th nowrap="true">Tên nguyên vật liệu</th>
+                                <th nowrap="true">Mã nguyên vật liệu</th>
+                                <th nowrap="true">Đơn vị</th>
+                                <th nowrap="true">Số lượng nhập</th>
+                                <th nowrap="true">Số lượng tồn</th>
 {{--                                <th>Số lượng tồn</th>--}}
 {{--                                <th>Số lượng sử dụng</th>--}}
-                                <th>Ngày nhập</th>
-                                <th>Thao tác</th>
+                                <th nowrap="true">Ngày nhập</th>
+                                <th nowrap="true">Thao tác</th>
                             </tr>
                             </thead>
                             <tbody>
