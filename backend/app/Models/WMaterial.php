@@ -20,11 +20,18 @@ class WMaterial extends Model
         'date_added',
     ];
 
-    public function parentMaterial()
+    public function parentMaterial($id, $material_id)
     {
-        return $this->hasOne(Material::class, 'id', 'material_id')
-            ->orWhereNull('deleted_at')
-            ->orWhereNotNull('deleted_at');
+        $query = WMaterial::query()->join('materials', 'materials.id', '=', 'w_materials.material_id')
+                        ->where([
+                            'w_materials.id' => $id,
+                            'materials.id' => $material_id,
+                        ])
+                        ->whereNull('materials.deleted_at')
+                        ->where('materials.deleted_at')
+                        ->select(['materials.code as code', 'materials.name as name', 'materials.unit as unit'])
+                        ->get()->toArray();
+        return $query ? $query[0] : [];
     }
 
     public function supplier()

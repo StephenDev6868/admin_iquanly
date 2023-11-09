@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_11_09_022024_change_type_col_into_w_materials_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/admin_site_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/admin_site_web.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/orders/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/orders/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/orders/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/orders/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/WMaterial.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/WMaterial.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,7 +221,7 @@
       <workItem from="1698032517895" duration="18908000" />
       <workItem from="1698829525581" duration="1869000" />
       <workItem from="1699147647353" duration="20275000" />
-      <workItem from="1699291698862" duration="38569000" />
+      <workItem from="1699291698862" duration="41913000" />
     </task>
     <servers />
   </component>
