@@ -78,7 +78,7 @@
         <form action="{{ route('admin.commons.doUpdateMaterials')  }}" class="row" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                 <div class="table-add">
                     <a href="{{ route('admin.commons.createMaterial') }}" class="btn btn-info mb-4">Thêm nguyên liệu mới</a>
                 </div>
