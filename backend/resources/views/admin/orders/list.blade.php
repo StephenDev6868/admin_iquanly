@@ -30,18 +30,18 @@
                         <table class="table table-striped mb-0">
                             <thead>
                             <tr>
-                                <th>STT</th>
-                                <th>Tên đơn hàng</th>
-                                <th>Mã khách hàng</th>
-                                <th>
+                                <th nowrap="true">STT</th>
+                                <th nowrap="true">Tên đơn hàng</th>
+                                <th nowrap="true">Mã khách hàng</th>
+                                <th nowrap="true">
                                     Thông tin đơn hàng
                                 </th>
-                                <th>
+                                <th nowrap="true">
                                     Nguyên vật liệu cần mua
                                 </th>
-                                <th>Ngày bắt đầu</th>
-                                <th>Ngày kết thúc</th>
-                                <th>Thao tác</th>
+                                <th nowrap="true">Ngày bắt đầu</th>
+                                <th nowrap="true">Ngày kết thúc</th>
+                                <th nowrap="true">Thao tác</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -82,7 +82,7 @@
                                                                 <li class="list-group-item active">{{$key}}</li>
                                                                 @foreach($ingredient as $item)
                                                                     <li class="list-group-item">
-                                                                        {{ $item['quantity'] . ' (' . $item['unit'] . ') ' . $item['name']  }}
+                                                                        {{ $item['quantity'] . ' - ' . ' (' . $item['unit'] . ') ' . $item['name']  }}
                                                                     </li>
                                                                 @endforeach
                                                             </ul>
