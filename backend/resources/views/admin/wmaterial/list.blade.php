@@ -109,7 +109,7 @@
                                     <td>{{ optional($data)->supplier($data->supplier_id)->name }}</td>
                                     <td>{{ optional($data)->parentMaterial($data->material_id)->name }}</td>
                                     <td>{{ optional($data)->parentMaterial($data->material_id)->code }}</td>
-                                    <td class="text-center">{{ ' (' . optional($data)->parentMaterial($data->getKey(),$data->material_id)->unit . ') ' }}</td>
+                                    <td class="text-center">{{ ' (' . optional($data)->parentMaterial($data->material_id)->unit . ') ' }}</td>
                                     <td>{{ optional($data)->quantity_input }}</td>
                                     <td>{{ optional($data)->quantity_contain ?? '0' }}</td>
                                     <td>{{ optional($data)->date_added }}</td>
