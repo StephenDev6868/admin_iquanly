@@ -100,7 +100,7 @@ class UserSalaryController extends Controller
         //     $query->whereDate('date_work', '>=', $start);
         //     $query->whereDate('date_work', '<=', $end);
         // }
-        $datas =  $query->get()->toArray();
+        $datas =  $query->orderBy('users.full_name')->get()->toArray();
         $salaries = [];
         $type = is_array($step_products) && count($step_products) > 0 ? '2' : '1';
         foreach ($datas as $key => $data) {
