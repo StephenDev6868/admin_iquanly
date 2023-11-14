@@ -27,6 +27,11 @@ class ClientController extends Controller
         return view('staff.info', compact('user'));
     }
 
+    public function salary()
+    {
+        return view('staff.salary');
+    }
+
     public function category(string $slug, string $type)
     {
         $categorys = Category::query()

@@ -187,6 +187,7 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::prefix('users')->group(function () {
         Route::get('', [\App\Http\Controllers\ClientController::class, 'index'])->name('user.home');
         Route::get('info', [\App\Http\Controllers\ClientController::class, 'info'])->name('user.info');
+        Route::get('salary', [\App\Http\Controllers\ClientController::class, 'salary'])->name('user.salary');
     });
 });
 //Route::get('{slug}/{type}', [\App\Http\Controllers\ClientController::class, 'category'])

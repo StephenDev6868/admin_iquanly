@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\UserSalaryImport;
 use App\Exports\UserSalaryExport;
+use App\Models\ProductStep;
 use App\Models\User;
 use App\Models\UserSalary;
 use App\Models\WorkQuantity;
@@ -56,50 +57,104 @@ class UserSalaryController extends Controller
     }
 
 
-    public function salaryProduct()
+    public function salaryProduct(Request $request)
     {
-        $month = '2023-10';
-        $start = \Illuminate\Support\Carbon::parse($month)->firstOfMonth()->format('Y-m-d');
-        $end = \Illuminate\Support\Carbon::parse($month)->endOfMonth()->format('Y-m-d');
-        $datas = WorkQuantity::query()
+        $month = $request->input('month_salary');
+        $user_ids = $request->input('user_ids');
+        $step_products = $request->input('steps');
+        $users = User::query()->whereIn('board_id', [2,3,4])->get();
+        $steps = ProductStep::all();
+        $query = WorkQuantity::query()
             ->join('product_steps', 'product_steps.id', '=', 'work_quantities.product_step_id')
             ->join('users', 'users.id', '=', 'work_quantities.user_id')
             ->select([
                 'users.id as user_id',
                 'users.full_name as userFullName',
+                'product_steps.id as productStepId',
                 'product_steps.name as productStepName',
                 'product_steps.unit_price as unitPrice',
                 'product_steps.coefficient as coefficient',
                 'work_quantities.quantity as quantity',
                 'work_quantities.date_work as dateWork',
-            ])
-            ->whereDate('work_quantities.date_work', '>=', $start)
-            ->whereDate('work_quantities.date_work', '<=', $end)
-            ->get()->toArray();
+            ]);
+        if (is_array($user_ids) && count($user_ids) > 0) {
+            $query->whereIn('work_quantities.user_id', $user_ids);
+        }
 
+        if (is_array($step_products) && count($step_products) > 0) {
+            $query->whereIn('work_quantities.product_step_id', $step_products);
+        }
+
+
+        if ($month) {
+            $month= implode('-', array_reverse(explode('-', $month)));
+            $start = Carbon::parse($month)->firstOfMonth()->format('Y-m-d');
+            $end = Carbon::parse($month)->endOfMonth()->format('Y-m-d');
+            $query->whereDate('date_work', '>=', $start);
+            $query->whereDate('date_work', '<=', $end);
+        }
+
+        // else {
+        //     $start = Carbon::now()->firstOfMonth()->format('Y-m-d');
+        //     $end = Carbon::now()->endOfMonth()->format('Y-m-d');
+        //     $query->whereDate('date_work', '>=', $start);
+        //     $query->whereDate('date_work', '<=', $end);
+        // }
+        $datas =  $query->get()->toArray();
         $salaries = [];
+        $type = is_array($step_products) && count($step_products) > 0 ? '2' : '1';
         foreach ($datas as $key => $data) {
-            if (!isset($salaries[$data['user_id']])) {
-                $salaries[$data['user_id']] = [
-                    'sumSalaryProduct' =>  $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
-                    'userFullName' => $data['userFullName'],
-                    'dateWorkNow' => Carbon::parse($data['dateWork'])->format('m/Y')
-                ];
-                $salaries[$data['user_id']]['productStepInfo'][] = [
-                    'step_name' => $data['productStepName'],
-                    'quantity' => $data['quantity'],
-                    'dateWork' => $data['dateWork']
-                ];
+            if (is_array($step_products) && count($step_products) > 0) {
+                if (!isset($salaries[$data['productStepId']])) {
+                    $salaries[$data['productStepId']] = [
+                        'sumSalaryProduct' =>  $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
+                        'step_name' => $data['productStepName'],
+                        'dateWorkNow' => Carbon::parse($data['dateWork'])->format('m/Y')
+                    ];
+                    $salaries[$data['productStepId']]['productStepInfo'][] = [
+                        'userFullName' => $data['userFullName'],
+                        'quantity' => $data['quantity'],
+                        'dateWork' => $data['dateWork'],
+                        'coefficient' => $data['coefficient'],
+                        'unitPrice' => $data['unitPrice'],
+                    ];
+                } else {
+                    $salaries[$data['productStepId']]['productStepInfo'][] = [
+                        'userFullName' => $data['userFullName'],
+                        'quantity' => $data['quantity'],
+                        'dateWork' => $data['dateWork'],
+                        'coefficient' => $data['coefficient'],
+                        'unitPrice' => $data['unitPrice'],
+                    ];
+                    $salaries[$data['productStepId']]['sumSalaryProduct'] +=  ($data['unitPrice'] * $data['quantity'] * $data['coefficient']);
+                }
             } else {
-                $salaries[$data['user_id']]['productStepInfo'][] = [
-                    'step_name' => $data['productStepName'],
-                    'quantity' => $data['quantity'],
-                    'dateWork' => $data['dateWork']
-                ];
-                $salaries[$data['user_id']]['sumSalaryProduct'] = $salaries[$data['user_id']]['sumSalaryProduct'] +  ($data['unitPrice'] * $data['quantity'] * $data['coefficient']);
+                if (!isset($salaries[$data['user_id']])) {
+                    $salaries[$data['user_id']] = [
+                        'sumSalaryProduct' =>  $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
+                        'userFullName' => $data['userFullName'],
+                        'dateWorkNow' => Carbon::parse($data['dateWork'])->format('m/Y')
+                    ];
+                    $salaries[$data['user_id']]['productStepInfo'][] = [
+                        'step_name' => $data['productStepName'],
+                        'quantity' => $data['quantity'],
+                        'dateWork' => $data['dateWork'],
+                        'coefficient' => $data['coefficient'],
+                        'unitPrice' => $data['unitPrice'],
+                    ];
+                } else {
+                    $salaries[$data['user_id']]['productStepInfo'][] = [
+                        'step_name' => $data['productStepName'],
+                        'quantity' => $data['quantity'],
+                        'dateWork' => $data['dateWork'],
+                        'coefficient' => $data['coefficient'],
+                        'unitPrice' => $data['unitPrice'],
+                    ];
+                    $salaries[$data['user_id']]['sumSalaryProduct'] +=  ($data['unitPrice'] * $data['quantity'] * $data['coefficient']);
+                }
             }
         }
-        return view('admin.salary.list-salary-product', compact('salaries'));
+        return view('admin.salary.list-salary-product', compact('salaries', 'users', 'steps', 'type'));
     }
 
     /**

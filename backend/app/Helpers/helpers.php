@@ -57,15 +57,17 @@ if (! function_exists('count_material_for_order')) {
         foreach ($detail_products as $key => $value) {
             $product = \App\Models\Product::find($value['id']);
             $ingredient_item = [];
-            foreach ($product->materials as $key2 => $value2) {
-                $material = \App\Models\Material::find($value2['id']);
-                $ingredient_item[] = [
-                    'name' => $material->name,
-                    'code' => $material->code,
-                    'quantity' => number_format((($value['amount']  * $value2['quota'] ) / $material->num_quota) * $lossConfig, '2', '.', ''),
-                    'unit' => $material->unit,
-                    'size' => $product->size,
-                ];
+            if (is_array($product->materials)) {
+                foreach ($product->materials as $key2 => $value2) {
+                    $material = \App\Models\Material::find($value2['id']);
+                    $ingredient_item[] = [
+                        'name' => $material->name,
+                        'code' => $material->code,
+                        'quantity' => number_format((($value['amount']  * $value2['quota'] ) / $material->num_quota) * $lossConfig, '2', '.', ''),
+                        'unit' => $material->unit,
+                        'size' => $product->size,
+                    ];
+                }
             }
             $key = $value['amount'] . ' - ' . $product->name . ' - ' . $product->code . ' (' . $product->size . ') -' . ' (' . $product->part_number . ')';
             $ingredient[$key] = $ingredient_item;

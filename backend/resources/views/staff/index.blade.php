@@ -14,7 +14,7 @@
                                         <a class="text-primary" href="{{ route('user.info') }}">Xem thông tin cá nhân</a>
                                     </li>
                                     <li class="list-group-item text-center" style="font-size: 20px; padding: 40px 0;">
-                                        <a class="text-primary" href="">Xem thông tin lương</a>
+                                        <a href="{{ route('user.salary') }}" class="text-primary" href="">Xem thông tin lương</a>
                                     </li>
                                     <li class="list-group-item text-center" style="font-size: 20px; padding: 40px 0;">
                                         <a class="text-primary" href="">Đổi mật khẩu</a>
