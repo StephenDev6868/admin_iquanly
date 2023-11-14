@@ -161,6 +161,20 @@ Route::prefix('admin')->group(function () {
             Route::post('/create-material', [\App\Http\Controllers\CommonController::class, 'doCreateMaterial'])->name('admin.commons.doCreateMaterial');
             Route::put('/update-materials', [\App\Http\Controllers\CommonController::class, 'doUpdateMaterial'])->name('admin.commons.doUpdateMaterials');
         });
+
+        Route::prefix('export')->group(function () {
+            Route::get('', [\App\Http\Controllers\UserSalaryController::class, 'export'])->name('admin.export.salary');
+            Route::get('template', [\App\Http\Controllers\UserSalaryController::class, 'exportTemplate'])->name('admin.export.template');
+        });
+
+        Route::prefix('import')->group(function () {
+            Route::get('upload', [\App\Http\Controllers\UserSalaryController::class, 'uploadView'])->name('admin.upload.show');
+            Route::post('template', [\App\Http\Controllers\UserSalaryController::class, 'import'])->name('admin.import.template');
+        });
+
+        Route::prefix('salary-product')->group(function () {
+            Route::get('', [\App\Http\Controllers\UserSalaryController::class, 'salaryProduct'])->name('admin.salary_product.show');
+        });
     });
 });
 

@@ -32,16 +32,21 @@
                                     </li>
                                 </ul>
                             </li>
-{{--                            <li>--}}
-{{--                                <a href="{{ route('admin.companies.list') }}" class="waves-effect {{ (request()->is('companies')) || (request()->is('admin/companies/*')) ? 'active' : '' }}">--}}
-{{--                                     <span> Quản lý công ty </span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <a href="{{ route('admin.boards.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/boards/*')) ? 'active' : '' }}">--}}
-{{--                                    <span> Quản lý phòng ban </span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/export/*')) || (request()->is('admin/import/*')) ? 'active' : '' }}"><span>Quản lý lương <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{ route('admin.export.salary') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/export/*')) ? 'active' : '' }}">
+                                            <span> Quản lý lương cơ bản</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.salary_product.show') }}" style="white-space: nowrap;letter-spacing: -0.9px" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/salary-product/*')) ? 'active' : '' }}">
+                                            <span> Quản lý lương sản phẩm </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li>
                                 <a href="{{ route('admin.users.list') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/users/*')) ? 'active' : '' }}">
                                     <span> Quản lý nhân viên </span>
@@ -84,28 +89,6 @@
                                     <li><a href="{{ route('admin.partners.list')  }}" style="white-space: nowrap" class="{{ (request()->is('users')) || (request()->is('admin/partner/*')) ? 'active' : '' }}">Quản lý đối tác</a></li>
                                 </ul>
                             </li>
-{{--                            <li>--}}
-{{--                                <a href="{{ route('admin.mainCategories.list') }}" style="font-size: 12px;" class="waves-effect {{ (request()->is('main-categories')) || (request()->is('admin/main-categories/*')) ? 'active' : '' }}">--}}
-{{--                                     <span> Quản lý chuyên mục chính</span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <a href="{{ route('admin.categories.list') }}" class="waves-effect {{ (request()->is('category')) || (request()->is('admin/categories/*')) ? 'active' : '' }}">--}}
-{{--                                     <span> Quản lý chuyên mục </span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <a href="{{ route('admin.posts.list') }}" class="waves-effect {{ (request()->is('posts')) || (request()->is('admin/posts/*')) ? 'active' : '' }}">--}}
-{{--                                   <span> Quản lý bài viết </span>--}}
-{{--                                    <i class="fas fa-comment-dots"></i> <span> Quản lý bài viết </span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-
-
-
-                            <!-- -------------------------------------------------------------------------------- -->
-
-
 {{--                            <li class="menu-title">Main</li>--}}
 {{--                            <li>--}}
 {{--                                <a href="index" class="waves-effect">--}}

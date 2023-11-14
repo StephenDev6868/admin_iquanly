@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/app/Exports/UserSalaryExport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/UserSalaryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Imports/UserSalaryImport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/UserSalary.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/excel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2023_11_12_164956_create_user_salaries_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/salary/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/salary/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/salary/list-salary-product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/salary/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/admin/salary/upload.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/admin_site_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/admin_site_web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/common/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/common/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +163,12 @@
       <path value="$PROJECT_DIR$/backend/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/backend/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/backend/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/backend/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/backend/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/backend/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/backend/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/backend/vendor/markbaker/matrix" />
     </include_path>
   </component>
   <component name="ProjectId" id="2BmLbaX5Wdt5SabPanNYAaBbYYN" />
@@ -155,25 +179,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/abc/Documents/Freelancer-job/admin_iquanly/backend/resources/views/admin/orders&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/abc/Documents/Freelancer-job/admin_iquanly/backend/resources/views/admin/salary",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/resources/views/admin/salary" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/orders" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/supplier" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/partner" />
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/customer" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/wtool" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/resources/views/admin/wmaterial" />
@@ -220,7 +245,7 @@
       <workItem from="1698032517895" duration="18908000" />
       <workItem from="1698829525581" duration="1869000" />
       <workItem from="1699147647353" duration="20275000" />
-      <workItem from="1699291698862" duration="45120000" />
+      <workItem from="1699291698862" duration="72406000" />
     </task>
     <servers />
   </component>

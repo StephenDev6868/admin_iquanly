@@ -29,6 +29,19 @@ if (! function_exists('get_product_info_text')) {
     }
 }
 
+if (! function_exists('get_list_role')) {
+    /**
+     *
+     * @param integer $config
+     *
+     * @return string
+     */
+    function get_list_role($id)
+    {
+
+    }
+}
+
 if (! function_exists('count_material_for_order')) {
     /**
      *
