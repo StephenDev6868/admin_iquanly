@@ -96,7 +96,7 @@
                             @foreach($datas as $key => $data)
                                 <tr>
                                     <th scope="row">{{ Illuminate\Support\Carbon::parse(optional($data)->start_at)->format('m/Y') }}</th>
-                                    <td nowrap="true">{{ optional($data)->user->full_name }}</td>
+                                    <td nowrap="true">{{ optional(optional($data)->user)->full_name }}</td>
                                     <td>{{ optional($data)->work_day }}</td>
                                     <td>{{ optional($data)->permitted_day_off }}</td>
                                     <td>{{ optional($data)->not_allowed_day_off }}</td>
