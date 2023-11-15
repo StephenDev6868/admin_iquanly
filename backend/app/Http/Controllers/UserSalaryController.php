@@ -108,6 +108,7 @@ class UserSalaryController extends Controller
                 if (!isset($salaries[$data['productStepId']])) {
                     $salaries[$data['productStepId']] = [
                         'sumSalaryProduct' =>  $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
+                        'sumQuantityProduct' =>  $data['quantity'],
                         'step_name' => $data['productStepName'],
                         'dateWorkNow' => Carbon::parse($data['dateWork'])->format('m/Y')
                     ];
@@ -127,6 +128,7 @@ class UserSalaryController extends Controller
                         'unitPrice' => $data['unitPrice'],
                     ];
                     $salaries[$data['productStepId']]['sumSalaryProduct'] +=  ($data['unitPrice'] * $data['quantity'] * $data['coefficient']);
+                    $salaries[$data['productStepId']]['sumQuantityProduct'] +=  $data['quantity'];
                 }
             } else {
                 if (!isset($salaries[$data['user_id']])) {
