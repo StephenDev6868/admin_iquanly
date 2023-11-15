@@ -110,6 +110,8 @@ class UserSalaryController extends Controller
                         'sumSalaryProduct' =>  $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
                         'sumQuantityProduct' =>  $data['quantity'],
                         'step_name' => $data['productStepName'],
+                        'coefficient' => $data['coefficient'],
+                        'unitPrice' => $data['unitPrice'],
                         'dateWorkNow' => Carbon::parse($data['dateWork'])->format('m/Y')
                     ];
                     $salaries[$data['productStepId']]['productStepInfo'][] = [
