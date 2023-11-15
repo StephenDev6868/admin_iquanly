@@ -166,6 +166,7 @@
                                     <th nowrap="true">Lương tháng</th>
                                     <th nowrap="true">Tên nhân viên</th>
                                     <th nowrap="true">Tổng lương sản phẩm</th>
+                                    <th nowrap="true">Xem dữ liệu chi tiết</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -181,19 +182,51 @@
                                         <td>{{ $salary['dateWorkNow'] }}</td>
                                         <td>{{ $salary['userFullName'] }}</td>
                                         <td>{{ number_format($salary['sumSalaryProduct']) }}</td>
-
-                                        {{--                                    <td class="d-flex">--}}
-                                        {{--                                        <a href="{{ route('admin.wTools.show', ['wTool' => $data->getKey()])  }}" class="btn btn-success mr-2">--}}
-                                        {{--                                            <i class="fas fa-pencil-alt"></i>--}}
-                                        {{--                                        </a>--}}
-                                        {{--                                        <form method="post" action="{{ route('admin.wTools.delete', $data->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">--}}
-                                        {{--                                            @csrf--}}
-                                        {{--                                            @method('DELETE')--}}
-                                        {{--                                            <button type="submit" class="btn btn-danger waves-effect waves-light">--}}
-                                        {{--                                                <i class="fas fa-trash"></i>--}}
-                                        {{--                                            </button>--}}
-                                        {{--                                        </form>--}}
-                                        {{--                                    </td>--}}
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{'exampleModalCenter_' . $loop->index }}">
+                                                <i class="fas fa-eye"></i> Click me
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="{{'exampleModalCenter_' . $loop->index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Dữ liệu lương chi tiết</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <table class="table table-striped mb-0">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th nowrap="true">Tên công đoạn</th>
+                                                                    <th nowrap="true">Ngày làm việc </th>
+                                                                    <th nowrap="true">Sản lượng</th>
+                                                                    <th nowrap="true">Đơn giá</th>
+                                                                    <th nowrap="true">Hệ số</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach($salary['productStepInfo'] as $item)
+                                                                    <tr>
+                                                                        <td>{{ $item['step_name'] }}</td>
+                                                                        <td>{{ $item['dateWork'] }}</td>
+                                                                        <td>{{ $item['quantity'] }}</td>
+                                                                        <td>{{ $item['unitPrice'] }}</td>
+                                                                        <td>{{ $item['coefficient'] }}</td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 <tr>
