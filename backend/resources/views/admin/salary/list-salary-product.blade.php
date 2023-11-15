@@ -87,6 +87,8 @@
                                     <th nowrap="true">ID</th>
                                     <th nowrap="true">Lương tháng</th>
                                     <th nowrap="true">Tên công đoạn </th>
+                                    <th nowrap="true">Đơn giá </th>
+                                    <th nowrap="true">Hệ số </th>
                                     <th nowrap="true">Tổng sản phẩm</th>
                                     <th nowrap="true">Tổng lương sản phẩm</th>
                                     <th nowrap="true">Dữ liệu chi tiết</th>
@@ -104,6 +106,8 @@
                                         <td>{{ $key }}</td>
                                         <td>{{ $salary['dateWorkNow'] }}</td>
                                         <td>{{ $salary['step_name'] }}</td>
+                                        <td>{{ $salary['unitPrice'] ?? '' }}</td>
+                                        <td>{{ $salary['coefficient'] ?? '' }}</td>
                                         <td>{{ $salary['sumQuantityProduct'] ?? '' }}</td>
                                         <td>{{ number_format($salary['sumSalaryProduct']) }}</td>
                                         <td>

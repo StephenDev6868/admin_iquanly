@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/UserSalaryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/UserSalaryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/salary/list-salary-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/salary/list-salary-product.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,7 +227,7 @@
       <workItem from="1698829525581" duration="1869000" />
       <workItem from="1699147647353" duration="20275000" />
       <workItem from="1699291698862" duration="74551000" />
-      <workItem from="1699935062659" duration="10733000" />
+      <workItem from="1699935062659" duration="10983000" />
     </task>
     <servers />
   </component>
