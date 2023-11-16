@@ -34,17 +34,21 @@ class ClientController extends Controller
         $userInfo = Auth::guard('user')->user();
         $middleMonth = Carbon::now()->year . '-' . Carbon::now()->month . '-' . '15';
         $firstMonth = Carbon::now()->year . '-' . Carbon::now()->month . '-' . '01';
+        $lastMonth = Carbon::now()->subMonths(1)->format('Y-m');
+
+        $start = Carbon::parse($lastMonth)->firstOfMonth()->format('Y-m-d');
+        $end = Carbon::parse($lastMonth)->endOfMonth()->format('Y-m-d');
         $salaryBasic = UserSalary::query()
             ->where('user_id', $userInfo->id)
-            //->whereDate('end_at', '<=', $middleMonth)
+            ->whereDate('end_at', '<=', $middleMonth)
             ->get()->toArray();
-        //dd($salaryBasic);
 
         $query = WorkQuantity::query()
             ->join('product_steps', 'product_steps.id', '=', 'work_quantities.product_step_id')
             ->join('users', 'users.id', '=', 'work_quantities.user_id')
             ->where('work_quantities.user_id', $userInfo->id)
-            ->whereDate('date_work', '<=', $firstMonth)
+            ->whereDate('date_work', '>=', $start)
+            ->whereDate('date_work', '<=', $end)
             ->select([
                 'users.id as user_id',
                 'users.full_name as userFullName',
