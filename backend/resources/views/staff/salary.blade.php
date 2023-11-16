@@ -104,7 +104,7 @@
                                                 <p class="mb-0 text-primary text-bold">Tổng lương: </p>
                                             </div>
                                             <div class="col-sm-9">
-                                                <h4 class="text-muted mb-0" style="font-size: 20px; font-weight: bolder">{{ $salaryBasic['sum'] ?? ''  }}</h4>
+                                                <h4 class="text-muted mb-0" style="font-size: 20px; font-weight: bolder">{{ number_format($salaryBasic['sum']) ?? ''  }} <b>VND</b></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -146,7 +146,7 @@
                                                         <tr>
                                                             <td>{{ $salary['dateWorkNow'] }}</td>
                                                             <td>{{ $salary['userFullName'] }}</td>
-                                                            <td>{{ number_format($salary['sumSalaryProduct']) }}</td>
+                                                            <td>{{ number_format($salary['sumSalaryProduct']) }} <b>VND</b></td>
                                                             <td>
                                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{'exampleModalCenter_'}}">
                                                                     <i class="fas fa-eye"></i> Click me
