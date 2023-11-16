@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\SubCategory;
+use App\Models\UserSalary;
+use App\Models\WorkQuantity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +31,60 @@ class ClientController extends Controller
 
     public function salary()
     {
-        return view('staff.salary');
+        $userInfo = Auth::guard('user')->user();
+        $middleMonth = Carbon::now()->year . '-' . Carbon::now()->month . '-' . '15';
+        $firstMonth = Carbon::now()->year . '-' . Carbon::now()->month . '-' . '01';
+        $salaryBasic = UserSalary::query()
+            ->where('user_id', $userInfo->id)
+            //->whereDate('end_at', '<=', $middleMonth)
+            ->get()->toArray();
+        //dd($salaryBasic);
+
+        $query = WorkQuantity::query()
+            ->join('product_steps', 'product_steps.id', '=', 'work_quantities.product_step_id')
+            ->join('users', 'users.id', '=', 'work_quantities.user_id')
+            ->where('work_quantities.user_id', $userInfo->id)
+            ->whereDate('date_work', '<=', $firstMonth)
+            ->select([
+                'users.id as user_id',
+                'users.full_name as userFullName',
+                'product_steps.id as productStepId',
+                'product_steps.name as productStepName',
+                'product_steps.unit_price as unitPrice',
+                'product_steps.coefficient as coefficient',
+                'work_quantities.quantity as quantity',
+                'work_quantities.date_work as dateWork',
+            ]);
+        $datas = $query->get()->toArray();
+        $salaries = [];
+        foreach ($datas as $key => $data) {
+            if (!isset($salaries[$data['user_id']])) {
+                $salaries[$data['user_id']] = [
+                    'sumSalaryProduct' =>  $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
+                    'userFullName' => $data['userFullName'],
+                    'dateWorkNow' => \Carbon\Carbon::parse($data['dateWork'])->format('m/Y')
+                ];
+                $salaries[$data['user_id']]['productStepInfo'][] = [
+                    'step_name' => $data['productStepName'],
+                    'quantity' => $data['quantity'],
+                    'dateWork' => $data['dateWork'],
+                    'coefficient' => $data['coefficient'],
+                    'unitPrice' => $data['unitPrice'],
+                ];
+            } else {
+                $salaries[$data['user_id']]['productStepInfo'][] = [
+                    'step_name' => $data['productStepName'],
+                    'quantity' => $data['quantity'],
+                    'dateWork' => $data['dateWork'],
+                    'coefficient' => $data['coefficient'],
+                    'unitPrice' => $data['unitPrice'],
+                ];
+                $salaries[$data['user_id']]['sumSalaryProduct'] +=  ($data['unitPrice'] * $data['quantity'] * $data['coefficient']);
+            }
+        }
+        $salary = $salaries[$userInfo->id];
+        $salaryBasic = count($salaryBasic) > 0 ? $salaryBasic[0] : [];
+        return view('staff.salary', compact('salary', 'salaryBasic'));
     }
 
     public function category(string $slug, string $type)
