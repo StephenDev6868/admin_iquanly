@@ -37,7 +37,7 @@
                                 <label>Nhà cung cấp </label>
                                 <select name="supplier_id" id="" class="form-control">
                                     @foreach($suppliers as $key => $data)
-                                        <option value="{{ $data->getKey() }}" {{ $data->getKey() === $wMaterial->material_id ? 'selected' : '' }}>{{ $data->name . ' - ' . $data->code }}</option>
+                                        <option value="{{ $data->getKey() }}" {{ $data->getKey() == $wMaterial->supplier_id ? 'selected' : '' }}>{{ $data->name . ' - ' . $data->code }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -45,7 +45,7 @@
                                 <label>Tên và mã nguyên vật liệu </label>
                                 <select name="material_id" id="" class="form-control">
                                     @foreach($materials as $key => $data)
-                                        <option value="{{ $data->getKey() }}" {{ $data->getKey() === $wMaterial->supplier_id ? 'selected' : '' }}>{{ $data->name . ' - ' . $data->code . ' (' . $data->unit . ') ' }}</option>
+                                        <option value="{{ $data->getKey() }}" {{ $data->getKey() == $wMaterial->material_id ? 'selected' : '' }}>{{ $data->name . ' - ' . $data->code . ' (' . $data->unit . ') ' }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Số lượng tồn </label>
-                                <input type="text" name="quantity_contain" value="{{ $wMaterial->quantity_contain ?? old('quantity_contain') }}" class="form-control"  placeholder="Nhập Số lượng tồn "/>
+                                <input type="text" name="quantity_contain" disabled value="{{ $wMaterial->quantity_contain ?? old('quantity_contain') }}" class="form-control"  placeholder="Nhập Số lượng tồn "/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Số lượng sử dụng </label>
