@@ -4,7 +4,6 @@
     <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +241,7 @@
       <workItem from="1699147647353" duration="20275000" />
       <workItem from="1699291698862" duration="74551000" />
       <workItem from="1699935062659" duration="23595000" />
-      <workItem from="1700186435324" duration="3152000" />
+      <workItem from="1700186435324" duration="4592000" />
     </task>
     <servers />
   </component>
