@@ -41,6 +41,7 @@ class UserSalaryExport implements FromQuery, WithHeadings, WithColumnWidths, Wit
             'I'  => ['font' => ['size' => 16]],
             'J'  => ['font' => ['size' => 16]],
             'K'  => ['font' => ['size' => 16]],
+            'L'  => ['font' => ['size' => 17]],
         ];
     }
 
@@ -58,6 +59,7 @@ class UserSalaryExport implements FromQuery, WithHeadings, WithColumnWidths, Wit
             'I' => 40,
             'J' => 40,
             'K' => 40,
+            'L' => 40,
         ];
     }
 
@@ -70,6 +72,7 @@ class UserSalaryExport implements FromQuery, WithHeadings, WithColumnWidths, Wit
             'Ngày nghỉ có phép',
             'Ngày nghỉ không phép',
             'Tăng ca(tính bằng tiếng)',
+            'Ăn ca',
             'Đi trễ (tính bằng tiếng)',
             'Đi về sớm (tính bằng tiếng)',
             'Hỗ trợ',

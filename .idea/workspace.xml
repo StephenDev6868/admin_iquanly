@@ -1,265 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="">
+    <list default="true" id="22b85df0-0076-4f3f-b985-b8486c213a8f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/admin_iquanly.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Exports/UserSalaryExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Exports/UserSalaryExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Imports/UserSalaryImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Imports/UserSalaryImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/UserSalary.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/UserSalary.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/staff/salary.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/staff/salary.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
+  <component name="ComposerSettings">
     <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ClientController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/app/Http/Controllers/UserSalaryController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/resources/views/admin/orders/list.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/resources/views/admin/salary/list-salary-product.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/resources/views/admin/salary/list.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/resources/views/staff/index.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/resources/views/staff/info.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/resources/views/staff/salary.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/routes/web.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
-    <include_path>
-      <path value="$PROJECT_DIR$/backend/vendor/psr/event-dispatcher" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/http-client" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/http-factory" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/backend/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-invoker" />
-      <path value="$PROJECT_DIR$/backend/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/backend/vendor/dflydev/dot-access-data" />
-      <path value="$PROJECT_DIR$/backend/vendor/mockery/mockery" />
-      <path value="$PROJECT_DIR$/backend/vendor/composer" />
-      <path value="$PROJECT_DIR$/backend/vendor/fakerphp/faker" />
-      <path value="$PROJECT_DIR$/backend/vendor/facade/flare-client-php" />
-      <path value="$PROJECT_DIR$/backend/vendor/facade/ignition" />
-      <path value="$PROJECT_DIR$/backend/vendor/facade/ignition-contracts" />
-      <path value="$PROJECT_DIR$/backend/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/backend/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/backend/vendor/league/mime-type-detection" />
-      <path value="$PROJECT_DIR$/backend/vendor/league/flysystem" />
-      <path value="$PROJECT_DIR$/backend/vendor/league/config" />
-      <path value="$PROJECT_DIR$/backend/vendor/league/commonmark" />
-      <path value="$PROJECT_DIR$/backend/vendor/graham-campbell/result-type" />
-      <path value="$PROJECT_DIR$/backend/vendor/guzzlehttp/guzzle" />
-      <path value="$PROJECT_DIR$/backend/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/backend/vendor/guzzlehttp/promises" />
-      <path value="$PROJECT_DIR$/backend/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/backend/vendor/voku/portable-ascii" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpspec/prophecy" />
-      <path value="$PROJECT_DIR$/backend/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/backend/vendor/nette/utils" />
-      <path value="$PROJECT_DIR$/backend/vendor/nesbot/carbon" />
-      <path value="$PROJECT_DIR$/backend/vendor/nette/schema" />
-      <path value="$PROJECT_DIR$/backend/vendor/opis/closure" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/translation" />
-      <path value="$PROJECT_DIR$/backend/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/translation-contracts" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/service-contracts" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php81" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/complexity" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/cli-parser" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-iconv" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/code-unit" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-intl-idn" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/backend/vendor/brick/math" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher-contracts" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/lines-of-code" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php73" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/type" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/backend/vendor/asm89/stack-cors" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/mime" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-intl-normalizer" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php80" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/backend/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/backend/vendor/psy/psysh" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/backend/vendor/laravel/framework" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/backend/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/backend/vendor/laravel/serializable-closure" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/backend/vendor/laravel/sail" />
-      <path value="$PROJECT_DIR$/backend/vendor/laravel/sanctum" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpoption/phpoption" />
-      <path value="$PROJECT_DIR$/backend/vendor/fruitcake/laravel-cors" />
-      <path value="$PROJECT_DIR$/backend/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/backend/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/backend/vendor/hamcrest/hamcrest-php" />
-      <path value="$PROJECT_DIR$/backend/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/backend/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/backend/vendor/dragonmantank/cron-expression" />
-      <path value="$PROJECT_DIR$/backend/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/backend/vendor/ramsey/collection" />
-      <path value="$PROJECT_DIR$/backend/vendor/tijsverkoyen/css-to-inline-styles" />
-      <path value="$PROJECT_DIR$/backend/vendor/nunomaduro/collision" />
-      <path value="$PROJECT_DIR$/backend/vendor/roumen/sitemap" />
-      <path value="$PROJECT_DIR$/backend/vendor/laravelium/sitemap" />
-      <path value="$PROJECT_DIR$/backend/vendor/jd-dotlogics/laravel-grapesjs" />
-      <path value="$PROJECT_DIR$/backend/vendor/davejamesmiller/laravel-breadcrumbs" />
-      <path value="$PROJECT_DIR$/backend/vendor/hanneskod/classtools" />
-      <path value="$PROJECT_DIR$/backend/vendor/bensampo/laravel-enum" />
-      <path value="$PROJECT_DIR$/backend/vendor/laminas/laminas-code" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/event-manager" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/deprecations" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/cache" />
-      <path value="$PROJECT_DIR$/backend/vendor/maennchen/zipstream-php" />
-      <path value="$PROJECT_DIR$/backend/vendor/maatwebsite/excel" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpoffice/phpspreadsheet" />
-      <path value="$PROJECT_DIR$/backend/vendor/ezyang/htmlpurifier" />
-      <path value="$PROJECT_DIR$/backend/vendor/markbaker/complex" />
-      <path value="$PROJECT_DIR$/backend/vendor/markbaker/matrix" />
-    </include_path>
-  </component>
-  <component name="ProjectId" id="2BmLbaX5Wdt5SabPanNYAaBbYYN" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2YKmynCGhQ0RigiCDrPuT76Qncl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/abc/Documents/Freelancer-job/admin_iquanly/backend/resources/views/admin/salary&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/thanhnguyem/Documents/freelancer/admin_iquanly/docker",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/salary" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/orders" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/supplier" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/partner" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/customer" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin/wmaterial" />
-      <recent name="$PROJECT_DIR$/backend/resources/views/admin" />
-      <recent name="$PROJECT_DIR$/backend/public/template/test11.com.vn" />
-      <recent name="$PROJECT_DIR$/backend/public/template/img" />
-      <recent name="$PROJECT_DIR$/backend/public/admin/sites" />
+      <recent name="$PROJECT_DIR$/docker" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0357b356-ebd3-4e3a-9583-51e482f0b176" name="Changes" comment="" />
-      <created>1657506385928</created>
+      <changelist id="22b85df0-0076-4f3f-b985-b8486c213a8f" name="Changes" comment="" />
+      <created>1700282901466</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1657506385928</updated>
-      <workItem from="1657506387132" duration="2537000" />
-      <workItem from="1657508977888" duration="4575000" />
-      <workItem from="1658023244576" duration="14174000" />
-      <workItem from="1658468062492" duration="79205000" />
-      <workItem from="1659504689499" duration="6344000" />
-      <workItem from="1660201463331" duration="3339000" />
-      <workItem from="1660205180451" duration="6638000" />
-      <workItem from="1662386432881" duration="6359000" />
-      <workItem from="1662782973272" duration="616000" />
-      <workItem from="1662786674088" duration="444000" />
-      <workItem from="1662787214123" duration="62045000" />
-      <workItem from="1666881585491" duration="1229000" />
-      <workItem from="1666883446924" duration="1853000" />
-      <workItem from="1675438012240" duration="1212000" />
-      <workItem from="1676994908864" duration="118000" />
-      <workItem from="1682533089993" duration="1505000" />
-      <workItem from="1682608891183" duration="55561000" />
-      <workItem from="1683689586534" duration="13837000" />
-      <workItem from="1691142317086" duration="25000" />
-      <workItem from="1696519841664" duration="3318000" />
-      <workItem from="1696523551059" duration="3631000" />
-      <workItem from="1696695440788" duration="7721000" />
-      <workItem from="1696708378972" duration="37527000" />
-      <workItem from="1696953074491" duration="30492000" />
-      <workItem from="1697133066422" duration="62679000" />
-      <workItem from="1697732882427" duration="48785000" />
-      <workItem from="1698032517895" duration="18908000" />
-      <workItem from="1698829525581" duration="1869000" />
-      <workItem from="1699147647353" duration="20275000" />
-      <workItem from="1699291698862" duration="74551000" />
-      <workItem from="1699935062659" duration="23595000" />
-      <workItem from="1700186435324" duration="4592000" />
+      <updated>1700282901466</updated>
+      <workItem from="1700282902635" duration="5157000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

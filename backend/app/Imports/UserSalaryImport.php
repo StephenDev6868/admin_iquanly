@@ -40,6 +40,7 @@ class UserSalaryImport implements ToCollection, WithHeadingRow
                 'permitted_day_off' => $row['ngay_nghi_co_phep'] ?? 0,
                 'not_allowed_day_off' => $row['ngay_nghi_khong_phep'] ?? 0,
                 'overtime' => $row['tang_catinh_bang_tieng'] ?? 0,
+                'eat_shift' => $row['An ca'] ?? 0,
                 'late' => $row['di_tre_tinh_bang_tieng'] ?? 0,
                 'early' => $row['di_ve_som_tinh_bang_tieng'] ?? 0,
                 'support_money' => $row['ho_tro'] ?? 0,

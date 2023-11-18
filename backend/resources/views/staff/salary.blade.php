@@ -38,7 +38,6 @@
                                             </div>
                                         </div>
                                         <hr>
-
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <p class="mb-0 text-primary text-bold">Số ngày nghỉ không phép: </p>
@@ -48,7 +47,6 @@
                                             </div>
                                         </div>
                                         <hr>
-
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <p class="mb-0 text-primary text-bold">Tăng ca: </p>
@@ -57,8 +55,15 @@
                                                 <p class="text-muted mb-0" style="font-size: 20px; font-weight: bolder">{{ $salaryBasic['overtime'] ?? ''  }}</p>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0 text-primary text-bold">Ăn ca: </p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0" style="font-size: 20px; font-weight: bolder">{{ $salaryBasic['overtime'] ?? ''  }}</p>
+                                            </div>
+                                        </div>
                                         <hr>
-
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <p class="mb-0 text-primary text-bold">Đi trễ: </p>
@@ -68,7 +73,6 @@
                                             </div>
                                         </div>
                                         <hr>
-
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <p class="mb-0 text-primary text-bold">Về sớm: </p>
@@ -78,7 +82,6 @@
                                             </div>
                                         </div>
                                         <hr>
-
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <p class="mb-0 text-primary text-bold">Hỗ trợ: </p>
@@ -88,13 +91,30 @@
                                             </div>
                                         </div>
                                         <hr>
-
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0 text-primary text-bold">Tăng cường: </p>
+                                                <p class="mb-0 text-primary text-bold">Tạm ứng: </p>
                                             </div>
                                             <div class="col-sm-9">
                                                 <p class="text-muted mb-0" style="font-size: 20px; font-weight: bolder">{{ $salaryBasic['advance'] ?? ''  }}</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0 text-primary text-bold">Tổng Lương cơ bản (nếu có): </p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0" style="font-size: 20px; font-weight: bolder">{{ number_format($salaryBasic['sum']) ?? ''  }} <b>VND</b></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0 text-primary text-bold">Tổng Lương sản phẩm (nếu có): </p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0" style="font-size: 20px; font-weight: bolder">{{ number_format($salary['sumSalaryProduct']) ?? ''  }} <b>VND</b></p>
                                             </div>
                                         </div>
                                         <hr>
@@ -104,7 +124,7 @@
                                                 <p class="mb-0 text-primary text-bold">Tổng lương: </p>
                                             </div>
                                             <div class="col-sm-9">
-                                                <h4 class="text-muted mb-0" style="font-size: 20px; font-weight: bolder">{{ number_format($salaryBasic['sum']) ?? ''  }} <b>VND</b></h4>
+                                                <h4 class="text-muted mb-0" style="font-size: 20px; font-weight: bolder">{{ number_format((($salaryBasic['sum'] + ($salary['sumSalaryProduct'] ?? 0)))) ?? ''  }} <b>VND</b></h4>
                                             </div>
                                         </div>
                                     </div>

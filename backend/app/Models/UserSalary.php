@@ -15,6 +15,7 @@ class UserSalary extends Model
         'permitted_day_off',
         'not_allowed_day_off',
         'overtime',
+        'eat_shift',
         'late',
         'early',
         'support_money',
