@@ -119,12 +119,20 @@ class WMaterialController extends Controller
         $validator =  Validator::make($inputs, [
             'material_id' => 'required|exists:materials,id',
             'supplier_id' => 'required|exists:suppliers,id',
-            'quantity_input' => 'required|numeric',
-            'quantity_use' => 'required|numeric',
+            'quantity_input' => 'required|gt:quantity_use',
+            'quantity_use' => 'required',
             'date_added' => 'required',
         ]);
+        if((float) $inputs['quantity_use'] > (float) $inputs['quantity_input']) {
+            return Redirect::back()
+                ->withInput()
+                ->with('error', 'Số lượng nhập phải lớn hơn số lượng sử dụng');
+        }
+        $inputs['quantity_input'] = str_replace(',', '.', $inputs['quantity_input']);
+        $inputs['quantity_use'] = str_replace(',', '.', $inputs['quantity_use']);
         $inputs['date_added'] = Carbon::parse($inputs['date_added'])->format('Y-m-d');
-        $inputs['quantity_contain'] = ($inputs['quantity_input'] ?? 0) - ($inputs['quantity_use'] ?? 0);
+        $inputs['quantity_contain'] =(float) ((float) $inputs['quantity_input'] ?? 0) - ((float) $inputs['quantity_use'] ?? 0);
+        $inputs['quantity_contain'] =  str_replace('.', ',', $inputs['quantity_contain']);
         if ($validator->fails()) {
             return Redirect::back()
                 ->withInput()
@@ -134,7 +142,7 @@ class WMaterialController extends Controller
 
         if ($result) {
             return Redirect::route('admin.wMaterials.list')
-                ->with('success', 'Cập nhập nguyên liệu thành công');;
+                ->with('success', 'Cập nhập nguyên liệu thành công');
         }
     }
 
@@ -150,7 +158,7 @@ class WMaterialController extends Controller
 
         if ($result) {
             return Redirect::route('admin.wMaterials.list')
-                ->with('success', 'Xoá nguyên liệu thành công');;
+                ->with('success', 'Xoá nguyên liệu thành công');
         }
     }
 }
