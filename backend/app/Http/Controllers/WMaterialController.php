@@ -119,12 +119,12 @@ class WMaterialController extends Controller
         $validator =  Validator::make($inputs, [
             'material_id' => 'required|exists:materials,id',
             'supplier_id' => 'required|exists:suppliers,id',
-            'quantity_input' => 'required',
-            'quantity_use' => 'required',
+            'quantity_input' => 'required|numeric',
+            'quantity_use' => 'required|numeric',
             'date_added' => 'required',
         ]);
         $inputs['date_added'] = Carbon::parse($inputs['date_added'])->format('Y-m-d');
-        $inputs['quantity_contain'] = $inputs['quantity_input'] - $inputs['quantity_use'];
+        $inputs['quantity_contain'] = ($inputs['quantity_input'] ?? 0) - ($inputs['quantity_use'] ?? 0);
         if ($validator->fails()) {
             return Redirect::back()
                 ->withInput()
