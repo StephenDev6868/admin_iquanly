@@ -119,7 +119,8 @@ class WMaterialController extends Controller
         $validator =  Validator::make($inputs, [
             'material_id' => 'required|exists:materials,id',
             'supplier_id' => 'required|exists:suppliers,id',
-            'quantity_input' => 'required|gt:quantity_use',
+            //'quantity_input' => 'required|gt:quantity_use',
+            'quantity_input' => 'required',
             'quantity_use' => 'required',
             'date_added' => 'required',
         ]);
