@@ -23,7 +23,9 @@ Route::prefix('admin')->group(function () {
 
     Route::group(['middleware' => 'auth:user'], function () {
         Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
-
+        Route::get('profile', function () {
+            return view('admin.profiles.index');
+        })->name('admin.profile');
         Route::prefix('users')->group(function () {
             Route::get('', [\App\Http\Controllers\UserStaffController::class, 'index'])->name('admin.users.list');
             Route::get('/create', [\App\Http\Controllers\UserStaffController::class, 'create'])->name('admin.users.create');
