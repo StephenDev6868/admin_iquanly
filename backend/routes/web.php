@@ -185,6 +185,10 @@ Route::prefix('admin')->group(function () {
 Route::get('login', [\App\Http\Controllers\AuthController::class, 'loginStaff'])->name('loginStaff');
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'doLoginStaff'])->name('doLoginStaff');
 
+Route::get('', function () {
+    return view('layouts.home-site');
+})->name('home-main');
+
 Route::group(['middleware' => 'auth:user'], function() {
     Route::prefix('users')->group(function () {
         Route::get('', [\App\Http\Controllers\ClientController::class, 'index'])->name('user.home');
