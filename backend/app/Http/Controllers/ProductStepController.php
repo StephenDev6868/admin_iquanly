@@ -168,6 +168,8 @@ class ProductStepController extends Controller
         $input = $request->query();
         $product_id = $input['product_id'] ?? null;
         $date_work = $input['date_work'] ?? null;
+        $date_work_from = $input['date_work_from'] ?? null;
+        $date_work_to = $input['date_work_to'] ?? null;
         $step = $input['productStep'] ?? null;
         $products = Product::all();
         $productSteps = ProductStep::all();
@@ -202,13 +204,21 @@ class ProductStepController extends Controller
             $date_work = \Illuminate\Support\Carbon::parse($date_work)->format('Y-m-d');
             $query->where('work_quantities.date_work', '=',  $date_work);
         }
+        if ($date_work_from && $date_work_to) {
+            $date_work_from = \Illuminate\Support\Carbon::parse($date_work_from)->format('Y-m-d');
+            $date_work_to = \Illuminate\Support\Carbon::parse($date_work_to)->format('Y-m-d');
+            $query->where('work_quantities.date_work', '>=',  $date_work_from);
+            $query->where('work_quantities.date_work', '<=',  $date_work_to);
+        }
 
         if (isset($input['user_ids']) && count($input['user_ids']) > 0) {
             $query->whereIn('work_quantities.user_id', $input['user_ids']);
         }
-        $isShowPagination = !(isset($input['user_ids']) && count($input['user_ids']));
+        $isShowPagination = !( (isset($input['user_ids']) && count($input['user_ids'])) || ($date_work_from && $date_work_to) );
         $query->orderBy('work_quantities.date_work', 'desc');
-        $data = (isset($input['user_ids']) && count($input['user_ids'])) ? $query->get() : $query->paginate(10);
+        $data = (
+            ( isset($input['user_ids']) && count($input['user_ids']) ) || ($date_work_from && $date_work_to)
+        ) ? $query->get() : $query->paginate(10);
         return view('admin.product-steps.quantity', compact('data', 'step', 'users', 'products', 'productSteps', 'isShowPagination'));
     }
 

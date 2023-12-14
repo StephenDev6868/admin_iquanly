@@ -40,12 +40,32 @@
                         </div>
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Tên Công đoạn</label>
-                            <select name="productStep" id="" class="form-control col-sm-12">
+                            <select name="productStep" id="" class="js-example-basic-multiple form-control col-sm-12">
                                 <option value="">Tất cả</option>
                                 @foreach($productSteps as $key => $productStep)
                                     <option {{ request()->query('productStep') == $productStep->getKey() ? 'selected' : '' }} value="{{ $productStep->getKey() }}">{{ $productStep->name}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-6" style="white-space: nowrap; padding-left: 0">
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Từ ngày</label>
+                                <div class="input-group">
+                                    <input type="text" value="{{ request()->query('date_work_from') ?? old('date_work_from') }}" data-date-format="dd-mm-yyyy" name="date_work_from" class="form-control" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                    </div>
+                                </div><!-- input-group -->
+                            </div>
+                            <div class="col-6" style="white-space: nowrap; padding-right: 0">
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Đến ngày</label>
+                                <div class="input-group">
+                                    <input type="text" value="{{ request()->query('date_work_to') ?? old('date_work_to') }}" data-date-format="dd-mm-yyyy" name="date_work_to" class="form-control" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                    </div>
+                                </div><!-- input-group -->
+                            </div>
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Ngày làm việc</label>
@@ -58,7 +78,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Tên Nhân viên</label>
-                            <select class="js-example-basic-multiple col-sm-10" name="user_ids[]" multiple="multiple">
+                            <select class="js-example-basic-multiple js-states col-sm-10" name="user_ids[]" multiple="multiple">
                                 @foreach($users as $key => $user)
                                     <option value="{{ $user->getKey() }}">{{ $user->full_name }}</option>
                                 @endforeach
@@ -90,7 +110,12 @@
                         @if($isShowPagination)
                             <div class="table-title d-flex justify-content-between">
                                 <h4 class="mt-0 header-title">Danh sách sản lượng theo công đoạn</h4>
-                                {{ $data->appends(['product_id' => request()->query('product_id'), 'productStep' => $step, 'date_work' => request()->query('date_work'), 'user_ids' => request()->query('user_ids')])->links() }}
+                                {{ $data->appends([
+                                    'product_id' => request()->query('product_id'),
+                                    'productStep' => $step,
+                                    'date_work' => request()->query('date_work'),
+                                    'user_ids' => request()->query('user_ids')
+                                    ])->links() }}
                             </div>
                         @endif
                         <form action="{{ route('admin.productSteps.updateQuantity')  }}" class="row" method="POST">
@@ -110,6 +135,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                    $total_unit_price = 0;
+                                    foreach ($data as $value) {
+                                        $total_unit_price += (int) $value['unitPrice'];
+                                    }
+                                @endphp
                                 @foreach($data as $key => $item)
                                     <tr>
                                         <th scope="row">{{ $loop->index + 1 }}</th>
@@ -132,6 +163,17 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td style="white-space: nowrap"><b>Tổng sản lượng: </b></td>
+                                        <td style="white-space: nowrap"><b>{{ number_format($total_unit_price, '0', '.', '')}}</b></td>
+                                        <td></td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <div class="col-md-12 form-group mt-3 m-b-0 text-right">
