@@ -60,7 +60,7 @@
                             <div class="col-6" style="white-space: nowrap; padding-right: 0">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Đến ngày</label>
                                 <div class="input-group">
-                                    <input type="text" value="{{ request()->query('date_work_to') ?? old('date_work_to') }}" data-date-format="dd-mm-yyyy" name="date_work_to" class="form-control" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
+                                    <input type="text" value="{{ request()->query('date_work_to') ?? old('date_work_to') }}" data-date-format="dd-mm-yyyy" name="date_work_to" class="form-control" placeholder="mm-dd-yyyy" id="datepicker">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                     </div>
