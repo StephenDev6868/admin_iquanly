@@ -105,7 +105,7 @@
                                     <td>{{ optional($data)->early }}</td>
                                     <td>{{ optional($data)->support_money }}</td>
                                     <td>{{ optional($data)->advance }}</td>
-                                    <td style="white-space: nowrap">{{ number_format(optional($data)->sum) }} <b>VND</b></td>
+                                    <td style="white-space: nowrap"><b>{{ preg_match_all('/\d+/', optional($data)->sum) ? number_format(optional($data)->sum) . ' VND' : '#N/A' }}</b></td>
 {{--                                    <td class="d-flex">--}}
 {{--                                        <a href="{{ route('admin.wTools.show', ['wTool' => $data->getKey()])  }}" class="btn btn-success mr-2">--}}
 {{--                                            <i class="fas fa-pencil-alt"></i>--}}
