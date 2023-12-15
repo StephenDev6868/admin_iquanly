@@ -72,7 +72,7 @@
                     <div class="card-title" style="padding: 1.25rem 1.25rem 0 1.25rem">
                         <div class="title d-flex justify-content-between">
                             <h4 class="mt-0 header-title">Danh sách lương</h4>
-                            {{ $datas->links() }}
+                            {{ $datas->appends(['month_salary' => request()->query('month_salary')])->links() }}
                         </div>
                     </div>
                     <div class="card-body" style="overflow: scroll;">
@@ -105,7 +105,7 @@
                                     <td>{{ optional($data)->early }}</td>
                                     <td>{{ optional($data)->support_money }}</td>
                                     <td>{{ optional($data)->advance }}</td>
-                                    <td>{{ optional($data)->sum }}</td>
+                                    <td style="white-space: nowrap">{{ number_format(optional($data)->sum) }} <b>VND</b></td>
 {{--                                    <td class="d-flex">--}}
 {{--                                        <a href="{{ route('admin.wTools.show', ['wTool' => $data->getKey()])  }}" class="btn btn-success mr-2">--}}
 {{--                                            <i class="fas fa-pencil-alt"></i>--}}
