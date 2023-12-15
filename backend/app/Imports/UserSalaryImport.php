@@ -32,22 +32,49 @@ class UserSalaryImport implements ToCollection, WithHeadingRow, WithCalculatedFo
     {
         foreach ($rows as $row)
         {
-            UserSalary::updateOrCreate([
-                'user_id' => $row['id'] ?? 0,
-                'start_at' => $this->start_at,
-                'end_at' => $this->end_at,
-            ],[
-                'work_day' => $row['ngay_cong'] ?? 0,
-                'permitted_day_off' => $row['ngay_nghi_co_phep'] ?? 0,
-                'not_allowed_day_off' => $row['ngay_nghi_khong_phep'] ?? 0,
-                'overtime' => $row['tang_catinh_bang_tieng'] ?? 0,
-                'eat_shift' => $row['An ca'] ?? 0,
-                'late' => $row['di_tre_tinh_bang_tieng'] ?? 0,
-                'early' => $row['di_ve_som_tinh_bang_tieng'] ?? 0,
-                'support_money' => $row['ho_tro'] ?? 0,
-                'advance' => $row['tam_ung'] ?? 0,
-                'sum' => $row['tong'] ?? 0,
-            ]);
+            $query = UserSalary::query()->where(
+                [
+                    'user_id' => $row['id'] ?? 0,
+                    'start_at' => $this->start_at,
+                    'end_at' => $this->end_at,
+                ]
+            )->exists();
+            if ($query) {
+                UserSalary::query()->where(
+                    [
+                        'user_id' => $row['id'] ?? 0,
+                        'start_at' => $this->start_at,
+                        'end_at' => $this->end_at,
+                    ]
+                )->update([
+                    'work_day' => $row['ngay_cong'] ?? 0,
+                    'permitted_day_off' => $row['ngay_nghi_co_phep'] ?? 0,
+                    'not_allowed_day_off' => $row['ngay_nghi_khong_phep'] ?? 0,
+                    'overtime' => $row['tang_catinh_bang_tieng'] ?? 0,
+                    'eat_shift' => $row['An ca'] ?? 0,
+                    'late' => $row['di_tre_tinh_bang_tieng'] ?? 0,
+                    'early' => $row['di_ve_som_tinh_bang_tieng'] ?? 0,
+                    'support_money' => $row['ho_tro'] ?? 0,
+                    'advance' => $row['tam_ung'] ?? 0,
+                    'sum' => $row['tong'] ?? 0,
+                ]);
+            } else {
+                UserSalary::query()->create([
+                    'user_id' => $row['id'] ?? 0,
+                    'start_at' => $this->start_at,
+                    'end_at' => $this->end_at,
+                    'work_day' => $row['ngay_cong'] ?? 0,
+                    'permitted_day_off' => $row['ngay_nghi_co_phep'] ?? 0,
+                    'not_allowed_day_off' => $row['ngay_nghi_khong_phep'] ?? 0,
+                    'overtime' => $row['tang_catinh_bang_tieng'] ?? 0,
+                    'eat_shift' => $row['An ca'] ?? 0,
+                    'late' => $row['di_tre_tinh_bang_tieng'] ?? 0,
+                    'early' => $row['di_ve_som_tinh_bang_tieng'] ?? 0,
+                    'support_money' => $row['ho_tro'] ?? 0,
+                    'advance' => $row['tam_ung'] ?? 0,
+                    'sum' => $row['tong'] ?? 0,
+                ]);
+            }
         }
     }
 
