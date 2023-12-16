@@ -100,7 +100,7 @@ class UserSalaryController extends Controller
         //     $query->whereDate('date_work', '>=', $start);
         //     $query->whereDate('date_work', '<=', $end);
         // }
-        $datas =  $query->orderBy('users.full_name')->get()->toArray();
+        $datas =  $query->orderBy('work_quantities.date_work','desc')->get()->toArray();
         $salaries = [];
         $type = is_array($step_products) && count($step_products) > 0 ? '2' : '1';
         foreach ($datas as $key => $data) {
@@ -120,6 +120,7 @@ class UserSalaryController extends Controller
                         'dateWork' => $data['dateWork'],
                         'coefficient' => $data['coefficient'],
                         'unitPrice' => $data['unitPrice'],
+                        'salary_one_day' => $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
                     ];
                 } else {
                     $salaries[$data['productStepId']]['productStepInfo'][] = [
@@ -128,6 +129,7 @@ class UserSalaryController extends Controller
                         'dateWork' => $data['dateWork'],
                         'coefficient' => $data['coefficient'],
                         'unitPrice' => $data['unitPrice'],
+                        'salary_one_day' => $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
                     ];
                     $salaries[$data['productStepId']]['sumSalaryProduct'] +=  ($data['unitPrice'] * $data['quantity'] * $data['coefficient']);
                     $salaries[$data['productStepId']]['sumQuantityProduct'] +=  $data['quantity'];
@@ -145,6 +147,7 @@ class UserSalaryController extends Controller
                         'dateWork' => $data['dateWork'],
                         'coefficient' => $data['coefficient'],
                         'unitPrice' => $data['unitPrice'],
+                        'salary_one_day' => $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
                     ];
                 } else {
                     $salaries[$data['user_id']]['productStepInfo'][] = [
@@ -153,6 +156,7 @@ class UserSalaryController extends Controller
                         'dateWork' => $data['dateWork'],
                         'coefficient' => $data['coefficient'],
                         'unitPrice' => $data['unitPrice'],
+                        'salary_one_day' => $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
                     ];
                     $salaries[$data['user_id']]['sumSalaryProduct'] +=  ($data['unitPrice'] * $data['quantity'] * $data['coefficient']);
                 }

@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Tên Nhân viên</label>
-                            <select class="js-example-basic-multiple col-sm-10" name="user_ids[]" multiple="multiple">
+                            <select id="js-example-basic-multiple-1" class="js-example-basic-multiple col-sm-10" name="user_ids[]" multiple="multiple">
                                 @foreach($users as $key => $user)
                                     <option value="{{ $user->getKey() }}">{{ $user->full_name }}</option>
                                 @endforeach
@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Tên công đoạn</label>
-                            <select class="js-example-basic-multiple col-sm-10" name="steps[]" multiple="multiple">
+                            <select id="js-example-basic-multiple-2" class="js-example-basic-multiple col-sm-10" name="steps[]" multiple="multiple">
                                 @foreach($steps as $key => $step)
                                     <option value="{{ $step->getKey() }}">{{ $step->name }}</option>
                                 @endforeach
@@ -133,6 +133,7 @@
                                                                         <th nowrap="true">Sản lượng</th>
                                                                         <th nowrap="true">Đơn giá</th>
                                                                         <th nowrap="true">Hệ số</th>
+                                                                        <th nowrap="true">Tiền lương</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -143,6 +144,7 @@
                                                                             <td>{{ $item['quantity'] }}</td>
                                                                             <td>{{ $item['unitPrice'] }}</td>
                                                                             <td>{{ $item['coefficient'] }}</td>
+                                                                            <td>{{ number_format($item['salary_one_day']) }}</td>
                                                                         </tr>
                                                                     @endforeach
                                                                 </tbody>
@@ -205,6 +207,7 @@
                                                                     <th nowrap="true">Sản lượng</th>
                                                                     <th nowrap="true">Đơn giá</th>
                                                                     <th nowrap="true">Hệ số</th>
+                                                                    <th nowrap="true">Tiền lương</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -215,6 +218,7 @@
                                                                         <td>{{ $item['quantity'] }}</td>
                                                                         <td>{{ $item['unitPrice'] }}</td>
                                                                         <td>{{ $item['coefficient'] }}</td>
+                                                                        <td>{{ number_format($item['salary_one_day']) }} <b>VND</b></td>
                                                                     </tr>
                                                                 @endforeach
                                                                 </tbody>
@@ -233,7 +237,8 @@
                                     <td></td>
                                     <td></td>
                                     <td><b>Tổng lương sản phẩm:</b></td>
-                                    <td>{{ number_format($sum)  }}</td>
+                                    <td>{{ number_format($sum)  }} <b>VND</b></td>
+                                    <td></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -269,9 +274,24 @@
     <script>
         $(document).ready(function() {
             var userIds = {!! json_encode(request()->query('user_ids')) !!};
-            $('.js-example-basic-multiple').select2();
-            $('.js-example-basic-multiple').val(userIds);
-            $('.js-example-basic-multiple').trigger('change');
+            var steps = {!! json_encode(request()->query('steps')) !!};
+            if(userIds && userIds.length > 0) {
+                $('#js-example-basic-multiple-1').val(userIds);
+                $('#js-example-basic-multiple-1').trigger('change');
+                $('#js-example-basic-multiple-1').select2();
+            } else {
+                $('#js-example-basic-multiple-1').select2();
+            }
+
+            if(steps && steps.length > 0) {
+                $('#js-example-basic-multiple-2').val(steps);
+                $('#js-example-basic-multiple-2').trigger('change');
+                $('#js-example-basic-multiple-2').select2();
+            } else {
+                $('#js-example-basic-multiple-2').select2();
+            }
+
+
             $('form').parsley();
 
             if($("#elm1").length > 0){

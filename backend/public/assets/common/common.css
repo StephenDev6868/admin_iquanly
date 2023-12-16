@@ -14,3 +14,10 @@
 .select2-container .select2-selection--multiple .select2-selection__choice {
     padding: 0 30px !important;
 }
+
+
+.table thead th {
+    position: sticky;
+    background-color: #dee2e6;
+    top: 0;
+}
