@@ -87,7 +87,7 @@ class ClientController extends Controller
             }
         }
         $salary = count($salaries) > 0 ? $salaries[$userInfo->id < 10 ? $userInfo->id : $userInfo->id] : [];
-        $salaryBasic = count($salaryBasic) > 0 ? $salaryBasic[count($salaryBasic)] : [];
+        $salaryBasic = count($salaryBasic) > 0 ? $salaryBasic[count($salaryBasic) - 1] : [];
         return view('staff.salary', compact('salary', 'salaryBasic'));
     }
 
