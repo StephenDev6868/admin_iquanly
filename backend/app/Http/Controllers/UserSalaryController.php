@@ -59,7 +59,7 @@ class UserSalaryController extends Controller
 
     public function salaryProduct(Request $request)
     {
-        $month = $request->input('month_salary');
+        $month = $request->input('month_salary') ?? Carbon::now()->format('m-Y');
         $user_ids = $request->input('user_ids');
         $step_products = $request->input('steps');
         $users = User::query()->whereIn('board_id', [2,3,4])->get();

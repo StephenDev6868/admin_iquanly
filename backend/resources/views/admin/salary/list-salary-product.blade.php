@@ -32,7 +32,7 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Lương sản phẩm tháng</label>
                             <div class="input-group">
-                                <input type="text" value="{{ request()->query('month_salary') ?? old('month_salary') }}" data-date-format="mm-yyyy" name="month_salary" class="form-control" placeholder="dd-yyyy" id="datepicker-autoclose">
+                                <input type="text" value="{{ request()->query('month_salary') ?? \Carbon\Carbon::now()->format('m-Y') }}" data-date-format="mm-yyyy" name="month_salary" class="form-control" placeholder="dd-yyyy" id="datepicker-autoclose">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                 </div>
