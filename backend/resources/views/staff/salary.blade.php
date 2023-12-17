@@ -10,7 +10,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card-body">
-                                        <h4 class="mt-2 mb-4">Lương cơ bản</h4>
+                                        <h4 class="mt-2 mb-4">Lương cơ bản : <b> {{ $salary['dateWorkNow'] }}</b></h4>
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <p class="mb-0 text-primary text-bold">Họ và tên: </p>
