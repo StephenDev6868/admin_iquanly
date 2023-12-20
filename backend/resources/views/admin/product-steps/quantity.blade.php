@@ -138,7 +138,7 @@
                                 @php
                                     $total_unit_price = 0;
                                     foreach ($data as $value) {
-                                        $total_unit_price += (int) $value['unitPrice'];
+                                        $total_unit_price += (int) $value['quantity'];
                                     }
                                 @endphp
                                 @foreach($data as $key => $item)
@@ -171,7 +171,7 @@
                                         <td></td>
                                         <td></td>
                                         <td style="white-space: nowrap"><b>Tổng sản lượng: </b></td>
-                                        <td style="white-space: nowrap"><b>{{ number_format($total_unit_price, '0', '.', '')}}</b></td>
+                                        <td style="white-space: nowrap"><b>{{ number_format($total_unit_price)}}</b></td>
                                         <td></td>
                                     </tr>
                                 </tbody>
