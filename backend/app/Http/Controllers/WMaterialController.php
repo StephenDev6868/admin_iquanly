@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HistoryIoMaterial;
 use App\Models\Material;
 use App\Models\Supplier;
 use App\Models\User;
@@ -91,8 +92,9 @@ class WMaterialController extends Controller
         $wMaterial->date_added = Carbon::parse($wMaterial->date_added)->format('d-m-Y');
         $materials = Material::all();
         $suppliers = Supplier::all();
+        $historyIOs = HistoryIoMaterial::query()->where('wmaterial_id', $wMaterial->getKey())->get();
         //dd($materials, $suppliers, $wMaterial);
-        return view('admin.wmaterial.edit', compact('wMaterial', 'materials', 'suppliers'));
+        return view('admin.wmaterial.edit', compact('wMaterial', 'materials', 'suppliers', 'historyIOs'));
     }
 
     /**

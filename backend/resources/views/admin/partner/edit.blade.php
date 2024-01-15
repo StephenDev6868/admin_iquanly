@@ -75,6 +75,48 @@
                             </div>
                         </form>
                     </div>
+
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title mb-3">Danh sách các bán thành phẩm được chuyển giao</h4>
+                        <table class="table table-striped mb-0">
+                            <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Thuộc đơn hàng</th>
+                                <th>Tên thành phẩm</th>
+                                <th>Mã thành phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Ngày nhập kho</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($datas as $key => $data)
+                                <tr>
+                                    <th scope="row">{{ $loop->index + 1 }}</th>
+                                    <td>{{ optional($data)->order->name }}</td>
+                                    <td>{{ optional($data)->product->name }}</td>
+                                    <td>{{ optional($data)->product->part_number }}</td>
+                                    <td>{{ optional($data)->input }}</td>
+                                    <td>{{ \Illuminate\Support\Carbon::parse(optional($data)->created_at)->timezone(7)->format('h:i:s m-d-Y') }}</td>
+                                    <td class="d-flex">
+                                        {{--                                    <a href="{{ route('admin.wSemiProduct.show', ['semiProduct' => $data->getKey()])  }}" class="btn btn-success mr-2">--}}
+                                        {{--                                        <i class="fas fa-arrow-circle-right"></i>--}}
+                                        {{--                                    </a>--}}
+                                        {{--                                        <form method="post" action="{{ route('admin.wTools.delete', $data->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">--}}
+                                        {{--                                            @csrf--}}
+                                        {{--                                            @method('DELETE')--}}
+                                        {{--                                            <button type="submit" class="btn btn-danger waves-effect waves-light">--}}
+                                        {{--                                                <i class="fas fa-trash"></i>--}}
+                                        {{--                                            </button>--}}
+                                        {{--                                        </form>--}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div> <!-- end col -->
         </div>

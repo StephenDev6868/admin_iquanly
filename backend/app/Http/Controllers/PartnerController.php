@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Partner;
+use App\Models\PartnerSemiProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -69,7 +70,8 @@ class PartnerController extends Controller
      */
     public function show(Partner $partner)
     {
-        return view('admin.partner.edit', compact('partner'));
+        $datas = PartnerSemiProduct::query()->where('partner_id', $partner->getKey())->get();
+        return view('admin.partner.edit', compact('partner', 'datas'));
     }
 
     /**

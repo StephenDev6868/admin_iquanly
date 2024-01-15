@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Chỉnh sửa nguyên vật liệu </h4>
+                    <h4 class="page-title">Chỉnh sửa dụng cụ </h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Lexa</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Forms</a></li>
@@ -29,48 +29,55 @@
             <div class="col-lg-12">
                 <div class="card m-b-20">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title mb-3">Nhập thông tin nguyên vật liệu </h4>
-                        <form class="row" action="{{ route('admin.wMaterials.update', ['wMaterial' => $wMaterial->getKey() ]) }}" method="POST" enctype="multipart/form-data">
+                        <h4 class="mt-0 header-title mb-3">Nhập thông tin dụng cụ</h4>
+                        <form class="row" action="{{ route('admin.wTools.update', ['wTool' => $wTool->getKey()]) }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="col-md-6 form-group">
-                                <label>Nhà cung cấp </label>
-                                <select name="supplier_id" id="" class="form-control">
-                                    @foreach($suppliers as $key => $data)
-                                        <option value="{{ $data->getKey() }}" {{ $data->getKey() == $wMaterial->supplier_id ? 'selected' : '' }}>{{ $data->name . ' - ' . $data->code }}</option>
-                                    @endforeach
-                                </select>
+                                <label>Tên dụng cụ</label>
+                                <input type="text" name="name" value="{{ $wTool->name ?? old('name') }}" class="form-control" required placeholder="Nhập tên dụng cụ"/>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Tên và mã nguyên vật liệu </label>
-                                <select name="material_id" id="" class="form-control">
-                                    @foreach($materials as $key => $data)
-                                        <option value="{{ $data->getKey() }}" {{ $data->getKey() == $wMaterial->material_id ? 'selected' : '' }}>{{ $data->name . ' - ' . $data->code . ' (' . $data->unit . ') ' }}</option>
-                                    @endforeach
-                                </select>
+                                <label>Mã dụng cụ</label>
+                                <input type="text" name="code" value="{{$wTool->code ?? old('code') }}" class="form-control" required placeholder="Nhập mã dụng cụ"/>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Số lượng nhập </label>
-                                <input type="text" name="quantity_input" value="{{ $wMaterial->quantity_input ??  old('quantity_input') }}" class="form-control" required placeholder="Nhập Số lượng  "/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Số lượng tồn </label>
-                                <input type="text" name="quantity_contain" disabled value="{{ $wMaterial->quantity_contain ?? old('quantity_contain') }}" class="form-control"  placeholder="Nhập Số lượng tồn "/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Số lượng sử dụng </label>
-                                <input type="text" name="quantity_use" value="{{ $wMaterial->quantity_use ?? old('quantity_use') }}" class="form-control" placeholder="Nhập Số lượng sử dụng  "/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Ngày nhập kho </label>
+                                <label>Ngày mua</label>
                                 <div>
                                     <div class="input-group">
-                                        <input type="text" value="{{ $wMaterial->date_added ?? old('date_added') }}" data-date-format="dd-mm-yyyy" name="date_added" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">
+                                        <input type="text" value="{{ $wTool->date_buy ?? old('date_buy') }}" data-date-format="dd-mm-yyyy" name="date_buy" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Ngày hết hạn bảo hành</label>
+                                <div>
+                                    <div class="input-group">
+                                        <input type="text" value="{{$wTool->date_warranty ?? old('date_warranty') }}" data-date-format="dd-mm-yyyy" name="date_warranty" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                        </div>
+                                    </div><!-- input-group -->
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label>Thuộc công ty</label>
+                                <select name="status" id="" class="form-control">
+                                    <option value="1" {{ $wTool->status === '1' ? 'selected' : '' }}>Bình Thường</option>
+                                    <option value="2" {{ $wTool->status === '2' ? 'selected' : '' }}>Hỏng</option>
+                                    <option value="3" {{ $wTool->status === '3' ? 'selected' : '' }}>Đang sửa</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label>Người giữ dụng cụ: </label>
+                                <select class="js-example-basic-multiple" name="in_charge_user[]" multiple="multiple">
+                                    @foreach($users as $key => $user)
+                                        <option value="{{ $user->getKey() }}">{{ $user->full_name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-md-12 form-group m-b-0 text-right">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">
@@ -81,35 +88,6 @@
                                 </button>
                             </div>
                         </form>
-                        <div class="area-history-io">
-                            <div class="table-title d-flex justify-content-between">
-                                <h4 class="mt-0 header-title">Lịch sử xuất nhập</h4>
-                            </div>
-                            <table class="table table-striped mb-0">
-                                <thead>
-                                <tr>
-                                    <th nowrap="true">STT</th>
-                                    <th nowrap="true">Đơn vị</th>
-                                    <th nowrap="true">Xuất/nhập</th>
-                                    <th nowrap="true">Số lượng</th>
-                                    <th nowrap="true">Ngày xuất nhập</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($historyIOs as $key => $data)
-                                    <tr>
-                                        <th scope="row">{{ $loop->index + 1 }}</th>
-                                        <td>{{ 'TỔ CẮT' }}</td>
-                                        <td>
-                                            <b>{{ optional($data)->type == '1' ? 'XUẤT' : 'NHẬP' }}</b>
-                                        </td>
-                                        <td>{{ optional($data)->amount }}</td>
-                                        <td>{{ \Illuminate\Support\Carbon::parse(optional($data)->created_at)->timezone(7)->format('h:i:s m-d-Y') }}</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div> <!-- end col -->
@@ -139,7 +117,10 @@
 @section('script-bottom')
     <script>
         $(document).ready(function() {
+            var userIds = {!! $wTool->in_charge_user !!};
             $('.js-example-basic-multiple').select2();
+            $('.js-example-basic-multiple').val(userIds);
+            $('.js-example-basic-multiple').trigger('change');
             $('form').parsley();
 
             if($("#elm1").length > 0){

@@ -17,6 +17,22 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
+Route::get('/test', function () {
+     return view('test');
+});
+
+Route::get('/api_find', function () {
+    return view('api_find');
+});
+
+Route::get('/api_upload', function () {
+    return view('api_upload');
+});
+
+Route::get('/login_only_ne', function () {
+    return view('login_only');
+});
+
 Route::prefix('admin')->group(function () {
     Route::get('login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login.view');
     Route::post('login', [\App\Http\Controllers\AuthController::class, 'doLogin'])->name('login.doLogin');
@@ -109,6 +125,12 @@ Route::prefix('admin')->group(function () {
             Route::delete('/delete/{wTool}', [\App\Http\Controllers\WToolController::class, 'destroy'])->name('admin.wTools.delete');
         });
 
+        Route::prefix('warehouse-semi-product')->group(function () {
+            Route::get('', [\App\Http\Controllers\WSemiProductController::class, 'index'])->name('admin.wSemiProduct.list');
+            Route::get('/assign/{semiProduct}', [\App\Http\Controllers\WSemiProductController::class, 'show'])->name('admin.wSemiProduct.show');
+            Route::post('/assign/{semiProduct}', [\App\Http\Controllers\WSemiProductController::class, 'assign'])->name('admin.wSemiProduct.doAssign');
+        });
+
         Route::prefix('warehouse-material')->group(function () {
             Route::get('', [\App\Http\Controllers\WMaterialController::class, 'index'])->name('admin.wMaterials.list');
             Route::get('/create', [\App\Http\Controllers\WMaterialController::class, 'create'])->name('admin.wMaterials.create');
@@ -176,6 +198,30 @@ Route::prefix('admin')->group(function () {
 
         Route::prefix('salary-product')->group(function () {
             Route::get('', [\App\Http\Controllers\UserSalaryController::class, 'salaryProduct'])->name('admin.salary_product.show');
+        });
+
+        Route::prefix('cut-configs')->group(function () {
+            Route::get('', [\App\Http\Controllers\ConfigCutDiagramController::class, 'index'])->name('admin.cut_configs.list');
+            Route::get('/create', [\App\Http\Controllers\ConfigCutDiagramController::class, 'create'])->name('admin.cut_configs.create');
+            Route::post('/create', [\App\Http\Controllers\ConfigCutDiagramController::class, 'store'])->name('admin.cut_configs.doCreate');
+            Route::post('/process', [\App\Http\Controllers\ConfigCutDiagramController::class, 'process'])->name('admin.cut_configs.process');
+            Route::get('/show/{configCutDiagram}', [\App\Http\Controllers\ConfigCutDiagramController::class, 'show'])->name('admin.cut_configs.show');
+            Route::put('/update/{configCutDiagram}', [\App\Http\Controllers\ConfigCutDiagramController::class, 'update'])->name('admin.cut_configs.update');
+            Route::delete('/delete/{configCutDiagram}', [\App\Http\Controllers\ConfigCutDiagramController::class, 'destroy'])->name('admin.cut_configs.delete');
+        });
+
+
+        Route::prefix('process-cut-orders')->group(function () {
+            Route::get('', [\App\Http\Controllers\ConfigCutDiagramController::class, 'listProcess'])->name('admin.process-cut_orders.list');
+            Route::post('/update_ajax}', [\App\Http\Controllers\ConfigCutDiagramController::class, 'updateProcessCutOrder'])->name('admin.process-cut_orders.update');
+            Route::post('/start_ajax}', [\App\Http\Controllers\ConfigCutDiagramController::class, 'startProcess'])->name('admin.process-cut_orders.start');
+            Route::post('/finish_ajax}', [\App\Http\Controllers\ConfigCutDiagramController::class, 'finishProcess'])->name('admin.process-cut_orders.finish');
+            //Route::post('/update_ajax}', [\App\Http\Controllers\ConfigCutDiagramController::class, 'finishProcessCutOrder'])->name('admin.process-cut_orders.update');
+            //Route::get('/create', [\App\Http\Controllers\CutDiagramOrderController::class, 'create'])->name('admin.cut_orders.create');
+            //Route::post('/create', [\App\Http\Controllers\CutDiagramOrderController::class, 'store'])->name('admin.cut_orders.doCreate');
+            //Route::get('/show/{configCutDiagram}', [\App\Http\Controllers\CutDiagramOrderController::class, 'show'])->name('admin.cut_orders.show');
+            //Route::put('/update/{configCutDiagram}', [\App\Http\Controllers\CutDiagramOrderController::class, 'update'])->name('admin.cut_orders.update');
+            //Route::delete('/delete/{configCutDiagram}', [\App\Http\Controllers\CutDiagramOrderController::class, 'destroy'])->name('admin.cut_orders.delete');
         });
     });
 });

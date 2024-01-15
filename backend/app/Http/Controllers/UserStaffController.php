@@ -24,12 +24,15 @@ class UserStaffController extends Controller
     {
         $params = $request->only([
             'key_word',
-            'roles'
+            'role_id'
         ]);
 
         $users = User::query()
-            ->select(['*'])
-            ->latest();
+            ->select(['users.*', 'roles.id as tb_role_id'])
+            ->join('roles', 'roles.id', '=', 'users.role_id');
+            //->latest();
+
+        $roles = Role::query()->select(['id', 'name'])->get()->toArray();
 
         if (!empty($params['key_word'])) {
             $users = $users->where(function ($query) use ($params) {
@@ -40,12 +43,11 @@ class UserStaffController extends Controller
             });
         }
 
-//        if (!empty($params['roles'])) {
-//            $users = $users->where('roles', $params['roles']);
-//        }
-        $users = $users->orderBy('updated_at', 'desc')->paginate(10);
-        //  dd($users);
-        return view('admin.users.list', compact('users'));
+        if (!empty($params['role_id'])) {
+            $users = $users->where('roles.id', $params['role_id']);
+        }
+        $users = $users->orderBy('users.updated_at', 'desc')->paginate(10);
+        return view('admin.users.list', compact('users', 'roles'));
     }
 
     /**

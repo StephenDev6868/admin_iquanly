@@ -29,7 +29,18 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Từ khoá</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" value="{{ request()->get('key_word' ?? '') }}" name="key_word" placeholder="Nhập từ khoá" id="example-text-input">
+                                <input class="form-control" type="text" value="{{ request()->get('key_word') ?? '' }}" name="key_word" placeholder="Nhập từ khoá" id="example-text-input">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Vai trò</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="role_id">
+                                    <option value="">All</option>
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role['id'] }}" {{ request()->get('role_id') == $role['id'] ? 'selected' : '' }}>{{ $role['name'] }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 {{--                        <div class="form-group row">--}}

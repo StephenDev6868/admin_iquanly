@@ -1,4 +1,6 @@
 <?php
+
+use App\Enums\Screen;
 use App\Models\Config;
 
 if (! function_exists('get_template')) {
@@ -73,5 +75,65 @@ if (! function_exists('count_material_for_order')) {
             $ingredient[$key] = $ingredient_item;
         }
         return $ingredient;
+    }
+}
+
+if (! function_exists('render_sidebar_by_role')) {
+    /**
+     *
+     * @param integer $config
+     *
+     * @return Config|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
+     */
+    function render_sidebar_by_role()
+    {
+        $screens = Screen::LIST_URL;
+        $screensShow = [];
+
+        foreach ($screens as $key => $screen) {
+            if ( in_array($key, [
+                Screen::COMPANY,
+                Screen::BOARD,
+                Screen::ROLE,
+                Screen::SETTING_GENERAL,
+            ])) {
+                $screensShow['setting_general']['has_sub_menu'] = true;
+                $screensShow['setting_general'][$key] = $screen;
+            }
+
+            elseif (in_array($key, [
+                Screen::SALARY_PRODUCT,
+                Screen::SALARY_BASIC,
+            ])) {
+                $screensShow['salary']['has_sub_menu'] = true;
+                $screensShow['salary'][$key] = $screen;
+            } elseif (in_array($key, [
+                Screen::PRODUCT_CONFIG,
+                Screen::PRODUCT_STEP,
+            ])) {
+                $screensShow['product']['has_sub_menu'] = true;
+                $screensShow['product'][$key] = $screen;
+            } elseif (in_array($key, [
+                Screen::WAREHOUSEDEVICE,
+                //Screen::WAREHOUSEHAFTPRODUCT,
+                Screen::WAREHOUSETOOL,
+                Screen::WAREHOUSEMATERIAL,
+            ])) {
+                $screensShow['warehouse']['has_sub_menu'] = true;
+                $screensShow['warehouse'][$key] = $screen;
+            } elseif (in_array($key, [
+                Screen::CUSTOMER,
+                Screen::PARTNER,
+                Screen::SUPPLIER,
+            ])) {
+                $screensShow['cps']['has_sub_menu'] = true;
+                $screensShow['cps'][$key] = $screen;
+            } else {
+                $screensShow[$key]['has_sub_menu'] = false;
+                $screensShow[$key][] = $screen;
+            }
+
+        };
+        dd($screensShow);
     }
 }

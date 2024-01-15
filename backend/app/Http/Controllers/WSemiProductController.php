@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Partner;
+use App\Models\PartnerSemiProduct;
+use App\Models\SemiProduct;
 use App\Models\WSemiProduct;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class WSemiProductController extends Controller
 {
@@ -14,7 +19,8 @@ class WSemiProductController extends Controller
      */
     public function index()
     {
-        //
+        $datas = SemiProduct::all();
+        return view('admin.wsem-product.list', compact('datas'));
     }
 
     /**
@@ -44,9 +50,32 @@ class WSemiProductController extends Controller
      * @param  \App\Models\WSemiProduct  $wSemiProduct
      * @return \Illuminate\Http\Response
      */
-    public function show(WSemiProduct $wSemiProduct)
+    public function show(SemiProduct $semiProduct)
     {
-        //
+        $partners = Partner::all();
+        $data = PartnerSemiProduct::query()->where('semi_product_id', $semiProduct->getKey())->first();
+        return view('admin.wsem-product.edit', compact('semiProduct', 'partners', 'data'));
+    }
+
+    public function assign(SemiProduct $semiProduct, Request $request)
+    {
+        $data = $request->all();
+        $data['day_input'] = Carbon::now();
+        $data['product_id'] = $semiProduct->product_id;
+        $query = PartnerSemiProduct::query();
+        if (PartnerSemiProduct::query()->where('semi_product_id', $semiProduct->getKey())->exists()) {
+            $query->update([
+                'partner_id' => $data['partner_id'],
+                'input' => $data['input'],
+            ]);
+        } else {
+            $query->create($data);
+        }
+        return Redirect::route('admin.wSemiProduct.doAssign', ['semiProduct' => $semiProduct->getKey()])
+            ->with('success', 'Cập nhập thành công');
+
+        //$partners = Partner::all();
+        //return view('admin.wsem-product.edit', compact('semiProduct', 'partners'));
     }
 
     /**
