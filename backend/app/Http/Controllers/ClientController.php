@@ -32,15 +32,16 @@ class ClientController extends Controller
     public function salary()
     {
         $userInfo = Auth::guard('user')->user();
-        $middleMonth = Carbon::now()->year . '-' . Carbon::now()->month . '-' . '15';
         $firstMonth = Carbon::now()->year . '-' . Carbon::now()->month . '-' . '01';
         $lastMonth = Carbon::now()->subMonths(1)->format('Y-m');
 
         $start = Carbon::parse($lastMonth)->firstOfMonth()->format('Y-m-d');
         $end = Carbon::parse($lastMonth)->endOfMonth()->format('Y-m-d');
+        $middleMonth = Carbon::parse($lastMonth)->addDays(14)->format('Y-m-d');
         $salaryBasic = UserSalary::query()
             ->where('user_id', $userInfo->id)
-            ->whereDate('end_at', '<=', $middleMonth)
+            ->whereDate('end_at', '>=', $middleMonth)
+            ->whereDate('start_at', '<=', $middleMonth)
             ->get()->toArray();
 
         $query = WorkQuantity::query()

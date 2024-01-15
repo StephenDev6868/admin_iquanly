@@ -134,8 +134,25 @@
                     </div>
                 </div> <!-- end col -->
             </div> <!-- end row -->
+        @else
+            <div class="row">
+                <div class="col-12" style="margin-top: 100px;">
+                    <div class="card m-b-20">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card-body">
+                                        <h4 class="mt-4 mb-4" style="margin-top: 30px;">
+                                            Lương cơ bản tháng này chưa cập nhập
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
         @endif
-
         @if(count($salary) > 0)
             <div class="row">
                 <div class="col-12" style="margin-top: 100px;">
@@ -146,7 +163,7 @@
                                     <div class="card-body" style="padding: 0.5rem !important;">
                                         <nav>
                                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Lương tháng 11</a>
+                                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Lương tháng {{ $salary['dateWorkNow']  }}</a>
                                             </div>
                                         </nav>
                                         <div class="tab-content" id="nav-tabContent">

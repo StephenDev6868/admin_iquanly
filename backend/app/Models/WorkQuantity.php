@@ -19,5 +19,6 @@ class WorkQuantity extends Model
 
     public $casts = [
         'date_work' => 'date:d-m-Y',
+        'dateWork' => 'date:d-m-Y',
     ];
 }

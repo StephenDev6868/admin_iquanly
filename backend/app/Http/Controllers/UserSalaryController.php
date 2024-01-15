@@ -49,6 +49,8 @@ class UserSalaryController extends Controller
     {
         $start_at = $request->input('start_at');
         $end_at = $request->input('end_at');
+        $start_at = \Illuminate\Support\Carbon::parse($start_at)->firstOfMonth()->format('d-m-Y');
+        $end_at = \Illuminate\Support\Carbon::parse($end_at)->endOfMonth()->format('d-m-Y');
         $result = Excel::import(new UserSalaryImport($start_at, $end_at), $request->file('upload_salary'));
         if ($result) {
             return Redirect::route('admin.export.salary')
