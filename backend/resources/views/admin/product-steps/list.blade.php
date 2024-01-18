@@ -31,7 +31,7 @@
                             <label  class="col-sm-2 col-form-label">Sản phẩm</label>
                             <select name="product_id" id="" class="form-control col-sm-10">
                                 @foreach($products as $product)
-                                    <option {{ request()->query('product_id') == $product->getKey() ? 'selected' : '' }} value="{{ $product->getKey()  }}">{{ $product->name . ' - ' . $product->code . ' - ' . $product->part_number }}</option>
+                                    <option {{ request()->query('product_id') == $product->getKey() ? 'selected' : '' }} value="{{ $product->getKey()  }}">{{ $product->name . ' - ' . $product->code .  ($product->part_number ? ' - ' . $product->part_number : '') }}</option>
                                 @endforeach
                             </select>
                         </div>
