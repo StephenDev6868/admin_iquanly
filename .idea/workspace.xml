@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b85df0-0076-4f3f-b985-b8486c213a8f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/admin_iquanly.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/admin_iquanly.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Enums/Screen.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Enums/Screen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/PartnerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/PartnerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/UserStaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/UserStaffController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/WSemiProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/WSemiProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/partner/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/partner/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/quantity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/quantity.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/users/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/users/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/wmaterial/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/layouts/topbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/layouts/topbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/nginx/sites/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/sites/default.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/openresty/sites/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/openresty/sites/default.conf" afterDir="false" />
     </list>
@@ -386,7 +369,8 @@
       <workItem from="1703557420878" duration="41000" />
       <workItem from="1703607832757" duration="2694000" />
       <workItem from="1703734185987" duration="208564000" />
-      <workItem from="1705244043477" duration="29278000" />
+      <workItem from="1705244043477" duration="40221000" />
+      <workItem from="1705389816311" duration="8871000" />
     </task>
     <servers />
   </component>
