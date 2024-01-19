@@ -62,7 +62,7 @@ if (! function_exists('count_material_for_order')) {
             if (is_array($product->materials)) {
                 foreach ($product->materials as $key2 => $value2) {
                     $material = \App\Models\Material::find($value2['id']);
-                    if ($value2['id'] == '5') {
+                    if ($value2['id'] == '4') {
                         dd($material);
                     }
                     $ingredient_item[] = [
