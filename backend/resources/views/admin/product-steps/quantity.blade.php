@@ -239,31 +239,27 @@
                     },
                     data: data,
                     success: function (data) {
-                        console.log({data})
                         $('#product_step_id_select').find('option').remove()
+                        $('#product_step_id_select').append($('<option>', {
+                            value: '',
+                            text : 'Tất cả'
+                        }))
                         data.forEach((item) => {
                             $('#product_step_id_select').append($('<option>', {
                                 value: item.id,
                                 text : item.name
                             }))
                         })
-                        // Toastify({
-                        //     text: "Lưu thành công" + ' bàn ' + posId,
-                        //     className: "info",
-                        //     style: {
-                        //         background: "linear-gradient(to right, #00b09b, #96c93d)",
-                        //     }
-                        // }).showToast();
                     },
                     error: function (error) {
                         const {responseJSON, msg} = error;
-                        // Toastify({
-                        //     text: responseJSON['msg'] + ' cho bàn ' + posId,
-                        //     className: "danger",
-                        //     style: {
-                        //         background: "linear-gradient(to right, red, red)",
-                        //     }
-                        // }).showToast();
+                        Toastify({
+                            text: responseJSON['msg'] + ' cho bàn ' + posId,
+                            className: "danger",
+                            style: {
+                                background: "linear-gradient(to right, red, red)",
+                            }
+                        }).showToast();
                     }
                 });
             })
