@@ -76,7 +76,9 @@ if (! function_exists('count_material_for_order')) {
                         'size' => $product->size,
                     ];
                     if ($data['id'] == '3') {
-                        dd($value['amount'], $value2['quota'], $material->num_quota, $lossConfig);
+                        dd($value['amount'], $value2['quota'], $material->num_quota, $lossConfig,
+                            number_format((($value['amount']  * $value2['quota'] ) / $material->num_quota) * $lossConfig, '2', '.', '')
+                        );
                     }
                 }
             }
