@@ -77,7 +77,7 @@ if (! function_exists('count_material_for_order')) {
                     ];
                 }
             }
-            if ($data['id'] == '2') {
+            if ($data['id'] == '3') {
                 dd($test1, $test2, $test, $lossConfig);
             }
             $key = $value['amount'] . ' - ' . $product->name . ' - ' . $product->code . ' (' . $product->size . ') -' . ' (' . $product->part_number . ')';
