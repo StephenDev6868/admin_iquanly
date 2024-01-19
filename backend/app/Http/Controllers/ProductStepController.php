@@ -225,8 +225,11 @@ class ProductStepController extends Controller
     public function getStepProductById(Request $request)
     {
         $product_id = $request->get('product_id');
-
-        $datas = ProductStep::query()->where('product_id', $product_id)->get()->toArray();
+        $datas = ProductStep::query();
+        if ($product_id) {
+            $datas->where('product_id', $product_id);
+        }
+        $datas= $datas->get()->toArray();
 
         return response()->json(
             $datas,
