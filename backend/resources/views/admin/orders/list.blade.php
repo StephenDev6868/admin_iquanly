@@ -45,7 +45,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @dd($datas)
+{{--                            @dd($datas)--}}
                             @foreach($datas as $key => $data)
                                 @php
                                     $ingredients = count_material_for_order($data->toArray());
