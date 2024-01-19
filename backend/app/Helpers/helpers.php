@@ -75,7 +75,7 @@ if (! function_exists('count_material_for_order')) {
                         'unit' => $material->unit,
                         'size' => $product->size,
                     ];
-                    if ($data['id'] == '3') {
+                    if ($data['id'] == '2') {
                         dd($value['amount'], $value2['quota'], $material->num_quota, $lossConfig,
                             number_format((($value['amount']  * $value2['quota'] ) / $material->num_quota) * $lossConfig, '2', '.', '')
                         );
