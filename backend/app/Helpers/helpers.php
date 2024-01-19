@@ -77,7 +77,9 @@ if (! function_exists('count_material_for_order')) {
                     ];
                 }
             }
-            dd($test1, $test2, $test, $lossConfig);
+            if ($data['id'] == '2') {
+                dd($test1, $test2, $test, $lossConfig);
+            }
             $key = $value['amount'] . ' - ' . $product->name . ' - ' . $product->code . ' (' . $product->size . ') -' . ' (' . $product->part_number . ')';
             $ingredient[$key] = $ingredient_item;
         }
