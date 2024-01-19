@@ -83,7 +83,7 @@
                                                                 <li class="list-group-item active"><b>Tên đơn hàng: {{$key}}</b></li>
                                                                 @foreach($ingredient as $item)
                                                                     <li class="list-group-item">
-                                                                        <b>Số lượng: </b> {{ $item['quantity'] . ' - ' . ' (' . $item['unit'] . ') ' . $item['name']  }}
+                                                                        <b>Số lượng: </b> {{ ($item['quantity'] ?? '') . ' - ' . ' (' . ($item['unit'] ?? '') . ') ' . ($item['name'] ?? '')  }}
                                                                     </li>
                                                                 @endforeach
                                                             </ul>
