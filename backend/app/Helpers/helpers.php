@@ -71,7 +71,7 @@ if (! function_exists('count_material_for_order')) {
                     $ingredient_item[] = [
                         'name' => $material->name,
                         'code' => $material->code,
-                        'quantity' => number_format((( (int) $value['amount']  *  (int) $value2['quota'] ) / (int) $material->num_quota) * (int) $lossConfig, '2', '.', ''),
+                        'quantity' => number_format((( ((int) $value['amount'] ?? 1)  *  ((int) $value2['quota'] ?? 1) ) / ((int) $material->num_quota ?? 1)) * (int) $lossConfig, '2', '.', ''),
                         'unit' => $material->unit,
                         'size' => $product->size,
                     ];
