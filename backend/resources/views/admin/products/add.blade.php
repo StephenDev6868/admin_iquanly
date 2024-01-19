@@ -50,8 +50,8 @@
                                 </select>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Part number</label>
-                                <input type="text" name="part_number" value="{{ old('part_number') }}" class="form-control" required placeholder="Nhập Part number"/>
+                                <label>Màu sắc</label>
+                                <input type="text" name="part_number" value="{{ old('part_number') }}" class="form-control" required placeholder="Nhập Màu sắc"/>
                             </div>
                             <div class="col-md-12 form-group jumbotron" style="padding: 1rem 1rem;">
                                 <div class="top-detail d-flex justify-content-between mb-2">
