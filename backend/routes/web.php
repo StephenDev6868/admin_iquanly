@@ -83,6 +83,7 @@ Route::prefix('admin')->group(function () {
             Route::get('/show/{productStep}', [\App\Http\Controllers\ProductStepController::class, 'show'])->name('admin.productSteps.show');
             Route::get('/show-quantity', [\App\Http\Controllers\ProductStepController::class, 'showQuantity'])->name('admin.productSteps.showQuantity');
             Route::post('/update-quantity', [\App\Http\Controllers\ProductStepController::class, 'updateQuantity'])->name('admin.productSteps.updateQuantity');
+            Route::get('/product-step', [\App\Http\Controllers\ProductStepController::class, 'getStepProductById'])->name('admin.productSteps.listSelect');
             Route::put('/update/{productStep}', [\App\Http\Controllers\ProductStepController::class, 'update'])->name('admin.productSteps.update');
             Route::get('/generate-work-quantity/{productStep}', [\App\Http\Controllers\ProductStepController::class, 'showGenerateWorkQuantity'])->name('admin.productSteps.showGenerateWorkQuantity');
             Route::post('/generate-work-quantity/{productStep}', [\App\Http\Controllers\ProductStepController::class, 'doGenerateWorkQuantity'])->name('admin.productSteps.doGenerateWorkQuantity');

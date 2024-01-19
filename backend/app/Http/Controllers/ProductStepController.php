@@ -222,6 +222,18 @@ class ProductStepController extends Controller
         return view('admin.product-steps.quantity', compact('data', 'step', 'users', 'products', 'productSteps', 'isShowPagination'));
     }
 
+    public function getStepProductById(Request $request)
+    {
+        $product_id = $request->get('product_id');
+
+        $datas = ProductStep::query()->where('product_id', $product_id)->get()->toArray();
+
+        return response()->json(
+            $datas,
+            200
+        );
+    }
+
     public function updateQuantity(Request $request)
     {
         $inputs = $request->all();

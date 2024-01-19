@@ -37,6 +37,7 @@ class ProductController extends Controller
             '3XL',
             '2XL',
             'XL',
+            'L',
             'M',
             'S',
         ];
@@ -101,6 +102,7 @@ class ProductController extends Controller
             '3XL',
             '2XL',
             'XL',
+            'L',
             'M',
             'S',
         ];

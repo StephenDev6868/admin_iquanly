@@ -31,7 +31,7 @@
                         <h4 class="mt-0 header-title">Tìm kiếm công đoạn</h4>
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Tên và mã sản phẩm</label>
-                            <select name="product_id" id="" class="form-control col-sm-12">
+                            <select name="product_id" id="product_id_select" class="form-control col-sm-12">
                                 <option value="">Tất cả</option>
                                 @foreach($products as $key => $product)
                                     <option {{ request()->query('product_id') == $product->getKey() ? 'selected' : '' }} value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code . ($product->part_number ? ' - ' . $product->part_number : '') }}</option>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Tên Công đoạn</label>
-                            <select name="productStep" id="" class="js-example-basic-multiple form-control col-sm-12">
+                            <select name="productStep" id="product_step_id_select" class="js-example-basic-multiple form-control col-sm-12">
                                 <option value="">Tất cả</option>
                                 @foreach($productSteps as $key => $productStep)
                                     <option {{ request()->query('productStep') == $productStep->getKey() ? 'selected' : '' }} value="{{ $productStep->getKey() }}">{{ $productStep->name}}</option>
@@ -222,6 +222,52 @@
             $('.js-example-basic-multiple').select2();
             $('.js-example-basic-multiple').val(userIds);
             $('.js-example-basic-multiple').trigger('change');
+
+
+
+            $('#product_id_select').on('change', function (e) {
+                var product_id = $(this).val();
+                console.log({product_id});
+                let data  = {
+                    product_id,
+                };
+                $.ajax({
+                    url: "{{route('admin.productSteps.listSelect')}}",
+                    type: "GET",
+                    headers: {
+                        'X-CSRF-TOKEN': "{{csrf_token()}}",
+                    },
+                    data: data,
+                    success: function (data) {
+                        console.log({data})
+                        $('#product_step_id_select').find('option').remove()
+                        data.forEach((item) => {
+                            $('#product_step_id_select').append($('<option>', {
+                                value: item.id,
+                                text : item.name
+                            }))
+                        })
+                        // Toastify({
+                        //     text: "Lưu thành công" + ' bàn ' + posId,
+                        //     className: "info",
+                        //     style: {
+                        //         background: "linear-gradient(to right, #00b09b, #96c93d)",
+                        //     }
+                        // }).showToast();
+                    },
+                    error: function (error) {
+                        const {responseJSON, msg} = error;
+                        // Toastify({
+                        //     text: responseJSON['msg'] + ' cho bàn ' + posId,
+                        //     className: "danger",
+                        //     style: {
+                        //         background: "linear-gradient(to right, red, red)",
+                        //     }
+                        // }).showToast();
+                    }
+                });
+            })
+
             $('form').parsley();
 
             if($("#elm1").length > 0){
