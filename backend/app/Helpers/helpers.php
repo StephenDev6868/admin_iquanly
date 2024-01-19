@@ -57,6 +57,8 @@ if (! function_exists('count_material_for_order')) {
         $lossConfig = $data['loss'] && is_numeric($data['loss']) ?  1 + ($data['loss'] / 100) : 1 ;
         $ingredient = [];
         $test = [];
+        $test1 = [];
+        $test2 = [];
         foreach ($detail_products as $key => $value) {
             $product = \App\Models\Product::find($value['id']);
             $ingredient_item = [];
@@ -64,6 +66,8 @@ if (! function_exists('count_material_for_order')) {
                 foreach ($product->materials as $key2 => $value2) {
                     $material = \App\Models\Material::find($value2['id']);
                     $test[] = $material;
+                    $test1[] = $value;
+                    $test2[] = $value2;
                     $ingredient_item[] = [
                         'name' => $material->name,
                         'code' => $material->code,
@@ -73,7 +77,7 @@ if (! function_exists('count_material_for_order')) {
                     ];
                 }
             }
-            dd($test);
+            dd($test1, $test2, $test);
             $key = $value['amount'] . ' - ' . $product->name . ' - ' . $product->code . ' (' . $product->size . ') -' . ' (' . $product->part_number . ')';
             $ingredient[$key] = $ingredient_item;
         }
