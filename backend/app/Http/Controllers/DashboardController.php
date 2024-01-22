@@ -58,28 +58,35 @@ class DashboardController extends Controller
             $value_res['order_id'] = $value->id;
             $value_res['order_name'] = $value->name;
             $value_res['order_date_done'] = \Illuminate\Support\Carbon::parse($value->end_at)->format('d-m-Y');
-            foreach ($data_dashboard_order_semi_product as $key2 => $value2) {
-                if ($value2->id == $value->id && $value2->id == $value->id) {
-                    foreach ($new_value['detail_product'] as $key3 => &$value3) {
-                        if ($value3['id'] == $value2->product_id) {
-                            $value3['total_product_done'] = $value2->total_amount_product;
-                            $value3['percent'] = round(($value3['total_product_done'] / $value3['amount']) * 100, 2);
-                            $value_res['total_product_done'] = $value3['total_product_done'];
-                            $value_res['percent'] = $value3['percent'];
-                        } else {
-                            $value3['total_product_done'] = 0;
-                            $value3['percent'] = 0;
-                            $value_res['total_product_done'] = 0;
-                            $value_res['percent'] = 0;
+            if (count($data_dashboard_order_semi_product) > 0) {
+                foreach ($data_dashboard_order_semi_product as $key2 => $value2) {
+                    if ($value2->id == $value->id && $value2->id == $value->id) {
+                        foreach ($new_value['detail_product'] as $key3 => &$value3) {
+                            if ($value3['id'] == $value2->product_id) {
+                                $value3['total_product_done'] = $value2->total_amount_product;
+                                $value3['percent'] = round(($value3['total_product_done'] / $value3['amount']) * 100, 2);
+                                $value_res['total_product_done'] = $value3['total_product_done'];
+                                $value_res['percent'] = $value3['percent'];
+                            } else {
+                                $value3['total_product_done'] = 0;
+                                $value3['percent'] = 0;
+                                $value_res['total_product_done'] = 0;
+                                $value_res['percent'] = 0;
+                            }
+                            $value_res['amount'] = $value3['amount'];
+                            $data_dashboard_order_res[] =  $value_res;
                         }
-                        $value_res['amount'] = $value3['amount'];
-                        $data_dashboard_order_res[] =  $value_res;
                     }
                 }
+            } else {
+                $value_res['total_product_done'] = 0;
+                $value_res['amount'] = 0;
+                $value_res['percent'] = 0;
+                $data_dashboard_order_res[] =  $value_res;
             }
 
+
         }
-        dd($data_dashboard_order_res);
         $data_dashboard_order_res = json_encode($data_dashboard_order_res, true);
         $date_work_query = $request->get('month_work');
         $firstMonth = $date_work_query ? Carbon::parse($date_work_query)->firstOfMonth() : Carbon::now()->firstOfMonth();
