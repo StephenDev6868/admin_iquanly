@@ -79,6 +79,7 @@ class DashboardController extends Controller
             }
 
         }
+        dd($data_dashboard_order_res);
         $data_dashboard_order_res = json_encode($data_dashboard_order_res, true);
         $date_work_query = $request->get('month_work');
         $firstMonth = $date_work_query ? Carbon::parse($date_work_query)->firstOfMonth() : Carbon::now()->firstOfMonth();
