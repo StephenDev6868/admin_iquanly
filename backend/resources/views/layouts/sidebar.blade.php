@@ -6,6 +6,11 @@
                         <!-- Left Menu Start -->
                         <ul class="metismenu" id="side-menu">
                             <li class="menu-title">Admin</li>
+                            <li>
+                                <a href="{{ route('admin.dashboard') }}" class="waves-effect {{ (request()->is('users')) || (request()->is('admin/dashboard/*')) ? 'active' : '' }}">
+                                    <span> Dashboard </span>
+                                </a>
+                            </li>
                             <!-- Has sub menu -->
 {{--                            {{ dd(render_sidebar_by_role());  }}--}}
                             <li>

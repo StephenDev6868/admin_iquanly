@@ -51,9 +51,12 @@
                                     <h5>Nhập chi tiết đơn hàng </h5>
                                     <button type="button" class="btn btn-primary add-order-detail" style="height: 50px; width: 50px;"><i class="fas fa-plus"></i></button>
                                 </div>
-                                <div class="form-group" style="width: 22%">
-                                    <label>Phần trăm hao hụt cho phép:  </label>
-                                    <input type="text" name="loss" value="{{ old('loss') }}" class="form-control" required placeholder="% "/>
+                                <label>Phần trăm hao hụt cho phép:  </label>
+                                <div class="input-group mb-3" style="width: 22%">
+                                    <input type="text" name="loss" value="{{ old('loss') }}" class="form-control" required placeholder=""/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">%</span>
+                                    </div>
                                 </div>
                                 <div class="detail-order">
                                     <table class="table table-light table-bordered mb-0">

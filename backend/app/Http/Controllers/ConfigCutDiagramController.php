@@ -178,6 +178,7 @@ class ConfigCutDiagramController extends Controller
             );
         }
         $processCutOrder = ProcessCutOrder::query()->find($idProcess);
+        $processCutOrder->status = true;
         $processCutOrder->end_at = Carbon::now()->format('Y-m-d h:i:s');
         $processCutOrder->save();
         SemiProduct::query()->create([

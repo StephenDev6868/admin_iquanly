@@ -56,18 +56,12 @@ if (! function_exists('count_material_for_order')) {
         $detail_products = $data['detail_product'];
         $lossConfig = $data['loss'] && is_numeric($data['loss']) ?  1 + ($data['loss'] / 100) : 1 ;
         $ingredient = [];
-        $test = [];
-        $test1 = [];
-        $test2 = [];
         foreach ($detail_products as $key => $value) {
             $product = \App\Models\Product::find($value['id']);
             $ingredient_item = [];
             if (is_array($product->materials)) {
                 foreach ($product->materials as $key2 => $value2) {
                     $material = \App\Models\Material::find($value2['id']);
-                    $test[] = $material;
-                    $test1[] = $value;
-                    $test2[] = $value2;
                     $ingredient_item[] = [
                         'name' => $material->name,
                         'code' => $material->code,
@@ -75,16 +69,8 @@ if (! function_exists('count_material_for_order')) {
                         'unit' => $material->unit,
                         'size' => $product->size,
                     ];
-                    if ($data['id'] == '3') {
-//                        dd($data['id'], $value['amount'], $value2['quota'], $material->num_quota, $lossConfig,
-//                            number_format((($value['amount']  * $value2['quota'] ) / $material->num_quota) * $lossConfig, '2', '.', '')
-//                        );
-                    }
                 }
             }
-//            if ($data['id'] == '3') {
-//                dd($test1, $test2, $test, $lossConfig);
-//            }
             $key = $value['amount'] . ' - ' . $product->name . ' - ' . $product->code . ' (' . $product->size . ') -' . ' (' . $product->part_number . ')';
             $ingredient[$key] = $ingredient_item;
         }

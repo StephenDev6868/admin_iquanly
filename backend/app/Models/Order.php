@@ -21,6 +21,14 @@ class Order extends Model
         'detail_product',
     ];
 
+    public function dashboard()
+    {
+        return Order::query()
+            ->join('semi_products', 'semi_products.order_id', '=', 'orders.id')
+            ->join('process_cut_orders', 'process_cut_orders.order_id', '=', 'orders.id')
+            ->get();
+    }
+
     public $casts = [
         'detail_product' => 'array'
     ];

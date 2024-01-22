@@ -156,7 +156,7 @@
         $.MorrisCharts = new MorrisCharts, $.MorrisCharts.Constructor = MorrisCharts
 }(window.jQuery),
 
-//initializing 
+//initializing
     function ($) {
         "use strict";
         $.MorrisCharts.init();

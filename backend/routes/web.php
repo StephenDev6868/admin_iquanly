@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/test', function () {
-     return view('test');
+     return view('charts-morris');
 });
 
 Route::get('/api_find', function () {
@@ -51,6 +52,9 @@ Route::prefix('admin')->group(function () {
             Route::delete('/delete/{user}', [\App\Http\Controllers\UserStaffController::class, 'destroy'])->name('admin.users.delete');
         });
 
+
+        Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('admin.dashboard');
+        Route::get('/data-dashboard', [\App\Http\Controllers\DashboardController::class, 'dataDashboard'])->name('admin.data-dashboard');
 
         Route::prefix('companies')->group(function () {
             Route::get('', [\App\Http\Controllers\CompanyController::class, 'index'])->name('admin.companies.list');

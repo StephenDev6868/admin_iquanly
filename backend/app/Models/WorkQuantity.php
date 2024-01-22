@@ -21,4 +21,9 @@ class WorkQuantity extends Model
         'date_work' => 'date:d-m-Y',
         'dateWork' => 'date:d-m-Y',
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'user_id', 'id');
+    }
 }
