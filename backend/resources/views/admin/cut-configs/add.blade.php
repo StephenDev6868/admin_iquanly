@@ -75,7 +75,7 @@
                                                     @foreach($orders as $key => $order)
                                                         <optgroup label="{{ $order['name']  }}">
                                                             @foreach($order['detail_product'] as $item)
-                                                                <option value="{{ $order['id'] . '_' . $item['id'] }}">{{ '(' . $order['name'] . ')' . ' - ' .  $item['name'] . ' - ' .  $item['part_number'] . ' - ' .  $item['size']}}</option>
+                                                                <option value="{{ $order['id'] . '_' . $item['id'] }}">{{ '('. $order['name'] . '-' .  $item['amount'] . ')' . ' - ' .  $item['name'] . ' - ' .  $item['part_number'] . ' - ' .  $item['size']}}</option>
                                                             @endforeach
                                                         </optgroup>
                                                     @endforeach
