@@ -392,7 +392,7 @@ class ConfigCutDiagramController extends Controller
                 'material_id' => $inputs['material-1'],
                 'user_id' => null,
                 'total_product' => (int) $inputs['quantity'] * (int) $inputs['layer'],
-                'total_material' => round((float) $round_sd_1['kg-1'] / (float) $inputs['sd-1'], 2),
+                'total_material' => round((float) $round_sd_1['kg-1'], 2),
                 'created_at'   => now(),
                 'updated_at'   => now()
             ];
