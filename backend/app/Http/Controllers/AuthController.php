@@ -88,7 +88,7 @@ class AuthController extends Controller
         $result = Auth::guard('user')->attempt($inputs);
 
         if ($result) {
-            return Redirect::route('admin.users.list')
+            return Redirect::route('admin.dashboard')
                 ->with('success', 'Đăng nhập thành công, hello Admin !');
         }
 

@@ -21,6 +21,7 @@ class OrderController extends Controller
     public function index()
     {
         $datas = Order::query()->paginate(10);
+        //dd($datas);
         return view('admin.orders.list', compact('datas'));
     }
 
@@ -84,7 +85,7 @@ class OrderController extends Controller
 
         if ($result) {
             return Redirect::route('admin.orders.list')
-                ->with('success', 'Tạo đơn hàng thành công');;
+                ->with('success', 'Tạo đơn hàng thành công');
         }
     }
 

@@ -104,7 +104,7 @@ class ConfigCutDiagramController extends Controller
 
             //
             $wMaterial = WMaterial::query()->where('material_id', $materialId)->first();
-            $quantity_use = (float) $wMaterial->quantity_use - (float) $amount;
+            $quantity_use = (float) $wMaterial->quantity_contain - (float) $amount;
             if ($quantity_use < 0) {
                 return response()->json(
                     [
@@ -115,8 +115,8 @@ class ConfigCutDiagramController extends Controller
                 );
             }
 
-            $quantity_contain = (float) $wMaterial->quantity_input - (float) $wMaterial->quantity_use;
-            $wMaterial->quantity_use = $quantity_use;
+            $quantity_contain = (float) $wMaterial->quantity_contain - (float) $amount;
+            $wMaterial->quantity_use = $wMaterial->quantity_use + $amount;
             $wMaterial->quantity_contain = $quantity_contain;
 
             //

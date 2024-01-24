@@ -77,7 +77,7 @@ class WMaterialController extends Controller
 
         if ($result) {
             return Redirect::route('admin.wMaterials.list')
-                ->with('success', 'Thêm nguyên liệu thành công');;
+                ->with('success', 'Thêm nguyên liệu thành công');
         }
     }
 

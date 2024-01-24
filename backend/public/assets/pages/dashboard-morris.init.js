@@ -52,7 +52,6 @@
                             b: +item['total_product_done'],
                         }
                     });
-                    console.log({dataOrder})
                     this.createBarChart('morris-orders', dataOrder, 'y', ['a', 'b'], ['Tổng số lượng', 'Tổng số lượng hoàn thành', 'Ngày dự kiến xong:' ], ['#7a6fbe','#28bbe3', '#28bb88']);
 
 
