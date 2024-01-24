@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="22b85df0-0076-4f3f-b985-b8486c213a8f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Helpers/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ConfigCutDiagramController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ConfigCutDiagramController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/assets/pages/dashboard-morris.init.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/pages/dashboard-morris.init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/cut-configs/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/cut-configs/add.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,7 +369,7 @@
       <workItem from="1705244043477" duration="40221000" />
       <workItem from="1705389816311" duration="10992000" />
       <workItem from="1705684801069" duration="46444000" />
-      <workItem from="1706028314599" duration="25614000" />
+      <workItem from="1706028314599" duration="26376000" />
     </task>
     <servers />
   </component>
