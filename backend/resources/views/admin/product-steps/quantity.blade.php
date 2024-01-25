@@ -34,7 +34,7 @@
                             <select name="product_id" id="product_id_select" class="form-control col-sm-12">
                                 <option value="">Tất cả</option>
                                 @foreach($products as $key => $product)
-                                    <option {{ request()->query('product_id') == $product->getKey() ? 'selected' : '' }} value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code . ($product->part_number ? ' - ' . $product->part_number : '') }}</option>
+                                    <option {{ request()->query('product_id') == $product->getKey() ? 'selected' : '' }} value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code . ($product->part_number ? ' - ' . $product->part_number : '') . '-' .$product->size }}</option>
                                 @endforeach
                             </select>
                         </div>
