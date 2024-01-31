@@ -16,42 +16,31 @@
         </div>
         <!-- end row -->
 
-        <form action="{{ route('admin.products.list')  }}" class="row" method="GET">
-            <div class="col-12">
-                <div class="card m-b-20">
-                    <div class="card-body">
-                        <h4 class="mt-0 header-title">Tìm kiếm sơ đồ</h4>
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Từ khoá</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" value="{{ request()->get('key_word' ?? '') }}" name="key_word" placeholder="Nhập từ khoá" id="example-text-input">
-                            </div>
-                        </div>
+{{--        <form action="{{ route('admin.products.list')  }}" class="row" method="GET">--}}
+{{--            <div class="col-12">--}}
+{{--                <div class="card m-b-20">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <h4 class="mt-0 header-title">Tìm kiếm sơ đồ</h4>--}}
 {{--                        <div class="form-group row">--}}
-{{--                            <label class="col-sm-2 col-form-label">Trạng thái</label>--}}
+{{--                            <label for="example-text-input" class="col-sm-2 col-form-label">Từ khoá</label>--}}
 {{--                            <div class="col-sm-10">--}}
-{{--                                <select class="form-control" name="status">--}}
-{{--                                    <option value="">All</option>--}}
-{{--                                    <option value="1" {{ request()->get('status') == 1 ? 'selected' : '' }}>Bản public</option>--}}
-{{--                                    <option value="2" {{ request()->get('status') == 2 ? 'selected' : '' }}>Bản submit</option>--}}
-{{--                                    <option value="3" {{ request()->get('status') == 3 ? 'selected' : '' }}>Bán Nháp</option>--}}
-{{--                                </select>--}}
+{{--                                <input class="form-control" type="text" value="{{ request()->get('key_word' ?? '') }}" name="key_word" placeholder="Nhập từ khoá" id="example-text-input">--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
-                        <div class="form-group row m-b-0 text-right">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                    Submit
-                                </button>
-                                <button type="reset" class="btn btn-secondary waves-effect m-l-5">
-                                    Cancel
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end col -->
-        </form>
+{{--                        <div class="form-group row m-b-0 text-right">--}}
+{{--                            <div class="col-md-12">--}}
+{{--                                <button type="submit" class="btn btn-primary waves-effect waves-light">--}}
+{{--                                    Submit--}}
+{{--                                </button>--}}
+{{--                                <button type="reset" class="btn btn-secondary waves-effect m-l-5">--}}
+{{--                                    Cancel--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div> <!-- end col -->--}}
+{{--        </form>--}}
         <!-- end row -->
 
         <div class="row">

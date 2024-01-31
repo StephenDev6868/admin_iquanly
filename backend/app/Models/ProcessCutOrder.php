@@ -14,6 +14,8 @@ class ProcessCutOrder extends Model
         'user_id',
         'order_id',
         'product_id',
+        'sub_product_id',
+        'sub_quantity',
         'total_product',
         'total_material',
         'product_result',

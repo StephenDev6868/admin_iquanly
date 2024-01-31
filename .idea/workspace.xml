@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b85df0-0076-4f3f-b985-b8486c213a8f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/quantity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/product-steps/quantity.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ConfigCutDiagramController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ConfigCutDiagramController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/WMaterialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/ConfigCutDiagram.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/ConfigCutDiagram.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/ProcessCutOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/ProcessCutOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/assets/pages/dashboard-morris.init.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/assets/pages/dashboard-morris.init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/cut-configs/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/cut-configs/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/cut-configs/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/cut-configs/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/cut-configs/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/cut-configs/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/dashboard/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/admin/process-cut-orders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/admin/process-cut-orders/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,7 +380,7 @@
       <workItem from="1705244043477" duration="40221000" />
       <workItem from="1705389816311" duration="10992000" />
       <workItem from="1705684801069" duration="46444000" />
-      <workItem from="1706028314599" duration="31285000" />
+      <workItem from="1706028314599" duration="98561000" />
     </task>
     <servers />
   </component>

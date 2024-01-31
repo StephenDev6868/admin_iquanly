@@ -34,6 +34,9 @@ class WMaterialController extends Controller
         if (isset($inputs['date_added']) && $inputs['date_added']) {
             $query->where('date_added', Carbon::parse($inputs['date_added'])->format('Y-m-d'));
         }
+        if (isset($inputs['key_word']) && $inputs['key_word']) {
+            //$query->where('material_id', $inputs['material_id']);
+        }
         $datas = $query->paginate(10);
         return view('admin.wmaterial.list', compact('datas', 'materials', 'suppliers'));
     }

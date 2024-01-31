@@ -47,7 +47,7 @@
                     var dataOrder = JSON.parse($('#data_order').val()).map((item) => {
                         return {
                            // y: 'Tên đơn hàng: ' + item['order_name'] + '<br>' + 'Ngày dự kiến xong:' + item['order_date_done'],
-                            y: item['order_name'],
+                            y: item['order_name']  + ( item['product_code'] ? '-' + item['product_code'] : ''),
                             a: +item['amount'],
                             b: +item['total_product_done'],
                         }

@@ -48,6 +48,16 @@ class Product extends Model
         return $this->hasMany(ProductStepController::class, 'product_id', 'id');
     }
 
+    public static function getInfoProduct($id) {
+        return Product::query()->where('id', $id)
+            ->select([
+                'id',
+                'name',
+                'code',
+            ])
+            ->first();
+    }
+
     public $casts = [
         'materials' => 'array'
     ];

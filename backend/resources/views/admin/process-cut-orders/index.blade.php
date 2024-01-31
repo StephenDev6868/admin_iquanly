@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <form action="{{ route('admin.users.list')  }}" class="row">
+        <form action="{{ route('admin.process-cut_orders.list')  }}" class="row">
             <div class="col-12">
                 <div class="card m-b-20">
                     <div class="card-body">

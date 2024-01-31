@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\SemiProduct;
 use App\Models\WorkQuantity;
 use Carbon\Carbon;
@@ -23,7 +24,9 @@ class DashboardController extends Controller
 
     public function index(Request $request)
     {
+        $order_id = $request->get('order_id') ?? null;
         $data_month = $this->generateMonths();
+        $orders = Order::query()->select(['name', 'id'])->get()->toArray();
         //dd($request->get('month_work'));
         //        $data_dashboard_order_cut = DB::table('orders')
         //            ->join('process_cut_orders', 'orders.id', '=','process_cut_orders.order_id')
@@ -34,16 +37,20 @@ class DashboardController extends Controller
         //            )
         //            ->groupBy('orders.id')
         //            ->get();
-        $data_dashboard_order_semi_product = DB::table('orders')
+        $query = DB::table('orders')
             ->join('semi_products', 'semi_products.order_id', '=', 'orders.id')
             ->select(
                 'orders.id',
                 'semi_products.product_id',
                 DB::raw('SUM(semi_products.amount) as total_amount_product')
-            )
-            ->groupBy('orders.id', 'semi_products.product_id')
+            );
+        if ($order_id) {
+            $query->where('semi_products.order_id', $order_id);
+        }
+        $data_dashboard_order_semi_product = $query->groupBy('orders.id', 'semi_products.product_id')
             ->get()
             ->toArray();
+
         //        $data_dashboard_order = Order::query()
         //            ->join('semi_products', 'semi_products.order_id', '=', 'orders.id')
         //            ->join('process_cut_orders', 'process_cut_orders.order_id', '=', 'orders.id')
@@ -73,6 +80,7 @@ class DashboardController extends Controller
                                 $value_res['total_product_done'] = 0;
                                 $value_res['percent'] = 0;
                             }
+                            $value_res['product_code'] = Product::getInfoProduct($value3['id'])->code;
                             $value_res['amount'] = $value3['amount'];
                             $data_dashboard_order_res[] =  $value_res;
                         }
@@ -84,17 +92,26 @@ class DashboardController extends Controller
                 $value_res['percent'] = 0;
                 $data_dashboard_order_res[] =  $value_res;
             }
-
-
         }
         $data_dashboard_order_res = json_encode($data_dashboard_order_res, true);
-        $date_work_query = $request->get('month_work');
-        $firstMonth = $date_work_query ? Carbon::parse($date_work_query)->firstOfMonth() : Carbon::now()->firstOfMonth();
-        $lastMonth = $date_work_query ? Carbon::parse($date_work_query)->lastOfMonth() : Carbon::now()->lastOfMonth();
+        $date_work_query = $request->get('date_work');
+        $hour = Carbon::now()->timezone(7)->hour;
+        if ($hour < 19) {
+            $date_work = Carbon::parse($date_work_query ?? '')->subDays(1);
+        } else {
+            $date_work = Carbon::parse($date_work_query ?? '');
+        }
+
+        $isSunday = Carbon::parse($date_work)->isSunday();
+
+        if ($isSunday)  {
+            $date_work = Carbon::parse($date_work ?? '')->subDays(1);
+        }
+
         $quantity_data_res = WorkQuantity::query()
             ->join('users', 'users.id', '=', 'work_quantities.user_id')
             ->leftJoin('product_steps', 'product_steps.id', '=', 'work_quantities.product_step_id')
-            ->whereBetween('date_work', [$firstMonth, $lastMonth])
+            ->whereDate('date_work', $date_work)
             ->select(
                 'work_quantities.user_id',
                 'users.full_name',
@@ -109,12 +126,12 @@ class DashboardController extends Controller
             )
             ->orderBy('total_user_quantity', 'desc')
             ->orderBy('total_user_salary', 'desc')
-            ->limit(6)
+            ->limit(10)
             ->get()
             ->toArray();
         $quantity_data_res = json_encode($quantity_data_res, true);
 
-        return view('admin.dashboard.index', compact('data_dashboard_order_res', 'quantity_data_res', 'data_month'));
+        return view('admin.dashboard.index', compact('data_dashboard_order_res', 'quantity_data_res', 'data_month', 'orders'));
     }
 
     public function dataDashboard()

@@ -14,6 +14,8 @@ class ConfigCutDiagram extends Model
         'code',
         'order_id',
         'product_id',
+        'sub_product_id',
+        'sub_quantity',
         'quantity',
         'layer',
         'long',

@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('css')
+    <link href="{{ URL::asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="{{ URL::asset('assets/plugins/morris/morris.css')}}">
 @endsection
@@ -33,6 +35,15 @@
                                 <div class="card-body">
                                     <div class="top-chart d-flex justify-content-between">
                                         <h4 class="mt-0 header-title">Tình trạng đơn hàng</h4>
+                                        <form action="{{ route('admin.dashboard')  }}" class="row d-flex justify-content-end" method="GET" style="width: 30%">
+                                            <select id="select-chart-user-data" name="order_id" class="form-control mr-2" style="width: 50%">
+                                                <option value="">All</option>
+                                                @foreach($orders as $order)
+                                                    <option value="{{$order['id']}}" {{ request()->get('order_id') == $order['id'] ? 'selected'  : '' }}>{{ $order['name']  }}</option>
+                                                @endforeach
+                                            </select>
+                                            <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
+                                        </form>
                                     </div>
                                     {{--                                    <ul class="list-inline widget-chart m-t-20 m-b-15 text-center">--}}
                                     {{--                                        <li class="list-inline-item">--}}
@@ -56,11 +67,14 @@
                                     <div class="top-chart d-flex justify-content-between">
                                         <h4 class="mt-0 header-title">Top sản lượng</h4>
                                         <form action="{{ route('admin.dashboard')  }}" class="row d-flex justify-content-end" method="GET" style="width: 30%">
-                                            <select id="select-chart-user-data" name="month_work" class="form-control mr-2" style="width: 50%">
-                                                @foreach($data_month as $month)
-                                                    <option value="{{$month}}" {{ request()->get('month_work') == $month ? 'selected'  : '' }}>{{ \Illuminate\Support\Carbon::parse($month)->format('m/Y')  }}</option>
-                                                @endforeach
-                                            </select>
+                                            <div class="mr-2">
+                                                <div class="input-group">
+                                                    <input type="text" value="{{ request()->get('date_work') }}" data-date-format="dd-mm-yyyy" name="date_work" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
                                         </form>
                                     </div>
@@ -108,6 +122,9 @@
     </div> <!-- container-fluid -->
 @endsection
 @section('script')
+    <script src="{{ URL::asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
+    <script src="{{ URL::asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+    <script src="{{ URL::asset('assets/pages/form-advanced.js')}}"></script>
     <!--Morris Chart-->
     <script src="{{ URL::asset('assets/plugins/morris/morris.min.js')}}"></script>
     <script src="{{ URL::asset('assets/plugins/raphael/raphael-min.js')}}"></script>

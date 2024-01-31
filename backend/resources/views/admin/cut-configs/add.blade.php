@@ -51,7 +51,7 @@
                                     <table class="table table-light table-bordered mb-0">
                                         <thead>
                                         <tr>
-                                            <th class="d-none">STT</th>
+                                            <th class="">Tên</th>
 {{--                                            <th style="white-space: nowrap" class="d-flex justify-content-between align-items-center">--}}
 {{--                                                <p>Chọn sản phẩm theo đơn hàng</p>--}}
 {{--                                                <span class="badge badge-secondary">2000</span>--}}
@@ -67,22 +67,28 @@
                                         </thead>
                                         <tbody class="area-order-detail">
                                         <tr id="1-detail-order-input" class="detail-order-input">
-                                            <th class="stt d-none">
-                                                1
+                                            <th class="stt">
+                                                <span>SD1</span>
+                                                <button type="button" id="add_more_product_1" class="btn btn-success mt-2"><i class="fas fa-plus"></i></button>
                                             </th>
-                                            <th style="width: 30%;">
-                                                <select class="js-example-basic-multiple" id="order_select"  name="order_product">
-                                                    @foreach($orders as $key => $order)
-                                                        <optgroup label="{{ $order['name']  }}">
-                                                            @foreach($order['detail_product'] as $item)
-                                                                <option value="{{ $order['id'] . '_' . $item['id'] }}">{{ '('. $order['name'] . '-' .  $item['amount'] . ')' . ' - ' .  $item['name'] . ' - ' .  $item['part_number'] . ' - ' .  $item['size']}}</option>
-                                                            @endforeach
-                                                        </optgroup>
-                                                    @endforeach
-                                                </select>
+                                            <th style="width: 45%" id="product_select">
+                                                <div class="d-flex" id="product_select_item" style="width: 100%;">
+                                                    <select class="form-control" id="order_select"  name="order_product[]">
+                                                        @foreach($orders as $key => $order)
+                                                            <optgroup label="{{ $order['name']  }}">
+                                                                @foreach($order['detail_product'] as $item)
+                                                                    <option value="{{ $order['id'] . '_' . $item['id'] }}">{{ '('. $order['name'] . '-' .  $item['amount'] . ')' . ' - ' .  $item['name'] . ' - ' .  $item['part_number'] . ' - ' .  $item['size']}}</option>
+                                                                @endforeach
+                                                            </optgroup>
+                                                        @endforeach
+                                                    </select>
+                                                    <button type="button" class="btn btn-danger btn-remove-product-item ml-2" data-id="0">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
                                             </th>
-                                            <th>
-                                                <input type="text" name="quantity" value="{{ old('quantity') }}" class="form-control" required placeholder="Nhập số lượng"/>
+                                            <th id="quantity_select">
+                                                <input type="text" id="quantity_product" name="quantity_item" value="{{ old('quantity_item') }}" class="form-control" required placeholder="Nhập số lượng"/>
                                             </th>
                                             <th>
                                                 <input type="text" name="layer" value="{{ old('layer') }}" class="form-control" required placeholder="Nhập số lớp"/>
@@ -226,18 +232,70 @@
                 newtEle.find('.remove-item').attr('id', 'btn-remove-' + nextNumber);
                 newtEle.clone().prependTo('.area-order-detail');
             });
+            let count = 1;
+            function getDataOrderSelect() {
+                let dataOrderSelect = [];
+                for (let i = 0; i < count; i++) {
+                    let key = i === 0 ? '#order_select' : ('#order_select_' + i);
+                    dataOrderSelect.push($(key).val());
+                }
+                return dataOrderSelect;
+            }
+
+            function getDataQuantity() {
+                let dataOrderSelect = [];
+                for (let i = 0; i < count; i++) {
+                    let key = i === 0 ? '#quantity_product' : ('#quantity_product_' + i);
+                    dataOrderSelect.push($(key).val());
+                }
+                return dataOrderSelect;
+            }
+
+            $('#add_more_product_1').on('click', function (e) {
+                let item = $('#product_select_item')
+                    .clone(true, true);
+                item.find('button').attr('data-id',count);
+                item.find('select').attr('id', 'order_select_' + count);
+                item.attr('id', 'product_select_item_' + count)
+                    .after("#product_select_item")
+                    .addClass('d-flex')
+                    .appendTo('#product_select')
+                    .css("margin-top", "10px");
+
+                $('#quantity_product')
+                    .clone()
+                    .attr('id', 'quantity_product_' + count)
+                    .attr('name', 'quantity_item_' + count)
+                    .after("#order_select")
+                    .appendTo('#quantity_select')
+                    .css("margin-top", "10px");
+                count++;
+            });
+
+            $('.btn-remove-product-item').on('click', function (e) {
+                let id =  $(this).attr('data-id');
+                let key_query = id == '0' ? '#product_select_item' : ('#product_select_item_' + id)
+                let key_query_2 = id == '0' ? '#quantity_product' : ('#quantity_product_' + id)
+                $(key_query).remove();
+                $(key_query_2).remove();
+            })
 
             $('#process-and-add-data').on('click', function (e) {
                 $('#icon-process-loading').removeClass('d-none')
                 $(this).text('Đang phân tích . . .')
+                getDataOrderSelect()
                 let data = {
-                    order_product : $('#order_select').val(),
-                    quantity : $("input[name=quantity]").val(),
+                    order_product : getDataOrderSelect(),
+                    // quantity : $('input[name="quantity[]"]').map(function () {
+                    //     return this.value;
+                    // }).get(),
+                    quantity : getDataQuantity(),
                     layer : $("input[name=layer]").val(),
                     long : $("input[name=long]").val(),
                     name : $("input[name=name]").val(),
                     code : $("input[name=code]").val(),
                 }
+                console.log({data});
                 $.ajax({
                     url: "{{route('admin.cut_configs.process')}}",
                     type: "POST",

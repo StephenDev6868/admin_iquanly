@@ -39,7 +39,13 @@ class ConfigCutDiagramController extends Controller
      */
     public function listProcess(Request $request)
     {
-        $datas = ProcessCutOrder::query()->orderBy('id', 'desc')->paginate(6);
+        $datas = ProcessCutOrder::query();
+        $key_word = $request->get('key_word');
+        if ($key_word) {
+            $datas->join('orders', 'orders.id', '=', 'process_cut_orders.order_id')
+                ->where('orders.name', 'like', '%'. $key_word . '%');
+        }
+        $datas = $datas->orderBy('process_cut_orders.id', 'desc')->paginate(6);
         $users = User::query()->where('board_id', 2)->get();
         return view('admin.process-cut-orders.index', compact('datas', 'users'));
     }
@@ -235,6 +241,22 @@ class ConfigCutDiagramController extends Controller
         return view('admin.cut-configs.add', compact('orders', 'sizes', 'materials'));
     }
 
+    protected function handleOrderProductId($input_order_products)
+    {
+        $res = [];
+        $orders= [];
+        foreach (array_filter($input_order_products) as $value) {
+            $item_value = explode('_', $value ?? []) ;
+            $res['order_id'] = $item_value[0] ?? '';
+            $res['product_ids'][] = $item_value[1] ?? '';
+            $orders[] = $item_value[0] ?? '';
+        }
+        if (count(array_unique($orders)) > 1) {
+            return false;
+        }
+        return $res;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -243,23 +265,35 @@ class ConfigCutDiagramController extends Controller
     public function process(Request $request)
     {
         $inputs = $request->all();
-        $order_product = explode('_', $inputs['order_product'] ?? []) ;
-        $inputs['order_id'] = $order_product[0] ?? '';
-        $inputs['product_id'] = $order_product[1] ?? '';
-
+        $resData = $this->handleOrderProductId($inputs['order_product'] ?? []);
+        if (!$resData) {
+            return response()->json(
+                [
+                    'status' => 'error',
+                    'msg'    => 'Vui lòng chọn sản phẩm trong cùng 1 đơn hàng'
+                ],
+                400
+            );
+        }
+        $inputs['order_id'] = $resData['order_id'] ?? '';
+        $inputs['product_id'] = $resData['product_ids'] ?? '';
+        $inputs['quantity'] = array_reduce($inputs['quantity'], function ($carry, $item) {
+            return (int) $carry + (int) $item;
+        });
+        //
         $orderProductInfo = Order::query()
             ->where('id', $inputs['order_id'])
             ->first();
 
+        //
         $productInfo = Product::query()
-            ->select('id', 'materials')
-            ->where('id', $inputs['product_id'])
-            ->first();
-
-        $productInfoIds = array_map(function ($item) {
+            ->select('materials')
+            ->whereIn('id', $inputs['product_id'])
+            ->get()->toArray();
+        $productInfo = collect($productInfo)->flatten(2)->values()->all();
+        $productInfoIds = array_unique(array_map(function ($item) {
             return (int) $item['id'];
-        }, $productInfo->materials);
-
+        }, $productInfo));
         $material = Material::query()
             ->whereIn('id', $productInfoIds)
             ->where('name', 'like', '%' . 'VẢI ' . '%')
@@ -273,13 +307,15 @@ class ConfigCutDiagramController extends Controller
         $num_quota_material = (int) $material->num_quota ?? 1;
 
         $inputs['long'] = str_replace(',', '.', $inputs['long']);
-        $amount = array_filter($orderProductInfo->detail_product, function ($item) use ($inputs) {
-             if ($item['id'] == $inputs['product_id']) {
-                 return $item;
+        $amount = array_reduce($orderProductInfo->detail_product, function ($carry, $item) use ($inputs) {
+             if (in_array($item['id'], $inputs['product_id'])) {
+                 return (int) $carry + (int) $item['amount'];
              }
+            return (int) $carry;
         });
-        $key = array_keys($amount)[0] ?? '0';
-        $amount = (int) Arr::get($amount, $key .'.amount');
+
+        //$key = array_keys($amount)[0] ?? '0';
+        //$amount = (int) Arr::get($amount, $key .'.amount');
         $nameOrder = $orderProductInfo->name;
         $totalLayer = ceil($amount / (int) $inputs['quantity']);
         $totalNguyenSd = (int) floor($totalLayer / (int) $inputs['layer']);
@@ -300,7 +336,7 @@ class ConfigCutDiagramController extends Controller
         $data[] = [
             'totalNguyenSd' => $totalNguyenSd,
             'totalLayer'    => $totalLayer,
-            'totalKg'      => $totalKg,
+            'totalKg'      => round($totalKg, 2),
             'name_order'    => $nameOrder,
             'material_id'   => $material->getKey(),
             'material_code'   => $material->code,
@@ -309,7 +345,7 @@ class ConfigCutDiagramController extends Controller
             $data[] = [
                 'totalNguyenSd' => 1,
                 'totalLayer'    => $totalLeSd,
-                'totalKg'      => round($totalKgLe, 3),
+                'totalKg'      => round($totalKgLe, 2),
                 'name_order'    => $nameOrder,
                 'material_id'   => $material->getKey(),
                 'material_code'   => $material->code,
@@ -330,18 +366,25 @@ class ConfigCutDiagramController extends Controller
     public function store(Request $request)
     {
         $inputs = $request->input();
+        $quantities = [];
+        foreach ($inputs as $key => $value) {
+            if (str_contains($key, 'quantity_item')) {
+                $quantities[] = $value;
+            }
+        }
         $inputs['long'] = str_replace(',', '.', $inputs['long']);
-        $order_product = explode('_', $inputs['order_product'] ?? []) ;
-        $inputs['order_id'] = $order_product[0] ?? '';
-        $inputs['product_id'] = $order_product[1] ?? '';
+        $resData = $this->handleOrderProductId($inputs['order_product'] ?? []);
+        $inputs['order_id'] = $resData['order_id'] ?? '';
+        $product_ids = $resData['product_ids'] ?? '';
+
         unset($inputs['order_product']);
 
         $validator = Validator::make($inputs, [
             'name' => 'Required|max:255',
             'code' => 'Required|max:255',
             'order_id' => 'Required|numeric',
-            'product_id' => 'Required|numeric',
-            'quantity' => 'Required|numeric',
+            //'product_id' => 'Required|numeric',
+            'quantity_item' => 'Required',
             'layer' => 'Required|numeric',
             'long' => 'Required',
         ]);
@@ -367,8 +410,19 @@ class ConfigCutDiagramController extends Controller
                 'material-2' => $inputs['material-2'],
             ],
         ];
-
+        $quantities_for_process_worker = $quantities;
+        $inputs['product_id'] = $product_ids[0] ?? '';
+        $inputs['quantity'] = $quantities[0] ?? '';
+        unset($product_ids[0]);
+        unset($quantities[0]);
+        $inputs['sub_product_id'] = implode(',', $product_ids ?? []) ?? '';
+        $inputs['sub_quantity'] = implode(',', $quantities ?? []) ?? '';
         $result = ConfigCutDiagram::query()->create($inputs);
+
+        // Convert quantity to add process worker (sum quantity)
+        $inputs['quantity'] = array_reduce($quantities_for_process_worker, function ($carry, $item) {
+            return (int) $carry + (int) $item;
+        });
         $this->createDataProcessCutWorker($inputs, $result->getKey());
         if ($result) {
             return Redirect::route('admin.cut_configs.list')
@@ -389,6 +443,8 @@ class ConfigCutDiagramController extends Controller
                 'config_cut_diagram_id' => $diagram_id,
                 'order_id' => $inputs['order_id'],
                 'product_id' => $inputs['product_id'],
+                'sub_product_id' => $inputs['sub_product_id'],
+                'sub_quantity' => $inputs['sub_quantity'],
                 'material_id' => $inputs['material-1'],
                 'user_id' => null,
                 'total_product' => (int) $inputs['quantity'] * (int) $inputs['layer'],
@@ -402,6 +458,8 @@ class ConfigCutDiagramController extends Controller
                 'config_cut_diagram_id' => $diagram_id,
                 'order_id' => $inputs['order_id'],
                 'product_id' => $inputs['product_id'],
+                'sub_product_id' => $inputs['sub_product_id'],
+                'sub_quantity' => $inputs['sub_quantity'],
                 'material_id' => $inputs['material-2'] ?? '',
                 'user_id' => null,
                 'total_product' => (int) $round_sd_2['layer-2'] * (int) $inputs['quantity'],
@@ -440,7 +498,15 @@ class ConfigCutDiagramController extends Controller
             'S',
         ];
         $materials = Material::all();
-        return view('admin.cut-configs.edit', compact('configCutDiagram', 'orders', 'sizes'));
+        $product_ids = array_filter(explode(',', $configCutDiagram->product_id . ',' . $configCutDiagram->sub_product_id));
+        $quantities = array_filter(explode(',',$configCutDiagram->quantity . ',' . $configCutDiagram->sub_quantity));
+        return view('admin.cut-configs.edit', compact(
+            'configCutDiagram',
+            'orders',
+            'sizes',
+            'product_ids',
+            'quantities'
+        ));
     }
 
     /**
