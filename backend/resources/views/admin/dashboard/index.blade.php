@@ -69,7 +69,7 @@
                                         <form action="{{ route('admin.dashboard')  }}" class="row d-flex justify-content-end" method="GET" style="width: 30%">
                                             <div class="mr-2">
                                                 <div class="input-group">
-                                                    <input type="text" value="{{ request()->get('date_work') }}" data-date-format="dd-mm-yyyy" name="date_work" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
+                                                    <input type="text" value="{{ request()->get('date_work') ?? \Illuminate\Support\Carbon::parse($date_work)->format('d-m-Y') }}" data-date-format="dd-mm-yyyy" name="date_work" class="form-control" placeholder="dd-mm-yyyy" id="datepicker">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                                     </div>

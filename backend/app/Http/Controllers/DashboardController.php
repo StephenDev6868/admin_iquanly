@@ -108,6 +108,16 @@ class DashboardController extends Controller
             $date_work = Carbon::parse($date_work ?? '')->subDays(1);
         }
 
+        $isExistsData = WorkQuantity::query()
+            ->join('users', 'users.id', '=', 'work_quantities.user_id')
+            ->leftJoin('product_steps', 'product_steps.id', '=', 'work_quantities.product_step_id')
+            ->whereDate('date_work', $date_work)
+            ->exists();
+
+        if (!$isExistsData) {
+            $date_work = Carbon::parse($date_work ?? '')->subDays(1);
+        }
+
         $quantity_data_res = WorkQuantity::query()
             ->join('users', 'users.id', '=', 'work_quantities.user_id')
             ->leftJoin('product_steps', 'product_steps.id', '=', 'work_quantities.product_step_id')
@@ -131,7 +141,7 @@ class DashboardController extends Controller
             ->toArray();
         $quantity_data_res = json_encode($quantity_data_res, true);
 
-        return view('admin.dashboard.index', compact('data_dashboard_order_res', 'quantity_data_res', 'data_month', 'orders'));
+        return view('admin.dashboard.index', compact('data_dashboard_order_res', 'quantity_data_res', 'data_month', 'orders', 'date_work'));
     }
 
     public function dataDashboard()
