@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\UserSalaryImport;
 use App\Exports\UserSalaryExport;
+use App\Models\Product;
 use App\Models\ProductStep;
 use App\Models\User;
 use App\Models\UserSalary;
@@ -64,14 +65,20 @@ class UserSalaryController extends Controller
         $month = $request->input('month_salary') ?? Carbon::now()->format('m-Y');
         $user_ids = $request->input('user_ids');
         $step_products = $request->input('steps');
+        $product_step_id = $request->input('product_step_id');
+        $product_id = $request->input('product_id');
         $users = User::query()->whereIn('board_id', [2,3,4])->get();
         $steps = ProductStep::all();
+        $products = Product::all();
         $query = WorkQuantity::query()
             ->join('product_steps', 'product_steps.id', '=', 'work_quantities.product_step_id')
+            ->join('products', 'products.id', '=', 'product_steps.product_id')
             ->join('users', 'users.id', '=', 'work_quantities.user_id')
             ->select([
                 'users.id as user_id',
                 'users.full_name as userFullName',
+                'products.name as productName',
+                'products.code as productCode',
                 'product_steps.id as productStepId',
                 'product_steps.name as productStepName',
                 'product_steps.unit_price as unitPrice',
@@ -85,6 +92,14 @@ class UserSalaryController extends Controller
 
         if (is_array($step_products) && count($step_products) > 0) {
             $query->whereIn('work_quantities.product_step_id', $step_products);
+        }
+
+        if ($product_id) {
+            $query->where('work_quantities.product_id', $product_id);
+        }
+
+        if ($product_step_id) {
+            $query->where('work_quantities.product_step_id', $product_step_id);
         }
 
 
@@ -111,6 +126,8 @@ class UserSalaryController extends Controller
                     $salaries[$data['productStepId']] = [
                         'sumSalaryProduct' =>  $data['unitPrice'] * $data['quantity'] * $data['coefficient'],
                         'sumQuantityProduct' =>  $data['quantity'],
+                        'product_name' => $data['productName'],
+                        'product_code' => $data['productCode'],
                         'step_name' => $data['productStepName'],
                         'coefficient' => $data['coefficient'],
                         'unitPrice' => $data['unitPrice'],
@@ -145,6 +162,8 @@ class UserSalaryController extends Controller
                     ];
                     $salaries[$data['user_id']]['productStepInfo'][] = [
                         'step_name' => $data['productStepName'],
+                        'product_name' => $data['productName'],
+                        'product_code' => $data['productCode'],
                         'quantity' => $data['quantity'],
                         'dateWork' => $data['dateWork'],
                         'coefficient' => $data['coefficient'],
@@ -154,6 +173,8 @@ class UserSalaryController extends Controller
                 } else {
                     $salaries[$data['user_id']]['productStepInfo'][] = [
                         'step_name' => $data['productStepName'],
+                        'product_name' => $data['productName'],
+                        'product_code' => $data['productCode'],
                         'quantity' => $data['quantity'],
                         'dateWork' => $data['dateWork'],
                         'coefficient' => $data['coefficient'],
@@ -164,7 +185,7 @@ class UserSalaryController extends Controller
                 }
             }
         }
-        return view('admin.salary.list-salary-product', compact('salaries', 'users', 'steps', 'type'));
+        return view('admin.salary.list-salary-product', compact('salaries', 'users', 'steps', 'type', 'products'));
     }
 
     /**

@@ -30,6 +30,25 @@
                     <div class="card-body">
                         <h4 class="mt-0 header-title">Tìm kiếm</h4>
                         <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Tên và mã sản phẩm</label>
+                            <select name="product_id" id="product_id_select" class="form-control col-sm-12">
+                                <option value="">Tất cả</option>
+                                @foreach($products as $key => $product)
+                                    <option {{ request()->query('product_id') == $product->getKey() ? 'selected' : '' }} value="{{ $product->getKey() }}">{{ $product->name . ' - ' . $product->code . ($product->part_number ? ' - ' . $product->part_number : '') . '-' .$product->size }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Tên Công đoạn</label>
+                            <select name="product_step_id" id="product_step_id_select" class="js-example-basic-multiple form-control col-sm-12">
+                                <option value="">Tất cả</option>
+                                @foreach($steps as $key => $productStep)
+                                    <option {{ request()->query('productStep') == $productStep->getKey() ? 'selected' : '' }} value="{{ $productStep->getKey() }}">{{ $productStep->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Lương sản phẩm tháng</label>
                             <div class="input-group">
                                 <input type="text" value="{{ request()->query('month_salary') ?? \Carbon\Carbon::now()->format('m-Y') }}" data-date-format="mm-yyyy" name="month_salary" class="form-control" placeholder="dd-yyyy" id="datepicker-autoclose">
@@ -203,6 +222,7 @@
                                                                 <thead>
                                                                 <tr>
                                                                     <th nowrap="true">Tên công đoạn</th>
+                                                                    <th nowrap="true">Thuộc sản phẩm</th>
                                                                     <th nowrap="true">Ngày làm việc </th>
                                                                     <th nowrap="true">Sản lượng</th>
                                                                     <th nowrap="true">Đơn giá</th>
@@ -214,11 +234,12 @@
                                                                 @foreach($salary['productStepInfo'] as $item)
                                                                     <tr>
                                                                         <td>{{ $item['step_name'] }}</td>
+                                                                        <td>{{ $item['product_name'] . '-' . $item['product_code'] }}</td>
                                                                         <td>{{ $item['dateWork'] }}</td>
                                                                         <td>{{ $item['quantity'] }}</td>
                                                                         <td>{{ $item['unitPrice'] }}</td>
                                                                         <td>{{ $item['coefficient'] }}</td>
-                                                                        <td>{{ number_format($item['salary_one_day']) }} <b>VND</b></td>
+                                                                        <td style="white-space: nowrap">{{ number_format($item['salary_one_day']) }} <b>VND</b></td>
                                                                     </tr>
                                                                 @endforeach
                                                                 </tbody>
@@ -291,6 +312,44 @@
                 $('#js-example-basic-multiple-2').select2();
             }
 
+            $('#product_id_select').on('change', function (e) {
+                var product_id = $(this).val();
+                console.log({product_id});
+                let data  = {
+                    product_id,
+                };
+                $.ajax({
+                    url: "{{route('admin.productSteps.listSelect')}}",
+                    type: "GET",
+                    headers: {
+                        'X-CSRF-TOKEN': "{{csrf_token()}}",
+                    },
+                    data: data,
+                    success: function (data) {
+                        $('#product_step_id_select').find('option').remove()
+                        $('#product_step_id_select').append($('<option>', {
+                            value: '',
+                            text : 'Tất cả'
+                        }))
+                        data.forEach((item) => {
+                            $('#product_step_id_select').append($('<option>', {
+                                value: item.id,
+                                text : item.name
+                            }))
+                        })
+                    },
+                    error: function (error) {
+                        const {responseJSON, msg} = error;
+                        Toastify({
+                            text: responseJSON['msg'] + ' cho bàn ' + posId,
+                            className: "danger",
+                            style: {
+                                background: "linear-gradient(to right, red, red)",
+                            }
+                        }).showToast();
+                    }
+                });
+            })
 
             $('form').parsley();
 
