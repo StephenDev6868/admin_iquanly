@@ -29,7 +29,7 @@ class UserStaffController extends Controller
 
         $users = User::query()
             ->select(['users.*', 'roles.id as tb_role_id'])
-            ->join('roles', 'roles.id', '=', 'users.role_id');
+            ->leftJoin('roles', 'roles.id', '=', 'users.role_id');
             //->latest();
 
         $roles = Role::query()->select(['id', 'name'])->get()->toArray();
