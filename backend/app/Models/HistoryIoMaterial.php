@@ -15,6 +15,9 @@ class HistoryIoMaterial extends Model
         'process_cut_order_id',
         'creator_id',
         'wmaterial_id',
+        'object_id',
+        'description',
+        'date_io',
         'type',
         'amount',
     ];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Board;
 use App\Models\HistoryIoMaterial;
 use App\Models\Material;
 use App\Models\Supplier;
@@ -35,8 +36,11 @@ class WMaterialController extends Controller
             $query->where('date_added', Carbon::parse($inputs['date_added'])->format('Y-m-d'));
         }
         if (isset($inputs['key_word']) && $inputs['key_word']) {
-            //$query->where('material_id', $inputs['material_id']);
+            $query->join('materials', 'materials.id', '=', 'w_materials.material_id')
+                ->where('materials.name', 'like', '%' . $inputs['key_word'] . '%')
+                ->orWhere('materials.code', 'like', '%' . $inputs['key_word'] . '%');
         }
+        $query->select(['w_materials.id as id', 'w_materials.material_id', 'w_materials.quantity_input', 'w_materials.quantity_contain', 'w_materials.date_added']);
         $datas = $query->paginate(10);
         return view('admin.wmaterial.list', compact('datas', 'materials', 'suppliers'));
     }
@@ -65,7 +69,7 @@ class WMaterialController extends Controller
         $inputs = $request->all();
         $validator =  Validator::make($inputs, [
             'material_id' => 'required|exists:materials,id',
-            'supplier_id' => 'required|exists:suppliers,id',
+            'supplier_id' => 'nullable|exists:suppliers,id',
             'quantity_input' => 'required',
             'date_added' => 'required',
         ]);
@@ -95,9 +99,10 @@ class WMaterialController extends Controller
         $wMaterial->date_added = Carbon::parse($wMaterial->date_added)->format('d-m-Y');
         $materials = Material::all();
         $suppliers = Supplier::all();
+        $boards = Board::all();
         $historyIOs = HistoryIoMaterial::query()->where('wmaterial_id', $wMaterial->getKey())->get();
         //dd($materials, $suppliers, $wMaterial);
-        return view('admin.wmaterial.edit', compact('wMaterial', 'materials', 'suppliers', 'historyIOs'));
+        return view('admin.wmaterial.edit', compact('wMaterial', 'materials', 'suppliers', 'historyIOs', 'boards'));
     }
 
     /**
@@ -120,34 +125,61 @@ class WMaterialController extends Controller
      */
     public function update(Request $request, WMaterial $wMaterial)
     {
-        $inputs = $request->all();
+        $inputs = $request->only(['material_id', 'alert_amount']);
+
         $validator =  Validator::make($inputs, [
             'material_id' => 'required|exists:materials,id',
-            'supplier_id' => 'required|exists:suppliers,id',
-            //'quantity_input' => 'required|gt:quantity_use',
-            'quantity_input' => 'required',
-            'quantity_use' => 'required',
-            'date_added' => 'required',
+            'alert_amount' => 'nullable',
         ]);
-        if((float) $inputs['quantity_use'] > (float) $inputs['quantity_input']) {
-            return Redirect::back()
-                ->withInput()
-                ->with('error', 'Số lượng nhập phải lớn hơn số lượng sử dụng');
-        }
-        $inputs['quantity_input'] = str_replace(',', '.', $inputs['quantity_input']);
-        $inputs['quantity_use'] = str_replace(',', '.', $inputs['quantity_use']);
-        $inputs['date_added'] = Carbon::parse($inputs['date_added'])->format('Y-m-d');
-        $inputs['quantity_contain'] =(float) ((float) $inputs['quantity_input'] ?? 0) - ((float) $inputs['quantity_use'] ?? 0);
-        $inputs['quantity_contain'] =  str_replace('.', ',', $inputs['quantity_contain']);
         if ($validator->fails()) {
             return Redirect::back()
                 ->withInput()
                 ->with('error', $validator->errors()->first());
         }
+
         $result = $wMaterial->update($inputs);
 
         if ($result) {
             return Redirect::route('admin.wMaterials.list')
+                ->with('success', 'Cập nhập nguyên liệu thành công');
+        }
+    }
+
+    public function updateWmaterial(Request $request, WMaterial $wMaterial)
+    {
+        $inputs = $request->all();
+        $validator =  Validator::make($inputs, [
+            'material_id' => 'required|exists:materials,id',
+            'quantity_io' => 'required',
+            'object_id' => 'required',
+            'date_io' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return Redirect::back()
+                ->withInput()
+                ->with('error', $validator->errors()->first());
+        }
+        $inputs['quantity_input'] = str_replace(',', '.', $inputs['quantity_io'] ?? 0);
+        $inputs['date_added'] = Carbon::parse($inputs['date_io'])->format('Y-m-d');
+        if ($inputs['type'] == 1) {
+            $inputs['quantity_contain'] =  $wMaterial->quantity_contain + (int) $inputs['quantity_input'];
+        } else {
+            $inputs['quantity_contain'] =  $wMaterial->quantity_contain - (int) $inputs['quantity_input'];
+        }
+        $inputs['in_charge_user'] = auth('user')->user()->id;
+        $dataHiIo = [
+            "creator_id" => auth('user')->user()->id,
+            "object_id" => $inputs['object_id'],
+            "description" => $inputs['description'],
+            "wmaterial_id" => $wMaterial->getKey(),
+            "type" => $inputs['type'],
+            "amount" => $inputs['quantity_input'],
+        ];
+        if (isset($inputs['quantity_io'])) HistoryIoMaterial::query()->create($dataHiIo);
+        $result = $wMaterial->update($inputs);
+
+        if ($result) {
+            return Redirect::route('admin.wMaterials.show', ['wMaterial' => $wMaterial->getKey()])
                 ->with('success', 'Cập nhập nguyên liệu thành công');
         }
     }

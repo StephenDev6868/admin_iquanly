@@ -17,6 +17,7 @@ class WMaterial extends Model
         'quantity_input',
         'quantity_contain',
         'quantity_use',
+        'alert_amount',
         'date_added',
     ];
 

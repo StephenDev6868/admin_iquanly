@@ -90,7 +90,7 @@
                             <thead>
                             <tr>
                                 <th nowrap="true">STT</th>
-                                <th nowrap="true">Tên nhà cung cấp</th>
+                                <th nowrap="true">ID</th>
                                 <th nowrap="true">Tên nguyên vật liệu</th>
                                 <th nowrap="true">Mã nguyên vật liệu</th>
                                 <th nowrap="true">Đơn vị</th>
@@ -106,7 +106,7 @@
                             @foreach($datas as $key => $data)
                                 <tr>
                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td>{{ optional($data)->supplier($data->supplier_id)->name }}</td>
+                                    <th scope="row">{{ $data->id }}</th>
                                     <td>{{ optional($data)->parentMaterial($data->material_id)->name }}</td>
                                     <td>{{ optional($data)->parentMaterial($data->material_id)->code }}</td>
                                     <td class="text-center">{{ ' (' . optional($data)->parentMaterial($data->material_id)->unit . ') ' }}</td>
@@ -114,10 +114,10 @@
                                     <td>{{ optional($data)->quantity_contain ?? '0' }}</td>
                                     <td>{{ optional($data)->date_added }}</td>
                                     <td class="d-flex">
-                                        <a href="{{ route('admin.wMaterials.show', ['wMaterial' => $data->getKey()])  }}" class="btn btn-success mr-2">
+                                        <a href="{{ route('admin.wMaterials.show', ['wMaterial' => $data->id])  }}" class="btn btn-success mr-2">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <form method="post" action="{{ route('admin.wMaterials.delete', $data->getKey()) }}" onsubmit="return confirm('@lang('Confirm delete?')');">
+                                        <form method="post" action="{{ route('admin.wMaterials.delete', $data->id) }}" onsubmit="return confirm('@lang('Confirm delete?')');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger waves-effect waves-light">

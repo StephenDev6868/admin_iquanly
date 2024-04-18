@@ -142,6 +142,7 @@ Route::prefix('admin')->group(function () {
             Route::post('/create', [\App\Http\Controllers\WMaterialController::class, 'store'])->name('admin.wMaterials.doCreate');
             Route::get('/show/{wMaterial}', [\App\Http\Controllers\WMaterialController::class, 'show'])->name('admin.wMaterials.show');
             Route::put('/update/{wMaterial}', [\App\Http\Controllers\WMaterialController::class, 'update'])->name('admin.wMaterials.update');
+            Route::put('/wmaterial-update/{wMaterial}', [\App\Http\Controllers\WMaterialController::class, 'updateWmaterial'])->name('admin.wMaterialsIo.update');
             Route::delete('/delete/{wMaterial}', [\App\Http\Controllers\WMaterialController::class, 'destroy'])->name('admin.wMaterials.delete');
         });
 

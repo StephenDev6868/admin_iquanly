@@ -34,14 +34,6 @@
                             @method('PUT')
                             @csrf
                             <div class="col-md-6 form-group">
-                                <label>Nhà cung cấp </label>
-                                <select name="supplier_id" id="" class="form-control">
-                                    @foreach($suppliers as $key => $data)
-                                        <option value="{{ $data->getKey() }}" {{ $data->getKey() == $wMaterial->supplier_id ? 'selected' : '' }}>{{ $data->name . ' - ' . $data->code }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-6 form-group">
                                 <label>Tên và mã nguyên vật liệu </label>
                                 <select name="material_id" id="" class="form-control">
                                     @foreach($materials as $key => $data)
@@ -50,35 +42,38 @@
                                 </select>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Số lượng nhập </label>
-                                <input type="text" name="quantity_input" value="{{ $wMaterial->quantity_input ??  old('quantity_input') }}" class="form-control" required placeholder="Nhập Số lượng  "/>
-                            </div>
-                            <div class="col-md-6 form-group">
                                 <label>Số lượng tồn </label>
-                                <input type="text" name="quantity_contain" disabled value="{{ $wMaterial->quantity_contain ?? old('quantity_contain') }}" class="form-control"  placeholder="Nhập Số lượng tồn "/>
+                                <input type="number" name="quantity_contain" disabled value="{{ $wMaterial->quantity_contain ?? old('quantity_contain') }}" class="form-control"  placeholder="Nhập Số lượng tồn " required/>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Số lượng sử dụng </label>
-                                <input type="text" name="quantity_use" value="{{ $wMaterial->quantity_use ?? old('quantity_use') }}" class="form-control" placeholder="Nhập Số lượng sử dụng  "/>
+                                <label>Mức cảnh báo </label>
+                                <input type="number" name="alert_amount" value="{{ $wMaterial->alert_amount ?? old('alert_amount') }}" class="form-control"  placeholder="Nhập mức cảnh báo "/>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Ngày nhập kho </label>
+                                <label>Ngày xuất/nhập kho gần  </label>
                                 <div>
                                     <div class="input-group">
-                                        <input type="text" value="{{ $wMaterial->date_added ?? old('date_added') }}" data-date-format="dd-mm-yyyy" name="date_added" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">
+                                        <input type="text" value="{{ $wMaterial->date_added ?? old('date_added') }}" disabled data-date-format="dd-mm-yyyy" name="" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">
                                         <div class="input-group-append">
                                             <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 form-group m-b-0 text-right">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                    Lưu
-                                </button>
-                                <button type="reset" class="btn btn-secondary waves-effect m-l-5">
-                                    Cancel
-                                </button>
+                            <div class="col-md-12 form-group m-b-0 d-flex justify-content-between">
+                                <div class="area-button-right">
+                                    <button type="button" class="btn btn-success waves-effect waves-light"  data-toggle="modal" data-target="#modalEditMaterial" >
+                                        Cập nhập kho
+                                    </button>
+                                </div>
+                                <div class="area-button-left">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                        Lưu
+                                    </button>
+                                    <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                                        Cancel
+                                    </button>
+                                </div>
                             </div>
                         </form>
                         <div class="area-history-io">
@@ -93,18 +88,34 @@
                                     <th nowrap="true">Xuất/nhập</th>
                                     <th nowrap="true">Số lượng</th>
                                     <th nowrap="true">Ngày xuất nhập</th>
+                                    <th nowrap="true">Ghi chú</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($historyIOs as $key => $data)
                                     <tr>
                                         <th scope="row">{{ $loop->index + 1 }}</th>
-                                        <td>{{ 'TỔ CẮT' }}</td>
+                                        @if($data->type == '1')
+                                            <td>{{ \App\Models\Supplier::find($data['object_id'])->name  }}</td>
+                                        @else
+                                            <td>{{ \App\Models\Board::find($data['object_id'])->name  }}</td>
+                                        @endif
+
                                         <td>
-                                            <b>{{ optional($data)->type == '1' ? 'XUẤT' : 'NHẬP' }}</b>
+                                            @if(optional($data)->type == '1')
+                                                <div class="text-success">
+                                                    <i class="fas fa-arrow-circle-left"></i> <b>NHẬP</b>
+                                                </div>
+
+                                            @else
+                                                <div class="text-danger">
+                                                    <b>XUẤT</b> <i class="fas fa-arrow-circle-right"></i>
+                                                </div>
+                                            @endif
                                         </td>
                                         <td>{{ optional($data)->amount }}</td>
                                         <td>{{ \Illuminate\Support\Carbon::parse(optional($data)->created_at)->timezone(7)->format('h:i:s m-d-Y') }}</td>
+                                        <td style="width: 10% !important;"> {!! optional($data)->description !!} </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -115,6 +126,83 @@
             </div> <!-- end col -->
         </div>
         <!-- end row -->
+
+        <div class="modal fade bd-example-modal-lg" id="modalEditMaterial" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <form class="modal-content" action="{{ route('admin.wMaterialsIo.update', ['wMaterial' => $wMaterial->getKey() ]) }}" method="POST" enctype="multipart/form-data">
+                    @method('PUT')
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Thônng tin nguyên liệu</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body row">
+                        <input type="hidden" name="material_id" value="{{$wMaterial->material_id}}">
+                        <div class="col-md-3 form-group">
+                            <label>Chọn :</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="type" id="exampleRadios1" value="1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Nhập nguyên liệu
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="2">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Xuất nguyên liệu
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-9 form-group">
+                            <label class="title-input-io">Số lượng nhập </label>
+                            <input type="number" name="quantity_io" class="form-control"  placeholder=""/>
+                        </div>
+
+                        <div class="col-md-11 form-group" id="supplier-select">
+                            <label>Từ nhà cung cấp </label>
+                            <select name="object_id" id="" class="form-control">
+                                @foreach($suppliers as $key => $data)
+                                    <option value="{{ $data->getKey() }}" {{ $data->getKey() == $wMaterial->supplier_id ? 'selected' : '' }}>{{ $data->name . ' - ' . $data->code }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col-md-11 form-group" id="board-select">
+                            <label>Đến phòng ban </label>
+                            <select name="object_id" id="" class="form-control">
+                                @foreach($boards as $key => $data)
+                                    <option value="{{ $data->getKey() }}">{{ $data->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 form-group">
+                            <label>Ngày xuất/nhập kho </label>
+                            <div>
+                                <div class="input-group">
+                                    <input type="text" value="{{ $wMaterial->date_added ?? old('date_added') }}" data-date-format="dd-mm-yyyy" name="date_io" class="form-control" placeholder="dd-mm-yyyy" id="datepicker-autoclose">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 form-group mt-3">
+                            <label>NOTE</label>
+                            <textarea id="elm2" name="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">
+                            Lưu
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
     </div> <!-- container-fluid -->
 @endsection
@@ -142,11 +230,11 @@
             $('.js-example-basic-multiple').select2();
             $('form').parsley();
 
-            if($("#elm1").length > 0){
+            if($("#elm2").length > 0){
                 tinymce.init({
-                    selector: "textarea#elm1",
+                    selector: "textarea#elm2",
                     theme: "modern",
-                    height: 500,
+                    height: 200,
                     plugins: [
                         "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
                         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
@@ -164,6 +252,18 @@
                     ]
                 });
             }
+            $('#board-select').hide();
+            $('input[type=radio]').change(function (event) {
+                if (event.target.value == 1) {
+                    $('#supplier-select').show();
+                    $('#board-select').hide();
+                    $('.title-input-io').text('Số lượng nhập');
+                } else {
+                    $('#supplier-select').hide();
+                    $('#board-select').show();
+                    $('.title-input-io').text('Số lượng xuất')
+                }
+            })
         });
     </script>
 @endsection

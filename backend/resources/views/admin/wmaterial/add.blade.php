@@ -33,14 +33,14 @@
                         <form class="row" action="{{ route('admin.wMaterials.doCreate') }}" method="POST" enctype="multipart/form-data">
                             @method('POST')
                             @csrf
-                            <div class="col-md-6 form-group">
-                                <label>Nhà cung cấp </label>
-                                <select name="supplier_id" id="" class="form-control">
-                                    @foreach($suppliers as $key => $data)
-                                        <option value="{{ $data->getKey() }}">{{ $data->name . ' - ' . $data->code }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+{{--                            <div class="col-md-6 form-group">--}}
+{{--                                <label>Nhà cung cấp </label>--}}
+{{--                                <select name="supplier_id" id="" class="form-control">--}}
+{{--                                    @foreach($suppliers as $key => $data)--}}
+{{--                                        <option value="{{ $data->getKey() }}">{{ $data->name . ' - ' . $data->code }}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
                             <div class="col-md-6 form-group">
                                 <label>Tên và mã nguyên vật liệu </label>
                                 <select name="material_id" id="" class="form-control">
@@ -51,15 +51,11 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Số lượng nhập </label>
-                                <input type="text" name="quantity_input" value="{{ old('quantity_input') }}" class="form-control" required placeholder="Nhập Số lượng  "/>
+                                <input type="number" name="quantity_input" value="{{ old('quantity_input') }}" class="form-control" required placeholder="Nhập Số lượng  "/>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Số lượng tồn </label>
-                                <input type="text" name="quantity_contain" value="{{ old('quantity_contain') }}" class="form-control"  placeholder="Nhập Số lượng tồn "/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Số lượng sử dụng </label>
-                                <input type="text" name="quantity_use" value="{{ old('quantity_use') }}" class="form-control" placeholder="Nhập Số lượng sử dụng  "/>
+                                <label>Mức cảnh báo </label>
+                                <input type="number" name="alert_amount" value="{{ old('alert_amount') }}" class="form-control"  placeholder="Nhập mức cảnh báo "/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Ngày nhập kho </label>
