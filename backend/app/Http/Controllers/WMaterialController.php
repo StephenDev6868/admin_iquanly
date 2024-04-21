@@ -73,6 +73,7 @@ class WMaterialController extends Controller
             'quantity_input' => 'required',
             'date_added' => 'required',
         ]);
+        $inputs['supplier_id'] = 1;
         $inputs['date_added'] = Carbon::parse($inputs['date_added'])->format('Y-m-d');
         $inputs['quantity_contain'] = $inputs['quantity_input'] - ($inputs['quantity_use'] ?? 0);
         if ($validator->fails()) {
