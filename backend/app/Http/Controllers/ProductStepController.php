@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\WorkQuantity;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
@@ -171,13 +172,22 @@ class ProductStepController extends Controller
         $date_work_from = $input['date_work_from'] ?? null;
         $date_work_to = $input['date_work_to'] ?? null;
         $step = $input['productStep'] ?? null;
-        $products = Product::all();
-        $productSteps = ProductStep::all();
-        $users = User::query()->whereIn('board_id', [1,2,4])->get();
+        $user_ids = $input['user_ids'] ?? [];
+
+        $products = Cache::remember('products_lookup', 36000, function () {
+            return Product::select('id', 'name')->get();
+        });
+
+        $productSteps = Cache::remember('product_steps_lookup', 36000, function () {
+            return ProductStep::select('id', 'name')->get();
+        });
+
+        $users = User::select('id', 'full_name')
+            ->whereIn('board_id', [1, 2, 4])
+            ->orderBy('full_name')
+            ->get();
+
         $query = WorkQuantity::query()
-            ->join('product_steps', 'product_steps.id', '=', 'work_quantities.product_step_id')
-            ->join('products', 'products.id', '=', 'product_steps.product_id')
-            ->join('users', 'users.id', '=', 'work_quantities.user_id')
             ->select([
                 'products.id as productId',
                 'products.name as productName',
@@ -191,35 +201,69 @@ class ProductStepController extends Controller
                 'work_quantities.id as workQuantityId',
                 'work_quantities.quantity as quantity',
                 'work_quantities.date_work as date_work',
-            ]);
+            ])
+            ->join('product_steps', 'product_steps.id', '=', 'work_quantities.product_step_id')
+            ->join('products', 'products.id', '=', 'product_steps.product_id')
+            ->join('users', 'users.id', '=', 'work_quantities.user_id');
+
+        if ($date_work) {
+            $date_work = \Carbon\Carbon::parse($date_work)->format('Y-m-d');
+            $query->where('work_quantities.date_work', $date_work);
+        } elseif ($date_work_from && $date_work_to) {
+            $date_work_from = \Carbon\Carbon::parse($date_work_from)->format('Y-m-d');
+            $date_work_to = \Carbon\Carbon::parse($date_work_to)->format('Y-m-d');
+            $query->whereBetween('work_quantities.date_work', [$date_work_from, $date_work_to]);
+        } else {
+            $query->where('work_quantities.date_work', '>=', \Carbon\Carbon::now()->subDays(30)->format('Y-m-d'));
+        }
+
+        if (!empty($user_ids) && is_array($user_ids)) {
+            $query->whereIn('work_quantities.user_id', $user_ids);
+        }
         if ($product_id) {
-            $query->where('work_quantities.product_id', $product_id);
+            $query->where('products.id', $product_id);
         }
 
         if ($step) {
-            $query->where('work_quantities.product_step_id', $input['productStep']);
+            $query->where('work_quantities.product_step_id', $step);
         }
 
-        if ($date_work) {
-            $date_work = \Illuminate\Support\Carbon::parse($date_work)->format('Y-m-d');
-            $query->where('work_quantities.date_work', '=',  $date_work);
-        }
-        if ($date_work_from && $date_work_to) {
-            $date_work_from = \Illuminate\Support\Carbon::parse($date_work_from)->format('Y-m-d');
-            $date_work_to = \Illuminate\Support\Carbon::parse($date_work_to)->format('Y-m-d');
-            $query->where('work_quantities.date_work', '>=',  $date_work_from);
-            $query->where('work_quantities.date_work', '<=',  $date_work_to);
+        $query->orderBy('work_quantities.date_work', 'desc')
+            ->orderBy('work_quantities.id', 'desc'); // Secondary sort cho consistency
+
+        $hasSpecificFilters = (!empty($user_ids) && is_array($user_ids)) ||
+            ($date_work_from && $date_work_to) ||
+            $date_work;
+
+        $isShowPagination = !$hasSpecificFilters;
+
+        if ($hasSpecificFilters) {
+            $data = $query->limit(1000)->get();
+
+            if ($data->count() >= 1000) {
+                session()->flash('warning', 'Kết quả quá nhiều (>1000 records). Vui lòng thu hẹp điều kiện lọc.');
+            }
+        } else {
+            // Pagination với số lượng hợp lý
+            $data = $query->paginate(20, ['*'], 'page', $request->get('page', 1));
         }
 
-        if (isset($input['user_ids']) && count($input['user_ids']) > 0) {
-            $query->whereIn('work_quantities.user_id', $input['user_ids']);
-        }
-        $isShowPagination = !( (isset($input['user_ids']) && count($input['user_ids'])) || ($date_work_from && $date_work_to) );
-        $query->orderBy('work_quantities.date_work', 'desc');
-        $data = (
-            ( isset($input['user_ids']) && count($input['user_ids']) ) || ($date_work_from && $date_work_to)
-        ) ? $query->get() : $query->paginate(10);
-        return view('admin.product-steps.quantity', compact('data', 'step', 'users', 'products', 'productSteps', 'isShowPagination'));
+        return view('admin.product-steps.quantity', compact(
+            'data',
+            'step',
+            'users',
+            'products',
+            'productSteps',
+            'isShowPagination'
+        ));
+    }
+
+// Thêm method helper để optimize cache (Laravel 8)
+    private function getCachedLookupData($key, $model, $columns, $ttl = 3600)
+    {
+        return Cache::remember($key, $ttl, function () use ($model, $columns) {
+            return $model::select($columns)->get();
+        });
     }
 
     public function getStepProductById(Request $request)
