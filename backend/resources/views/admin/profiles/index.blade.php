@@ -19,7 +19,6 @@
         @php
             $user = \Illuminate\Support\Facades\Auth::guard('user')->user();
             $roleUsers = \App\Models\Role::query()->find($user->role_id);
-            dd($roleUsers->permissions, $user->id);
         @endphp
 
         <div class="col-12" style="margin-top: 10px;">
