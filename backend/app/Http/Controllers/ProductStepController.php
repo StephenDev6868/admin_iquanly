@@ -133,37 +133,83 @@ class ProductStepController extends Controller
      * @param  ProductStep  $productStep
      * @return string
      */
+
     public function doGenerateWorkQuantity(Request $request, ProductStep $productStep)
     {
         $inputs = $request->all();
-        $inputs['date_work'] =  Carbon::parse($inputs['date_work'])->format('Y-m-d');
-        $dataWorkQuantity = [];
+        $dateWork = Carbon::parse($inputs['date_work'])->format('Y-m-d');
         $userIds = $inputs['user_ids'];
-        foreach ($userIds as $key => $userId) {
-            $isExist = WorkQuantity::query()->where([
-                'user_id' => $userId,
-                'product_step_id' => $productStep->getKey(),
-                'date_work' => $inputs['date_work'] ?? now()->format('Y-m-d')
-            ])->exists();
-            if (!$isExist) {
-                $dataWorkQuantity[] = [
-                    'user_id'    => $userId,
-                    'product_id' => $inputs['product_id'],
-                    'product_step_id' => $productStep->getKey(),
-                    'quantity'   => 0,
-                    'date_work'  => $inputs['date_work'] ?? now()->format('Y-m-d'),
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ];
-            }
-        }
-        $result2 = WorkQuantity::query()->insert($dataWorkQuantity);
 
-        if ($result2) {
-            return Redirect::route('admin.productSteps.showQuantity', ['productStep' => $productStep->getKey(), 'date_work' => $inputs['date_work'],'user_ids' => $inputs['user_ids']])
-                ->with('success', 'Tạo dữ liệu sản lượng thành công');
+        // ✅ Lấy các user_id đã có dữ liệu cho product_step + ngày
+        $existingUserIds = WorkQuantity::query()
+            ->where('product_step_id', $productStep->getKey())
+            ->where('date_work', $dateWork)
+            ->whereIn('user_id', $userIds)
+            ->pluck('user_id')
+            ->toArray();
+
+        // ✅ Lọc ra các user_id chưa tồn tại
+        $newUserIds = array_diff($userIds, $existingUserIds);
+
+        if (empty($newUserIds)) {
+            return Redirect::back()->with('info', 'Dữ liệu đã tồn tại, không cần tạo thêm.');
         }
+
+        // ✅ Build 1 lần dữ liệu cần insert
+        $now = now();
+        $dataWorkQuantity = array_map(function ($userId) use ($inputs, $productStep, $dateWork, $now) {
+            return [
+                'user_id'         => $userId,
+                'product_id'      => $inputs['product_id'],
+                'product_step_id' => $productStep->getKey(),
+                'quantity'        => 0,
+                'date_work'       => $dateWork,
+                'created_at'      => $now,
+                'updated_at'      => $now,
+            ];
+        }, $newUserIds);
+
+        // ✅ Insert 1 lần duy nhất
+        WorkQuantity::insert($dataWorkQuantity);
+
+        return Redirect::route('admin.productSteps.showQuantity', [
+            'productStep' => $productStep->getKey(),
+            'date_work'   => $dateWork,
+            'user_ids'    => $userIds,
+        ])->with('success', 'Tạo dữ liệu sản lượng thành công');
     }
+
+//    public function doGenerateWorkQuantity(Request $request, ProductStep $productStep)
+//    {
+//        $inputs = $request->all();
+//        $inputs['date_work'] =  Carbon::parse($inputs['date_work'])->format('Y-m-d');
+//        $dataWorkQuantity = [];
+//        $userIds = $inputs['user_ids'];
+//        foreach ($userIds as $key => $userId) {
+//            $isExist = WorkQuantity::query()->where([
+//                'user_id' => $userId,
+//                'product_step_id' => $productStep->getKey(),
+//                'date_work' => $inputs['date_work'] ?? now()->format('Y-m-d')
+//            ])->exists();
+//            if (!$isExist) {
+//                $dataWorkQuantity[] = [
+//                    'user_id'    => $userId,
+//                    'product_id' => $inputs['product_id'],
+//                    'product_step_id' => $productStep->getKey(),
+//                    'quantity'   => 0,
+//                    'date_work'  => $inputs['date_work'] ?? now()->format('Y-m-d'),
+//                    'created_at' => now(),
+//                    'updated_at' => now(),
+//                ];
+//            }
+//        }
+//        $result2 = WorkQuantity::query()->insert($dataWorkQuantity);
+//
+//        if ($result2) {
+//            return Redirect::route('admin.productSteps.showQuantity', ['productStep' => $productStep->getKey(), 'date_work' => $inputs['date_work'],'user_ids' => $inputs['user_ids']])
+//                ->with('success', 'Tạo dữ liệu sản lượng thành công');
+//        }
+//    }
 
     public function showQuantity(Request $request)
     {
