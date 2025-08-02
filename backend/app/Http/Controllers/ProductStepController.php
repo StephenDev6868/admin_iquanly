@@ -9,6 +9,7 @@ use App\Models\WorkQuantity;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
@@ -281,21 +282,59 @@ class ProductStepController extends Controller
         );
     }
 
+    function bulkUpdateWorkQuantities(array $inputs)
+    {
+        unset($inputs['_token']);
+
+        if (empty($inputs)) return;
+
+        $query = "UPDATE work_quantities SET ";
+
+        $query .= "quantity = CASE id ";
+        foreach ($inputs as $id => $input) {
+            $quantity = (int) ($input[0] ?? 0);
+            $query .= "WHEN " . (int)$id . " THEN " . $quantity . " ";
+        }
+        $query .= "END, ";
+
+        $query .= "date_work = CASE id ";
+        foreach ($inputs as $id => $input) {
+            try {
+                $date = Carbon::parse($input[1])->format('Y-m-d');
+            } catch (\Exception $e) {
+                $date = now()->format('Y-m-d');
+            }
+
+            // Escape ngày với dấu nháy đơn và ép kiểu timestamp
+            $query .= "WHEN " . (int)$id . " THEN '" . addslashes($date) . "'::timestamp ";
+        }
+        $query .= "END, ";
+
+        $now = now()->format('Y-m-d H:i:s');
+        $query .= "updated_at = '" . addslashes($now) . "' ";
+
+        $ids = array_map('intval', array_keys($inputs));
+        $query .= "WHERE id IN (" . implode(',', $ids) . ")";
+        return $query;
+    }
+
+
+
     public function updateQuantity(Request $request)
     {
-        $inputs = $request->all();
-        foreach ($inputs as $key => $input) {
-            if ($key !== '_token') {
-                WorkQuantity::query()->where('id', (int) $key)->update([
-                    'quantity' => $input[0] ?? 0,
-                    'date_work' =>  Carbon::parse($input[1] ?? '')->format('Y-m-d'),
-                ]);
-            }
+        try {
+            $inputs = $request->all();
+            $query = $this->bulkUpdateWorkQuantities($inputs);
+            DB::transaction(function () use ($query) {
+                DB::statement($query);
+            });
+            DB::commit();
+            return Redirect::back()
+                ->withInput()
+                ->with('success', 'Cập nhập dữ liệu thành công');
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
-
-        return Redirect::back()
-            ->withInput()
-            ->with('success', 'Cập nhập dữ liệu thành công');
     }
 
 
