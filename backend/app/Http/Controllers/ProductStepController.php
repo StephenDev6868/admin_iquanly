@@ -160,6 +160,7 @@ class ProductStepController extends Controller
         $dataWorkQuantity = array_map(function ($userId) use ($inputs, $productStep, $dateWork, $now) {
             return [
                 'user_id'         => $userId,
+                'user_input_id'   => auth()->user()->id,
                 'product_id'      => $inputs['product_id'],
                 'product_step_id' => $productStep->getKey(),
                 'quantity'        => 0,
@@ -411,7 +412,7 @@ class ProductStepController extends Controller
 
         if ($result) {
             return Redirect::route('admin.productSteps.list')
-                ->with('success', 'Tạo công đoạn sản phẩm thành công');;
+                ->with('success', 'Tạo công đoạn sản phẩm thành công');
         }
     }
 
@@ -424,5 +425,19 @@ class ProductStepController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param  int  $quantityId
+     */
+    public function destroyOneQuantity(WorkQuantity $quantityId)
+    {
+        $quantityId->delete();
+        session()->flash('success', 'Xóa dữ liệu thành công');
+        return response()->json([
+            'success' => true,
+            'message' => 'Xóa thành công',
+            'reload' => true
+        ]);
     }
 }

@@ -67,7 +67,7 @@ class UserSalaryController extends Controller
         $step_products = $request->input('steps');
         $product_step_id = $request->input('product_step_id');
         $product_id = $request->input('product_id');
-        $users = User::query()->whereIn('board_id', [2,3,4])->get();
+        $users = User::query()->whereIn('board_id', [1,2,3,4])->get();
         $steps = ProductStep::all();
         $products = Product::all();
         $query = WorkQuantity::query()

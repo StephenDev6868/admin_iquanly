@@ -33,13 +33,12 @@ class UserStaffController extends Controller
             //->latest();
 
         $roles = Role::query()->select(['id', 'name'])->get()->toArray();
-
         if (!empty($params['key_word'])) {
             $users = $users->where(function ($query) use ($params) {
-                $query->where('full_name', 'like', '%' . $params['key_word'] . '%');
-                $query->orWhere('phone_number', 'like', '%' . $params['key_word'] . '%');
-                $query->orWhere('cccd', 'like', '%' . $params['key_word'] . '%');
-                $query->orWhere('email', 'like', '%' . $params['key_word'] . '%');
+                $query->where('full_name', 'ILIKE', '%' . $params['key_word'] . '%')
+                    ->orWhere('phone_number', 'ILIKE', '%' . $params['key_word'] . '%')
+                    ->orWhere('cccd', 'ILIKE', '%' . $params['key_word'] . '%')
+                    ->orWhere('email', 'ILIKE', '%' . $params['key_word'] . '%');
             });
         }
 

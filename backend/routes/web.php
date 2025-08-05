@@ -86,6 +86,7 @@ Route::prefix('admin')->group(function () {
             Route::post('/create', [\App\Http\Controllers\ProductStepController::class, 'store'])->name('admin.productSteps.doCreate');
             Route::get('/show/{productStep}', [\App\Http\Controllers\ProductStepController::class, 'show'])->name('admin.productSteps.show');
             Route::get('/show-quantity', [\App\Http\Controllers\ProductStepController::class, 'showQuantity'])->name('admin.productSteps.showQuantity');
+            Route::delete('/quantity/{quantityId}', [\App\Http\Controllers\ProductStepController::class, 'destroyOneQuantity'])->name('admin.productSteps.destroyOneQuantity');
             Route::post('/update-quantity', [\App\Http\Controllers\ProductStepController::class, 'updateQuantity'])->name('admin.productSteps.updateQuantity');
             Route::get('/product-step', [\App\Http\Controllers\ProductStepController::class, 'getStepProductById'])->name('admin.productSteps.listSelect');
             Route::put('/update/{productStep}', [\App\Http\Controllers\ProductStepController::class, 'update'])->name('admin.productSteps.update');

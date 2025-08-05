@@ -132,6 +132,7 @@
                                     <th style="white-space: nowrap;">Hệ số</th>
                                     <th style="white-space: nowrap;">Sản lượng</th>
                                     <th style="white-space: nowrap;">Ngày làm việc</th>
+                                    <th style="white-space: nowrap;"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -160,6 +161,11 @@
                                                     <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                                 </div>
                                             </div>
+                                        </td>
+                                        <td>
+                                            <button type="button" onclick="deleteItem({{ $item->workQuantityId }})" class="btn btn-danger waves-effect waves-light">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -217,6 +223,24 @@
 
 @section('script-bottom')
     <script>
+        function deleteItem(id) {
+            if (confirm('Bạn có chắc muốn xóa?')) {
+                fetch(`/admin/product-steps/quantity/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json',
+                    }
+                })
+                    .then(data => {
+                        console.log({ data })
+                        if (data.status === 200) {
+                            location.reload();
+                        }
+                    });
+            }
+        }
+
         $(document).ready(function() {
             var userIds = {!! json_encode(request()->query('user_ids')) !!};
             $('.js-example-basic-multiple').select2();

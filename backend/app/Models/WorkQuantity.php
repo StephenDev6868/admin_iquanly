@@ -12,6 +12,7 @@ class WorkQuantity extends Model
     protected $fillable = [
         'product_step_id',
         'user_id',
+        'user_input_id',
         'product_id',
         'quantity',
         'work_date'
